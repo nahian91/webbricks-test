@@ -62,7 +62,11 @@ function wbea_admin_notice_missing_elementor() {
         '<a href="' . admin_url('plugin-install.php?s=Elementor&tab=search&type=term') . '">' . __('Please click here to install/activate Elementor', 'webbricks-addons') . '</a>'
     );
 
-    printf('<div class="notice notice-warning is-dismissible"><p style="padding: 5px 0">%s</p></div>', $message);
+    printf(
+    '<div class="notice notice-warning is-dismissible"><p style="padding: 5px 0">%s</p></div>',
+    esc_html($message)
+);
+
 }
 
 function wbea_admin_notice_minimum_elementor_version() {
@@ -79,7 +83,11 @@ function wbea_admin_notice_minimum_elementor_version() {
         WBEA_MINIMUM_ELEMENTOR_VERSION
     );
 
-    printf('<div class="notice notice-warning is-dismissible"><p>%s</p></div>', $message);
+    printf(
+    '<div class="notice notice-warning is-dismissible"><p>%s</p></div>',
+    esc_html($message)
+);
+
 }
 
 function wbea_admin_notice_minimum_php_version() {

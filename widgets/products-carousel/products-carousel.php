@@ -1237,14 +1237,8 @@ class Products_Carousel extends Widget_Base {
 				if (is_object($category) && isset($category->term_id) && isset($category->name)) {
 					// Assign category ID as key and category name as value in options array
 					$options[$category->term_id] = $category->name;
-				} else {
-					// Output warning if category is not as expected
-					error_log('Invalid category data: ' . print_r($category, true));
 				}
 			}
-		} else {
-			// Output warning if categories couldn't be retrieved
-			error_log('Unable to retrieve product categories');
 		}
 	
 		// Return options array
