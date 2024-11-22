@@ -1186,7 +1186,7 @@ class Team_Carousel extends Widget_Base {
 					$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-1.svg';
 					break;
 				default:
-					$team_pattern_url = 'http://localhost/webbricks-wp/wp-content/uploads/2024/03/pattern-2.svg';
+					$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-3.svg';
 					break;
 			}
 		

@@ -2,7 +2,7 @@
 Contributors: owebnow
 Tags: addons, elementor, elementor addons, elementor widget, widgets for elementor,
 Requires at least: 6.0
-Tested up to: 6.5.5
+Tested up to: 6.7.1
 Stable tag: 1.1.1
 Requires PHP: 7.4
 License: GPLv2 or later
