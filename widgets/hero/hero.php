@@ -204,7 +204,7 @@ class Hero extends Widget_Base {
 	   	$this->start_controls_section(
 	       'wb_hero_buttons',
 		    [
-		        'label' => esc_html__('Buttons','webbricks'),
+		        'label' => esc_html__('Buttons', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		   
 		    ]
 	    );

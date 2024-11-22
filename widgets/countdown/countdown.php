@@ -189,7 +189,7 @@ class Countdown extends Widget_Base {
 			[
 				'label'			=> __('Expire Message', 'webbricks-addons'),
 				'type'			=> Controls_Manager::TEXTAREA,
-				'default'		=> __('Sorry you are late!','webbricks'),
+				'default'		=> __('Sorry you are late!', 'webbricks-addons'),
 				'condition'		=> [
 					'wb_countdown_expire_show_type' => 'message'
 				]
@@ -548,7 +548,7 @@ protected function render() {
                     <?php
                     $target = $settings['wb_countdown_expire_redirect_link']['is_external'] ? '_blank' : '_self';
                     if (defined('ELEMENTOR_PATH') && class_exists('Elementor\Plugin') && \Elementor\Plugin::$instance->editor->is_edit_mode()): ?>
-                    $("#finished-message-<?php echo esc_attr($this->get_id()); ?>").html("<?php echo esc_js(__('You cannot redirect URLs from Elementor Editor.', 'your-text-domain')); ?>");
+                    $("#finished-message-<?php echo esc_attr($this->get_id()); ?>").html("<?php echo esc_js(__('You cannot redirect URLs from Elementor Editor.', 'webbricks-addons')); ?>");
                     <?php else: ?>
                     window.open("<?php echo esc_url($settings['wb_countdown_expire_redirect_link']['url']); ?>", "<?php echo esc_js($target); ?>");
                     <?php endif; ?>
