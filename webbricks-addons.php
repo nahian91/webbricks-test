@@ -52,6 +52,16 @@ function wbea_init_plugin() {
 }
 add_action('plugins_loaded', 'wbea_init_plugin');
 
+function webbricks_addons_load_textdomain() {
+    load_plugin_textdomain(
+        'webbricks-addons',
+        false,
+        dirname(plugin_basename(__FILE__)) . '/languages'
+    );
+}
+add_action('plugins_loaded', 'webbricks_addons_load_textdomain');
+
+
 // Admin notices
 function wbea_admin_notice_missing_elementor() {
     $message = sprintf(

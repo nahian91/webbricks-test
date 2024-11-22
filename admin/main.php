@@ -147,16 +147,21 @@ class Admin_Settings {
         check_ajax_referer('wbea_settings_nonce_action', 'security');
 
         if (isset($_POST['fields'])) {
-            // Remove slashes added by WordPress
-            $post_fields = wp_unslash($_POST['fields']);
-            
-            // Parse the string into an array
-            parse_str($post_fields, $settings);
-        
-            // Sanitize the settings array as per your requirements
-            $settings = array_map('sanitize_text_field', $settings);
+            // Retrieve and sanitize input immediately
+            $raw_fields = wp_unslash($_POST['fields']); // Remove slashes
+            if (is_string($raw_fields)) {
+                $post_fields = sanitize_text_field($raw_fields); // Sanitize the raw string
+                
+                // Parse the sanitized string into an array
+                parse_str($post_fields, $settings);
+                
+                // Further sanitize the parsed array
+                $settings = array_map('sanitize_text_field', $settings);
+            } else {
+                return; // If it's not a string, return early
+            }
         } else {
-            return;
+            return; // If 'fields' is not set, return early
         }        
 
         $this->save_dashboard_settings = [];

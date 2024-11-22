@@ -688,39 +688,45 @@ class Products extends Widget_Base {
 		<div class="wb-grid-row">
 				<?php
 					$args = array(
-						'posts_per_page' => $wb_products_number,
-						'post_type' => 'product',
-						'order' => $wb_products_order,
-						'orderby' => $wb_products_orderby,
+						'posts_per_page' => $wb_products_number, // Set the number of products to display
+						'post_type'      => 'product', // Set the post type to 'product' for WooCommerce
+						'order'           => $wb_products_order, // Set the order (ASC or DESC)
+						'orderby'         => $wb_products_orderby, // Set the orderby parameter
+						'fields'          => 'ids', // Only retrieve IDs to reduce overhead and improve performance
 					);
-
-					// Add category filter if selected
-					$selected_categories = $settings['wb_products_category'];
-					if (!empty($selected_categories) && is_array($selected_categories)) {
-						$args['tax_query'] = array(
-							array(
-								'taxonomy' => 'product_cat',
-								'field'    => 'id',
-								'terms'    => $selected_categories,
-								'operator' => 'IN',
-							),
-						);
-					}
 					
-					if ($wb_products_orderby === 'best_selling') {
-						$args['meta_key'] = 'total_sales';
-						$args['orderby']  = 'meta_value_num';
-					} elseif ($wb_products_orderby === 'on_sale') {
-						$args['meta_query'] = array(
-							array(
-								'key'     => '_sale_price',
-								'value'   => '',
-								'compare' => '!=',
-							),
-						);
-					} elseif ($wb_products_orderby === 'latest_products') {
-						$args['orderby'] = 'date';
-					}
+
+					// Add category filter if categories are selected
+$selected_categories = $settings['wb_products_category'];
+if (!empty($selected_categories) && is_array($selected_categories)) {
+    $args['tax_query'] = array(
+        array(
+            'taxonomy' => 'product_cat', // Use the product category taxonomy
+            'field'    => 'id', // Query by category ID
+            'terms'    => $selected_categories, // Selected category IDs
+            'operator' => 'IN', // Only include products in selected categories
+        ),
+    );
+}
+					
+					// Use meta_query only when necessary
+if ($wb_products_orderby === 'best_selling') {
+    // Query by the best selling products based on total sales
+    $args['meta_key'] = 'total_sales'; // Meta key for total sales
+    $args['orderby']  = 'meta_value_num'; // Order by the numeric value of total sales
+} elseif ($wb_products_orderby === 'on_sale') {
+    // Query for products that are currently on sale
+    $args['meta_query'] = array(
+        array(
+            'key'     => '_sale_price', // Meta key for sale price
+            'value'   => '', // Check for products that have a sale price
+            'compare' => '!=', // Exclude products that don't have a sale price set
+        ),
+    );
+} elseif ($wb_products_orderby === 'latest_products') {
+    // Query for the latest products
+    $args['orderby'] = 'date'; // Order by the post date (newest first)
+}
 
 					$query = new \WP_Query($args);
 					if(class_exists( 'woocommerce' )) {
