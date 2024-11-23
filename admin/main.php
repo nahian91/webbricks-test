@@ -81,11 +81,11 @@ class Admin_Settings {
                             <?php esc_html_e('Web Bricks Addons Settings', 'webbricks-addons'); ?>
                         </h4>
                     </div>
-                    <div class="wbea-dashboard-header-right">
+                    <!-- <div class="wbea-dashboard-header-right">
                         <button type="submit" class="wbea-btn wbea-save-setting">
-                            <?php esc_html_e('Save Settings', 'webbricks-addons'); ?>
+                            <?php // esc_html_e('Save Settings', 'webbricks-addons'); ?>
                         </button>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="wbea-dashboard-tabs-box">
@@ -97,13 +97,13 @@ class Admin_Settings {
                                 <span><?php esc_html_e('Home', 'webbricks-addons'); ?></span>
                             </a>
                         </li>
-                        <li class="wbea-tab-btn">
+                        <!-- <li class="wbea-tab-btn">
                             <a href="#widgets">
                             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M48.6667 8C50.6116 8 52.4769 8.77262 53.8521 10.1479C55.2274 11.5232 56 13.3884 56 15.3333V48.6667C56 50.6116 55.2274 52.4769 53.8521 53.8521C52.4769 55.2274 50.6116 56 48.6667 56H15.3333C13.3884 56 11.5232 55.2274 10.1479 53.8521C8.77262 52.4769 8 50.6116 8 48.6667V15.3333C8 13.3884 8.77262 11.5232 10.1479 10.1479C11.5232 8.77262 13.3884 8 15.3333 8H48.6667ZM48.6667 12H15.3333C13.4933 12 12 13.4933 12 15.3333V48.6667C12 50.5067 13.4933 52 15.3333 52H48.6667C50.5067 52 52 50.5067 52 48.6667V15.3333C52 13.4933 50.5067 12 48.6667 12ZM26.0053 33.3333C28.5813 33.3333 30.672 35.424 30.672 38V43.3333C30.672 44.571 30.1803 45.758 29.3052 46.6332C28.43 47.5083 27.243 48 26.0053 48H20.672C19.4343 48 18.2473 47.5083 17.3722 46.6332C16.497 45.758 16.0053 44.571 16.0053 43.3333V38C16.0053 35.424 18.0933 33.3333 20.672 33.3333H26.0053ZM43.3307 33.3333C45.9093 33.3333 47.9973 35.424 47.9973 38V43.3333C47.9973 44.5705 47.506 45.7571 46.6314 46.6322C45.7568 47.5073 44.5705 47.9993 43.3333 48H38C36.7623 48 35.5753 47.5083 34.7002 46.6332C33.825 45.758 33.3333 44.571 33.3333 43.3333V38C33.3333 35.424 35.424 33.3333 38 33.3333H43.3307ZM26.0053 37.3333H20.672C20.4952 37.3333 20.3256 37.4036 20.2006 37.5286C20.0756 37.6536 20.0053 37.8232 20.0053 38V43.3333C20.0053 43.7013 20.304 44 20.672 44H26.0053C26.1821 44 26.3517 43.9298 26.4767 43.8047C26.6018 43.6797 26.672 43.5101 26.672 43.3333V38C26.672 37.8232 26.6018 37.6536 26.4767 37.5286C26.3517 37.4036 26.1821 37.3333 26.0053 37.3333ZM43.3307 37.3333H37.9973C37.8205 37.3333 37.651 37.4036 37.5259 37.5286C37.4009 37.6536 37.3307 37.8232 37.3307 38V43.3333C37.3307 43.7013 37.6293 44 37.9973 44H43.3307C43.5075 44 43.6771 43.9298 43.8021 43.8047C43.9271 43.6797 43.9973 43.5101 43.9973 43.3333V38C43.9973 37.8232 43.9271 37.6536 43.8021 37.5286C43.6771 37.4036 43.5075 37.3333 43.3307 37.3333ZM26.0027 16C28.5787 16 30.6693 18.0907 30.6693 20.6667V26C30.6693 27.2377 30.1777 28.4247 29.3025 29.2998C28.4273 30.175 27.2403 30.6667 26.0027 30.6667H20.6693C20.0563 30.667 19.4492 30.5466 18.8827 30.3122C18.3162 30.0778 17.8014 29.7341 17.3678 29.3008C16.9342 28.8674 16.5902 28.3528 16.3555 27.7865C16.1208 27.2201 16 26.6131 16 26V20.6667C16 18.0907 18.0907 16 20.6667 16H26H26.0027ZM43.328 16C45.9067 16 47.9947 18.0907 47.9947 20.6667V26C47.9947 27.2377 47.503 28.4247 46.6278 29.2998C45.7527 30.175 44.5657 30.6667 43.328 30.6667H37.9947C36.757 30.6667 35.57 30.175 34.6948 29.2998C33.8197 28.4247 33.328 27.2377 33.328 26V20.6667C33.328 18.0907 35.4187 16 37.9947 16H43.328ZM26.0027 20H20.6693C20.4925 20 20.323 20.0702 20.1979 20.1953C20.0729 20.3203 20.0027 20.4899 20.0027 20.6667V26C20.0027 26.368 20.3013 26.6667 20.6693 26.6667H26.0027C26.1795 26.6667 26.349 26.5964 26.4741 26.4714C26.5991 26.3464 26.6693 26.1768 26.6693 26V20.6667C26.6693 20.4899 26.5991 20.3203 26.4741 20.1953C26.349 20.0702 26.1795 20 26.0027 20ZM43.328 20H37.9947C37.8179 20 37.6483 20.0702 37.5233 20.1953C37.3982 20.3203 37.328 20.4899 37.328 20.6667V26C37.328 26.368 37.6267 26.6667 37.9947 26.6667H43.328C43.5048 26.6667 43.6744 26.5964 43.7994 26.4714C43.9244 26.3464 43.9947 26.1768 43.9947 26V20.6667C43.9947 20.4899 43.9244 20.3203 43.7994 20.1953C43.6744 20.0702 43.5048 20 43.328 20Z" fill="#212121"/></svg>
                                 <span><?php esc_html_e('Widgets', 'webbricks-addons'); ?></span>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="wbea-tab-btn">
                             <a href="#getpro">
                             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -130,7 +130,7 @@ class Admin_Settings {
                     <?php include_once WBEA_ADMIN . 'parts/getpro.php'; ?>
                     <?php include_once WBEA_ADMIN . 'parts/support.php'; ?>
                     <?php include_once WBEA_ADMIN . 'parts/templates.php'; ?>
-                    <?php include_once WBEA_ADMIN . 'parts/widgets.php'; ?>
+                    <?php // include_once WBEA_ADMIN . 'parts/widgets.php'; ?>
                 </div>
             </form> <!-- Form End -->
         </div>
@@ -143,43 +143,43 @@ class Admin_Settings {
         return array_merge($widget_pro_keys, $extension_pro_keys);
     }
 
-    public function wbea_save_setting_function() {
-        check_ajax_referer('wbea_settings_nonce_action', 'security');
+    // public function wbea_save_setting_function() {
+    //     check_ajax_referer('wbea_settings_nonce_action', 'security');
 
-        if (isset($_POST['fields'])) {
-            // Retrieve and sanitize input immediately
-            $raw_fields = wp_unslash($_POST['fields']); // Remove slashes
-            if (is_string($raw_fields)) {
-                $post_fields = sanitize_text_field($raw_fields); // Sanitize the raw string
+    //     if (isset($_POST['fields'])) {
+    //         // Retrieve and sanitize input immediately
+    //         $raw_fields = wp_unslash($_POST['fields']); // Remove slashes
+    //         if (is_string($raw_fields)) {
+    //             $post_fields = sanitize_text_field($raw_fields); // Sanitize the raw string
                 
-                // Parse the sanitized string into an array
-                parse_str($post_fields, $settings);
+    //             // Parse the sanitized string into an array
+    //             parse_str($post_fields, $settings);
                 
-                // Further sanitize the parsed array
-                $settings = array_map('sanitize_text_field', $settings);
-            } else {
-                return; // If it's not a string, return early
-            }
-        } else {
-            return; // If 'fields' is not set, return early
-        }        
+    //             // Further sanitize the parsed array
+    //             $settings = array_map('sanitize_text_field', $settings);
+    //         } else {
+    //             return; // If it's not a string, return early
+    //         }
+    //     } else {
+    //         return; // If 'fields' is not set, return early
+    //     }        
 
-        $this->save_dashboard_settings = [];
+    //     $this->save_dashboard_settings = [];
 
-        if (!Plugin::$is_pro_active) {
-            foreach ($this->all_pro_feature_keys() as $value) {
-                $settings[$value] = 'on';
-            }
-        }
+    //     if (!Plugin::$is_pro_active) {
+    //         foreach ($this->all_pro_feature_keys() as $value) {
+    //             $settings[$value] = 'on';
+    //         }
+    //     }
 
-        foreach (Webbricks_Addons_Manager::$all_feature_array as $value) {
-            $this->save_dashboard_settings[$value] = array_key_exists($value, $settings) ? 1 : 0;
-        }
+    //     foreach (Webbricks_Addons_Manager::$all_feature_array as $value) {
+    //         $this->save_dashboard_settings[$value] = array_key_exists($value, $settings) ? 1 : 0;
+    //     }
 
-        update_option('wbea_save_settings', $this->save_dashboard_settings);
+    //     update_option('wbea_save_settings', $this->save_dashboard_settings);
 
-        wp_die();
-    }
+    //     wp_die();
+    // }
 
 }
 
