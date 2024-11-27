@@ -3,11 +3,11 @@
  * Plugin Name: Web Bricks Addons for Elementor: Elite-Designed Elementor & eCommerce Widgets
  * Plugin URI: https://getwebbricks.com/about-us
  * Description: Web Bricks is a powerful tool with 25+ free add-ons that makes it easy for anyone to create stunning and professional-looking websites, regardless of skill level.
- * Version: 1.1.1
+ * Version: 1.1.11
  * Author: Web Bricks
  * Author URI: https://getwebbricks.com
- * Elementor tested up to: 3.22.3
- * Elementor Pro tested up to: 3.22.1
+ * Elementor tested up to: 3.25.10
+ * Elementor Pro tested up to: 3.25.4
  * Text Domain: webbricks-addons
  * Domain Path: /languages
  * License: GPLv2 or later

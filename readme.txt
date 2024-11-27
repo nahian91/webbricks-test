@@ -3,7 +3,7 @@ Contributors: owebnow
 Tags: addons, elementor, elementor addons, elementor widget, widgets for elementor,
 Requires at least: 6.0
 Tested up to: 6.7.1
-Stable tag: 1.1.1
+Stable tag: 1.1.11
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -186,6 +186,11 @@ Web Bricks gives you a proper mix of versatility, performance, and customization
 More Free & Premium Features Coming Soon!
 
 == Changelog ==
+
+= 1.1.11 =
+Release Date: 27 Nov, 2024
+
+* Security & bug fixed.
 
 = 1.1.1 =
 Release Date: 30 June, 2024
