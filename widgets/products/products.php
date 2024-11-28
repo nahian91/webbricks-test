@@ -381,27 +381,6 @@ class Products extends Widget_Base {
 			]
 		);
 
-		// Section Heading Separator Style
-		$this->add_control(
-			'wp_product_title_tag',
-			[
-				'label' => __( 'Html Tag', 'webbricks-addons' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'webbricks-addons' ),
-					'h2' => __( 'H2', 'webbricks-addons' ),
-					'h3' => __( 'H3', 'webbricks-addons' ),
-					'h4' => __( 'H4', 'webbricks-addons' ),
-					'h5' => __( 'H5', 'webbricks-addons' ),
-					'h6' => __( 'H6', 'webbricks-addons' ),
-					'p' => __( 'P', 'webbricks-addons' ),
-					'span' => __( 'Span', 'webbricks-addons' ),
-					'div' => __( 'Div', 'webbricks-addons' ),
-				],
-				'default' => 'h4',
-			]
-		);
-
 		$this->end_controls_section();
 
 		// Products Meta
@@ -666,16 +645,15 @@ class Products extends Widget_Base {
 		$wb_products_number = $settings['wb_products_number'];
 		$wb_products_order = $settings['wb_products_order'];
 		$wb_products_orderby = $settings['wb_products_orderby'];
-		$wp_product_title_tag = $settings['wp_product_title_tag'];
 	?>
 		<div class="wb-grid-row">
 		<?php
 		$args = array(
-			'posts_per_page' => $wb_products_number, // Set the number of products to display
-			'post_type'      => 'product', // Set the post type to 'product' for WooCommerce
-			'order'          => $wb_products_order, // Set the order (ASC or DESC)
-			'orderby'        => $wb_products_orderby, // Set the orderby parameter
-			'fields'         => 'ids', // Only retrieve IDs to reduce overhead and improve performance
+			'posts_per_page' => $wb_products_number, 
+			'post_type'      => 'product', 
+			'order'          => $wb_products_order,
+			'orderby'        => $wb_products_orderby,
+			'fields'         => 'ids',
 		);
 	
 		$query = new \WP_Query($args);
@@ -692,9 +670,9 @@ class Products extends Widget_Base {
 								<span class="sale"><?php echo esc_html('Sale', 'webbricks-addons'); ?></span>
 							<?php } ?>
 							<img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="<?php esc_attr(the_title()); ?>">
-							<<?php echo esc_attr($wp_product_title_tag); ?> class="product-title">
+							<h4 class="product-title">
 								<a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a>
-							</<?php echo esc_attr($wp_product_title_tag); ?>>
+							</h4>
 							<div class="price-bottom">
 								<p>
 									<?php echo esc_attr(get_woocommerce_currency_symbol()); ?>

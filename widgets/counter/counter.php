@@ -369,27 +369,6 @@ class Counter extends Widget_Base {
 			]
 		);
 
-		// Section Heading Separator Style
-		$this->add_control(
-			'wb_counter_title_tag',
-			[
-				'label' => __( 'Html Tag', 'webbricks-addons' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'webbricks-addons' ),
-					'h2' => __( 'H2', 'webbricks-addons' ),
-					'h3' => __( 'H3', 'webbricks-addons' ),
-					'h4' => __( 'H4', 'webbricks-addons' ),
-					'h5' => __( 'H5', 'webbricks-addons' ),
-					'h6' => __( 'H6', 'webbricks-addons' ),
-					'p' => __( 'P', 'webbricks-addons' ),
-					'span' => __( 'Span', 'webbricks-addons' ),
-					'div' => __( 'Div', 'webbricks-addons' ),
-				],
-				'default' => 'p',
-			]
-		);
-
 		$this->end_controls_section();
 		// end of the Style tab section
 
@@ -410,7 +389,6 @@ class Counter extends Widget_Base {
 		$wb_counter_number = $settings['wb_counter_number'];
 		$wb_counter_number_suffix = $settings['wb_counter_number_suffix'];
 		$wb_counter_title = $settings['wb_counter_title'];
-		$wb_counter_title_tag = $settings['wb_counter_title_tag'];
 		
        ?>
 		<!-- Counter Start Here -->			
@@ -420,7 +398,7 @@ class Counter extends Widget_Base {
 			</div>
 			<div class="counter-content">
 				<p><span class="counter"><?php echo wp_kses_post($wb_counter_number);?></span><?php echo esc_html($wb_counter_number_suffix);?></p>
-				<<?php echo esc_attr($wb_counter_title_tag);?> class="counter-title"><?php echo esc_html($wb_counter_title);?></<?php echo esc_attr($wb_counter_title_tag);?>>
+				<h4 class="counter-title"><?php echo esc_html($wb_counter_title);?></h4>
 			</div>
 		</div>			
 		<!-- Counter End Here -->

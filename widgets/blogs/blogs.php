@@ -392,27 +392,6 @@ class Blogs extends Widget_Base {
 			]
 		);
 
-		// Section Heading Separator Style
-		$this->add_control(
-			'wp_blog_title_tag',
-			[
-				'label' => __( 'Html Tag', 'webbricks-addons' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'webbricks-addons' ),
-					'h2' => __( 'H2', 'webbricks-addons' ),
-					'h3' => __( 'H3', 'webbricks-addons' ),
-					'h4' => __( 'H4', 'webbricks-addons' ),
-					'h5' => __( 'H5', 'webbricks-addons' ),
-					'h6' => __( 'H6', 'webbricks-addons' ),
-					'p' => __( 'P', 'webbricks-addons' ),
-					'span' => __( 'Span', 'webbricks-addons' ),
-					'div' => __( 'Div', 'webbricks-addons' ),
-				],
-				'default' => 'h3',
-			]
-		);
-
 		$this->end_controls_section();
 		// end of the Style tab section
 
@@ -688,7 +667,6 @@ class Blogs extends Widget_Base {
 	protected function render() {
 		// get our input from the widget settings.
 		$settings = $this->get_settings_for_display();
-		$wp_blog_title_tag = $settings['wp_blog_title_tag'];
 		$wb_blog_number = $settings['wb_blog_number'];
 		$wb_blog_order = $settings['wb_blog_order'];
 		$wb_blog_orderby = $settings['wb_blog_orderby'];
@@ -741,7 +719,7 @@ class Blogs extends Widget_Base {
 								?>
 							</div>
 							<div class="blog-title">
-								<<?php echo esc_attr($wp_blog_title_tag);?> class="blog-post-title"><a href="<?php echo esc_url(get_the_permalink());?>"><?php the_title();?></a></<?php echo esc_attr($wp_blog_title_tag);?>>
+								<h4 class="blog-post-title"><a href="<?php echo esc_url(get_the_permalink());?>"><?php the_title();?></a></h4>
 							</div>
 							<?php
 								if($wb_blog_excerpt_visibility == 'yes') {

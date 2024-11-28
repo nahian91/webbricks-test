@@ -180,27 +180,6 @@ class Products_Carousel extends Widget_Base {
 			]
 		);
 
-		// Section Heading Separator Style
-		$this->add_control(
-			'wb_products_carousel_section_heading_tag',
-			[
-				'label' => __( 'Html Tag', 'webbricks-addons' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'webbricks-addons' ),
-					'h2' => __( 'H2', 'webbricks-addons' ),
-					'h3' => __( 'H3', 'webbricks-addons' ),
-					'h4' => __( 'H4', 'webbricks-addons' ),
-					'h5' => __( 'H5', 'webbricks-addons' ),
-					'h6' => __( 'H6', 'webbricks-addons' ),
-					'p' => __( 'P', 'webbricks-addons' ),
-					'span' => __( 'Span', 'webbricks-addons' ),
-					'div' => __( 'Div', 'webbricks-addons' ),
-				],
-				'default' => 'h2',
-			]
-		);
-
 		$this->end_controls_section();
 
 		// Products Carousel Section Description
@@ -1268,7 +1247,6 @@ class Products_Carousel extends Widget_Base {
 			$wb_products_carousel_section_subheading = $settings['wb_products_carousel_section_subheading'];
 			$wb_section_heading_separator_variation = $settings['wb_section_heading_separator_variation'];
 			$wb_products_carousel_section_heading = $settings['wb_products_carousel_section_heading'];
-			$wb_products_carousel_section_heading_tag = $settings['wb_products_carousel_section_heading_tag'];
 			$wb_products_carousel_section_desc_show = $settings['wb_products_carousel_section_desc_show'];
 			$wb_products_carousel_section_desc = $settings['wb_products_carousel_section_desc'];
 		?>			
@@ -1278,7 +1256,7 @@ class Products_Carousel extends Widget_Base {
 						<span class="<?php echo esc_attr($wb_section_heading_separator_variation); ?> section-subheading"><?php echo esc_html($wb_products_carousel_section_subheading);?></span>
 					<?php 
 				} ?>
-				<<?php echo esc_attr($wb_products_carousel_section_heading_tag); ?>  class="section-heading"><?php echo esc_html($wb_products_carousel_section_heading);?></<?php echo esc_attr($wb_products_carousel_section_heading_tag); ?>>
+				<h2  class="section-heading"><?php echo esc_html($wb_products_carousel_section_heading);?></h2>
 				
 				<?php if($wb_products_carousel_section_desc_show == 'yes'){
 					?>

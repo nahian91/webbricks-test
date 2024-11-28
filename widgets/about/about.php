@@ -149,26 +149,6 @@ class About extends Widget_Base {
 			]
 		);		
 
-		// Section Heading Separator Style
-		$this->add_control(
-			'wb_about_title_tag',
-			[
-				'label' => __( 'Html Tag', 'webbricks-addons' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'webbricks-addons' ),
-					'h2' => __( 'H2', 'webbricks-addons' ),
-					'h3' => __( 'H3', 'webbricks-addons' ),
-					'h4' => __( 'H4', 'webbricks-addons' ),
-					'h5' => __( 'H5', 'webbricks-addons' ),
-					'h6' => __( 'H6', 'webbricks-addons' ),
-					'p' => __( 'P', 'webbricks-addons' ),
-					'span' => __( 'Span', 'webbricks-addons' ),
-				],
-				'default' => 'h2',
-			]
-		);
-
 		$this->end_controls_section();
 		// end of the Content tab section
 
@@ -1177,7 +1157,6 @@ class About extends Widget_Base {
 		// Extract settings variables
 		$wb_about_subheading_show_btn = $settings['wb_about_subheading_show_btn'];
 		$wb_about_title = $settings['wb_about_title'];
-		$wb_about_title_tag = $settings['wb_about_title_tag'];
 		$wb_about_desc = $settings['wb_about_desc'];
 		$wb_about_featured_img = $settings['wb_about_featured_img']['url'];
 		$wb_about_bg_img = $settings['wb_about_bg_img']['url'];
@@ -1202,7 +1181,7 @@ class About extends Widget_Base {
 							?>
 							<span class="<?php echo esc_attr($wb_about_subheading_sep_variotion); ?> section-subheading"><?php echo esc_html($wb_about_subheading); ?></span>
 						<?php endif; ?>
-						<<?php echo esc_attr($wb_about_title_tag); ?> class="section-heading"><?php echo esc_html($wb_about_title); ?></<?php echo esc_attr($wb_about_title_tag); ?>>
+						<h4 class="section-heading"><?php echo esc_html($wb_about_title); ?></h4>
 					</div> <!-- section-heading end here -->
 					<div class="about-img">
 						<img src="<?php echo esc_url($wb_about_featured_img); ?>" alt="<?php echo esc_attr($wb_about_title); ?>">

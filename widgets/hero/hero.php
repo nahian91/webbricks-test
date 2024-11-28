@@ -109,27 +109,6 @@ class Hero extends Widget_Base {
 			]
 		);		
 
-		// Section Heading Separator Style
-		$this->add_control(
-			'wb_hero_subheading_tag',
-			[
-				'label' => __( 'Html Tag', 'webbricks-addons' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'webbricks-addons' ),
-					'h2' => __( 'H2', 'webbricks-addons' ),
-					'h3' => __( 'H3', 'webbricks-addons' ),
-					'h4' => __( 'H4', 'webbricks-addons' ),
-					'h5' => __( 'H5', 'webbricks-addons' ),
-					'h6' => __( 'H6', 'webbricks-addons' ),
-					'p' => __( 'P', 'webbricks-addons' ),
-					'span' => __( 'Span', 'webbricks-addons' ),
-					'div' => __( 'Div', 'webbricks-addons' ),
-				],
-				'default' => 'span',
-			]
-		);
-
 		$this->end_controls_section();
 		// end of the Content tab section
 
@@ -150,27 +129,6 @@ class Hero extends Widget_Base {
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => esc_html__('Let’s See The World In A Better Way', 'webbricks-addons'),
-			]
-		);
-
-		// Section Heading Separator Style
-		$this->add_control(
-			'wb_hero_heading_tag',
-			[
-				'label' => __( 'Html Tag', 'webbricks-addons' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'webbricks-addons' ),
-					'h2' => __( 'H2', 'webbricks-addons' ),
-					'h3' => __( 'H3', 'webbricks-addons' ),
-					'h4' => __( 'H4', 'webbricks-addons' ),
-					'h5' => __( 'H5', 'webbricks-addons' ),
-					'h6' => __( 'H6', 'webbricks-addons' ),
-					'p' => __( 'P', 'webbricks-addons' ),
-					'span' => __( 'Span', 'webbricks-addons' ),
-					'div' => __( 'Div', 'webbricks-addons' ),
-				],
-				'default' => 'h1',
 			]
 		);
 
@@ -945,9 +903,7 @@ class Hero extends Widget_Base {
 		// Get input from the widget settings.
 		$settings = $this->get_settings_for_display();		
 		$wb_hero_subheading = isset($settings['wb_hero_subheading']) ? $settings['wb_hero_subheading'] : '';
-		$wb_hero_subheading_tag = $settings['wb_hero_subheading_tag'];
 		$wb_hero_heading = isset($settings['wb_hero_heading']) ? $settings['wb_hero_heading'] : '';
-		$wb_hero_heading_tag = $settings['wb_hero_heading_tag'];
 		$wb_hero_desc = isset($settings['wb_hero_desc']) ? $settings['wb_hero_desc'] : '';
 		$wb_hero_btn1_title = isset($settings['wb_hero_btn1_title']) ? $settings['wb_hero_btn1_title'] : '';
 		$wb_hero_btn1_link = isset($settings['wb_hero_btn1_link']['url']) ? $settings['wb_hero_btn1_link']['url'] : '';
@@ -995,8 +951,8 @@ class Hero extends Widget_Base {
 			<div class="wb-grid-row align-center mob-flex-column">
 				<div class="wb-grid-desktop-5 wb-grid-tablet-6 wb-grid-mobile-12">
 					<div class="hero-content">
-						<<?php echo esc_attr($wb_hero_subheading_tag);?> class="hero-subheading"><?php echo esc_html($wb_hero_subheading);?></<?php echo esc_attr($wb_hero_subheading_tag);?>>
-						<<?php echo esc_attr($wb_hero_heading_tag);?> class="hero-heading"><?php echo esc_html($wb_hero_heading);?></<?php echo esc_attr($wb_hero_heading_tag);?>>
+						<span class="hero-subheading"><?php echo esc_html($wb_hero_subheading);?></span>
+						<h1 class="hero-heading"><?php echo esc_html($wb_hero_heading);?></h1>
 						<p><?php echo wp_kses_post($wb_hero_desc); ?> </p>
 						<div class="hero-btn">
 							<?php if($wb_hero_btn1_link) : ?>

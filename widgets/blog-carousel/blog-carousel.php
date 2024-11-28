@@ -180,27 +180,6 @@ class Blog_Carousel extends Widget_Base {
 			]
 		);
 
-		// Section Heading Separator Style
-		$this->add_control(
-			'wb_blog_carousel_heading_tag',
-			[
-				'label' => __( 'Html Tag', 'webbricks-addons' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'webbricks-addons' ),
-					'h2' => __( 'H2', 'webbricks-addons' ),
-					'h3' => __( 'H3', 'webbricks-addons' ),
-					'h4' => __( 'H4', 'webbricks-addons' ),
-					'h5' => __( 'H5', 'webbricks-addons' ),
-					'h6' => __( 'H6', 'webbricks-addons' ),
-					'p' => __( 'P', 'webbricks-addons' ),
-					'span' => __( 'Span', 'webbricks-addons' ),
-					'div' => __( 'Div', 'webbricks-addons' ),
-				],
-				'default' => 'h2',
-			]
-		);
-
 		$this->end_controls_section();
 
 		// Blog Carousel Description
@@ -1274,7 +1253,6 @@ class Blog_Carousel extends Widget_Base {
 		// get our input from the widget settings.
 		$settings = $this->get_settings_for_display();
 		$wb_blog_carousel_heading_show = $settings['wb_blog_carousel_heading_show'];
-		$wb_blog_carousel_heading_tag = $settings['wb_blog_carousel_heading_tag'];
 		$wp_blog_carousel_title_tag = $settings['wp_blog_carousel_title_tag'];
 		$wb_blog_carousel_number = $settings['wb_blog_carousel_number'];
 		$wb_blog_carousel_order = $settings['wb_blog_carousel_order'];
@@ -1328,7 +1306,7 @@ class Blog_Carousel extends Widget_Base {
 						<span class="<?php echo esc_attr($wb_section_heading_separator_variation); ?> section-subheading"><?php echo esc_html($wb_blog_carousel_subheading);?></span>
 					<?php 
 				} ?>
-				<<?php echo esc_attr($wb_blog_carousel_heading_tag); ?> class="section-heading"><?php echo esc_html($wb_blog_carousel_heading);?></<?php echo esc_attr($wb_blog_carousel_heading_tag); ?>>
+				<h4 class="section-heading"><?php echo esc_html($wb_blog_carousel_heading);?></h4>
 				
 				<?php if($wb_blog_carousel_desc_show == 'yes'){
 					?>

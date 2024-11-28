@@ -537,7 +537,7 @@ class Filter_Gallery extends Widget_Base {
 							<img src="<?php echo esc_url($filter_image); ?>">
 							<div class="image-overlay">
 								<a href="<?php echo esc_url($filter_image); ?>" class="elementor-lightbox">  
-									<img src="<?php echo esc_url( WBEA_ASSETS_URL . 'img/icon-zoom.svg' ); ?>" alt="Image Description">
+									<img src="<?php echo esc_url( WBEA_ASSETS_URL . 'img/icon-zoom.svg' ); ?>" alt="">
 								</a>
 							</div>
 						</div>

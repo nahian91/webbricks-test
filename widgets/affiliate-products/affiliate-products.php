@@ -191,27 +191,6 @@ class Affiliate_Products extends Widget_Base {
 			]
 		);
 
-		// Section Heading Separator Style
-		$this->add_control(
-			'wb_affiliate_heading_tag',
-			[
-				'label' => __( 'Html Tag', 'webbricks-addons' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'webbricks-addons' ),
-					'h2' => __( 'H2', 'webbricks-addons' ),
-					'h3' => __( 'H3', 'webbricks-addons' ),
-					'h4' => __( 'H4', 'webbricks-addons' ),
-					'h5' => __( 'H5', 'webbricks-addons' ),
-					'h6' => __( 'H6', 'webbricks-addons' ),
-					'p' => __( 'P', 'webbricks-addons' ),
-					'span' => __( 'Span', 'webbricks-addons' ),
-					'div' => __( 'Div', 'webbricks-addons' ),
-				],
-				'default' => 'h2',
-			]
-		);
-
 		$this->end_controls_section();
 
 		// start of the Content tab section
@@ -1015,7 +994,6 @@ class Affiliate_Products extends Widget_Base {
 		$wb_affiliate_heading_show_btn = isset($settings['wb_affiliate_heading_show_btn']) ? $settings['wb_affiliate_heading_show_btn'] : '';
 		$wb_affiliate_sub_heading_show_btn = isset($settings['wb_affiliate_sub_heading_show_btn']) ? $settings['wb_affiliate_sub_heading_show_btn'] : '';
 		$wb_affiliate_heading = $settings['wb_affiliate_heading'];
-		$wb_affiliate_heading_tag = $settings['wb_affiliate_heading_tag'];
 		$wb_affiliate_desc_show_btn = isset($settings['wb_affiliate_desc_show_btn']) ? $settings['wb_affiliate_desc_show_btn'] : '';
 		$affiliate_lists = $settings['wb_affiliate_lists'];
 		$wb_affiliate_show_btn = $settings['wb_affiliate_show_btn'];
@@ -1035,7 +1013,7 @@ class Affiliate_Products extends Widget_Base {
             <span class="<?php echo esc_attr($wb_affiliate_separator_variation); ?> section-subheading"><?php echo esc_html($wb_affiliate_subheading); ?></span>
         <?php endif; ?>
 
-        <<?php echo esc_attr($wb_affiliate_heading_tag);?> class="section-heading"><?php echo esc_html($wb_affiliate_heading); ?></<?php echo esc_attr($wb_affiliate_heading_tag);?>>
+        <h4 class="section-heading"><?php echo esc_html($wb_affiliate_heading); ?></h4>
 
         <?php if ($wb_affiliate_desc_show_btn === 'yes') :
             $wb_affiliate_desc = isset($settings['wb_affiliate_desc']) ? $settings['wb_affiliate_desc'] : '';
@@ -1057,7 +1035,7 @@ class Affiliate_Products extends Widget_Base {
 								<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z" fill="var(--e-global-color-accent)"></path></svg>
 							</a>
 						<?php
-				}
+					}
 				?>				
 			</div>
 		</div>

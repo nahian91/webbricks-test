@@ -343,27 +343,6 @@ class Products_Category extends Widget_Base {
 			]
 		);
 
-		// Section Heading Separator Style
-		$this->add_control(
-			'wb_product_carousel_title_tag',
-			[
-				'label' => __( 'Html Tag', 'webbricks-addons' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'webbricks-addons' ),
-					'h2' => __( 'H2', 'webbricks-addons' ),
-					'h3' => __( 'H3', 'webbricks-addons' ),
-					'h4' => __( 'H4', 'webbricks-addons' ),
-					'h5' => __( 'H5', 'webbricks-addons' ),
-					'h6' => __( 'H6', 'webbricks-addons' ),
-					'p' => __( 'P', 'webbricks-addons' ),
-					'span' => __( 'Span', 'webbricks-addons' ),
-					'div' => __( 'Div', 'webbricks-addons' ),
-				],
-				'default' => 'h4',
-			]
-		);
-
 		$this->end_controls_section();
 		// end of the Style tab section
 
@@ -552,7 +531,6 @@ class Products_Category extends Widget_Base {
 		$wb_product_categories = $settings['wb_product_categories'];
 		$wb_product_categories_count = $settings['wb_product_categories_count'];
 		$wb_product_categories_btn_show = $settings['wb_product_categories_btn_show'];
-		$wb_product_carousel_title_tag = $settings['wb_product_carousel_title_tag'];
 	?>
 
 	<div class="wb-grid-row">
@@ -600,9 +578,9 @@ class Products_Category extends Widget_Base {
 								<?php }
 								?>
 								<div class="product-category-content">
-									<<?php echo esc_attr($wb_product_carousel_title_tag);?> class="product-category-title">
+									<h4 class="product-category-title">
 										<a href="<?php echo esc_url(get_term_link($category));?>"><?php echo esc_html($category->name);?></a>
-									</<?php echo esc_attr($wb_product_carousel_title_tag);?>>
+									</h4>
 									<?php 
 										if($wb_product_categories_count === 'yes') {
 											?>

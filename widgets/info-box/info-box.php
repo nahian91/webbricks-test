@@ -134,27 +134,6 @@ class Info_Box extends Widget_Base {
 			]
 		);
 
-		// Section Heading Separator Style
-		$this->add_control(
-			'wb_info_box_title_tag',
-			[
-				'label' => __( 'Html Tag', 'webbricks-addons' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'webbricks-addons' ),
-					'h2' => __( 'H2', 'webbricks-addons' ),
-					'h3' => __( 'H3', 'webbricks-addons' ),
-					'h4' => __( 'H4', 'webbricks-addons' ),
-					'h5' => __( 'H5', 'webbricks-addons' ),
-					'h6' => __( 'H6', 'webbricks-addons' ),
-					'p' => __( 'P', 'webbricks-addons' ),
-					'span' => __( 'Span', 'webbricks-addons' ),
-					'div' => __( 'Div', 'webbricks-addons' ),
-				],
-				'default' => 'h3',
-			]
-		);
-
 		$this->end_controls_section();
 		// end of the Content tab section
 
@@ -706,7 +685,6 @@ class Info_Box extends Widget_Base {
 		$settings = $this->get_settings_for_display();		
 		$wb_info_box_icon = $settings['wb_info_box_icon']['value'];
 		$wb_info_box_title = $settings['wb_info_box_title'];
-		$wb_info_box_title_tag = $settings['wb_info_box_title_tag'];
 		$wb_info_box_desc = $settings['wb_info_box_desc'];
 		$wb_info_box_show_btn = $settings['wb_info_box_show_btn'];		
 		$wb_info_box_bg = $settings['wb_info_box_bg']['url'];		
@@ -717,7 +695,7 @@ class Info_Box extends Widget_Base {
 				<i aria-hidden="true" class="<?php echo esc_attr($wb_info_box_icon); ?>"></i>
 			</div>
 			<div class="info-box-content">
-				<<?php echo esc_attr($wb_info_box_title_tag);?> class="info-box-title"><?php echo esc_html($wb_info_box_title);?></<?php echo esc_attr($wb_info_box_title_tag);?>>
+				<h4 class="info-box-title"><?php echo esc_html($wb_info_box_title);?></h4>
 				<p><?php echo wp_kses_post($wb_info_box_desc);?></p>
 				<?php
 					if($wb_info_box_show_btn === 'yes') {

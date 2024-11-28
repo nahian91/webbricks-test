@@ -125,30 +125,6 @@ class Contact_Info extends Widget_Base {
 			]
 		);
 
-		// Section Heading Separator Style
-		$this->add_control(
-			'wb_contact_info_heading_tag',
-			[
-				'label' => __( 'Html Tag', 'webbricks-addons' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'webbricks-addons' ),
-					'h2' => __( 'H2', 'webbricks-addons' ),
-					'h3' => __( 'H3', 'webbricks-addons' ),
-					'h4' => __( 'H4', 'webbricks-addons' ),
-					'h5' => __( 'H5', 'webbricks-addons' ),
-					'h6' => __( 'H6', 'webbricks-addons' ),
-					'p' => __( 'P', 'webbricks-addons' ),
-					'span' => __( 'Span', 'webbricks-addons' ),
-					'div' => __( 'Div', 'webbricks-addons' ),
-				],
-				'default' => 'h2',
-				'condition' => [
-					'wb_contact_info_show_heading' => 'yes'
-				],
-			]
-		);
-
 		$this->end_controls_section();
 		// end of the Contact Info tab section
 
@@ -765,7 +741,6 @@ class Contact_Info extends Widget_Base {
 		$settings = $this->get_settings_for_display();		
 		$wb_contact_info_show_heading = $settings['wb_contact_info_show_heading'];
 		$wb_contact_info_heading = $settings['wb_contact_info_heading'];
-		$wb_contact_info_heading_tag = $settings['wb_contact_info_heading_tag'];
 		$wb_contact_info_show_desc = $settings['wb_contact_info_show_desc'];
 		$wb_contact_info_desc = $settings['wb_contact_info_desc'];
 		$wb_contact_info_list = $settings['wb_contact_info_list'];
@@ -781,7 +756,7 @@ class Contact_Info extends Widget_Base {
 			<?php 
 				if($wb_contact_info_show_heading == 'yes') {
 					?>
-						<<?php echo esc_attr($wb_contact_info_heading_tag); ?> class="contact-info-heading"><?php echo esc_html($wb_contact_info_heading); ?></<?php echo esc_attr($wb_contact_info_heading_tag); ?>>
+						<h4 class="contact-info-heading"><?php echo esc_html($wb_contact_info_heading); ?></h4>
 					<?php
 				}
 			?>
