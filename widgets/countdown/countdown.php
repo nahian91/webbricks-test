@@ -310,8 +310,14 @@ class Countdown extends Widget_Base {
 		$this->add_control( 
 			'wb_countdown_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -526,24 +532,20 @@ protected function render() {
                 dateAndTime: "<?php echo esc_js(preg_replace('/-/', '/', $settings['wb_countdown_due_date'])); ?>",
                 regexpMatchFormat: "([0-9]{1,3}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
                 regexpReplaceWith: "<?php
-                if ($day == "yes") {
-                    ?><div class='single-countdown'><span class='single-countdown-digits'>$1</span><span class='single-countdown-label'><?php
-                        echo esc_html($settings['wb_countdown_label_days']); ?></span></div><?php
+                if ($day == 'yes') {
+                    echo '<div class=\'single-countdown\'><span class=\'single-countdown-digits\'>$1</span><span class=\'single-countdown-label\'>'. esc_html($settings['wb_countdown_label_days']) .'</span></div>';
                 }
-                if ($hours == "yes") {
-                    ?><div class='single-countdown'><span class='single-countdown-digits'>$2</span><span class='single-countdown-label'><?php
-                        echo esc_html($settings['wb_countdown_label_hours']); ?></span></div><?php
+                if ($hours == 'yes') {
+                    echo '<div class=\'single-countdown\'><span class=\'single-countdown-digits\'>$2</span><span class=\'single-countdown-label\'>'. esc_html($settings['wb_countdown_label_hours']) .'</span></div>';
                 }
-                if ($minute == "yes") {
-                    ?><div class='single-countdown'><span class='single-countdown-digits'>$3</span><span class='single-countdown-label'><?php
-                        echo esc_html($settings['wb_countdown_label_minuts']); ?></span></div><?php
+                if ($minute == 'yes') {
+                    echo '<div class=\'single-countdown\'><span class=\'single-countdown-digits\'>$3</span><span class=\'single-countdown-label\'>'. esc_html($settings['wb_countdown_label_minutes']) .'</span></div>';
                 }
-                if ($seconds == "yes") {
-                    ?><div class='single-countdown'><span class='single-countdown-digits'>$4</span><span class='single-countdown-label'><?php
-                        echo esc_html($settings['wb_countdown_label_seconds']); ?></span></div><?php
+                if ($seconds == 'yes') {
+                    echo '<div class=\'single-countdown\'><span class=\'single-countdown-digits\'>$4</span><span class=\'single-countdown-label\'>'. esc_html($settings['wb_countdown_label_seconds']) .'</span></div>';
                 }
                 ?>",
-                <?php if ($show_type === "redirect_link"): ?>
+                <?php if ($show_type === 'redirect_link'): ?>
                 timeUp: function () {
                     <?php
                     $target = $settings['wb_countdown_expire_redirect_link']['is_external'] ? '_blank' : '_self';
@@ -554,7 +556,7 @@ protected function render() {
                     <?php endif; ?>
                 },
                 <?php endif; ?>
-                <?php if ($show_type === "message"): ?>
+                <?php if ($show_type === 'message'): ?>
                 timeUp: function () {
                     $("#finished-message-<?php echo esc_attr($this->get_id()); ?>").html("<span><?php echo esc_html($settings['wb_countdown_expire_message']); ?></span>");
                 },
@@ -564,4 +566,5 @@ protected function render() {
     </script>
     <?php
 }
+
 }

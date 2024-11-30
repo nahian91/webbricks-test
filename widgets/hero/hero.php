@@ -109,6 +109,27 @@ class Hero extends Widget_Base {
 			]
 		);		
 
+		// Section Heading Separator Style
+		$this->add_control(
+			'wb_hero_subheading_tag',
+			[
+				'label' => __( 'Html Tag', 'webbricks-addons' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'webbricks-addons' ),
+					'h2' => __( 'H2', 'webbricks-addons' ),
+					'h3' => __( 'H3', 'webbricks-addons' ),
+					'h4' => __( 'H4', 'webbricks-addons' ),
+					'h5' => __( 'H5', 'webbricks-addons' ),
+					'h6' => __( 'H6', 'webbricks-addons' ),
+					'p' => __( 'P', 'webbricks-addons' ),
+					'span' => __( 'Span', 'webbricks-addons' ),
+					'div' => __( 'Div', 'webbricks-addons' ),
+				],
+				'default' => 'span',
+			]
+		);
+
 		$this->end_controls_section();
 		// end of the Content tab section
 
@@ -129,6 +150,27 @@ class Hero extends Widget_Base {
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => esc_html__('Let’s See The World In A Better Way', 'webbricks-addons'),
+			]
+		);
+
+		// Section Heading Separator Style
+		$this->add_control(
+			'wb_hero_heading_tag',
+			[
+				'label' => __( 'Html Tag', 'webbricks-addons' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'webbricks-addons' ),
+					'h2' => __( 'H2', 'webbricks-addons' ),
+					'h3' => __( 'H3', 'webbricks-addons' ),
+					'h4' => __( 'H4', 'webbricks-addons' ),
+					'h5' => __( 'H5', 'webbricks-addons' ),
+					'h6' => __( 'H6', 'webbricks-addons' ),
+					'p' => __( 'P', 'webbricks-addons' ),
+					'span' => __( 'Span', 'webbricks-addons' ),
+					'div' => __( 'Div', 'webbricks-addons' ),
+				],
+				'default' => 'h1',
 			]
 		);
 
@@ -239,7 +281,7 @@ class Hero extends Widget_Base {
 				'label' => esc_html__( 'Choose Featured Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/hero.webp',
+					'url' => plugins_url( 'assets/img/hero.png', dirname(__FILE__, 2) ),
 				]
 			]
 		);
@@ -251,7 +293,7 @@ class Hero extends Widget_Base {
 				'label' => esc_html__( 'Choose Background Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => WBEA_ASSETS_URL . 'img/hero-bg.png',
+					'url' => plugins_url( 'assets/img/hero-bg.png', dirname(__FILE__, 2) ),
 				]
 			]
 		);
@@ -271,8 +313,14 @@ class Hero extends Widget_Base {
 		 $this->add_control( 
 			'wb_hero_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]   
 		);
 		$this->end_controls_section();
 
@@ -901,9 +949,11 @@ class Hero extends Widget_Base {
 	 */
 	protected function render() {
 		// Get input from the widget settings.
-		$settings = $this->get_settings_for_display();		
+		$settings = $this->get_settings_for_display();      
 		$wb_hero_subheading = isset($settings['wb_hero_subheading']) ? $settings['wb_hero_subheading'] : '';
+		$wb_hero_subheading_tag = $settings['wb_hero_subheading_tag'];
 		$wb_hero_heading = isset($settings['wb_hero_heading']) ? $settings['wb_hero_heading'] : '';
+		$wb_hero_heading_tag = $settings['wb_hero_heading_tag'];
 		$wb_hero_desc = isset($settings['wb_hero_desc']) ? $settings['wb_hero_desc'] : '';
 		$wb_hero_btn1_title = isset($settings['wb_hero_btn1_title']) ? $settings['wb_hero_btn1_title'] : '';
 		$wb_hero_btn1_link = isset($settings['wb_hero_btn1_link']['url']) ? $settings['wb_hero_btn1_link']['url'] : '';
@@ -911,7 +961,13 @@ class Hero extends Widget_Base {
 		$wb_hero_btn2_link = isset($settings['wb_hero_btn2_link']['url']) ? $settings['wb_hero_btn2_link']['url'] : '';
 		$wb_hero_featured_img = isset($settings['wb_hero_featured_img']['url']) ? $settings['wb_hero_featured_img']['url'] : '';
 		$wb_hero_content_bg_pattern = $settings['wb_hero_content_bg_pattern'];
-
+	
+		// Allow-list for heading tags
+		$allowed_heading_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'span'];
+		$wb_hero_subheading_tag = in_array($wb_hero_subheading_tag, $allowed_heading_tags, true) ? $wb_hero_subheading_tag : 'h2';
+		$wb_hero_heading_tag = in_array($wb_hero_heading_tag, $allowed_heading_tags, true) ? $wb_hero_heading_tag : 'h1';
+	
+		// Set hero background pattern URL
 		$hero_pattern_url = '';
 		switch ($wb_hero_content_bg_pattern) {
 			case 'hero-pattern-1':
@@ -928,8 +984,8 @@ class Hero extends Widget_Base {
 				break;
 		}
 	
+		// Add inline style for hero background pattern if applicable
 		?>
-
 		<?php if(isset($wb_hero_content_bg_pattern) && $wb_hero_content_bg_pattern !== 'hero-pattern-none' && isset($hero_pattern_url)) { ?>
 			<style>
 				.hero:before {
@@ -944,38 +1000,43 @@ class Hero extends Widget_Base {
 				}
 			</style>
 		<?php } ?>
-
 	
 		<!-- Hero Start Here -->
 		<section class="hero">
 			<div class="wb-grid-row align-center mob-flex-column">
+				<!-- Hero Content Section -->
 				<div class="wb-grid-desktop-5 wb-grid-tablet-6 wb-grid-mobile-12">
 					<div class="hero-content">
-						<span class="hero-subheading"><?php echo esc_html($wb_hero_subheading);?></span>
-						<h1 class="hero-heading"><?php echo esc_html($wb_hero_heading);?></h1>
+						<<?php echo esc_attr($wb_hero_subheading_tag); ?> class="hero-subheading"><?php echo esc_html($wb_hero_subheading); ?></<?php echo esc_attr($wb_hero_subheading_tag); ?>>
+						<<?php echo esc_attr($wb_hero_heading_tag); ?> class="hero-heading"><?php echo esc_html($wb_hero_heading); ?></<?php echo esc_attr($wb_hero_heading_tag); ?>>
 						<p><?php echo wp_kses_post($wb_hero_desc); ?> </p>
 						<div class="hero-btn">
 							<?php if($wb_hero_btn1_link) : ?>
-								<a href="<?php echo esc_url($wb_hero_btn1_link);?>" class="btn-bg" target="_blank"><?php echo esc_html($wb_hero_btn1_title);?> 
-								<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z" fill="var(--e-global-color-accent)"></path></svg>
+								<a href="<?php echo esc_url($wb_hero_btn1_link); ?>" class="btn-bg" target="_blank"><?php echo esc_html($wb_hero_btn1_title); ?> 
+								<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z" fill="var(--e-global-color-accent)"></path>
+								</svg>
 								</a>
 							<?php endif; ?>
 	
 							<?php if($wb_hero_btn2_link) : ?>
-								<a href="<?php echo esc_url($wb_hero_btn2_link);?>" class="btn-border" target="_blank"><?php echo esc_html($wb_hero_btn2_title);?>
-									<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z" fill="var(--e-global-color-accent)"></path></svg>
+								<a href="<?php echo esc_url($wb_hero_btn2_link); ?>" class="btn-border" target="_blank"><?php echo esc_html($wb_hero_btn2_title); ?>
+									<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z" fill="var(--e-global-color-accent)"></path>
+									</svg>
 								</a>
 							<?php endif; ?>
 						</div>
 					</div>
 				</div>
+				<!-- Hero Image Section -->
 				<div class="wb-grid-desktop-7 wb-grid-tablet-6 wb-grid-mobile-12">
 					<div class="hero-img">
-						<img src="<?php echo esc_url($wb_hero_featured_img); ?>" alt="<?php echo esc_attr($wb_hero_heading);?>">
+						<img src="<?php echo esc_url($wb_hero_featured_img); ?>" alt="<?php echo esc_attr($wb_hero_heading); ?>">
 					</div>
 				</div>
-			</div>		
-		</section>			
+			</div>      
+		</section>          
 		<!-- Hero End Here -->
 		<?php
 	}	

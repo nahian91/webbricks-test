@@ -108,7 +108,7 @@ class Testimonial_Carousel extends Widget_Base {
 				'label' => esc_html__( 'Client Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/client-1.webp',
+					'url' => plugins_url( 'assets/img/client-1.png', dirname(__FILE__, 2) ),
 				]
 			]
 		);
@@ -171,7 +171,7 @@ class Testimonial_Carousel extends Widget_Base {
 					[
 						'wb_testimonial_image' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/client-1.webp',
+								'url' => plugins_url( 'assets/img/client-1.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_testimonial_name' => esc_html__( 'Esther Howard', 'webbricks-addons' ),
@@ -182,7 +182,7 @@ class Testimonial_Carousel extends Widget_Base {
 					[
 						'wb_testimonial_image' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/client-2.webp',
+								'url' => plugins_url( 'assets/img/client-2.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_testimonial_name' => esc_html__( 'Maria Sauks', 'webbricks-addons' ),
@@ -193,7 +193,7 @@ class Testimonial_Carousel extends Widget_Base {
 					[
 						'wb_testimonial_image' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/client-3.webp',
+								'url' => plugins_url( 'assets/img/client-3.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_testimonial_name' => esc_html__( 'Sarah Heinsed', 'webbricks-addons' ),
@@ -204,7 +204,7 @@ class Testimonial_Carousel extends Widget_Base {
 					[
 						'wb_testimonial_image' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/client-4.webp',
+								'url' => plugins_url( 'assets/img/client-4.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_testimonial_name' => esc_html__( 'Mithc Hodge', 'webbricks-addons' ),
@@ -338,8 +338,14 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control( 
 			'wb_testimonials_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -764,64 +770,89 @@ class Testimonial_Carousel extends Widget_Base {
 	 * @access protected
 	 */
 	
-	protected function render() {
-    // get our input from the widget settings.
-    $settings = $this->get_settings_for_display();        
-    $wb_testimonials = $settings['wb_testimonials'];
-    $wb_testimonials_dots = $settings['wb_testimonials_dots'];
-    $wb_testimonials_loops = $settings['wb_testimonials_loops'];
-    $wb_testimonials_autoplay = $settings['wb_testimonials_autoplay'];
-    $wb_testimonials_pause = $settings['wb_testimonials_pause'];
-	$wb_testimonials_autoplay_speed = $settings['wb_testimonials_autoplay_speed'];
-	$wb_testimonials_autoplay_animation = $settings['wb_testimonials_autoplay_animation'];		
-   ?>
-    <!-- Testimonials Start Here -->
-    <div class="testimonials owl-carousel" testimonial-dots="<?php echo esc_attr( $wb_testimonials_dots ); ?>" testimonial-loops= "<?php echo esc_attr( $wb_testimonials_loops ); ?>" testimonial-autoplay="<?php echo esc_attr( $wb_testimonials_autoplay ); ?>" testimonial-pause="<?php echo esc_attr( $wb_testimonials_pause ); ?>" testimonial-animation="<?php echo esc_attr( $wb_testimonials_autoplay_animation ); ?>" testimonial-speed="<?php echo esc_attr( $wb_testimonials_autoplay_speed ); ?>">
-        <?php
-            if($wb_testimonials) {
-                foreach($wb_testimonials as $testimonial) {
-                    ?>
-                        <div class="single-testimonial">
-                            <img src="<?php echo esc_url($testimonial['wb_testimonial_image']['url']);?>" alt="">
-                            <div class="author-info">
-                                <div class="author-top">
-									<?php 
-										$wb_testimonial_name_tag = $settings['wb_testimonial_name_tag'];
-									?>
-                                    <<?php echo esc_attr($wb_testimonial_name_tag); ?> class="author-name"><?php echo esc_html($testimonial['wb_testimonial_name']);?> <span><?php echo esc_html($testimonial['wb_testimonial_desg']);?></span></<?php echo esc_attr($wb_testimonial_name_tag); ?>>
-                                    <div class="author-rating">
-                                        <p>
-                                            <?php
-                                                $rating = $testimonial['wb_testimonial_rating'];
-                                                $full_stars = floor($rating);
-                                                $half_star = $rating - $full_stars;
-                                                
-                                                for ($i = 1; $i <= 5; $i++) {
-                                                    if ($i <= $full_stars) {
-                                                        echo '<i aria-hidden="true" class="fas fa-star"></i>';
-                                                    } elseif ($i == ceil($rating) && $half_star > 0) {
-                                                        echo '<i aria-hidden="true" class="fas fa-star-half-alt"></i>';
-                                                    } else {
-                                                        echo '<i aria-hidden="true" class="far fa-star"></i>';
-                                                    }
-                                                }
-                                                
-                                                echo '<span>' . esc_html($rating) . ' / 5</span>';
-                                            ?>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="author-content">
-                                    <p><?php echo wp_kses_post($testimonial['wb_testimonial_speech']);?></p>
-                                </div>
-                            </div>
-                        </div>
-                    <?php
-                }
-            }
-        ?>
-    </div>
-    <!-- Testimonials End Here -->
-    <?php
-	}
+	 protected function render() {
+		// Get widget settings
+		$settings = $this->get_settings_for_display();        
+	
+		// Sanitize and escape settings values before using them
+		$wb_testimonials = isset($settings['wb_testimonials']) ? $settings['wb_testimonials'] : [];
+		$wb_testimonials_dots = isset($settings['wb_testimonials_dots']) ? $settings['wb_testimonials_dots'] : '';
+		$wb_testimonials_loops = isset($settings['wb_testimonials_loops']) ? $settings['wb_testimonials_loops'] : '';
+		$wb_testimonials_autoplay = isset($settings['wb_testimonials_autoplay']) ? $settings['wb_testimonials_autoplay'] : '';
+		$wb_testimonials_pause = isset($settings['wb_testimonials_pause']) ? $settings['wb_testimonials_pause'] : '';
+		$wb_testimonials_autoplay_speed = isset($settings['wb_testimonials_autoplay_speed']) ? $settings['wb_testimonials_autoplay_speed'] : '';
+		$wb_testimonials_autoplay_animation = isset($settings['wb_testimonials_autoplay_animation']) ? $settings['wb_testimonials_autoplay_animation'] : '';
+		$wb_testimonial_name_tag = isset($settings['wb_testimonial_name_tag']) ? $settings['wb_testimonial_name_tag'] : 'h3';
+	
+		?>
+		<!-- Testimonials Start Here -->
+		<div class="testimonials owl-carousel" 
+			 testimonial-dots="<?php echo esc_attr($wb_testimonials_dots); ?>" 
+			 testimonial-loops="<?php echo esc_attr($wb_testimonials_loops); ?>" 
+			 testimonial-autoplay="<?php echo esc_attr($wb_testimonials_autoplay); ?>" 
+			 testimonial-pause="<?php echo esc_attr($wb_testimonials_pause); ?>" 
+			 testimonial-animation="<?php echo esc_attr($wb_testimonials_autoplay_animation); ?>" 
+			 testimonial-speed="<?php echo esc_attr($wb_testimonials_autoplay_speed); ?>">
+	
+			<?php
+			// Loop through testimonials if available
+			if (!empty($wb_testimonials)) {
+				foreach ($wb_testimonials as $testimonial) {
+					// Sanitize each testimonial field
+					$testimonial_image_url = isset($testimonial['wb_testimonial_image']['url']) ? esc_url($testimonial['wb_testimonial_image']['url']) : '';
+					$testimonial_name = isset($testimonial['wb_testimonial_name']) ? esc_html($testimonial['wb_testimonial_name']) : '';
+					$testimonial_desg = isset($testimonial['wb_testimonial_desg']) ? esc_html($testimonial['wb_testimonial_desg']) : '';
+					$testimonial_speech = isset($testimonial['wb_testimonial_speech']) ? wp_kses_post($testimonial['wb_testimonial_speech']) : '';
+					$testimonial_rating = isset($testimonial['wb_testimonial_rating']) ? floatval($testimonial['wb_testimonial_rating']) : 0;
+					?>
+	
+					<div class="single-testimonial">
+						<?php if (!empty($testimonial_image_url)) : ?>
+							<img src="<?php echo esc_url($testimonial_image_url); ?>" alt="<?php echo esc_attr($testimonial_name); ?>">
+						<?php endif; ?>
+	
+						<div class="author-info">
+							<div class="author-top">
+								<<?php echo esc_attr($wb_testimonial_name_tag); ?> class="author-name">
+									<?php echo esc_html($testimonial_name); ?> 
+									<span><?php echo esc_html($testimonial_desg); ?></span>
+								</<?php echo esc_attr($wb_testimonial_name_tag); ?>>
+	
+								<div class="author-rating">
+									<p>
+										<?php
+										// Generate stars based on rating
+										$full_stars = floor($testimonial_rating);
+										$half_star = $testimonial_rating - $full_stars;
+	
+										// Display full, half, and empty stars
+										for ($i = 1; $i <= 5; $i++) {
+											if ($i <= $full_stars) {
+												echo '<i aria-hidden="true" class="fas fa-star"></i>';
+											} elseif ($i == ceil($testimonial_rating) && $half_star > 0) {
+												echo '<i aria-hidden="true" class="fas fa-star-half-alt"></i>';
+											} else {
+												echo '<i aria-hidden="true" class="far fa-star"></i>';
+											}
+										}
+										?>
+										<span><?php echo esc_html($testimonial_rating); ?> / 5</span>
+									</p>
+								</div>
+							</div>
+	
+							<div class="author-content">
+								<p><?php echo esc_html($testimonial_speech); ?></p>
+							</div>
+						</div>
+					</div>
+	
+					<?php
+				}
+			}
+			?>
+		</div>
+		<!-- Testimonials End Here -->
+		<?php
+	}	
 }

@@ -149,6 +149,26 @@ class Section_Heading extends Widget_Base {
 			]
 		);
 
+		// Section Heading Tag
+		$this->add_control(
+			'wb_section_heading_tag',
+			[
+				'label' => __( 'Html Tag', 'webbricks-addons' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'webbricks-addons' ),
+					'h2' => __( 'H2', 'webbricks-addons' ),
+					'h3' => __( 'H3', 'webbricks-addons' ),
+					'h4' => __( 'H4', 'webbricks-addons' ),
+					'h5' => __( 'H5', 'webbricks-addons' ),
+					'h6' => __( 'H6', 'webbricks-addons' ),
+					'p' => __( 'P', 'webbricks-addons' ),
+					'span' => __( 'Span', 'webbricks-addons' ),
+				],
+				'default' => 'h2',
+			]
+		);
+
 		$this->end_controls_section();
 
 		// start of the Section Description Content tab section
@@ -263,8 +283,14 @@ class Section_Heading extends Widget_Base {
 		$this->add_control( 
 			'wb_section_heading_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -665,54 +691,63 @@ class Section_Heading extends Widget_Base {
 	 * @access protected
 	 */
 	/**
- * Render heading widget output on the frontend.
- *
- * Generates the final HTML output.
- *
- * @since 1.0.0
- * @access protected
- */
-protected function render() {
-    // Get input from the widget settings.
-    $settings = $this->get_settings_for_display();
-
-    // Extract settings or provide defaults.
-    $wb_section_subheading_show_btn = isset($settings['wb_section_subheading_show_btn']) ? $settings['wb_section_subheading_show_btn'] : '';
-    $wb_section_heading = isset($settings['wb_section_heading']) ? $settings['wb_section_heading'] : '';
-    $wb_section_heading_tag = isset($settings['wb_section_heading_tag']) ? $settings['wb_section_heading_tag'] : 'h2'; // Default to h2 if not set
-    $wb_section_desc_show_btn = isset($settings['wb_section_desc_show_btn']) ? $settings['wb_section_desc_show_btn'] : '';
-    $wb_section_heading_show_btn = isset($settings['wb_section_heading_show_btn']) ? $settings['wb_section_heading_show_btn'] : '';
-
-    ?>
-    <!-- Section Title Start Here -->
-    <div class="section-title">
-        <?php if ($wb_section_subheading_show_btn === 'yes') :
-            $wb_section_subheading = isset($settings['wb_section_subheading']) ? $settings['wb_section_subheading'] : '';
-            $wb_section_heading_separator_variation = isset($settings['wb_section_heading_separator_variation']) ? $settings['wb_section_heading_separator_variation'] : '';
-            ?>
-            <span class="<?php echo esc_attr($wb_section_heading_separator_variation); ?> section-subheading"><?php echo esc_html($wb_section_subheading); ?></span>
-        <?php endif; ?>
-
-        <h4 class="section-heading"><?php echo esc_html($wb_section_heading); ?></h4>
-
-        <?php if ($wb_section_desc_show_btn === 'yes') :
-            $wb_section_desc = isset($settings['wb_section_desc']) ? $settings['wb_section_desc'] : '';
-            ?>
-            <p><?php echo wp_kses_post($wb_section_desc); ?></p>
-        <?php endif; ?>
-
-        <?php if ($wb_section_heading_show_btn === 'yes') :
-            $wb_section_heading_btn_title = isset($settings['wb_section_heading_btn_title']) ? $settings['wb_section_heading_btn_title'] : '';
-            $wb_section_heading_btn_link = isset($settings['wb_section_heading_btn_link']['url']) ? $settings['wb_section_heading_btn_link']['url'] : '';
-            ?>
-            <a href="<?php echo esc_url($wb_section_heading_btn_link); ?>" class="btn-border" target="_blank"><?php echo esc_html($wb_section_heading_btn_title); ?>
-                <svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
-                </svg>
-            </a>
-        <?php endif; ?>
-    </div>
-    <!-- Section Title End Here -->
-    <?php
-}
+	 * Render heading widget output on the frontend.
+	 *
+	 * Generates the final HTML output.
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 */
+	protected function render() {
+		// Get input from the widget settings.
+		$settings = $this->get_settings_for_display();
+	
+		// Extract settings or provide defaults.
+		$wb_section_subheading_show_btn = $settings['wb_section_subheading_show_btn'] ?? '';
+		$wb_section_heading = $settings['wb_section_heading'] ?? '';
+		$wb_section_heading_tag = $settings['wb_section_heading_tag'] ?? 'h2'; // Default to h2
+		$wb_section_desc_show_btn = $settings['wb_section_desc_show_btn'] ?? '';
+		$wb_section_heading_show_btn = $settings['wb_section_heading_show_btn'] ?? '';
+	
+		// Allow-list for heading tags
+		$allowed_heading_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'span'];
+		$wb_section_heading_tag = in_array($wb_section_heading_tag, $allowed_heading_tags, true) ? $wb_section_heading_tag : 'h2';
+	
+		?>
+		<!-- Section Title Start Here -->
+		<div class="section-title">
+			<?php if ($wb_section_subheading_show_btn === 'yes') : 
+				$wb_section_subheading = $settings['wb_section_subheading'] ?? '';
+				$wb_section_heading_separator_variation = $settings['wb_section_heading_separator_variation'] ?? '';
+				?>
+				<span class="<?php echo esc_attr($wb_section_heading_separator_variation); ?> section-subheading">
+					<?php echo esc_html($wb_section_subheading); ?>
+				</span>
+			<?php endif; ?>
+	
+			<<?php echo esc_attr($wb_section_heading_tag); ?> class="section-heading">
+				<?php echo esc_html($wb_section_heading); ?>
+			</<?php echo esc_attr($wb_section_heading_tag); ?>>
+	
+			<?php if ($wb_section_desc_show_btn === 'yes') : 
+				$wb_section_desc = $settings['wb_section_desc'] ?? '';
+				?>
+				<p><?php echo wp_kses_post($wb_section_desc); ?></p>
+			<?php endif; ?>
+	
+			<?php if ($wb_section_heading_show_btn === 'yes') : 
+				$wb_section_heading_btn_title = $settings['wb_section_heading_btn_title'] ?? '';
+				$wb_section_heading_btn_link = $settings['wb_section_heading_btn_link']['url'] ?? '';
+				?>
+				<a href="<?php echo esc_url($wb_section_heading_btn_link); ?>" class="btn-border" target="_blank" rel="noopener noreferrer">
+					<?php echo esc_html($wb_section_heading_btn_title); ?>
+					<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
+					</svg>
+				</a>
+			<?php endif; ?>
+		</div>
+		<!-- Section Title End Here -->
+		<?php
+	}	
 }

@@ -180,6 +180,27 @@ class Blog_Carousel extends Widget_Base {
 			]
 		);
 
+		// Section Heading Separator Style
+		$this->add_control(
+			'wb_blog_carousel_heading_tag',
+			[
+				'label' => __( 'Html Tag', 'webbricks-addons' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'webbricks-addons' ),
+					'h2' => __( 'H2', 'webbricks-addons' ),
+					'h3' => __( 'H3', 'webbricks-addons' ),
+					'h4' => __( 'H4', 'webbricks-addons' ),
+					'h5' => __( 'H5', 'webbricks-addons' ),
+					'h6' => __( 'H6', 'webbricks-addons' ),
+					'p' => __( 'P', 'webbricks-addons' ),
+					'span' => __( 'Span', 'webbricks-addons' ),
+					'div' => __( 'Div', 'webbricks-addons' ),
+				],
+				'default' => 'h2',
+			]
+		);
+
 		$this->end_controls_section();
 
 		// Blog Carousel Description
@@ -492,8 +513,14 @@ class Blog_Carousel extends Widget_Base {
 		$this->add_control( 
 			'wb_blog_carousel_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 
@@ -1250,35 +1277,36 @@ class Blog_Carousel extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		// get our input from the widget settings.
+		// Get the widget settings
 		$settings = $this->get_settings_for_display();
-		$wb_blog_carousel_heading_show = $settings['wb_blog_carousel_heading_show'];
-		$wp_blog_carousel_title_tag = $settings['wp_blog_carousel_title_tag'];
-		$wb_blog_carousel_number = $settings['wb_blog_carousel_number'];
-		$wb_blog_carousel_order = $settings['wb_blog_carousel_order'];
-		$wb_blog_carousel_orderby = $settings['wb_blog_carousel_orderby'];
-		$wb_blog_carousel_include_categories = $settings['wb_blog_carousel_include_categories'];
-		$wb_blog_carousel_cat_visibility = $settings['wb_blog_carousel_cat_visibility'];
-		$wb_blog_carousel_date_visibility = $settings['wb_blog_carousel_date_visibility'];
-		$wb_blog_carousel_excerpt_visibility = $settings['wb_blog_carousel_excerpt_visibility'];
-		$wb_blog_carousel_slide_number = $settings['wb_blog_carousel_slide_number'];
-		$wb_blog_carousel_arrows = $settings['wb_blog_carousel_arrows'];
-		$wb_blog_carousel_loop = $settings['wb_blog_carousel_loop'];
-		$wb_blog_carousel_pause = $settings['wb_blog_carousel_pause'];
-		$wb_blog_carousel_autoplay = $settings['wb_blog_carousel_autoplay'];
-		$wb_blog_carousel_autoplay_speed = $settings['wb_blog_carousel_autoplay_speed'];
-		$wb_blog_carousel_autoplay_animation = $settings['wb_blog_carousel_autoplay_animation'];
-		$wb_blog_image_display = $settings['wb_blog_image_display'];
-
-		?>
-			<style>
-				.blog-img{
-					background-size: <?php echo esc_attr($wb_blog_image_display); ?>
-				}
-			</style>
-		<?php 
-
-		$args = array(
+		$wb_blog_carousel_heading_show = $settings['wb_blog_carousel_heading_show'] ?? 'no';
+		$wb_blog_carousel_heading_tag = $settings['wb_blog_carousel_heading_tag'] ?? 'h2';
+		$wp_blog_carousel_title_tag = $settings['wp_blog_carousel_title_tag'] ?? 'h3';
+		$wb_blog_carousel_number = $settings['wb_blog_carousel_number'] ?? 5;
+		$wb_blog_carousel_order = $settings['wb_blog_carousel_order'] ?? 'DESC';
+		$wb_blog_carousel_orderby = $settings['wb_blog_carousel_orderby'] ?? 'date';
+		$wb_blog_carousel_include_categories = $settings['wb_blog_carousel_include_categories'] ?? '';
+		$wb_blog_carousel_cat_visibility = $settings['wb_blog_carousel_cat_visibility'] ?? 'no';
+		$wb_blog_carousel_date_visibility = $settings['wb_blog_carousel_date_visibility'] ?? 'no';
+		$wb_blog_carousel_excerpt_visibility = $settings['wb_blog_carousel_excerpt_visibility'] ?? 'no';
+		$wb_blog_carousel_slide_number = $settings['wb_blog_carousel_slide_number'] ?? 3;
+		$wb_blog_carousel_arrows = $settings['wb_blog_carousel_arrows'] ?? 'no';
+		$wb_blog_carousel_loop = $settings['wb_blog_carousel_loop'] ?? 'no';
+		$wb_blog_carousel_pause = $settings['wb_blog_carousel_pause'] ?? 'no';
+		$wb_blog_carousel_autoplay = $settings['wb_blog_carousel_autoplay'] ?? 'no';
+		$wb_blog_carousel_autoplay_speed = $settings['wb_blog_carousel_autoplay_speed'] ?? 5000;
+		$wb_blog_carousel_autoplay_animation = $settings['wb_blog_carousel_autoplay_animation'] ?? 'linear';
+		$wb_blog_image_display = $settings['wb_blog_image_display'] ?? 'cover';
+	
+		// Inline styles for background image display
+		echo '<style>
+			.blog-img {
+				background-size: ' . esc_attr($wb_blog_image_display) . ';
+			}
+		</style>';
+	
+		// WP_Query Arguments
+		$args = [
 			'posts_per_page' => $wb_blog_carousel_number,
 			'post_type' => 'post',
 			'post_status' => 'publish',
@@ -1286,86 +1314,87 @@ class Blog_Carousel extends Widget_Base {
 			'orderby' => $wb_blog_carousel_orderby,
 			'cat' => $wb_blog_carousel_include_categories,
 			'ignore_sticky_posts' => 1,
-		);
-
+		];
+	
 		$query = new \WP_Query($args);
-		
-       	?>
-	    <?php if ($wb_blog_carousel_heading_show === 'yes') {	 
-			$wb_blog_carousel_subheading_show = $settings['wb_blog_carousel_subheading_show'];
-			$wb_blog_carousel_subheading = $settings['wb_blog_carousel_subheading'];
-			$wb_section_heading_separator_variation = $settings['wb_section_heading_separator_variation'];
-			$wb_blog_carousel_heading = $settings['wb_blog_carousel_heading'];
-			$wb_blog_carousel_desc_show = $settings['wb_blog_carousel_desc_show'];
-			$wb_blog_carousel_desc = $settings['wb_blog_carousel_desc'];
-		?>		
-		
+	
+		// Section heading
+		if ($wb_blog_carousel_heading_show === 'yes') {
+			$wb_blog_carousel_subheading_show = $settings['wb_blog_carousel_subheading_show'] ?? 'no';
+			$wb_blog_carousel_subheading = $settings['wb_blog_carousel_subheading'] ?? '';
+			$wb_section_heading_separator_variation = $settings['wb_section_heading_separator_variation'] ?? '';
+			$wb_blog_carousel_heading = $settings['wb_blog_carousel_heading'] ?? '';
+			$wb_blog_carousel_desc_show = $settings['wb_blog_carousel_desc_show'] ?? 'no';
+			$wb_blog_carousel_desc = $settings['wb_blog_carousel_desc'] ?? '';
+			?>
 			<div class="section-title service-title">
-				<?php if($wb_blog_carousel_subheading_show == 'yes') {
-					?>
-						<span class="<?php echo esc_attr($wb_section_heading_separator_variation); ?> section-subheading"><?php echo esc_html($wb_blog_carousel_subheading);?></span>
-					<?php 
-				} ?>
-				<h4 class="section-heading"><?php echo esc_html($wb_blog_carousel_heading);?></h4>
-				
-				<?php if($wb_blog_carousel_desc_show == 'yes'){
-					?>
-						<p><?php echo wp_kses_post($wb_blog_carousel_desc);?></p>
-					<?php 
-				} ?>
-
+				<?php if ($wb_blog_carousel_subheading_show === 'yes') { ?>
+					<span class="<?php echo esc_attr($wb_section_heading_separator_variation); ?> section-subheading">
+						<?php echo esc_html($wb_blog_carousel_subheading); ?>
+					</span>
+				<?php } ?>
+				<<?php echo esc_attr($wb_blog_carousel_heading_tag); ?> class="section-heading">
+					<?php echo esc_html($wb_blog_carousel_heading); ?>
+				</<?php echo esc_attr($wb_blog_carousel_heading_tag); ?>>
+				<?php if ($wb_blog_carousel_desc_show === 'yes') { ?>
+					<p><?php echo wp_kses_post($wb_blog_carousel_desc); ?></p>
+				<?php } ?>
 			</div>
-		<?php } ?>
-		
-	   	<div class="blog-carousel owl-carousel <?php echo $wb_blog_carousel_arrows === 'yes' ? 'carousel-top-arrows' : ''; ?> <?php echo $wb_blog_carousel_heading_show === 'yes' ? 'heading-top' : ''; ?>"
-	   		blog-items="<?php echo esc_attr( $wb_blog_carousel_slide_number ); ?>" 
-			blog-arrows= "<?php echo esc_attr( $wb_blog_carousel_arrows );?>" 
-			blog-loops="<?php echo esc_attr( $wb_blog_carousel_loop ); ?>" 
-			blog-pause="<?php echo esc_attr( $wb_blog_carousel_pause ); ?>" blog-autoplay="<?php echo esc_attr( $wb_blog_carousel_autoplay ); ?>" blog-autoplay-speed="<?php echo esc_attr( $wb_blog_carousel_autoplay_speed ); ?>" 
-			blog-autoplay-animation="<?php echo esc_attr( $wb_blog_carousel_autoplay_animation ); ?>">
-				<?php 
-					if ($query->have_posts()) :
-					while ($query->have_posts()) : $query->the_post(); 					
-				?>
+			<?php
+		}
+	
+		// Blog carousel container
+		$carousel_classes = [
+			$wb_blog_carousel_arrows === 'yes' ? 'carousel-top-arrows' : '',
+			$wb_blog_carousel_heading_show === 'yes' ? 'heading-top' : '',
+		];
+		?>
+		<div class="blog-carousel owl-carousel <?php echo esc_attr(implode(' ', $carousel_classes)); ?>"
+			blog-items="<?php echo esc_attr($wb_blog_carousel_slide_number); ?>" 
+			blog-arrows="<?php echo esc_attr($wb_blog_carousel_arrows); ?>" 
+			blog-loops="<?php echo esc_attr($wb_blog_carousel_loop); ?>" 
+			blog-pause="<?php echo esc_attr($wb_blog_carousel_pause); ?>" 
+			blog-autoplay="<?php echo esc_attr($wb_blog_carousel_autoplay); ?>" 
+			blog-autoplay-speed="<?php echo esc_attr($wb_blog_carousel_autoplay_speed); ?>" 
+			blog-autoplay-animation="<?php echo esc_attr($wb_blog_carousel_autoplay_animation); ?>">
+			<?php 
+			if ($query->have_posts()) :
+				while ($query->have_posts()) : $query->the_post(); ?>
 					<div class="single-blog">
 						<div class="blog-content">
 							<div class="blog-meta">
-								<?php
-									if($wb_blog_carousel_cat_visibility == 'yes') {
-										the_category(', ');
-									}
-									if($wb_blog_carousel_date_visibility == 'yes') {
-										?>
-											<a class="blog-date"  href="<?php echo esc_url(get_the_permalink());?>"><?php echo esc_attr(get_the_date('j M, y'));?></a>
-										<?php 
-									}
-								?>
+								<?php if ($wb_blog_carousel_cat_visibility === 'yes') {
+									the_category(', ');
+								}
+								if ($wb_blog_carousel_date_visibility === 'yes') { ?>
+									<a class="blog-date" href="<?php echo esc_url(get_the_permalink()); ?>">
+										<?php echo esc_html(get_the_date('j M, y')); ?>
+									</a>
+								<?php } ?>
 							</div>
 							<div class="blog-title">
-								<<?php echo esc_attr($wp_blog_carousel_title_tag);?> class="blog-post-title"><a href="<?php echo esc_url(get_the_permalink());?>"><?php the_title();?></a></<?php echo esc_attr($wp_blog_carousel_title_tag);?>>
+								<<?php echo esc_attr($wp_blog_carousel_title_tag); ?> class="blog-post-title">
+									<a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a>
+								</<?php echo esc_attr($wp_blog_carousel_title_tag); ?>>
 							</div>
-							<?php
-								if($wb_blog_carousel_excerpt_visibility == 'yes') {
-									?>
-										<div class="blog-excerpt">
-											<?php echo esc_attr(substr(get_the_excerpt(), 0, 95));?>
-										</div>
-									<?php 
-								}
-							?>							
+							<?php if ($wb_blog_carousel_excerpt_visibility === 'yes') { ?>
+								<div class="blog-excerpt">
+									<?php echo esc_html(wp_trim_words(get_the_excerpt(), 20, '...')); ?>
+								</div>
+							<?php } ?>
 						</div>
-						<div class="blog-img" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url());?>');">
-							<a href="<?php echo esc_url(get_the_permalink());?>" class="icon-border">
+						<div class="blog-img" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url()); ?>');">
+							<a href="<?php echo esc_url(get_the_permalink()); ?>" class="icon-border">
 								<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M5.34245 16.4678L5.33331 16.3321C5.33331 15.8258 5.70951 15.4074 6.19762 15.3413L6.33331 15.3321L23.2613 15.3333L18.9664 11.0407C18.6113 10.6858 18.5788 10.1302 18.869 9.73859L18.9658 9.62646C19.3206 9.27126 19.8762 9.23872 20.2678 9.52912L20.3801 9.62579L26.3801 15.6209C26.7352 15.9757 26.7677 16.5313 26.4774 16.9229L26.3806 17.035L20.3806 23.0401C19.9902 23.4307 19.3572 23.431 18.9664 23.0407C18.6113 22.6858 18.5788 22.1302 18.869 21.7386L18.9658 21.6264L23.256 17.3333L6.33331 17.3321C5.82705 17.3321 5.40866 16.9559 5.34245 16.4678Z" fill="#111"/></svg>
+									<path d="..." fill="#111" />
+								</svg>
 							</a>
 						</div>
 					</div>
-				<?php
-					endwhile;
-					endif; 
-				?>	
-	   		</div>
-       <?php
-	}
+				<?php endwhile;
+			endif;
+			wp_reset_postdata(); ?>
+		</div>
+		<?php
+	}	
 }

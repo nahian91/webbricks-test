@@ -158,8 +158,14 @@ class Counter extends Widget_Base {
 		 $this->add_control( 
 			'wb_counter_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -369,6 +375,27 @@ class Counter extends Widget_Base {
 			]
 		);
 
+		// Section Heading Separator Style
+		$this->add_control(
+			'wb_counter_title_tag',
+			[
+				'label' => __( 'Html Tag', 'webbricks-addons' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'webbricks-addons' ),
+					'h2' => __( 'H2', 'webbricks-addons' ),
+					'h3' => __( 'H3', 'webbricks-addons' ),
+					'h4' => __( 'H4', 'webbricks-addons' ),
+					'h5' => __( 'H5', 'webbricks-addons' ),
+					'h6' => __( 'H6', 'webbricks-addons' ),
+					'p' => __( 'P', 'webbricks-addons' ),
+					'span' => __( 'Span', 'webbricks-addons' ),
+					'div' => __( 'Div', 'webbricks-addons' ),
+				],
+				'default' => 'p',
+			]
+		);
+
 		$this->end_controls_section();
 		// end of the Style tab section
 
@@ -383,25 +410,41 @@ class Counter extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		// get our input from the widget settings.
+		// Get our input from the widget settings.
 		$settings = $this->get_settings_for_display();		
-		$wb_counter_icon = $settings['wb_counter_icon'];
-		$wb_counter_number = $settings['wb_counter_number'];
-		$wb_counter_number_suffix = $settings['wb_counter_number_suffix'];
-		$wb_counter_title = $settings['wb_counter_title'];
+		$wb_counter_icon = isset($settings['wb_counter_icon']) ? $settings['wb_counter_icon'] : '';
+		$wb_counter_number = isset($settings['wb_counter_number']) ? intval($settings['wb_counter_number']) : 0;
+		$wb_counter_number_suffix = isset($settings['wb_counter_number_suffix']) ? $settings['wb_counter_number_suffix'] : '';
+		$wb_counter_title = isset($settings['wb_counter_title']) ? $settings['wb_counter_title'] : '';
+		$wb_counter_title_tag = isset($settings['wb_counter_title_tag']) ? $settings['wb_counter_title_tag'] : 'h2';
+	
+		// Sanitize the counter number to ensure it's a valid number
+		$wb_counter_number = intval($wb_counter_number);
 		
-       ?>
+		// Valid HTML tags for the counter title
+		$valid_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
+		if (!in_array($wb_counter_title_tag, $valid_tags)) {
+			$wb_counter_title_tag = 'h2'; // Default to h2 if invalid tag
+		}
+		?>
 		<!-- Counter Start Here -->			
 		<div class="counter-box">
 			<div class="counter-number">					
-				<i class="<?php echo esc_attr($wb_counter_icon['value']);?>"></i>
+				<?php if (!empty($wb_counter_icon)): ?>
+					<i class="<?php echo esc_attr($wb_counter_icon); ?>"></i>
+				<?php endif; ?>
 			</div>
 			<div class="counter-content">
-				<p><span class="counter"><?php echo wp_kses_post($wb_counter_number);?></span><?php echo esc_html($wb_counter_number_suffix);?></p>
-				<h4 class="counter-title"><?php echo esc_html($wb_counter_title);?></h4>
+				<p>
+					<span class="counter" aria-live="polite"><?php echo esc_html($wb_counter_number); ?></span>
+					<?php echo esc_html($wb_counter_number_suffix); ?>
+				</p>
+				<<?php echo esc_attr($wb_counter_title_tag); ?> class="counter-title">
+					<?php echo esc_html($wb_counter_title); ?>
+				</<?php echo esc_attr($wb_counter_title_tag); ?>>
 			</div>
 		</div>			
 		<!-- Counter End Here -->
-       <?php
-	}
+		<?php
+	}	
 }

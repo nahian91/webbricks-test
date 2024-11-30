@@ -160,8 +160,14 @@ class Contact_Form_7 extends Widget_Base {
 		 $this->add_control( 
 			'wb_cf7_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();		
 
@@ -642,13 +648,17 @@ class Contact_Form_7 extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		// get our input from the widget settings.
-		$settings = $this->get_settings_for_display();		
+		// Get input from widget settings.
+		$settings = $this->get_settings_for_display();
 		
-		if(!empty($settings['wb_cf7'])){
-			echo'<div class="elementor-shortcode wb-cf7 wb-cf7-'.esc_attr($settings['wb_cf7']).'">';
-				echo do_shortcode('[contact-form-7 id="'.esc_attr($settings['wb_cf7']).'"]');    
-			echo '</div>';  
+		// Check if CF7 ID is provided.
+		if (!empty($settings['wb_cf7'])) {
+			$cf7_id = esc_attr($settings['wb_cf7']);
+			?>
+			<div class="elementor-shortcode wb-cf7 wb-cf7-<?php echo esc_attr($cf7_id); ?>">
+				<?php echo do_shortcode('[contact-form-7 id="' . $cf7_id . '"]'); ?>
+			</div>
+			<?php
 		}
-	}
+	}	
 }

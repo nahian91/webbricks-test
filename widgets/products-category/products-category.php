@@ -211,8 +211,14 @@ class Products_Category extends Widget_Base {
 		 $this->add_control( 
 			'wb_products_category_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 
@@ -340,6 +346,27 @@ class Products_Category extends Widget_Base {
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				]
+			]
+		);
+
+		// Section Heading Separator Style
+		$this->add_control(
+			'wb_product_carousel_title_tag',
+			[
+				'label' => __( 'Html Tag', 'webbricks-addons' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'webbricks-addons' ),
+					'h2' => __( 'H2', 'webbricks-addons' ),
+					'h3' => __( 'H3', 'webbricks-addons' ),
+					'h4' => __( 'H4', 'webbricks-addons' ),
+					'h5' => __( 'H5', 'webbricks-addons' ),
+					'h6' => __( 'H6', 'webbricks-addons' ),
+					'p' => __( 'P', 'webbricks-addons' ),
+					'span' => __( 'Span', 'webbricks-addons' ),
+					'div' => __( 'Div', 'webbricks-addons' ),
+				],
+				'default' => 'h4',
 			]
 		);
 
@@ -511,95 +538,98 @@ class Products_Category extends Widget_Base {
 	 */	 
 
 	 /**
-     * Get all product categories for the select field options
-     */
-    private function get_all_product_categories() {
-        $product_categories = get_terms('product_cat');
-        $options = [];
+ * Get all product categories for the select field options
+ */
+private function get_all_product_categories() {
+    $product_categories = get_terms('product_cat');
+    $options = [];
 
-        if ($product_categories && !is_wp_error($product_categories)) {
-            foreach ($product_categories as $category) {
-                $options[$category->term_id] = $category->name;
-            }
+    if ($product_categories && !is_wp_error($product_categories)) {
+        foreach ($product_categories as $category) {
+            $options[$category->term_id] = $category->name;
         }
-        return $options;
     }
+    return $options;
+}
 
-	protected function render() {
-		// get our input from the widget settings.
-		$settings = $this->get_settings_for_display();
-		$wb_product_categories = $settings['wb_product_categories'];
-		$wb_product_categories_count = $settings['wb_product_categories_count'];
-		$wb_product_categories_btn_show = $settings['wb_product_categories_btn_show'];
-	?>
+protected function render() {
+    // Get our input from the widget settings.
+    $settings = $this->get_settings_for_display();
+    $wb_product_categories = isset($settings['wb_product_categories']) ? $settings['wb_product_categories'] : [];
+    $wb_product_categories_count = isset($settings['wb_product_categories_count']) ? $settings['wb_product_categories_count'] : '';
+    $wb_product_categories_btn_show = isset($settings['wb_product_categories_btn_show']) ? $settings['wb_product_categories_btn_show'] : '';
+    $wb_product_carousel_title_tag = isset($settings['wb_product_carousel_title_tag']) ? $settings['wb_product_carousel_title_tag'] : 'h2';
 
-	<div class="wb-grid-row">
-		<?php
-		// $selected_category_ids
-		$selected_category_ids = $wb_product_categories;
-		// Loop through each selected category ID
-			if($selected_category_ids) {
-				foreach ($selected_category_ids as $selected_category_id) {
-				// Get the category object by ID
-				$category = get_term($selected_category_id, 'product_cat');
-				// Check if the category object exists and is not an error
-				if ($category && !is_wp_error($category)) {			
-					// Display category image if available
-					$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
-					$image = wp_get_attachment_image_src($thumbnail_id, 'thumbnail');
-						?>
-						<div class="<?php echo esc_attr($this->get_grid_classes( $settings )); ?> wb-grid-tablet-6 wb-grid-mobile-12">
-							<div class="product-category">
-								<?php 
-									if($image) {
-										?>
-											<img src="<?php echo esc_attr($image[0]);?>" alt="<?php echo esc_html($category->name);?>">	
-									<?php
-									} else {
-										?>
-											<svg class="fallback-svg" viewBox="0 0 370 300" preserveAspectRatio="none">
-											<rect width="370" height="300" style="fill:#f2f2f2;"></rect>
-										</svg>
-									<?php 
-									}
-								?>
-								<?php 
-									if($wb_product_categories_btn_show === 'yes') {
-										?>
-										<div class="product-category-icon">
-											<a href="<?php echo esc_url(get_term_link($category));?>">
-												<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M9.33337 9.33329V6.66663C9.33337 4.45749 11.1242 2.66663 13.3334 2.66663C14.3579 2.66663 15.2923 3.05177 16 3.68516C16.7078 3.05176 17.6423 2.66663 18.6667 2.66663C20.8759 2.66663 22.6667 4.45749 22.6667 6.66663V9.33329H24.6667C25.7712 9.33329 26.6667 10.2287 26.6667 11.3333V24.6733C26.6667 27.2469 24.5803 29.3333 22.0067 29.3333H10.6667C7.72119 29.3333 5.33337 26.9454 5.33337 24V11.3333C5.33337 10.2287 6.2288 9.33329 7.33337 9.33329H9.33337ZM18.18 27.3333C17.6547 26.579 17.3467 25.6621 17.3467 24.6733V11.3333H7.33337V24C7.33337 25.8409 8.82576 27.3333 10.6667 27.3333H18.18ZM15.3334 9.33329V6.66663C15.3334 5.56205 14.4379 4.66663 13.3334 4.66663C12.2288 4.66663 11.3334 5.56205 11.3334 6.66663V9.33329H15.3334ZM17.3334 9.33329H20.6667V6.66663C20.6667 5.56205 19.7712 4.66663 18.6667 4.66663C18.0467 4.66663 17.4927 4.94871 17.1259 5.39153C17.2604 5.792 17.3334 6.2208 17.3334 6.66663V9.33329ZM19.3467 24.6733C19.3467 26.1424 20.5376 27.3333 22.0067 27.3333C23.4758 27.3333 24.6667 26.1424 24.6667 24.6733V11.3333H19.3467V24.6733Z" fill="currentColor"/>
-												</svg> 
-											</a>
-										
-								</div>
-									
-								<?php }
-								?>
-								<div class="product-category-content">
-									<h4 class="product-category-title">
-										<a href="<?php echo esc_url(get_term_link($category));?>"><?php echo esc_html($category->name);?></a>
-									</h4>
-									<?php 
-										if($wb_product_categories_count === 'yes') {
-											?>
-												<span><?php echo esc_html($category->count);?> <?php echo esc_html(' Products', 'webbricks-addons');?></span>
-											<?php
-										}
-									?>
-								</div>
-							</div>
-						</div>
-						<?php 
-					}
-				}
-			} else {
-				echo esc_html('No Products Categories Found!', 'webbricks-addons');
-			}
-		?>
-	</div>				
-		<!-- Product Category Programme Here -->
-       <?php
-	}
+    ?>
+    <div class="wb-grid-row">
+        <?php
+        // Get selected category IDs
+        $selected_category_ids = $wb_product_categories;
+
+        // Loop through each selected category ID
+        if ($selected_category_ids) {
+            foreach ($selected_category_ids as $selected_category_id) {
+                // Get the category object by ID
+                $category = get_term($selected_category_id, 'product_cat');
+                // Check if the category object exists and is not an error
+                if ($category && !is_wp_error($category)) { 
+                    // Display category image if available
+                    $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
+                    $image = wp_get_attachment_image_src($thumbnail_id, 'thumbnail');
+                    ?>
+                    <div class="<?php echo esc_attr($this->get_grid_classes($settings)); ?> wb-grid-tablet-6 wb-grid-mobile-12">
+                        <div class="product-category">
+                            <?php 
+                            if ($image) {
+                                ?>
+                                <img src="<?php echo esc_url($image[0]); ?>" alt="<?php echo esc_attr($category->name); ?>">  
+                                <?php
+                            } else {
+                                ?>
+                                <svg class="fallback-svg" viewBox="0 0 370 300" preserveAspectRatio="none">
+                                    <rect width="370" height="300" style="fill:#f2f2f2;"></rect>
+                                </svg>
+                                <?php 
+                            }
+                            ?>
+                            
+                            <?php 
+                            if ($wb_product_categories_btn_show === 'yes') {
+                                ?>
+                                <div class="product-category-icon">
+                                    <a href="<?php echo esc_url(get_term_link($category));?>">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.33337 9.33329V6.66663C9.33337 4.45749 11.1242 2.66663 13.3334 2.66663C14.3579 2.66663 15.2923 3.05177 16 3.68516C16.7078 3.05176 17.6423 2.66663 18.6667 2.66663C20.8759 2.66663 22.6667 4.45749 22.6667 6.66663V9.33329H24.6667C25.7712 9.33329 26.6667 10.2287 26.6667 11.3333V24.6733C26.6667 27.2469 24.5803 29.3333 22.0067 29.3333H10.6667C7.72119 29.3333 5.33337 26.9454 5.33337 24V11.3333C5.33337 10.2287 6.2288 9.33329 7.33337 9.33329H9.33337ZM18.18 27.3333C17.6547 26.579 17.3467 25.6621 17.3467 24.6733V11.3333H7.33337V24C7.33337 25.8409 8.82576 27.3333 10.6667 27.3333H18.18ZM15.3334 9.33329V6.66663C15.3334 5.56205 14.4379 4.66663 13.3334 4.66663C12.2288 4.66663 11.3334 5.56205 11.3334 6.66663V9.33329H15.3334ZM17.3334 9.33329H20.6667V6.66663C20.6667 5.56205 19.7712 4.66663 18.6667 4.66663C18.0467 4.66663 17.4927 4.94871 17.1259 5.39153C17.2604 5.792 17.3334 6.2208 17.3334 6.66663V9.33329ZM19.3467 24.6733C19.3467 26.1424 20.5376 27.3333 22.0067 27.3333C23.4758 27.3333 24.6667 26.1424 24.6667 24.6733V11.3333H19.3467V24.6733Z" fill="currentColor"/>
+                                        </svg> 
+                                    </a>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                            
+                            <div class="product-category-content">
+                                <<?php echo esc_attr($wb_product_carousel_title_tag); ?> class="product-category-title">
+                                    <a href="<?php echo esc_url(get_term_link($category));?>"><?php echo esc_html($category->name);?></a>
+                                </<?php echo esc_attr($wb_product_carousel_title_tag); ?>>
+                                <?php 
+                                if ($wb_product_categories_count === 'yes') {
+                                    ?>
+                                    <span><?php echo esc_html($category->count);?> <?php echo esc_html(' Products', 'webbricks-addons');?></span>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php 
+                }
+            }
+        } else {
+            echo esc_html(__('No Product Categories Found!', 'webbricks-addons'));
+        }
+        ?>
+    </div>                
+    <!-- Product Category Programme Here -->
+    <?php 
+}
 }

@@ -125,6 +125,30 @@ class Contact_Info extends Widget_Base {
 			]
 		);
 
+		// Section Heading Separator Style
+		$this->add_control(
+			'wb_contact_info_heading_tag',
+			[
+				'label' => __( 'Html Tag', 'webbricks-addons' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'webbricks-addons' ),
+					'h2' => __( 'H2', 'webbricks-addons' ),
+					'h3' => __( 'H3', 'webbricks-addons' ),
+					'h4' => __( 'H4', 'webbricks-addons' ),
+					'h5' => __( 'H5', 'webbricks-addons' ),
+					'h6' => __( 'H6', 'webbricks-addons' ),
+					'p' => __( 'P', 'webbricks-addons' ),
+					'span' => __( 'Span', 'webbricks-addons' ),
+					'div' => __( 'Div', 'webbricks-addons' ),
+				],
+				'default' => 'h2',
+				'condition' => [
+					'wb_contact_info_show_heading' => 'yes'
+				],
+			]
+		);
+
 		$this->end_controls_section();
 		// end of the Contact Info tab section
 
@@ -420,8 +444,14 @@ class Contact_Info extends Widget_Base {
 		 $this->add_control( 
 			'wb_contact_info_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -738,43 +768,47 @@ class Contact_Info extends Widget_Base {
 	 */
 	protected function render() {
 		// Get widget settings for display.
-		$settings = $this->get_settings_for_display();		
-		$wb_contact_info_show_heading = $settings['wb_contact_info_show_heading'];
-		$wb_contact_info_heading = $settings['wb_contact_info_heading'];
-		$wb_contact_info_show_desc = $settings['wb_contact_info_show_desc'];
-		$wb_contact_info_desc = $settings['wb_contact_info_desc'];
-		$wb_contact_info_list = $settings['wb_contact_info_list'];
-		$wb_contact_social_heading = $settings['wb_contact_social_heading'];
-		$wb_contact_social_heading_tag = $settings['wb_contact_social_heading_tag'];
-		$wb_contact_info_socials_list = $settings['wb_contact_info_socials_list'];
-		$wb_contact_infos_show_btn = $settings['wb_contact_infos_show_btn'];
-		$wb_contact_info_socials_show_btn = $settings['wb_contact_info_socials_show_btn'];
-	?>
+		$settings = $this->get_settings_for_display();
 	
-		<!-- Contact Info Start Here -->			
+		// Sanitize and escape settings for display
+		$wb_contact_info_show_heading = isset($settings['wb_contact_info_show_heading']) ? sanitize_text_field($settings['wb_contact_info_show_heading']) : '';
+		$wb_contact_info_heading = isset($settings['wb_contact_info_heading']) ? sanitize_text_field($settings['wb_contact_info_heading']) : '';
+		$wb_contact_info_heading_tag = isset($settings['wb_contact_info_heading_tag']) ? sanitize_key($settings['wb_contact_info_heading_tag']) : 'h2';
+		$wb_contact_info_show_desc = isset($settings['wb_contact_info_show_desc']) ? sanitize_text_field($settings['wb_contact_info_show_desc']) : '';
+		$wb_contact_info_desc = isset($settings['wb_contact_info_desc']) ? $settings['wb_contact_info_desc'] : '';
+		$wb_contact_info_list = isset($settings['wb_contact_info_list']) ? $settings['wb_contact_info_list'] : [];
+		$wb_contact_social_heading = isset($settings['wb_contact_social_heading']) ? sanitize_text_field($settings['wb_contact_social_heading']) : '';
+		$wb_contact_social_heading_tag = isset($settings['wb_contact_social_heading_tag']) ? sanitize_key($settings['wb_contact_social_heading_tag']) : 'h3';
+		$wb_contact_info_socials_list = isset($settings['wb_contact_info_socials_list']) ? $settings['wb_contact_info_socials_list'] : [];
+		$wb_contact_infos_show_btn = isset($settings['wb_contact_infos_show_btn']) ? sanitize_text_field($settings['wb_contact_infos_show_btn']) : '';
+		$wb_contact_info_socials_show_btn = isset($settings['wb_contact_info_socials_show_btn']) ? sanitize_text_field($settings['wb_contact_info_socials_show_btn']) : '';
+	
+		// Early exit if no contact information or social buttons should be shown.
+		if (!$wb_contact_info_show_heading && !$wb_contact_info_show_desc && !$wb_contact_infos_show_btn && !$wb_contact_info_socials_show_btn) {
+			return;
+		}
+	
+		?>
+		<!-- Contact Info Start Here -->          
 		<div class="contact-info">
-			<?php 
-				if($wb_contact_info_show_heading == 'yes') {
-					?>
-						<h4 class="contact-info-heading"><?php echo esc_html($wb_contact_info_heading); ?></h4>
-					<?php
-				}
-			?>
-
-			<?php 
-				if($wb_contact_info_show_desc == 'yes') {
-					?>
-						<p><?php echo wp_kses_post($wb_contact_info_desc); ?></p>
-					<?php
-				}
-			?>
 	
-			<?php if ($wb_contact_infos_show_btn == 'yes' && !empty($wb_contact_info_list)) : ?>
+			<?php if ($wb_contact_info_show_heading === 'yes') : ?>
+				<<?php echo esc_attr($wb_contact_info_heading_tag); ?> class="contact-info-heading">
+					<?php echo esc_html($wb_contact_info_heading); ?>
+				</<?php echo esc_attr($wb_contact_info_heading_tag); ?>>
+			<?php endif; ?>
+	
+			<?php if ($wb_contact_info_show_desc === 'yes') : ?>
+				<p><?php echo wp_kses_post($wb_contact_info_desc); ?></p>
+			<?php endif; ?>
+	
+			<?php if ($wb_contact_infos_show_btn === 'yes' && !empty($wb_contact_info_list)) : ?>
 				<div class="contact-info-list">
 					<?php foreach ($wb_contact_info_list as $info_list) : ?>
 						<?php
-						$wb_contact_info_list_icon = $info_list['wb_contact_info_list_icon']['value'];
-						$wb_contact_info_list_name = $info_list['wb_contact_info_list_name'];
+						// Sanitize each field from the contact info list
+						$wb_contact_info_list_icon = isset($info_list['wb_contact_info_list_icon']['value']) ? sanitize_text_field($info_list['wb_contact_info_list_icon']['value']) : '';
+						$wb_contact_info_list_name = isset($info_list['wb_contact_info_list_name']) ? sanitize_text_field($info_list['wb_contact_info_list_name']) : '';
 						?>
 						<div class="single-contact-info-list">
 							<i aria-hidden="true" class="<?php echo esc_attr($wb_contact_info_list_icon); ?>"></i>
@@ -784,27 +818,30 @@ class Contact_Info extends Widget_Base {
 				</div>
 			<?php endif; ?>
 	
-			<?php if ($wb_contact_info_socials_show_btn == 'yes' && !empty($wb_contact_info_socials_list)) : ?>
+			<?php if ($wb_contact_info_socials_show_btn === 'yes' && !empty($wb_contact_info_socials_list)) : ?>
 				<div class="contact-info-follows">
-					<<?php echo esc_attr($wb_contact_social_heading_tag); ?> class="contact-info-socials-heading"><?php echo esc_html($wb_contact_social_heading); ?></<?php echo esc_attr($wb_contact_social_heading_tag); ?>>
+					<<?php echo esc_attr($wb_contact_social_heading_tag); ?> class="contact-info-socials-heading">
+						<?php echo esc_html($wb_contact_social_heading); ?>
+					</<?php echo esc_attr($wb_contact_social_heading_tag); ?>>
 					<?php foreach ($wb_contact_info_socials_list as $social_list) : ?>
 						<?php
-						$wb_contact_info_socials_list_icon = $social_list['wb_contact_info_socials_list_icon']['value'];
-						$wb_contact_info_socials_list_name = $social_list['wb_contact_info_socials_list_name'];
-						$wb_contact_info_socials_list_link = $social_list['wb_contact_info_socials_list_link'];
-						$wb_contact_info_socials_list_icon_color = $social_list['wb_contact_info_socials_list_icon_color'];
+						// Sanitize each field from the social list
+						$wb_contact_info_socials_list_icon = isset($social_list['wb_contact_info_socials_list_icon']['value']) ? sanitize_text_field($social_list['wb_contact_info_socials_list_icon']['value']) : '';
+						$wb_contact_info_socials_list_name = isset($social_list['wb_contact_info_socials_list_name']) ? sanitize_text_field($social_list['wb_contact_info_socials_list_name']) : '';
+						$wb_contact_info_socials_list_link = isset($social_list['wb_contact_info_socials_list_link']) ? $social_list['wb_contact_info_socials_list_link'] : [];
+						$wb_contact_info_socials_list_icon_color = isset($social_list['wb_contact_info_socials_list_icon_color']) ? sanitize_text_field($social_list['wb_contact_info_socials_list_icon_color']) : '';
 						?>
 						<div class="single-contact-info-follows">
 							<i aria-hidden="true" class="<?php echo esc_attr($wb_contact_info_socials_list_icon); ?>" style="color: <?php echo esc_attr($wb_contact_info_socials_list_icon_color); ?>"></i>
-							<a href="<?php echo esc_url($wb_contact_info_socials_list_link['url']); ?>"><?php echo esc_html($wb_contact_info_socials_list_name); ?></a>
+							<a href="<?php echo esc_url($wb_contact_info_socials_list_link['url']); ?>" target="_blank" rel="noopener noreferrer">
+								<?php echo esc_html($wb_contact_info_socials_list_name); ?>
+							</a>
 						</div>
 					<?php endforeach; ?>
 				</div>
 			<?php endif; ?>
 		</div>
 		<!-- Contact Info End Here -->
-	
-	<?php
-	}
-	
+		<?php
+	}	
 }

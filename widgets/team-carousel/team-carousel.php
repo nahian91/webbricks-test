@@ -279,7 +279,7 @@ class Team_Carousel extends Widget_Base {
 				'label' => esc_html__( 'Choose Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/team-1.webp',
+					'url' => plugins_url( 'assets/img/team-1.png', dirname(__FILE__, 2) ),
 				],
 				'separator' => 'before',
 			]
@@ -384,7 +384,7 @@ class Team_Carousel extends Widget_Base {
 				'default' => [
 				[
 					'wb_team_carousel_image' => [
-						'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/team-1.webp',
+						'url' => plugins_url( 'assets/img/team-1.png', dirname(__FILE__, 2) ),
 					],
 					'wb_team_carousel_bg' => [
 						'url' => WBEA_ASSETS_URL . 'img/team-preview.png',
@@ -398,7 +398,7 @@ class Team_Carousel extends Widget_Base {
 				],
 				[
 					'wb_team_carousel_image' => [
-						'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/team-2.webp',
+						'url' => plugins_url( 'assets/img/team-2.png', dirname(__FILE__, 2) ),
 					],
 					'wb_team_carousel_bg' => [
 						'url' => WBEA_ASSETS_URL . 'img/team-preview.png',
@@ -412,7 +412,7 @@ class Team_Carousel extends Widget_Base {
 				],
 				[
 					'wb_team_carousel_image' => [
-						'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/team-3.webp',
+						'url' => plugins_url( 'assets/img/team-3.png', dirname(__FILE__, 2) ),
 					],
 					'wb_team_carousel_bg' => [
 						'url' => WBEA_ASSETS_URL . 'img/team-preview.png',
@@ -426,7 +426,7 @@ class Team_Carousel extends Widget_Base {
 				],
 				[
 					'wb_team_carousel_image' => [
-						'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/team-4.webp',
+						'url' => plugins_url( 'assets/img/team-1.png', dirname(__FILE__, 2) ),
 					],
 					'wb_team_carousel_bg' => [
 						'url' => WBEA_ASSETS_URL . 'img/team-preview.png',
@@ -440,7 +440,7 @@ class Team_Carousel extends Widget_Base {
 				],
 				[
 					'wb_team_carousel_image' => [
-						'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/team-2.webp',
+						'url' => plugins_url( 'assets/img/team-2.png', dirname(__FILE__, 2) ),
 					],
 					'wb_team_carousel_bg' => [
 						'url' => WBEA_ASSETS_URL . 'img/team-preview.png',
@@ -590,8 +590,14 @@ class Team_Carousel extends Widget_Base {
 		 $this->add_control( 
 			'wb_team_carousel_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 
@@ -1164,134 +1170,123 @@ class Team_Carousel extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-			// get our input from the widget settings.
-			$settings = $this->get_settings_for_display();		
-			$wb_teams_section_heading_show = $settings['wb_teams_section_heading_show'];
-			$wb_team_carousels = $settings['wb_team_carousels'];
-			$wb_team_carousels_items = $settings['wb_team_carousel_number'];
-			$wb_team_carousels_arrows = $settings['wb_team_carousel_arrows'];
-			$wb_team_carousels_loops = $settings['wb_team_carousel_loop'];
-			$wb_team_carousels_pause = $settings['wb_team_carousel_pause'];
-			$wb_team_carousels_autoplay = $settings['wb_team_carousel_autoplay'];
-			$wb_team_carousels_autoplay_speed = $settings['wb_team_carousel_autoplay_speed'];
-			$wb_team_carousels_autoplay_animation = $settings['wb_team_carousel_autoplay_animation'];
-			$wb_team_carousel_bg_pattern = $settings['wb_team_carousel_bg_pattern'];
-
-			$team_pattern_url = '';
-			switch ($wb_team_carousel_bg_pattern) {
-				case 'team-pattern-1':
-					$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-2.svg';
-					break;
-				case 'team-pattern-2':
-					$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-1.svg';
-					break;
-				default:
-					$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-3.svg';
-					break;
-			}
-		
-       	?>
-
-		
-
-<?php if(isset($wb_team_carousel_bg_pattern) && $wb_team_carousel_bg_pattern !== 'team-pattern-none' && isset($team_pattern_url)) { ?>
-							<style>								
-								.team-bg{
-									background-image: url('<?php echo esc_url($team_pattern_url);?>');
-								}
-							</style>
-							<?php } ?>
-
-		<?php if ($wb_teams_section_heading_show === 'yes') {	 	
-			$wb_teams_section_subheading_show = $settings['wb_teams_section_subheading_show'];
-			$wb_teams_section_subheading = $settings['wb_teams_section_subheading'];
-			$wb_section_heading_separator_variation = $settings['wb_section_heading_separator_variation'];
-			$wb_teams_section_heading = $settings['wb_teams_section_heading'];
-			$wb_teams_section_heading_tag = $settings['wb_teams_section_heading_tag'];
-			$wb_teams_section_desc_show = $settings['wb_teams_section_desc_show'];
-			$wb_teams_section_desc = $settings['wb_teams_section_desc'];
-		?>			
+		// Get input from the widget settings.
+		$settings = $this->get_settings_for_display();        
+	
+		// Sanitize and escape settings values before using them.
+		$wb_teams_section_heading_show = isset($settings['wb_teams_section_heading_show']) ? $settings['wb_teams_section_heading_show'] : '';
+		$wb_team_carousels = isset($settings['wb_team_carousels']) ? $settings['wb_team_carousels'] : [];
+		$wb_team_carousels_items = isset($settings['wb_team_carousel_number']) ? $settings['wb_team_carousel_number'] : 3; // Default to 3 items
+		$wb_team_carousels_arrows = isset($settings['wb_team_carousel_arrows']) ? $settings['wb_team_carousel_arrows'] : 'no';
+		$wb_team_carousels_loops = isset($settings['wb_team_carousel_loop']) ? $settings['wb_team_carousel_loop'] : 'no';
+		$wb_team_carousels_pause = isset($settings['wb_team_carousel_pause']) ? $settings['wb_team_carousel_pause'] : 'no';
+		$wb_team_carousels_autoplay = isset($settings['wb_team_carousel_autoplay']) ? $settings['wb_team_carousel_autoplay'] : 'no';
+		$wb_team_carousels_autoplay_speed = isset($settings['wb_team_carousel_autoplay_speed']) ? $settings['wb_team_carousel_autoplay_speed'] : 5000;
+		$wb_team_carousels_autoplay_animation = isset($settings['wb_team_carousel_autoplay_animation']) ? $settings['wb_team_carousel_autoplay_animation'] : '';
+		$wb_team_carousel_bg_pattern = isset($settings['wb_team_carousel_bg_pattern']) ? $settings['wb_team_carousel_bg_pattern'] : 'team-pattern-none';
+	
+		// Set default background pattern URL based on selection.
+		$team_pattern_url = '';
+		switch ($wb_team_carousel_bg_pattern) {
+			case 'team-pattern-1':
+				$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-2.svg';
+				break;
+			case 'team-pattern-2':
+				$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-1.svg';
+				break;
+			case 'team-pattern-none':
+				$team_pattern_url = ''; // No background
+				break;
+			default:
+				$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-3.svg';
+				break;
+		}
+	
+		// Output the background pattern if applicable.
+		if (!empty($team_pattern_url)) {
+			?>
+			<style>                                
+				.team-bg {
+					background-image: url('<?php echo esc_url($team_pattern_url); ?>');
+				}
+			</style>
+			<?php
+		}
+	
+		// Render the section heading if needed.
+		if ($wb_teams_section_heading_show === 'yes') {
+			$wb_teams_section_subheading_show = isset($settings['wb_teams_section_subheading_show']) ? $settings['wb_teams_section_subheading_show'] : '';
+			$wb_teams_section_subheading = isset($settings['wb_teams_section_subheading']) ? $settings['wb_teams_section_subheading'] : '';
+			$wb_section_heading_separator_variation = isset($settings['wb_section_heading_separator_variation']) ? $settings['wb_section_heading_separator_variation'] : '';
+			$wb_teams_section_heading = isset($settings['wb_teams_section_heading']) ? $settings['wb_teams_section_heading'] : '';
+			$wb_teams_section_heading_tag = isset($settings['wb_teams_section_heading_tag']) ? $settings['wb_teams_section_heading_tag'] : 'h3';
+			$wb_teams_section_desc_show = isset($settings['wb_teams_section_desc_show']) ? $settings['wb_teams_section_desc_show'] : '';
+			$wb_teams_section_desc = isset($settings['wb_teams_section_desc']) ? $settings['wb_teams_section_desc'] : '';
+			?>            
 			<div class="section-title service-title">
-				<?php if($wb_teams_section_subheading_show == 'yes') {
-					?>
-						<span class="<?php echo esc_attr($wb_section_heading_separator_variation); ?> section-subheading"><?php echo esc_html($wb_teams_section_subheading);?></span>
-					<?php 
-				} ?>
-				<<?php echo esc_attr($wb_teams_section_heading_tag); ?>  class="section-heading"><?php echo esc_html($wb_teams_section_heading);?></<?php echo esc_attr($wb_teams_section_heading_tag); ?>>
+				<?php if ($wb_teams_section_subheading_show === 'yes') { ?>
+					<span class="<?php echo esc_attr($wb_section_heading_separator_variation); ?> section-subheading"><?php echo esc_html($wb_teams_section_subheading); ?></span>
+				<?php } ?>
+				<<?php echo esc_attr($wb_teams_section_heading_tag); ?> class="section-heading"><?php echo esc_html($wb_teams_section_heading); ?></<?php echo esc_attr($wb_teams_section_heading_tag); ?>>
 				
-				<?php if($wb_teams_section_desc_show == 'yes'){
-					?>
-						<p><?php echo wp_kses_post($wb_teams_section_desc);?></p>
-					<?php 
-				} ?>
-
+				<?php if ($wb_teams_section_desc_show === 'yes') { ?>
+					<p><?php echo wp_kses_post($wb_teams_section_desc); ?></p>
+				<?php } ?>
 			</div>
-		<?php } ?>
-	   
-	   <div class="team-carousel owl-carousel <?php echo $wb_team_carousels_arrows === 'yes' ? 'carousel-top-arrows' : ''; ?> <?php echo $wb_teams_section_heading_show === 'yes' ? 'heading-top' : ''; ?>" 
-	   		team-items="<?php echo esc_attr( $wb_team_carousels_items ); ?>" 
-			team-arrows= "<?php echo esc_attr( $wb_team_carousels_arrows );?>" 
-			team-loops="<?php echo esc_attr( $wb_team_carousels_loops ); ?>" 
-			team-pause="<?php echo esc_attr( $wb_team_carousels_pause ); ?>" team-autoplay="<?php echo esc_attr( $wb_team_carousels_autoplay ); ?>" team-autoplay-speed="<?php echo esc_attr( $wb_team_carousels_autoplay_speed ); ?>" 
-			team-autoplay-animation="<?php echo esc_attr( $wb_team_carousels_autoplay_animation ); ?>">
-			<?php 
-				if($wb_team_carousels) {
-					foreach($wb_team_carousels as $team){
-						$team_image = $team['wb_team_carousel_image']['url'];
-						$team_name = $team['wb_team_carousel_name'];
-						$team_desgination = $team['wb_team_carousel_designation'];
-						$wb_team_carousel_fb_url = $team['wb_team_carousel_fb_url']['url'];
-						$wb_team_carousel_tw_url = $team['wb_team_carousel_tw_url']['url'];
-						$wb_team_carousel_ln_url = $team['wb_team_carousel_ln_url']['url'];
-						$wb_team_carousel_insta_url = $team['wb_team_carousel_insta_url']['url'];
-						?>
-							<div class="single-team">
-								<img decoding="async" class="team-img" src="<?php echo esc_url($team_image); ?>" alt="<?php echo esc_attr($team_name) ;?>">
-								<div class="team-bg">
-								<div class="team-content">
-									<h4 class="team-name"><?php echo esc_html($team_name) ;?></h4>
-									<p class="team-desg"><?php echo esc_html($team_desgination) ;?></p>
-										<div class="team-social">
-											<?php 
-												if($wb_team_carousel_fb_url) {
-													?>
-														<a href="<?php echo esc_url($wb_team_carousel_fb_url);?>"><i class="fa fa-facebook-square"></i></a>
-													<?php
-												}
-											?>
-
-											<?php 
-												if($wb_team_carousel_tw_url) {
-													?>
-														<a href="<?php echo esc_url($wb_team_carousel_tw_url);?>"><i class="fa fa-twitter-square"></i></a>
-													<?php
-												}
-											?>
-
-											<?php 
-												if($wb_team_carousel_ln_url) {
-													?>
-														<a href="<?php echo esc_url($wb_team_carousel_ln_url);?>"><i class="fa fa-linkedin-square"></i></a>
-													<?php
-												}
-											?>
-
-											<?php 
-												if($wb_team_carousel_insta_url) {
-													?>
-														<a href="<?php echo esc_url($wb_team_carousel_insta_url);?>"><i class="fa fa-instagram"></i></a>
-													<?php
-												}
-											?>
-										</div>
-									</div>
+			<?php
+		}
+	
+		// Render the team carousel if there are items.
+		if (!empty($wb_team_carousels)) {
+			?>
+			<div class="team-carousel owl-carousel <?php echo esc_attr($wb_team_carousels_arrows === 'yes' ? 'carousel-top-arrows' : ''); ?> <?php echo esc_attr($wb_teams_section_heading_show === 'yes' ? 'heading-top' : ''); ?>" 
+				team-items="<?php echo esc_attr($wb_team_carousels_items); ?>" 
+				team-arrows="<?php echo esc_attr($wb_team_carousels_arrows); ?>" 
+				team-loops="<?php echo esc_attr($wb_team_carousels_loops); ?>" 
+				team-pause="<?php echo esc_attr($wb_team_carousels_pause); ?>" 
+				team-autoplay="<?php echo esc_attr($wb_team_carousels_autoplay); ?>" 
+				team-autoplay-speed="<?php echo esc_attr($wb_team_carousels_autoplay_speed); ?>" 
+				team-autoplay-animation="<?php echo esc_attr($wb_team_carousels_autoplay_animation); ?>">
+				
+				<?php
+				foreach ($wb_team_carousels as $team) {
+					$team_image = isset($team['wb_team_carousel_image']['url']) ? esc_url($team['wb_team_carousel_image']['url']) : '';
+					$team_name = isset($team['wb_team_carousel_name']) ? esc_html($team['wb_team_carousel_name']) : '';
+					$team_designation = isset($team['wb_team_carousel_designation']) ? esc_html($team['wb_team_carousel_designation']) : '';
+	
+					$social_links = [
+						'fb_url' => 'fa-facebook-square',
+						'tw_url' => 'fa-twitter-square',
+						'ln_url' => 'fa-linkedin-square',
+						'insta_url' => 'fa-instagram',
+					];
+					?>
+					<div class="single-team">
+						<?php if ($team_image) { ?>
+							<img decoding="async" loading="lazy" class="team-img" src="<?php echo esc_url($team_image); ?>" alt="<?php echo esc_attr($team_name); ?>">
+						<?php } ?>
+						<div class="team-bg">
+							<div class="team-content">
+								<h4 class="team-name"><?php echo esc_html($team_name); ?></h4>
+								<p class="team-desg"><?php echo esc_html($team_designation); ?></p>
+								<div class="team-social">
+									<?php
+									foreach ($social_links as $key => $icon) {
+										$url = isset($team["wb_team_carousel_{$key}"]['url']) ? esc_url($team["wb_team_carousel_{$key}"]['url']) : '';
+										if ($url) {
+											echo '<a href="' . esc_url($url) . '"><i class="fa ' . esc_attr($icon) . '"></i></a>';
+										}
+									}
+									?>
 								</div>
 							</div>
-						<?php 
-					}
+						</div>
+					</div>
+					<?php
 				}
-			?>
-	   </div>
-       <?php
-	}
+				?>
+			</div>
+			<?php
+		}
+	}	
 }

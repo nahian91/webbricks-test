@@ -375,8 +375,14 @@ class Price extends Widget_Base {
 		 $this->add_control( 
 			'wb_price_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -829,16 +835,20 @@ class Price extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		// get our input from the widget settings.
-		$settings = $this->get_settings_for_display();		
-		$wb_price_heading = $settings['wb_price_heading'];
-		$wb_price_show_ribbon = $settings['wb_price_show_ribbon'];
-		$wb_price_ribbon_text = $settings['wb_price_ribbon_text'];
-		$wb_price_feature = $settings['wb_price_feature'];
-		$wb_price_amount = $settings['wb_price_amount'];
-		$wb_price_link_show = $settings['wb_price_link_show'];
-		$wb_price_bg_pattern = $settings['wb_price_bg_pattern'];
-
+		// Get our input from the widget settings.
+		$settings = $this->get_settings_for_display();
+	
+		// Sanitize settings to avoid unsafe data
+		$wb_price_heading = isset($settings['wb_price_heading']) ? sanitize_text_field($settings['wb_price_heading']) : '';
+		$wb_price_show_ribbon = isset($settings['wb_price_show_ribbon']) ? sanitize_text_field($settings['wb_price_show_ribbon']) : 'no';
+		$wb_price_ribbon_text = isset($settings['wb_price_ribbon_text']) ? sanitize_text_field($settings['wb_price_ribbon_text']) : '';
+		$wb_price_feature = isset($settings['wb_price_feature']) ? $settings['wb_price_feature'] : [];
+		$wb_price_amount = isset($settings['wb_price_amount']) ? sanitize_text_field($settings['wb_price_amount']) : '';
+		$wb_price_link_show = isset($settings['wb_price_link_show']) ? sanitize_text_field($settings['wb_price_link_show']) : 'no';
+		$wb_price_link = isset($settings['wb_price_link']['url']) ? esc_url($settings['wb_price_link']['url']) : '';
+		$wb_price_bg_pattern = isset($settings['wb_price_bg_pattern']) ? sanitize_text_field($settings['wb_price_bg_pattern']) : '';
+	
+		// Set price pattern URL based on user input
 		$price_pattern_url = '';
 		switch ($wb_price_bg_pattern) {
 			case 'price-pattern-1':
@@ -854,60 +864,56 @@ class Price extends Widget_Base {
 				$price_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/price-pattern.svg';
 				break;
 		}
-		
-       ?>
+		?>
 		<!-- Price Start Here -->
 		<div class="price">
 			<div class="price-heading">
-				<h4><?php echo esc_html($wb_price_heading);?></h4>
-				<?php if($wb_price_show_ribbon == 'yes') {
-					?>
-						<span><?php echo esc_attr($wb_price_ribbon_text);?></span>
-					<?php
-				} ?>
-				
+				<h4><?php echo esc_html($wb_price_heading); ?></h4>
+				<?php if ($wb_price_show_ribbon === 'yes') { ?>
+					<span><?php echo esc_html($wb_price_ribbon_text); ?></span>
+				<?php } ?>
 			</div>
+	
 			<div class="price-feature">
 				<?php
-				if($wb_price_feature) {
-					foreach($wb_price_feature as $feature) {
-						$feature_icon_color = $feature['wb_price_feature_icon_color'];
-						$feature_icon = $feature['wb_price_feature_icon']['value'];
-						$feature_name = $feature['wb_price_feature_name'];
+				if ($wb_price_feature) {
+					foreach ($wb_price_feature as $feature) {
+						$feature_icon_color = isset($feature['wb_price_feature_icon_color']) ? esc_attr($feature['wb_price_feature_icon_color']) : '';
+						$feature_icon = isset($feature['wb_price_feature_icon']['value']) ? esc_attr($feature['wb_price_feature_icon']['value']) : '';
+						$feature_name = isset($feature['wb_price_feature_name']) ? esc_html($feature['wb_price_feature_name']) : '';
 				?>
-					<span><i style="color: <?php echo esc_attr($feature_icon_color);?>" class="<?php echo esc_attr($feature_icon);?>"></i> <?php echo esc_html($feature_name);?></span>
+						<span>
+							<i style="color: <?php echo esc_attr($feature_icon_color); ?>" class="<?php echo esc_attr($feature_icon); ?>"></i> 
+							<?php echo esc_html($feature_name); ?>
+						</span>
 				<?php
 					}
 				}
 				?>
 			</div>
-
-			<?php if(isset($wb_price_bg_pattern) && $wb_price_bg_pattern !== 'price-pattern-none' && isset($price_pattern_url)) { ?>
+	
+			<?php if ($wb_price_bg_pattern !== 'price-pattern-none' && !empty($price_pattern_url)) { ?>
 			<style>
-				.price-btn{
+				.price-btn {
 					background-image: url('<?php echo esc_url($price_pattern_url); ?>');
 				}
 			</style>
 			<?php } ?>
-
+	
 			<div class="price-btn">
-				<span><?php echo esc_html($wb_price_amount);?></span>
+				<span><?php echo esc_html($wb_price_amount); ?></span>
 				<?php 
-					if($wb_price_link_show == 'yes') {
-						$wb_price_link = $settings['wb_price_link']['url'];
-						?>
-							<a href="<?php echo esc_url($wb_price_link);?>" target="_blank">
-								<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
-								</svg>
-							</a>
-						<?php 
-					}
+				if ($wb_price_link_show === 'yes' && !empty($wb_price_link)) {
 				?>
-				
+					<a href="<?php echo esc_url($wb_price_link); ?>" target="_blank" rel="noopener noreferrer">
+						<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+							<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
+						</svg>
+					</a>
+				<?php } ?>
 			</div>
-		</div>			
+		</div>
 		<!-- Price End Here -->
-       <?php
-	}
+		<?php
+	}	
 }

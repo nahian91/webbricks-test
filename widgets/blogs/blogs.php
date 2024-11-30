@@ -260,8 +260,14 @@ class Blogs extends Widget_Base {
 		 $this->add_control( 
 			'wb_blog_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -389,6 +395,27 @@ class Blogs extends Widget_Base {
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
+			]
+		);
+
+		// Section Heading Separator Style
+		$this->add_control(
+			'wp_blog_title_tag',
+			[
+				'label' => __( 'Html Tag', 'webbricks-addons' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'webbricks-addons' ),
+					'h2' => __( 'H2', 'webbricks-addons' ),
+					'h3' => __( 'H3', 'webbricks-addons' ),
+					'h4' => __( 'H4', 'webbricks-addons' ),
+					'h5' => __( 'H5', 'webbricks-addons' ),
+					'h6' => __( 'H6', 'webbricks-addons' ),
+					'p' => __( 'P', 'webbricks-addons' ),
+					'span' => __( 'Span', 'webbricks-addons' ),
+					'div' => __( 'Div', 'webbricks-addons' ),
+				],
+				'default' => 'h3',
 			]
 		);
 
@@ -665,87 +692,88 @@ class Blogs extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		// get our input from the widget settings.
+		// Get input from widget settings
 		$settings = $this->get_settings_for_display();
-		$wb_blog_number = $settings['wb_blog_number'];
-		$wb_blog_order = $settings['wb_blog_order'];
+		$wp_blog_title_tag = $settings['wp_blog_title_tag'];
+		$wb_blog_number = isset($settings['wb_blog_number']) ? $settings['wb_blog_number'] : 5;
+		$wb_blog_order = isset($settings['wb_blog_order']) ? $settings['wb_blog_order'] : 'DESC';
 		$wb_blog_orderby = $settings['wb_blog_orderby'];
 		$wb_blog_include_categories = $settings['wb_blog_include_categories'];
-		$wb_blog_cat_visibility = $settings['wb_blog_cat_visibility'];
-		$wb_blog_date_visibility = $settings['wb_blog_date_visibility'];
-		$wb_blog_excerpt_visibility = $settings['wb_blog_excerpt_visibility'];
+		$wb_blog_cat_visibility = isset($settings['wb_blog_cat_visibility']) && $settings['wb_blog_cat_visibility'] === 'yes';
+		$wb_blog_date_visibility = isset($settings['wb_blog_date_visibility']) && $settings['wb_blog_date_visibility'] === 'yes';
+		$wb_blog_excerpt_visibility = isset($settings['wb_blog_excerpt_visibility']) && $settings['wb_blog_excerpt_visibility'] === 'yes';
 		$wb_blog_image_display = $settings['wb_blog_image_display'];
-
-		?>
-			<style>
-				.blog-img{
-					background-size: <?php echo esc_attr($wb_blog_image_display); ?>
-				}
-			</style>
-		<?php 
-
-		$args = array(
+	
+		// Validate blog title tag
+		$valid_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
+		if (!in_array($wp_blog_title_tag, $valid_tags)) {
+			$wp_blog_title_tag = 'h2'; // Default to h2 if invalid tag
+		}
+	
+		// Query the posts
+		$args = [
 			'posts_per_page' => $wb_blog_number,
 			'post_type' => 'post',
 			'post_status' => 'publish',
 			'order' => $wb_blog_order,
 			'orderby' => $wb_blog_orderby,
-			'cat' => $wb_blog_include_categories,
 			'ignore_sticky_posts' => 1,
-		);
+		];
+	
+		if (!empty($wb_blog_include_categories)) {
+			$args['cat'] = $wb_blog_include_categories;
+		}
+	
 		$query = new \WP_Query($args);
-		
-        ?>
+		?>
 		<!-- Blog Start Here -->
 		<section class="blog">
 			<div class="wb-grid-row">
-				<?php 
-					if ($query->have_posts()) :
-					while ($query->have_posts()) : $query->the_post(); 					
-				?>
-				<div class="<?php echo esc_attr($this->get_grid_classes( $settings )); ?> wb-grid-tablet-6 wb-grid-mobile-12">
-					<div class="single-blog">
-						<div class="blog-content">
-							<div class="blog-meta">
-								<?php
-									if($wb_blog_cat_visibility == 'yes') {
-										the_category(', ');
-									}
-									if($wb_blog_date_visibility == 'yes') {
+				<?php if ($query->have_posts()) : ?>
+					<?php while ($query->have_posts()) : $query->the_post(); ?>
+						<div class="<?php echo esc_attr($this->get_grid_classes($settings)); ?> wb-grid-tablet-6 wb-grid-mobile-12">
+							<div class="single-blog">
+								<div class="blog-content">
+									<div class="blog-meta">
+										<?php
+										if ($wb_blog_cat_visibility) {
+											the_category(', ');
+										}
+										if ($wb_blog_date_visibility) {
+											?>
+											<a class="blog-date" href="<?php echo esc_url(get_the_permalink()); ?>"><?php echo esc_html(get_the_date('j M, y')); ?></a>
+											<?php
+										}
 										?>
-											<a class="blog-date" href="<?php echo esc_url(get_the_permalink());?>"><?php echo get_the_date('j M, y');?></a>
-										<?php 
-									}
-								?>
-							</div>
-							<div class="blog-title">
-								<h4 class="blog-post-title"><a href="<?php echo esc_url(get_the_permalink());?>"><?php the_title();?></a></h4>
-							</div>
-							<?php
-								if($wb_blog_excerpt_visibility == 'yes') {
-									?>
+									</div>
+									<div class="blog-title">
+										<<?php echo esc_attr($wp_blog_title_tag); ?> class="blog-post-title">
+											<a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a>
+										</<?php echo esc_attr($wp_blog_title_tag); ?>>
+									</div>
+									<?php if ($wb_blog_excerpt_visibility) : ?>
 										<div class="blog-excerpt">
-											<?php echo esc_attr(substr(get_the_excerpt(), 0, 95));?>
+											<?php echo esc_html(wp_trim_words(get_the_excerpt(), 20, '...')); ?>
 										</div>
-									<?php 
-								}
-							?>							
+									<?php endif; ?>
+								</div>
+								<?php
+								$thumbnail_url = get_the_post_thumbnail_url() ?: 'default-image.jpg';
+								?>
+								<div class="blog-img" style="background-image: url('<?php echo esc_url($thumbnail_url); ?>');">
+									<a href="<?php echo esc_url(get_the_permalink()); ?>" class="icon-border" aria-label="<?php the_title_attribute(); ?>">
+										<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M5.34245 16.4678L5.33331 16.3321C5.33331 15.8258 5.70951 15.4074 6.19762 15.3413L6.33331 15.3321L23.2613 15.3333L18.9664 11.0407C18.6113 10.6858 18.5788 10.1302 18.869 9.73859L18.9658 9.62646C19.3206 9.27126 19.8762 9.23872 20.2678 9.52912L20.3801 9.62579L26.3801 15.6209C26.7352 15.9757 26.7677 16.5313 26.4774 16.9229L26.3806 17.035L20.3806 23.0401C19.9902 23.4307 19.3572 23.431 18.9664 23.0407C18.6113 22.6858 18.5788 22.1302 18.869 21.7386L18.9658 21.6264L23.256 17.3333L6.33331 17.3321C5.82705 17.3321 5.40866 16.9559 5.34245 16.4678Z" fill="#111"/>
+										</svg>
+									</a>
+								</div>
+							</div>
 						</div>
-						<div class="blog-img" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url());?>');">
-							<a href="<?php echo esc_url(get_the_permalink());?>" class="icon-border">
-								<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M5.34245 16.4678L5.33331 16.3321C5.33331 15.8258 5.70951 15.4074 6.19762 15.3413L6.33331 15.3321L23.2613 15.3333L18.9664 11.0407C18.6113 10.6858 18.5788 10.1302 18.869 9.73859L18.9658 9.62646C19.3206 9.27126 19.8762 9.23872 20.2678 9.52912L20.3801 9.62579L26.3801 15.6209C26.7352 15.9757 26.7677 16.5313 26.4774 16.9229L26.3806 17.035L20.3806 23.0401C19.9902 23.4307 19.3572 23.431 18.9664 23.0407C18.6113 22.6858 18.5788 22.1302 18.869 21.7386L18.9658 21.6264L23.256 17.3333L6.33331 17.3321C5.82705 17.3321 5.40866 16.9559 5.34245 16.4678Z" fill="#111"/></svg>
-							</a>
-						</div>
-					</div>
-				</div>
-				<?php
-					endwhile;
-					endif; 
-				?>			
+					<?php endwhile; ?>
+				<?php endif; ?>
 			</div>
-		</section>			
+		</section>
 		<!-- Blog End Here -->
-       <?php
-	}
+		<?php
+	}	
 }

@@ -227,55 +227,55 @@ class Filter_Gallery extends Widget_Base {
 				'default' => [
 					[
 						'wb_filter_gallery_image' => [
-							'url' =>'https://getwebbricks.com/wp-content/uploads/2024/01/Gallery-1.webp',
+							'url' => plugins_url( 'assets/img/gallery-1.png', dirname(__FILE__, 2) ),
 						],
 						'wb_filter_gallery_cat' => 'landscape, stars, parks',
 					],
 					[
 						'wb_filter_gallery_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Gallery-2.webp',
+							'url' => plugins_url( 'assets/img/gallery-2.png', dirname(__FILE__, 2) ),
 						],
 						'wb_filter_gallery_cat' => 'cars',
 					],
 					[
 						'wb_filter_gallery_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Gallery-3.webp',
+							'url' => plugins_url( 'assets/img/gallery-3.png', dirname(__FILE__, 2) ),
 						],
 						'wb_filter_gallery_cat' => 'mountain, parks',
 					],
 					[
 						'wb_filter_gallery_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Gallery-4.webp',
+							'url' => plugins_url( 'assets/img/gallery-4.png', dirname(__FILE__, 2) ),
 						],
 						'wb_filter_gallery_cat' => 'seabeach, landscape, cars',
 					],
 					[
 						'wb_filter_gallery_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Gallery-5.webp',
+							'url' => plugins_url( 'assets/img/gallery-5.png', dirname(__FILE__, 2) ),
 						],
 						'wb_filter_gallery_cat' => 'parks',
 					],
 					[
 						'wb_filter_gallery_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Gallery-6.webp',
+							'url' => plugins_url( 'assets/img/gallery-6.png', dirname(__FILE__, 2) ),
 						],
 						'wb_filter_gallery_cat' => 'roadtrips, landscape, mountain',
 					],
 					[
 						'wb_filter_gallery_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Gallery-7.webp',
+							'url' => plugins_url( 'assets/img/gallery-7.png', dirname(__FILE__, 2) ),
 						],
 						'wb_filter_gallery_cat' => 'stars',
 					],
 					[
 						'wb_filter_gallery_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Gallery-8.webp',
+							'url' => plugins_url( 'assets/img/gallery-8.png', dirname(__FILE__, 2) ),
 						],
 						'wb_filter_gallery_cat' => 'stars, cars, parks',
 					],
 					[
 						'wb_filter_gallery_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Gallery-9.webp',
+							'url' => plugins_url( 'assets/img/gallery-9.png', dirname(__FILE__, 2) ),
 						],
 						'wb_filter_gallery_cat' => 'roadtrips, cars, parks',
 					]
@@ -482,13 +482,14 @@ class Filter_Gallery extends Widget_Base {
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$wb_filter_gallery_cats = $settings['wb_filter_gallery_cats'];
-		$wb_filter_gallerys = $settings['wb_filter_gallerys'];
-		$wb_filter_gallery_menu_show = $settings['wb_filter_gallery_menu_show'];
-		?>
-		
-		<?php if ($wb_filter_gallery_menu_show == 'yes') : ?>
-			<!-- Filter Gallery Start Here -->
+	
+		// Get settings with defaults to avoid undefined index issues
+		$wb_filter_gallery_cats = $settings['wb_filter_gallery_cats'] ?? [];
+		$wb_filter_gallerys = $settings['wb_filter_gallerys'] ?? [];
+		$wb_filter_gallery_menu_show = $settings['wb_filter_gallery_menu_show'] ?? 'no';
+	
+		if ($wb_filter_gallery_menu_show === 'yes') : ?>
+			<!-- Filter Gallery Start -->
 			<div class="filter-gallery">
 				<div class="grid grid-active">
 					<div class="col-12">
@@ -496,20 +497,18 @@ class Filter_Gallery extends Widget_Base {
 							<button class="active" data-filter="*"><?php esc_html_e('ALL', 'webbricks-addons'); ?></button>
 							<?php
 							$unique_categories = [];
-							if ($wb_filter_gallery_cats) {
-								foreach ($wb_filter_gallery_cats as $cat) {
-									$cat_title = $cat['wb_filter_gallery_cat_name'];
-									$processed_cat = strtolower(str_replace(' ', '', $cat_title));
-									
-									// Check if category has been added to the menu
-									if (!in_array($processed_cat, $unique_categories)) {
-										$unique_categories[] = $processed_cat;
-										?>
-										<button data-filter=".<?php echo esc_attr($processed_cat); ?>" class="">
-											<?php echo esc_attr(ucwords($cat_title)); ?>
-										</button>
-										<?php
-									}
+							foreach ($wb_filter_gallery_cats as $cat) {
+								$cat_title = $cat['wb_filter_gallery_cat_name'] ?? '';
+								$processed_cat = strtolower(str_replace(' ', '', $cat_title));
+	
+								// Ensure each category is unique in the menu
+								if (!in_array($processed_cat, $unique_categories)) {
+									$unique_categories[] = $processed_cat;
+									?>
+									<button data-filter=".<?php echo esc_attr($processed_cat); ?>">
+										<?php echo esc_html(ucwords($cat_title)); ?>
+									</button>
+									<?php
 								}
 							}
 							?>
@@ -521,34 +520,31 @@ class Filter_Gallery extends Widget_Base {
 	
 		<div class="wb-grid-row grid-active">
 			<?php
-			if ($wb_filter_gallerys) {
-				foreach ($wb_filter_gallerys as $image) {
-					$filter_image = $image['wb_filter_gallery_image']['url'];
-					$categories = explode(',', $image['wb_filter_gallery_cat']);
-					?>
-					<div class="<?php echo esc_attr($this->get_grid_classes($settings)); ?>  wb-grid-tablet-6 wb-grid-mobile-12 grid-item
-					<?php
-					foreach ($categories as $cat) {
-						$processed_cat = strtolower(str_replace([' ', ',', ' '], '', $cat));
-						echo esc_attr($processed_cat) . ' ';
-					}
-					?>">
-						<div class=" single-filter-gallery">
-							<img src="<?php echo esc_url($filter_image); ?>">
-							<div class="image-overlay">
-								<a href="<?php echo esc_url($filter_image); ?>" class="elementor-lightbox">  
-									<img src="<?php echo esc_url( WBEA_ASSETS_URL . 'img/icon-zoom.svg' ); ?>" alt="">
-								</a>
-							</div>
+			foreach ($wb_filter_gallerys as $image) {
+				$filter_image = $image['wb_filter_gallery_image']['url'] ?? '';
+				$categories = explode(',', $image['wb_filter_gallery_cat'] ?? '');
+	
+				// Build CSS classes for categories
+				$category_classes = '';
+				foreach ($categories as $cat) {
+					$processed_cat = strtolower(str_replace([' ', ',', ' '], '', $cat));
+					$category_classes .= esc_attr($processed_cat) . ' ';
+				}
+				?>
+				<div class="<?php echo esc_attr($this->get_grid_classes($settings)); ?> wb-grid-tablet-6 wb-grid-mobile-12 grid-item <?php echo esc_attr(trim($category_classes)); ?>">
+					<div class="single-filter-gallery">
+						<img src="<?php echo esc_url($filter_image); ?>" alt="<?php esc_attr_e('Gallery Image', 'webbricks-addons'); ?>">
+						<div class="image-overlay">
+							<a href="<?php echo esc_url($filter_image); ?>" class="elementor-lightbox">
+								<img src="<?php echo esc_url(WBEA_ASSETS_URL . 'img/icon-zoom.svg'); ?>" alt="<?php esc_attr_e('Zoom Icon', 'webbricks-addons'); ?>">
+							</a>
 						</div>
 					</div>
-					<?php
-				}
-			}
-			?>
+				</div>
+			<?php } ?>
 		</div>
-		<!-- Filter Gallery End Here -->
-	<?php
+		<!-- Filter Gallery End -->
+		<?php
 	}	
 }
 	

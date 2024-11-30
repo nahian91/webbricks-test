@@ -278,8 +278,14 @@ class Business_Hours extends Widget_Base {
 		 $this->add_control( 
 			'wb_business_hours_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -507,34 +513,49 @@ class Business_Hours extends Widget_Base {
 	 */
 	protected function render() {
 		// Get widget settings for display.
-		$settings = $this->get_settings_for_display();		
-		$wb_business_hours_heading_show_btn = $settings['wb_business_hours_heading_show_btn'];
-		$wb_business_hours_list = $settings['wb_business_hours_list'];		
-	?>
-	
-		<!-- Business Hours Start Here -->			
+		$settings = $this->get_settings_for_display();
+		
+		// Sanitize and escape settings for display.
+		$wb_business_hours_heading_show_btn = !empty($settings['wb_business_hours_heading_show_btn']) ? sanitize_text_field($settings['wb_business_hours_heading_show_btn']) : '';
+		$wb_business_hours_list = isset($settings['wb_business_hours_list']) ? $settings['wb_business_hours_list'] : [];
+		
+		// Allowed heading tags.
+		$allowed_heading_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+		
+		?>
+		<!-- Business Hours Start Here -->          
 		<div class="business-hours">
-			<?php if ($wb_business_hours_heading_show_btn == 'yes') : ?>
-				<?php $wb_business_hours_heading = $settings['wb_business_hours_heading']; ?>
-				<?php $wb_business_hours_heading_tag = $settings['wb_business_hours_heading_tag']; ?>
-				<<?php echo esc_attr($wb_business_hours_heading_tag); ?> class="business-hours-heading"><?php echo esc_html($wb_business_hours_heading); ?></<?php echo esc_attr($wb_business_hours_heading_tag); ?>>
+			<?php if ($wb_business_hours_heading_show_btn === 'yes') : ?>
+				<?php
+				// Sanitize the heading text and tag for output.
+				$wb_business_hours_heading = !empty($settings['wb_business_hours_heading']) ? sanitize_text_field($settings['wb_business_hours_heading']) : '';
+				$wb_business_hours_heading_tag = isset($settings['wb_business_hours_heading_tag']) && in_array(sanitize_key($settings['wb_business_hours_heading_tag']), $allowed_heading_tags, true)
+					? sanitize_key($settings['wb_business_hours_heading_tag'])
+					: 'h2';
+				?>
+				<<?php echo esc_attr($wb_business_hours_heading_tag); ?> class="business-hours-heading">
+					<?php echo esc_html($wb_business_hours_heading); ?>
+				</<?php echo esc_attr($wb_business_hours_heading_tag); ?>>
 			<?php endif; ?>
-	
-			<?php if ($wb_business_hours_list) : ?>
+		
+			<?php if (!empty($wb_business_hours_list)) : ?>
 				<ul class="business-hours-list">
-					<?php foreach ($wb_business_hours_list as $list) : ?>
-						<?php
-						$business_open_close_select = $list['wb_business_open_close_select'];
-						$business_day = $list['wb_business_hours_day'];
-						$wb_business_close_title = $list['wb_business_close_title'];
-						$business_duration = $list['wb_business_hours_duration'];
-						?>								
+					<?php foreach ($wb_business_hours_list as $list) :
+						// Sanitize each field from the list.
+						$business_open_close_select = !empty($list['wb_business_open_close_select']) ? sanitize_text_field($list['wb_business_open_close_select']) : '';
+						$business_day = !empty($list['wb_business_hours_day']) ? sanitize_text_field($list['wb_business_hours_day']) : '';
+						$wb_business_close_title = !empty($list['wb_business_close_title']) ? sanitize_text_field($list['wb_business_close_title']) : '';
+						$business_duration = !empty($list['wb_business_hours_duration']) ? sanitize_text_field($list['wb_business_hours_duration']) : '';
+						
+						// Validate if the 'open' or 'close' value is valid.
+						$business_open_close_select = in_array($business_open_close_select, ['Open', 'Close'], true) ? $business_open_close_select : '';
+						?>
 						<li class="<?php echo esc_attr($business_open_close_select === 'Close' ? 'close' : ''); ?>">
 							<span><?php echo esc_html($business_day); ?></span>
 							<p>
 								<span><?php echo esc_html($business_duration); ?></span>
 								<?php if ($business_open_close_select === 'Open') : ?>
-									<?php echo '&nbsp;' . esc_html($business_open_close_select); ?>
+									&nbsp;<?php echo esc_html($business_open_close_select); ?>
 								<?php else : ?>
 									<?php echo esc_html($wb_business_close_title); ?>
 								<?php endif; ?>
@@ -544,7 +565,7 @@ class Business_Hours extends Widget_Base {
 				</ul>
 			<?php endif; ?>
 		</div>
-		<!-- Business Hours End Here -->	
-	<?php
+		<!-- Business Hours End Here -->  
+		<?php
 	}	
 }

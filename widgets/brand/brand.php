@@ -273,7 +273,7 @@ class Brand extends Widget_Base {
 				'label' => esc_html__( 'Choose Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Logo-1.webp',
+					'url' => plugins_url( 'assets/img/logo-1.png', dirname(__FILE__, 2) ),
 				]
 			]
 		);
@@ -304,7 +304,7 @@ class Brand extends Widget_Base {
 					[
 						'wb_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Logo-1.webp',
+								'url' => plugins_url( 'assets/img/logo-1.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_brand_logo_link' => [
@@ -316,7 +316,7 @@ class Brand extends Widget_Base {
 					[
 						'wb_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Logo-2.webp',
+								'url' => plugins_url( 'assets/img/logo-2.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_brand_logo_link' => [
@@ -328,7 +328,7 @@ class Brand extends Widget_Base {
 					[
 						'wb_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Logo-3.webp',
+								'url' => plugins_url( 'assets/img/logo-3.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_brand_logo_link' => [
@@ -340,7 +340,7 @@ class Brand extends Widget_Base {
 					[
 						'wb_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Logo-4.webp',
+								'url' => plugins_url( 'assets/img/logo-4.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_brand_logo_link' => [
@@ -352,7 +352,7 @@ class Brand extends Widget_Base {
 					[
 						'wb_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Logo-5.webp',
+								'url' => plugins_url( 'assets/img/logo-5.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_brand_logo_link' => [
@@ -364,7 +364,7 @@ class Brand extends Widget_Base {
 					[
 						'wb_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Logo-6.webp',
+								'url' => plugins_url( 'assets/img/logo-6.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_brand_logo_link' => [
@@ -376,7 +376,7 @@ class Brand extends Widget_Base {
 					[
 						'wb_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Logo-7.webp',
+								'url' => plugins_url( 'assets/img/logo-7.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_brand_logo_link' => [
@@ -388,7 +388,7 @@ class Brand extends Widget_Base {
 					[
 						'wb_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Logo-9.webp',
+								'url' => plugins_url( 'assets/img/logo-9.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_brand_logo_link' => [
@@ -400,7 +400,7 @@ class Brand extends Widget_Base {
 					[
 						'wb_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Logo-9.webp',
+								'url' => plugins_url( 'assets/img/logo-8.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_brand_logo_link' => [
@@ -437,8 +437,14 @@ class Brand extends Widget_Base {
 		 $this->add_control( 
 			'wb_brand_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]   
 		);
 		$this->end_controls_section();
 		
@@ -843,64 +849,72 @@ class Brand extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		// get our input from the widget settings.
-		$settings = $this->get_settings_for_display();		
+		// Get our input from the widget settings.
+		$settings = $this->get_settings_for_display();
 		$wb_brand_subheading_show_btn = $settings['wb_brand_subheading_show_btn'];
-		$wb_brand_subheading = $settings['wb_brand_subheading'];
-		$wb_brand_heading = $settings['wb_brand_heading'];
-		$wb_brand_heading_tag = $settings['wb_brand_heading_tag'];
-		$wb_brand_desc = $settings['wb_brand_desc'];
-		$wb_brand_btn_title = $settings['wb_brand_btn_title'];
-		$wb_brand_btn_link = $settings['wb_brand_btn_link']['url'];
-		$wb_brand = $settings['wb_brand'];
-		
-       ?>
+		$wb_brand_subheading = isset($settings['wb_brand_subheading']) ? $settings['wb_brand_subheading'] : '';
+		$wb_brand_heading = isset($settings['wb_brand_heading']) ? $settings['wb_brand_heading'] : '';
+		$wb_brand_heading_tag = isset($settings['wb_brand_heading_tag']) ? $settings['wb_brand_heading_tag'] : 'h2';
+		$wb_brand_desc = isset($settings['wb_brand_desc']) ? $settings['wb_brand_desc'] : '';
+		$wb_brand_btn_title = isset($settings['wb_brand_btn_title']) ? $settings['wb_brand_btn_title'] : '';
+		$wb_brand_btn_link = isset($settings['wb_brand_btn_link']['url']) ? $settings['wb_brand_btn_link']['url'] : '';
+		$wb_brand = isset($settings['wb_brand']) ? $settings['wb_brand'] : [];
+		?>
 		<!-- Brand Start Here -->
 		<section class="brand">
 			<div class="wb-grid-row align-center">
 				<div class="wb-grid-desktop-5 wb-grid-tablet-12 wb-grid-mobile-12">
 					<div class="section-title">
 						<?php 
-							if($wb_brand_subheading_show_btn == 'yes') {
-									$wb_brand_separator_variation = $settings['wb_brand_separator_variation'];
-								?>
-									<span class="<?php echo esc_attr($wb_brand_separator_variation); ?> section-subheading"><?php echo esc_html($wb_brand_subheading);?></span>
-								<?php 
-							}
-						?>	
-						<<?php echo esc_attr($wb_brand_heading_tag);?> class="section-heading"><?php echo esc_html($wb_brand_heading);?></<?php echo esc_attr($wb_brand_heading_tag);?>>
+						if ($wb_brand_subheading_show_btn === 'yes' && !empty($wb_brand_subheading)) {
+							$wb_brand_separator_variation = isset($settings['wb_brand_separator_variation']) ? $settings['wb_brand_separator_variation'] : '';
+						?>
+							<span class="<?php echo esc_attr($wb_brand_separator_variation); ?> section-subheading">
+								<?php echo esc_html($wb_brand_subheading); ?>
+							</span>
+						<?php 
+						}
+						?>
+						<<?php echo esc_attr($wb_brand_heading_tag); ?> class="section-heading">
+							<?php echo esc_html($wb_brand_heading); ?>
+						</<?php echo esc_attr($wb_brand_heading_tag); ?>>
 					</div> <!-- section-heading end here -->
 					<div class="brand-title">
-						<p><?php echo wp_kses_post($wb_brand_desc);?></p>
-						<a href="<?php echo esc_url($wb_brand_btn_link);?>" class="btn-border" target="_blank"><?php echo esc_html($wb_brand_btn_title);?>
-							<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
-							</svg>
-						</a>
+						<p><?php echo wp_kses_post($wb_brand_desc); ?></p>
+						<?php if (!empty($wb_brand_btn_link)) : ?>
+							<a href="<?php echo esc_url($wb_brand_btn_link); ?>" class="btn-border" target="_blank">
+								<?php echo esc_html($wb_brand_btn_title); ?>
+								<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
+								</svg>
+							</a>
+						<?php endif; ?>
 					</div>
 				</div>
 				<div class="wb-grid-desktop-7 wb-grid-tablet-12 wb-grid-mobile-12">
 					<div class="wb-grid-row brand-img">
 						<?php 
-							if($wb_brand) {
-								foreach($wb_brand as $brand) {
-									$brand_img = $brand['wb_brand_logo_img']['url'];
-									$brand_logo_link = $brand['wb_brand_logo_link']['url'];
-								?>
+						if (!empty($wb_brand) && is_array($wb_brand) && count($wb_brand) > 0) {
+							foreach ($wb_brand as $brand) {
+								$brand_img = isset($brand['wb_brand_logo_img']['url']) ? $brand['wb_brand_logo_img']['url'] : '';
+								$brand_logo_link = isset($brand['wb_brand_logo_link']['url']) ? $brand['wb_brand_logo_link']['url'] : '';
+								if ($brand_img && $brand_logo_link) {
+						?>
 								<div class="wb-grid-desktop-4 wb-grid-tablet-4 wb-grid-mobile-12">
 									<a href="<?php echo esc_url($brand_logo_link); ?>">
-										<img src="<?php echo esc_url($brand_img); ?>" alt="">
+										<img src="<?php echo esc_url($brand_img); ?>" alt="<?php echo esc_attr($brand['wb_brand_logo_img']['alt'] ?? 'Brand logo'); ?>">
 									</a>
 								</div>
-								<?php
+						<?php
 								}
 							}
+						}
 						?>
 					</div>
 				</div>
 			</div>
-		</section>			
+		</section>            
 		<!-- Brand End Here -->
-       <?php
-	}
+		<?php
+	}	
 }

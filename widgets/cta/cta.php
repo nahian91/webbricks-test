@@ -107,6 +107,27 @@ class CTA extends Widget_Base {
 				'default' => esc_html__('Let’s Talk Some Business', 'webbricks-addons'),
 			]
 		);
+
+		// CTA Separator Style
+		$this->add_control(
+			'wb_cta_title_tag',
+			[
+				'label' => __( 'Html Tag', 'webbricks-addons' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'webbricks-addons' ),
+					'h2' => __( 'H2', 'webbricks-addons' ),
+					'h3' => __( 'H3', 'webbricks-addons' ),
+					'h4' => __( 'H4', 'webbricks-addons' ),
+					'h5' => __( 'H5', 'webbricks-addons' ),
+					'h6' => __( 'H6', 'webbricks-addons' ),
+					'p' => __( 'P', 'webbricks-addons' ),
+					'span' => __( 'Span', 'webbricks-addons' ),
+					'div' => __( 'Div', 'webbricks-addons' ),
+				],
+				'default' => 'h2',
+			]
+		);
 		
 		// CTA URL
 		$this->add_control(
@@ -139,8 +160,14 @@ class CTA extends Widget_Base {
 		$this->add_control( 
 			'wb_cta_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -272,47 +299,51 @@ class CTA extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-        $settings = $this->get_settings_for_display();
-
-        // Get control values
-        $wb_cta_title = $settings['wb_cta_title'];
-        $wb_cta_url = $settings['wb_cta_url']['url'];
-        $wb_cta_bg_pattern = $settings['wb_cta_bg_pattern'];
-
-        // Generate URL based on selected pattern
-        $cta_pattern_url = '';
-        switch ($wb_cta_bg_pattern) {
-            case 'cta-pattern-1':
-                $cta_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/CTA-1.svg';
-                break;
-            case 'cta-pattern-2':
-                $cta_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/CTA-2.svg';
-                break;
-            default:
-                $cta_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/CTA-1.svg';
-                break;
-        }
-        ?>
-
-		<?php if(isset($wb_cta_bg_pattern) && $wb_cta_bg_pattern !== 'cta-pattern-none' && isset($cta_pattern_url)) { ?>
-        <style>
-            .cta {
-                background-image: url('<?php echo esc_url($cta_pattern_url); ?>');
-            }
-        </style>
-		<?php } ?>
-
-        <!-- CTA Start Here -->
-        <div class="cta">
-            <h4 class="cta-title"><?php echo esc_html($wb_cta_title);?></h4>
-            <a href="<?php echo esc_url($wb_cta_url);?>">
-                <svg width="112" height="71" viewBox="0 0 112 71" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M109.812 40.0312L81.8125 68.0312C79.1875 70.875 74.5938 70.875 71.9688 68.0312C69.125 65.4062 69.125 60.8125 71.9688 58.1875L87.9375 42H7C3.0625 42 0 38.9375 0 35C0 30.8438 3.0625 28 7 28H87.9375L71.9688 12.0312C69.125 9.40625 69.125 4.8125 71.9688 2.1875C74.5938 -0.65625 79.1875 -0.65625 81.8125 2.1875L109.812 30.1875C112.656 32.8125 112.656 37.4062 109.812 40.0312Z" fill="white"/>
-                </svg>
-            </a>
-        </div>
-        <!-- CTA End Here -->
-
-    <?php
-    }
+		$settings = $this->get_settings_for_display();
+	
+		// Get control values
+		$wb_cta_title = isset($settings['wb_cta_title']) ? $settings['wb_cta_title'] : '';
+		$wb_cta_title_tag = isset($settings['wb_cta_title_tag']) ? $settings['wb_cta_title_tag'] : 'h2';
+		$wb_cta_url = isset($settings['wb_cta_url']['url']) ? $settings['wb_cta_url']['url'] : '';
+		$wb_cta_bg_pattern = isset($settings['wb_cta_bg_pattern']) ? $settings['wb_cta_bg_pattern'] : 'cta-pattern-1';
+	
+		// Generate URL based on selected pattern
+		$cta_pattern_url = '';
+		switch ($wb_cta_bg_pattern) {
+			case 'cta-pattern-1':
+				$cta_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/CTA-1.svg';
+				break;
+			case 'cta-pattern-2':
+				$cta_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/CTA-2.svg';
+				break;
+			default:
+				$cta_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/CTA-1.svg';
+				break;
+		}
+		?>
+	
+		<?php if ($cta_pattern_url && $wb_cta_bg_pattern !== 'cta-pattern-none') : ?>
+			<style>
+				.cta {
+					background-image: url('<?php echo esc_url($cta_pattern_url); ?>');
+				}
+			</style>
+		<?php endif; ?>
+	
+		<!-- CTA Start Here -->
+		<div class="cta">
+			<<?php echo esc_attr($wb_cta_title_tag); ?> class="cta-title"><?php echo esc_html($wb_cta_title); ?></<?php echo esc_attr($wb_cta_title_tag); ?>>
+			
+			<?php if (!empty($wb_cta_url)) : ?>
+				<a href="<?php echo esc_url($wb_cta_url); ?>" aria-label="<?php echo esc_attr($wb_cta_title); ?>">
+					<svg width="112" height="71" viewBox="0 0 112 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M109.812 40.0312L81.8125 68.0312C79.1875 70.875 74.5938 70.875 71.9688 68.0312C69.125 65.4062 69.125 60.8125 71.9688 58.1875L87.9375 42H7C3.0625 42 0 38.9375 0 35C0 30.8438 3.0625 28 7 28H87.9375L71.9688 12.0312C69.125 9.40625 69.125 4.8125 71.9688 2.1875C74.5938 -0.65625 79.1875 -0.65625 81.8125 2.1875L109.812 30.1875C112.656 32.8125 112.656 37.4062 109.812 40.0312Z" fill="white"/>
+					</svg>
+				</a>
+			<?php endif; ?>
+		</div>
+		<!-- CTA End Here -->
+	
+	<?php
+	}	
 }

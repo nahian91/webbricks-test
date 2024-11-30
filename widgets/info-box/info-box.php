@@ -134,6 +134,27 @@ class Info_Box extends Widget_Base {
 			]
 		);
 
+		// Section Heading Separator Style
+		$this->add_control(
+			'wb_info_box_title_tag',
+			[
+				'label' => __( 'Html Tag', 'webbricks-addons' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'webbricks-addons' ),
+					'h2' => __( 'H2', 'webbricks-addons' ),
+					'h3' => __( 'H3', 'webbricks-addons' ),
+					'h4' => __( 'H4', 'webbricks-addons' ),
+					'h5' => __( 'H5', 'webbricks-addons' ),
+					'h6' => __( 'H6', 'webbricks-addons' ),
+					'p' => __( 'P', 'webbricks-addons' ),
+					'span' => __( 'Span', 'webbricks-addons' ),
+					'div' => __( 'Div', 'webbricks-addons' ),
+				],
+				'default' => 'h3',
+			]
+		);
+
 		$this->end_controls_section();
 		// end of the Content tab section
 
@@ -273,8 +294,14 @@ class Info_Box extends Widget_Base {
 		$this->add_control( 
 			'wb_info_box_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -681,36 +708,46 @@ class Info_Box extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		// get our input from the widget settings.
-		$settings = $this->get_settings_for_display();		
-		$wb_info_box_icon = $settings['wb_info_box_icon']['value'];
-		$wb_info_box_title = $settings['wb_info_box_title'];
-		$wb_info_box_desc = $settings['wb_info_box_desc'];
-		$wb_info_box_show_btn = $settings['wb_info_box_show_btn'];		
-		$wb_info_box_bg = $settings['wb_info_box_bg']['url'];		
-       ?>
-		<!-- Info Box Start Here -->			
-		<div class="info-box" style="background-image: url('<?php echo esc_url($wb_info_box_bg);?>');">
+		// Get widget settings
+		$settings = $this->get_settings_for_display();  
+	
+		// Sanitize and retrieve settings
+		$wb_info_box_icon = !empty($settings['wb_info_box_icon']['value']) ? $settings['wb_info_box_icon']['value'] : ''; 
+		$wb_info_box_title = !empty($settings['wb_info_box_title']) ? sanitize_text_field($settings['wb_info_box_title']) : ''; 
+		$wb_info_box_title_tag = !empty($settings['wb_info_box_title_tag']) ? sanitize_text_field($settings['wb_info_box_title_tag']) : 'h3'; 
+		$wb_info_box_desc = !empty($settings['wb_info_box_desc']) ? wp_kses_post($settings['wb_info_box_desc']) : ''; 
+		$wb_info_box_show_btn = !empty($settings['wb_info_box_show_btn']) ? $settings['wb_info_box_show_btn'] : ''; 
+		$wb_info_box_bg = !empty($settings['wb_info_box_bg']['url']) ? esc_url($settings['wb_info_box_bg']['url']) : ''; 
+	
+		// Start outputting the Info Box HTML
+		?>
+		<div class="info-box" style="background-image: url('<?php echo esc_url($wb_info_box_bg); ?>');">
 			<div class="info-box-icon">
-				<i aria-hidden="true" class="<?php echo esc_attr($wb_info_box_icon); ?>"></i>
+				<?php if (!empty($wb_info_box_icon)) : ?>
+					<i aria-hidden="true" class="<?php echo esc_attr($wb_info_box_icon); ?>"></i>
+				<?php endif; ?>
 			</div>
 			<div class="info-box-content">
-				<h4 class="info-box-title"><?php echo esc_html($wb_info_box_title);?></h4>
-				<p><?php echo wp_kses_post($wb_info_box_desc);?></p>
-				<?php
-					if($wb_info_box_show_btn === 'yes') {
-						$wb_info_box_btn_title = $settings['wb_info_box_btn_title'];
-						$wb_info_box_btn_link = $settings['wb_info_box_btn_link']['url'];
-						?>
-						<a href="<?php echo esc_url($wb_info_box_btn_link);?>" class="btn-border"><?php echo esc_html($wb_info_box_btn_title);?><svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
-				</svg></a>
+				<<?php echo esc_attr($wb_info_box_title_tag); ?> class="info-box-title">
+					<?php echo esc_html($wb_info_box_title); ?>
+				</<?php echo esc_attr($wb_info_box_title_tag); ?>>
+				<p><?php echo wp_kses_post($wb_info_box_desc); ?></p>
+	
+				<?php if ('yes' === $wb_info_box_show_btn && !empty($settings['wb_info_box_btn_title']) && !empty($settings['wb_info_box_btn_link']['url'])) : ?>
 					<?php
-					}
-				?>
+					// Sanitize and retrieve button title and link
+					$wb_info_box_btn_title = sanitize_text_field($settings['wb_info_box_btn_title']);
+					$wb_info_box_btn_link = esc_url($settings['wb_info_box_btn_link']['url']);
+					?>
+					<a href="<?php echo esc_url($wb_info_box_btn_link); ?>" class="btn-border">
+						<?php echo esc_html($wb_info_box_btn_title); ?>
+						<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
+						</svg>
+					</a>
+				<?php endif; ?>
 			</div>
 		</div>
-		<!-- Info Box End Here -->	
-       <?php
-	}
+		<?php
+	}	
 }

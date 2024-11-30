@@ -191,6 +191,27 @@ class Affiliate_Products extends Widget_Base {
 			]
 		);
 
+		// Section Heading Separator Style
+		$this->add_control(
+			'wb_affiliate_heading_tag',
+			[
+				'label' => __( 'Html Tag', 'webbricks-addons' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'webbricks-addons' ),
+					'h2' => __( 'H2', 'webbricks-addons' ),
+					'h3' => __( 'H3', 'webbricks-addons' ),
+					'h4' => __( 'H4', 'webbricks-addons' ),
+					'h5' => __( 'H5', 'webbricks-addons' ),
+					'h6' => __( 'H6', 'webbricks-addons' ),
+					'p' => __( 'P', 'webbricks-addons' ),
+					'span' => __( 'Span', 'webbricks-addons' ),
+					'div' => __( 'Div', 'webbricks-addons' ),
+				],
+				'default' => 'h2',
+			]
+		);
+
 		$this->end_controls_section();
 
 		// start of the Content tab section
@@ -357,32 +378,32 @@ class Affiliate_Products extends Widget_Base {
 				'default' => [
 					[
 						'wb_affiliate_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/affiliate-1.webp',
+							'url' => plugins_url( 'assets/img/affiliate-1.png', dirname(__FILE__, 2) ),
 						],
 					],
 					[
 						'wb_affiliate_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/affiliate-2.webp',
+							'url' => plugins_url( 'assets/img/affiliate-2.png', dirname(__FILE__, 2) ),
 						],
 					],
 					[
 						'wb_affiliate_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/affiliate-3.webp',
+							'url' => plugins_url( 'assets/img/affiliate-3.png', dirname(__FILE__, 2) ),
 						],
 					],
 					[
 						'wb_affiliate_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/affiliate-4.webp',
+							'url' => plugins_url( 'assets/img/affiliate-4.png', dirname(__FILE__, 2) ),
 						],
 					],
 					[
 						'wb_affiliate_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/affiliate-5.webp',
+							'url' => plugins_url( 'assets/img/affiliate-5.png', dirname(__FILE__, 2) ),
 						],
 					],
 					[
 						'wb_affiliate_image' => [
-							'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/affiliate-6.webp',
+							'url' => plugins_url( 'assets/img/affiliate-6.png', dirname(__FILE__, 2) ),
 						],
 					],
 
@@ -404,8 +425,14 @@ class Affiliate_Products extends Widget_Base {
 		$this->add_control( 
 			'wb_affiliate_products_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -989,80 +1016,85 @@ class Affiliate_Products extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		// get our input from the widget settings.
+		// Get widget settings
 		$settings = $this->get_settings_for_display();
+	
+		// Sanitize and assign settings
 		$wb_affiliate_heading_show_btn = isset($settings['wb_affiliate_heading_show_btn']) ? $settings['wb_affiliate_heading_show_btn'] : '';
 		$wb_affiliate_sub_heading_show_btn = isset($settings['wb_affiliate_sub_heading_show_btn']) ? $settings['wb_affiliate_sub_heading_show_btn'] : '';
-		$wb_affiliate_heading = $settings['wb_affiliate_heading'];
+		$wb_affiliate_heading = isset($settings['wb_affiliate_heading']) ? sanitize_text_field($settings['wb_affiliate_heading']) : '';
+		$wb_affiliate_heading_tag = isset($settings['wb_affiliate_heading_tag']) ? sanitize_key($settings['wb_affiliate_heading_tag']) : 'h3';
 		$wb_affiliate_desc_show_btn = isset($settings['wb_affiliate_desc_show_btn']) ? $settings['wb_affiliate_desc_show_btn'] : '';
-		$affiliate_lists = $settings['wb_affiliate_lists'];
-		$wb_affiliate_show_btn = $settings['wb_affiliate_show_btn'];
-		// $wb_affiliate_column = $settings['wb_affiliate_column']		
-       ?>
+		$wb_affiliate_desc = isset($settings['wb_affiliate_desc']) ? wp_kses_post($settings['wb_affiliate_desc']) : '';
+		$affiliate_lists = isset($settings['wb_affiliate_lists']) ? $settings['wb_affiliate_lists'] : [];
+		$wb_affiliate_show_btn = isset($settings['wb_affiliate_show_btn']) ? $settings['wb_affiliate_show_btn'] : '';
+		$wb_affliate_btn_txt = isset($settings['wb_affliate_btn_txt']) ? sanitize_text_field($settings['wb_affliate_btn_txt']) : '';
+		$wb_affliate_btn_link = isset($settings['wb_affliate_btn_link']['url']) ? esc_url($settings['wb_affliate_btn_link']['url']) : '';
+	
+		?>
 		<!-- Affiliate Programme Start Here -->
-			
 		<div class="wb-grid-row affiliate">
-		<div class="wb-grid-desktop-8 wb-grid-mobile-12">
-		<?php if($wb_affiliate_heading_show_btn === 'yes') { ?>
-			
-			<div class="section-title">
-        <?php if ($wb_affiliate_sub_heading_show_btn === 'yes') :
-            $wb_affiliate_subheading = isset($settings['wb_affiliate_subheading']) ? $settings['wb_affiliate_subheading'] : '';
-            $wb_affiliate_separator_variation = isset($settings['wb_affiliate_separator_variation']) ? $settings['wb_affiliate_separator_variation'] : '';
-            ?>
-            <span class="<?php echo esc_attr($wb_affiliate_separator_variation); ?> section-subheading"><?php echo esc_html($wb_affiliate_subheading); ?></span>
-        <?php endif; ?>
-
-        <h4 class="section-heading"><?php echo esc_html($wb_affiliate_heading); ?></h4>
-
-        <?php if ($wb_affiliate_desc_show_btn === 'yes') :
-            $wb_affiliate_desc = isset($settings['wb_affiliate_desc']) ? $settings['wb_affiliate_desc'] : '';
-            ?>
-				<p><?php echo wp_kses_post($wb_affiliate_desc); ?></p>
+			<div class="wb-grid-desktop-8 wb-grid-mobile-12">
+				<?php if ($wb_affiliate_heading_show_btn === 'yes') : ?>
+					<div class="section-title">
+						<?php if ($wb_affiliate_sub_heading_show_btn === 'yes') :
+							$wb_affiliate_subheading = isset($settings['wb_affiliate_subheading']) ? sanitize_text_field($settings['wb_affiliate_subheading']) : '';
+							$wb_affiliate_separator_variation = isset($settings['wb_affiliate_separator_variation']) ? sanitize_html_class($settings['wb_affiliate_separator_variation']) : '';
+							?>
+							<span class="<?php echo esc_attr($wb_affiliate_separator_variation); ?> section-subheading">
+								<?php echo esc_html($wb_affiliate_subheading); ?>
+							</span>
+						<?php endif; ?>
+	
+						<<?php echo esc_attr($wb_affiliate_heading_tag); ?> class="section-heading">
+							<?php echo esc_html($wb_affiliate_heading); ?>
+						</<?php echo esc_attr($wb_affiliate_heading_tag); ?>>
+	
+						<?php if ($wb_affiliate_desc_show_btn === 'yes') : ?>
+							<p><?php echo esc_html($wb_affiliate_desc); ?></p>
+						<?php endif; ?>
+					</div>
 				<?php endif; ?>
 			</div>
-
-<?php } ?>
-			</div>
-
+	
 			<div class="wb-grid-desktop-4 wb-grid-mobile-12 text-end">
-				<?php 
-					if($wb_affiliate_show_btn === 'yes') {
-						$wb_affliate_btn_txt = $settings['wb_affliate_btn_txt'];
-						$wb_affliate_btn_link = $settings['wb_affliate_btn_link']['url'];
-						?>
-							<a href="<?php echo esc_url($wb_affliate_btn_link);?>" class="btn-border affiliate-btn" target="_blank"><?php echo esc_html($wb_affliate_btn_txt);?>
-								<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z" fill="var(--e-global-color-accent)"></path></svg>
-							</a>
-						<?php
-					}
-				?>				
+				<?php if ($wb_affiliate_show_btn === 'yes') : ?>
+					<a href="<?php echo esc_url($wb_affliate_btn_link); ?>" class="btn-border affiliate-btn" target="_blank">
+						<?php echo esc_html($wb_affliate_btn_txt); ?>
+						<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z" fill="var(--e-global-color-accent)"></path>
+						</svg>
+					</a>
+				<?php endif; ?>
 			</div>
 		</div>
-
+	
 		<div class="wb-grid-row">
-			<?php 
-				if($affiliate_lists){
-					foreach($affiliate_lists as $list) {
-						$list_img = $list['wb_affiliate_image']['url'];
-						$list_link = $list['wb_affiliate_link']['url'];
-						?>
-							<div class="<?php echo esc_attr($this->get_grid_classes( $settings )); ?> wb-grid-tablet-6 wb-grid-mobile-12">
-								<div class="single-affiliate">
-									<div class="affiliate-img">
-										<img src="<?php echo esc_url($list_img);?>" alt="">
-										<a href="<?php echo esc_url($list_link); ?>" class="icon-border" target="_blank">	
-										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1.5C9 0.902344 9.49219 0.375 10.125 0.375H14.5898C14.7656 0.375 14.9062 0.410156 15.0469 0.480469C15.1523 0.515625 15.293 0.621094 15.3984 0.726562C15.6094 0.9375 15.7148 1.21875 15.75 1.5V6C15.75 6.63281 15.2227 7.125 14.625 7.125C13.9922 7.125 13.5 6.63281 13.5 6V4.24219L7.52344 10.1836C7.10156 10.6406 6.36328 10.6406 5.94141 10.1836C5.48438 9.76172 5.48438 9.02344 5.94141 8.60156L11.8828 2.625H10.125C9.49219 2.625 9 2.13281 9 1.5ZM0 3.75C0 2.51953 0.984375 1.5 2.25 1.5H5.625C6.22266 1.5 6.75 2.02734 6.75 2.625C6.75 3.25781 6.22266 3.75 5.625 3.75H2.25V13.875H12.375V10.5C12.375 9.90234 12.8672 9.375 13.5 9.375C14.0977 9.375 14.625 9.90234 14.625 10.5V13.875C14.625 15.1406 13.6055 16.125 12.375 16.125H2.25C0.984375 16.125 0 15.1406 0 13.875V3.75Z" fill="var(--e-global-color-primary)"/></svg>
-										</a>
-									</div>
-								</div>
+			<?php if ($affiliate_lists) : ?>
+				<?php foreach ($affiliate_lists as $list) :
+					$list_img = isset($list['wb_affiliate_image']['url']) ? esc_url($list['wb_affiliate_image']['url']) : '';
+					$list_link = isset($list['wb_affiliate_link']['url']) ? esc_url($list['wb_affiliate_link']['url']) : '';
+					?>
+					<div class="<?php echo esc_attr($this->get_grid_classes($settings)); ?> wb-grid-tablet-6 wb-grid-mobile-12">
+						<div class="single-affiliate">
+							<div class="affiliate-img">
+								<?php if ($list_img) : ?>
+									<img src="<?php echo esc_url($list_img); ?>" alt="">
+								<?php endif; ?>
+								<?php if ($list_link) : ?>
+									<a href="<?php echo esc_url($list_link); ?>" class="icon-border" target="_blank">
+										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M9 1.5C9 0.902344 9.49219 0.375 10.125 0.375H14.5898C14.7656 0.375 14.9062 0.410156 15.0469 0.480469C15.1523 0.515625 15.293 0.621094 15.3984 0.726562C15.6094 0.9375 15.7148 1.21875 15.75 1.5V6C15.75 6.63281 15.2227 7.125 14.625 7.125C13.9922 7.125 13.5 6.63281 13.5 6V4.24219L7.52344 10.1836C7.10156 10.6406 6.36328 10.6406 5.94141 10.1836C5.48438 9.76172 5.48438 9.02344 5.94141 8.60156L11.8828 2.625H10.125C9.49219 2.625 9 2.13281 9 1.5ZM0 3.75C0 2.51953 0.984375 1.5 2.25 1.5H5.625C6.22266 1.5 6.75 2.02734 6.75 2.625C6.75 3.25781 6.22266 3.75 5.625 3.75H2.25V13.875H12.375V10.5C12.375 9.90234 12.8672 9.375 13.5 9.375C14.0977 9.375 14.625 9.90234 14.625 10.5V13.875C14.625 15.1406 13.6055 16.125 12.375 16.125H2.25C0.984375 16.125 0 15.1406 0 13.875V3.75Z" fill="var(--e-global-color-primary)"></path>
+										</svg>
+									</a>
+								<?php endif; ?>
 							</div>
-						<?php
-					}
-				}
-			?>
-		</div>			
-		<!-- Affiliate Programme Here -->
-        <?php
-	}
+						</div>
+					</div>
+				<?php endforeach; ?>
+			<?php endif; ?>
+		</div>
+		<!-- Affiliate Programme End Here -->
+		<?php
+	}	
 }

@@ -106,7 +106,7 @@ class Team extends Widget_Base {
 				'label' => esc_html__( 'Choose Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/team-1.webp',
+					'url' => plugins_url( 'assets/img/team-1.png', dirname(__FILE__, 2) ),
 				],
 				'separator' => 'before',
 			]
@@ -277,8 +277,14 @@ class Team extends Widget_Base {
 		 $this->add_control( 
 			'wb_team_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 
@@ -601,66 +607,63 @@ class Team extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		// get our input from the widget settings.
-		$settings = $this->get_settings_for_display();		
-		$wb_team_image = $settings['wb_team_image']['url'];
-		$wb_team_name = $settings['wb_team_name'];
-		$wb_team_name_tag = $settings['wb_team_name_tag'];
-		$wb_team_designation = $settings['wb_team_designation'];
-		$wb_team_social_show = $settings['wb_team_social_show'];
-		$wb_team_socials = $settings['wb_team_socials'];
-		$wb_team_bg_pattern = $settings['wb_team_bg_pattern'];
-
-		$team_pattern_url = '';
-		switch ($wb_team_bg_pattern) {
-			case 'team-pattern-1':
-				$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-1.svg';
-				break;
-			case 'team-pattern-2':
-				$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-2.svg';
-				break;
-			default:
-				$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-1.svg';
-				break;
-		}
-		
-       ?>
-
-		<?php if(isset($wb_team_bg_pattern) && $wb_team_bg_pattern !== 'team-pattern-none' && isset($team_pattern_url)) { ?>
+		// Get our input from the widget settings.
+		$settings = $this->get_settings_for_display();
+	
+		// Raw variables from settings (sanitized/escaped at output)
+		$wb_team_image = $settings['wb_team_image']['url'] ?? '';
+		$wb_team_name = $settings['wb_team_name'] ?? '';
+		$wb_team_name_tag = $settings['wb_team_name_tag'] ?? 'h3';
+		$wb_team_designation = $settings['wb_team_designation'] ?? '';
+		$wb_team_social_show = $settings['wb_team_social_show'] ?? 'no';
+		$wb_team_socials = is_array($settings['wb_team_socials'] ?? null) ? $settings['wb_team_socials'] : [];
+		$wb_team_bg_pattern = $settings['wb_team_bg_pattern'] ?? 'team-pattern-1';
+	
+		// Allow-list for background patterns
+		$pattern_urls = [
+			'team-pattern-1' => 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-1.svg',
+			'team-pattern-2' => 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-2.svg',
+			'team-pattern-none' => '', // No pattern
+		];
+		$team_pattern_url = $pattern_urls[$wb_team_bg_pattern] ?? $pattern_urls['team-pattern-1'];
+	
+		// Allow-list for heading tags
+		$allowed_heading_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+		$wb_team_name_tag = in_array($wb_team_name_tag, $allowed_heading_tags, true) ? $wb_team_name_tag : 'h3';
+	
+		?>
+		<?php if ($team_pattern_url) : ?>
 		<style>
-			.team-bg{
-				background-image: url('<?php echo esc_url($team_pattern_url);?>');
-			}			
+			.team-bg {
+				background-image: url('<?php echo esc_url($team_pattern_url); ?>');
+			}
 		</style>
-		<?php } ?>
-
-	   <div class="team">
-			<img class="team-img" src="<?php echo esc_url($wb_team_image);?>" alt="<?php echo esc_attr($wb_team_name);?>">
+		<?php endif; ?>
+	
+		<div class="team">
+			<img class="team-img" src="<?php echo esc_url($wb_team_image); ?>" alt="<?php echo esc_attr($wb_team_name); ?>">
 			<div class="team-bg">
 				<div class="team-content">
-					<<?php echo esc_attr($wb_team_name_tag); ?> class="team-name"><?php echo esc_html($wb_team_name);?></<?php echo esc_attr($wb_team_name_tag); ?>>
-					<p class="team-desg"><?php echo esc_html($wb_team_designation);?></p>
-
-					<?php 
-						if($wb_team_social_show == 'yes') {
+					<<?php echo esc_attr($wb_team_name_tag); ?> class="team-name">
+						<?php echo esc_html($wb_team_name); ?>
+					</<?php echo esc_attr($wb_team_name_tag); ?>>
+					<p class="team-desg"><?php echo esc_html($wb_team_designation); ?></p>
+	
+					<?php if ($wb_team_social_show === 'yes' && !empty($wb_team_socials)) : ?>
+						<div class="team-social">
+							<?php foreach ($wb_team_socials as $social) : 
+								$social_link = $social['wb_team_social_link']['url'] ?? '#';
+								$social_icon = $social['wb_team_social_icon']['value'] ?? '';
 							?>
-								<div class="team-social">
-									<?php
-										foreach($wb_team_socials as $social) {
-											$social_link = $social['wb_team_social_link']['url'];
-											$social_icon = $social['wb_team_social_icon']['value'];
-									?>
-										<a href="<?php echo esc_url($social_link);?>"><i class="<?php echo esc_attr($social_icon);?>"></i></a>
-									<?php
-										}
-									?>
-								</div>
-							<?php
-						}
-					?>					
+								<a href="<?php echo esc_url($social_link); ?>" target="_blank" rel="noopener noreferrer">
+									<i class="<?php echo esc_attr($social_icon); ?>"></i>
+								</a>
+							<?php endforeach; ?>
+						</div>
+					<?php endif; ?>
 				</div>
 			</div>
-	   </div>
-       <?php
-	}
+		</div>
+		<?php
+	}	
 }

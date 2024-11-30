@@ -121,7 +121,7 @@ class Slider extends Widget_Base {
 				'label' => esc_html__( 'Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/slide-1.webp',
+					'url' => plugins_url( 'assets/img/slide-1.png', dirname(__FILE__, 2) ),
 				]
 			]
 		);
@@ -199,7 +199,7 @@ class Slider extends Widget_Base {
 					[
 						'wb_slider_image' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/slide-1.webp',
+								'url' => plugins_url( 'assets/img/slider-1.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
@@ -209,7 +209,7 @@ class Slider extends Widget_Base {
 					[
 						'wb_slider_image' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/slide-21.webp',
+								'url' => plugins_url( 'assets/img/slide-2.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
@@ -219,7 +219,7 @@ class Slider extends Widget_Base {
 					[
 						'wb_slider_image' => [
 							'default' => [
-								'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/slide-3.webp',
+								'url' => plugins_url( 'assets/img/slide-3.png', dirname(__FILE__, 2) ),
 							]
 						],
 						'wb_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
@@ -375,9 +375,14 @@ class Slider extends Widget_Base {
 		 $this->add_control( 
 			'wb_slider_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'			
-			] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -768,64 +773,69 @@ class Slider extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		// get our input from the widget settings.
-		$settings = $this->get_settings_for_display();		
-		$wb_sliders = $settings['wb_sliders'];
-		$wb_slider_arrows = $settings['wb_slider_arrows'];
-		$wb_slider_dots = $settings['wb_slider_dots'];
-		$wb_slider_loops = $settings['wb_slider_loops'];
-		$wb_slider_autoplay = $settings['wb_slider_autoplay'];
-		$wb_slider_autoplay_speed = $settings['wb_slider_autoplay_speed'];
-		$wb_slider_animation_speed = $settings['wb_slider_animation_speed'];
-					
+		// Get input from the widget settings.
+		$settings = $this->get_settings_for_display();        
+		
+		// Sanitize and escape settings values before using them.
+		$wb_sliders = isset($settings['wb_sliders']) ? $settings['wb_sliders'] : [];
+		$wb_slider_arrows = isset($settings['wb_slider_arrows']) ? (bool) $settings['wb_slider_arrows'] : false;
+		$wb_slider_dots = isset($settings['wb_slider_dots']) ? (bool) $settings['wb_slider_dots'] : false;
+		$wb_slider_loops = isset($settings['wb_slider_loops']) ? (bool) $settings['wb_slider_loops'] : false;
+		$wb_slider_autoplay = isset($settings['wb_slider_autoplay']) ? (bool) $settings['wb_slider_autoplay'] : false;
+		$wb_slider_autoplay_speed = isset($settings['wb_slider_autoplay_speed']) ? intval($settings['wb_slider_autoplay_speed']) : 3000;
+		$wb_slider_animation_speed = isset($settings['wb_slider_animation_speed']) ? intval($settings['wb_slider_animation_speed']) : 500;
+	
 		?>
-			<!-- Slider Start Here -->	
-			<div class="sliders owl-carousel" slider-arrows="<?php echo esc_attr( $wb_slider_arrows ); ?>" slider-dots= "<?php echo esc_attr( $wb_slider_dots ); ?>" slider-loop="<?php echo esc_attr( $wb_slider_loops ); ?>"  slider-autoplay="<?php echo esc_attr( $wb_slider_autoplay ); ?>" slider-autoplaytimeout="<?php echo esc_attr( $wb_slider_animation_speed ); ?>" slider-autoplayspeed="<?php echo esc_attr( $wb_slider_autoplay_speed ); ?>">
+		<!-- Slider Start Here -->  
+		<div class="sliders owl-carousel" 
+			 data-slider-arrows="<?php echo esc_attr($wb_slider_arrows ? 'true' : 'false'); ?>" 
+			 data-slider-dots="<?php echo esc_attr($wb_slider_dots ? 'true' : 'false'); ?>" 
+			 data-slider-loop="<?php echo esc_attr($wb_slider_loops ? 'true' : 'false'); ?>" 
+			 data-slider-autoplay="<?php echo esc_attr($wb_slider_autoplay ? 'true' : 'false'); ?>" 
+			 data-slider-autoplaytimeout="<?php echo esc_attr($wb_slider_animation_speed); ?>" 
+			 data-slider-autoplayspeed="<?php echo esc_attr($wb_slider_autoplay_speed); ?>">
 		<?php 
 			if($wb_sliders) {
 				foreach($wb_sliders as $slide) {
-					$wb_slider_image = $slide['wb_slider_image']['url'];
-					$wb_slider_subtitle = $slide['wb_slider_subtitle'];
-					$wb_slider_title = $slide['wb_slider_title'];
-					$wb_slider_desc = $slide['wb_slider_desc'];
-					$wb_slider_btn_title = $slide['wb_slider_btn_title'];
-					$wb_slider_btn_link = $slide['wb_slider_btn_link']['url'];
+					// Ensure each field is sanitized/escaped properly
+					$wb_slider_image = isset($slide['wb_slider_image']['url']) ? esc_url($slide['wb_slider_image']['url']) : '';
+					$wb_slider_subtitle = isset($slide['wb_slider_subtitle']) ? esc_html($slide['wb_slider_subtitle']) : '';
+					$wb_slider_title = isset($slide['wb_slider_title']) ? esc_html($slide['wb_slider_title']) : '';
+					$wb_slider_desc = isset($slide['wb_slider_desc']) ? wp_kses_post($slide['wb_slider_desc']) : '';
+					$wb_slider_btn_title = isset($slide['wb_slider_btn_title']) ? esc_html($slide['wb_slider_btn_title']) : '';
+					$wb_slider_btn_link = isset($slide['wb_slider_btn_link']['url']) ? esc_url($slide['wb_slider_btn_link']['url']) : '';
 					?>
-						<div class="single-slide" style="background-image: url('<?php echo esc_url($wb_slider_image); ?>');">
-							<div class="slide-content">
-								<?php 
-									if($wb_slider_subtitle) {
-										?>
-											<span><?php echo esc_html($wb_slider_subtitle); ?></span>
-										<?php
-									}
-								?>
+					<div class="single-slide" style="background-image: url('<?php echo esc_url($wb_slider_image); ?>');">
+						<div class="slide-content">
+							<?php 
+								if($wb_slider_subtitle) {
+									echo '<span>' . esc_html($wb_slider_subtitle) . '</span>';
+								}
+							?>
+							<h2><?php echo esc_html($wb_slider_title); ?></h2>
+							
+							<?php 
+								if($wb_slider_desc) {
+									echo '<p>' . wp_kses_post($wb_slider_desc) . '</p>';
+								}
 								
-								<h2><?php echo esc_html($wb_slider_title);?></h2>
-								<?php 
-									if($wb_slider_desc) {
-										?>
-											<p><?php echo wp_kses_post($wb_slider_desc); ?></p>
-										<?php
-									}
-									if($wb_slider_btn_link) {
-										?>
-											<a href="<?php echo esc_url($wb_slider_btn_link); ?>" class="btn-border"><?php echo esc_html($wb_slider_btn_title);?>
-											<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
-								</svg>
-										</a>
-										<?php
-									}
-								?>									
-							</div>
+								if($wb_slider_btn_link) {
+									echo '<a href="' . esc_url($wb_slider_btn_link) . '" class="btn-border">';
+									echo esc_html($wb_slider_btn_title);
+									echo '<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
+										</svg>';
+									echo '</a>';
+								}
+							?>                                 
 						</div>
-						<?php
-					}
+					</div>
+					<?php
 				}
-			?>
+			}
+		?>
 		</div>
-				
-       <?php
-	}
+		<!-- Slider End Here -->
+		<?php
+	}	
 }

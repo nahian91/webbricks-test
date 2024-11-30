@@ -512,8 +512,14 @@ class Services extends Widget_Base {
 		$this->add_control( 
 			'wb_services_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -1139,20 +1145,20 @@ class Services extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		// get our input from the widget settings.
-		$settings = $this->get_settings_for_display();	
-		$wb_services_bg_pattern = $settings['wb_services_bg_pattern'];
-		$wb_services_section_heading_show = $settings['wb_services_section_heading_show'];
-		$wb_services = $settings['wb_services'];
-		$wb_services_number = $settings['wb_services_number'];
-		$wb_services_loop = $settings['wb_services_loop'];
-		$wb_services_autoplay = $settings['wb_services_autoplay'];
-		$wb_services_arrows = $settings['wb_services_arrows'];
-		$wb_services_pause = $settings['wb_services_pause'];
-		$wb_services_autoplay_speed = $settings['wb_services_autoplay_speed'];
-		$wb_services_autoplay_animation = $settings['wb_services_autoplay_animation'];	
-		
-		
+		// Get input from widget settings
+		$settings = $this->get_settings_for_display();
+		$wb_services_bg_pattern = isset($settings['wb_services_bg_pattern']) ? $settings['wb_services_bg_pattern'] : '';
+		$wb_services_section_heading_show = isset($settings['wb_services_section_heading_show']) ? $settings['wb_services_section_heading_show'] : '';
+		$wb_services = isset($settings['wb_services']) ? $settings['wb_services'] : [];
+		$wb_services_number = isset($settings['wb_services_number']) ? $settings['wb_services_number'] : '';
+		$wb_services_loop = isset($settings['wb_services_loop']) ? $settings['wb_services_loop'] : '';
+		$wb_services_autoplay = isset($settings['wb_services_autoplay']) ? $settings['wb_services_autoplay'] : '';
+		$wb_services_arrows = isset($settings['wb_services_arrows']) ? $settings['wb_services_arrows'] : '';
+		$wb_services_pause = isset($settings['wb_services_pause']) ? $settings['wb_services_pause'] : '';
+		$wb_services_autoplay_speed = isset($settings['wb_services_autoplay_speed']) ? $settings['wb_services_autoplay_speed'] : '';
+		$wb_services_autoplay_animation = isset($settings['wb_services_autoplay_animation']) ? $settings['wb_services_autoplay_animation'] : '';
+	
+		// Background pattern URLs
 		$service_pattern_url = '';
 		switch ($wb_services_bg_pattern) {
 			case 'style-1':
@@ -1165,68 +1171,66 @@ class Services extends Widget_Base {
 				$service_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/service-pattern-3.svg';
 				break;
 			default:
-				// Handle default case or invalid selections
-				$service_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/service-pattern-1.svg';
+				$service_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/service-pattern-1.svg'; // Default pattern
 				break;
 		}
-      ?>   
-
-		<?php if ($wb_services_section_heading_show === 'yes') {	 
-			$wb_services_section_subheading_show = $settings['wb_services_section_subheading_show'];
-			$wb_services_section_subheading = $settings['wb_services_section_subheading'];
-			$wb_section_heading_separator_variation = $settings['wb_section_heading_separator_variation'];
-			$wb_services_section_heading = $settings['wb_services_section_heading'];
-			$wb_services_section_heading_tag = $settings['wb_services_section_heading_tag'];
-			$wb_services_section_desc_show = $settings['wb_services_section_desc_show'];
-			$wb_services_section_desc = $settings['wb_services_section_desc'];
-		?>		
-		
-			<div class="section-title service-title">
-				<?php if($wb_services_section_subheading_show == 'yes') {
-					?>
-						<span class="<?php echo esc_attr($wb_section_heading_separator_variation); ?> section-subheading"><?php echo esc_html($wb_services_section_subheading);?></span>
-					<?php 
-				} ?>
-				<<?php echo esc_attr($wb_services_section_heading_tag);?> class="section-heading"><?php echo esc_html($wb_services_section_heading); ?></<?php echo esc_attr($wb_services_section_heading_tag);?>>
-				
-				<?php if($wb_services_section_desc_show == 'yes'){
-					?>
-						<p><?php echo wp_kses_post($wb_services_section_desc);?></p>
-					<?php 
-				} ?>
-
+	?>
+	
+	<?php if ($wb_services_section_heading_show === 'yes') { 
+		$wb_services_section_subheading_show = isset($settings['wb_services_section_subheading_show']) ? $settings['wb_services_section_subheading_show'] : '';
+		$wb_services_section_subheading = isset($settings['wb_services_section_subheading']) ? $settings['wb_services_section_subheading'] : '';
+		$wb_section_heading_separator_variation = isset($settings['wb_section_heading_separator_variation']) ? $settings['wb_section_heading_separator_variation'] : '';
+		$wb_services_section_heading = isset($settings['wb_services_section_heading']) ? $settings['wb_services_section_heading'] : '';
+		$wb_services_section_heading_tag = isset($settings['wb_services_section_heading_tag']) ? $settings['wb_services_section_heading_tag'] : 'h2';
+		$wb_services_section_desc_show = isset($settings['wb_services_section_desc_show']) ? $settings['wb_services_section_desc_show'] : '';
+		$wb_services_section_desc = isset($settings['wb_services_section_desc']) ? $settings['wb_services_section_desc'] : '';
+	?>
+		<div class="section-title service-title">
+			<?php if ($wb_services_section_subheading_show === 'yes') { ?>
+				<span class="<?php echo esc_attr($wb_section_heading_separator_variation); ?> section-subheading"><?php echo esc_html($wb_services_section_subheading); ?></span>
+			<?php } ?>
+			<<?php echo esc_attr($wb_services_section_heading_tag); ?> class="section-heading"><?php echo esc_html($wb_services_section_heading); ?></<?php echo esc_attr($wb_services_section_heading_tag); ?>>
+			
+			<?php if ($wb_services_section_desc_show === 'yes') { ?>
+				<p><?php echo wp_kses_post($wb_services_section_desc); ?></p>
+			<?php } ?>
+		</div>
+	<?php } ?>
+	
+	<div class="services owl-carousel <?php echo esc_attr($wb_services_arrows === 'yes' ? 'carousel-top-arrows' : ''); ?> <?php echo esc_attr($wb_services_section_heading_show === 'yes' ? 'heading-top' : ''); ?>" 
+		services-scroll="<?php echo esc_attr($wb_services_number); ?>" 
+		services-loop="<?php echo esc_attr($wb_services_loop); ?>" 
+		services-autoplay="<?php echo esc_attr($wb_services_autoplay); ?>" 
+		services-pause="<?php echo esc_attr($wb_services_pause); ?>" 
+		services-arrows="<?php echo esc_attr($wb_services_arrows); ?>" 
+		services-animation="<?php echo esc_attr($wb_services_autoplay_animation); ?>" 
+		services-speed="<?php echo esc_attr($wb_services_autoplay_speed); ?>">
+	
+		<?php foreach ($wb_services as $service) { 
+			$service_icon = isset($service['wb_service_icon']['value']) ? esc_attr($service['wb_service_icon']['value']) : ''; // Escape icon class
+			$service_title = isset($service['wb_service_title']) ? esc_html($service['wb_service_title']) : ''; // Escape title
+			$service_desc = isset($service['wb_service_desc']) ? wp_kses_post($service['wb_service_desc']) : ''; // Allow limited HTML in description
+			$service_url = isset($service['wb_service_link']['url']) ? esc_url($service['wb_service_link']['url']) : ''; // Escape URL
+		?>
+			<div class="single-service">
+				<div class="service-content">
+					<i class="<?php echo esc_attr($service_icon); ?>"></i>
+					<h3><?php echo esc_html($service_title); ?></h3>
+					<p><?php echo esc_html($service_desc); ?></p>
+				</div>
+				<div class="service-bottom" style="background-image: url('<?php echo esc_url($service_pattern_url); ?>');">
+					<?php if (!empty($service_url)) { ?>
+						<a href="<?php echo esc_url($service_url); ?>" class="icon-border" target="_blank">
+							<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M9 1.5C9 0.902344 9.49219 0.375 10.125 0.375H14.5898C14.7656 0.375 14.9062 0.410156 15.0469 0.480469C15.1523 0.515625 15.293 0.621094 15.3984 0.726562C15.6094 0.9375 15.7148 1.21875 15.75 1.5V6C15.75 6.63281 15.2227 7.125 14.625 7.125C13.9922 7.125 13.5 6.63281 13.5 6V4.24219L7.52344 10.1836C7.10156 10.6406 6.36328 10.6406 5.94141 10.1836C5.48438 9.76172 5.48438 9.02344 5.94141 8.60156L11.8828 2.625H10.125C9.49219 2.625 9 2.13281 9 1.5ZM0 3.75C0 2.51953 0.984375 1.5 2.25 1.5H5.625C6.22266 1.5 6.75 2.02734 6.75 2.625C6.75 3.25781 6.22266 3.75 5.625 3.75H2.25V13.875H12.375V10.5C12.375 9.90234 12.8672 9.375 13.5 9.375C14.0977 9.375 14.625 9.90234 14.625 10.5V13.875C14.625 15.1406 13.6055 16.125 12.375 16.125H2.25C0.984375 16.125 0 15.1406 0 13.875V3.75Z" fill="currentColor"/>
+							</svg>
+						</a>
+					<?php } ?>
+				</div>
 			</div>
 		<?php } ?>
+	</div>
 	
-		<div class="services owl-carousel <?php echo $wb_services_arrows === 'yes' ? 'carousel-top-arrows' : ''; ?> <?php echo $wb_services_section_heading_show === 'yes' ? 'heading-top' : ''; ?>" services-scroll="<?php echo esc_attr( $wb_services_number ); ?>" services-loop="<?php echo esc_attr( $wb_services_loop ); ?>" services-autoplay="<?php echo esc_attr( $wb_services_autoplay ); ?>" services-pause="<?php echo esc_attr( $wb_services_pause ); ?>" services-arrows="<?php echo esc_attr( $wb_services_arrows ); ?>" services-animation="<?php echo esc_attr( $wb_services_autoplay_animation ); ?>" services-speed="<?php echo esc_attr( $wb_services_autoplay_speed ); ?>">
-
-			<?php
-				foreach($wb_services as $service) { 
-				$service_icon = $service['wb_service_icon']['value'];
-				$service_title = $service['wb_service_title'];
-				$service_desc = $service['wb_service_desc'];
-				$service_url = $service['wb_service_link']['url'];
-			?>
-				<div class="single-service">
-					<div class="service-content">
-						<i class="<?php echo esc_attr($service_icon);?>"></i>
-						<h3><?php echo esc_html($service_title);?></h3>
-						<p><?php echo wp_kses_post($service_desc);?></p>
-					</div>
-						<div class="service-bottom" style="background-image: url('<?php echo esc_url($service_pattern_url); ?>');">
-						<?php if(!empty($service_url)) {
-						?>
-						<a href="<?php echo esc_url($service_url);?>" class="icon-border" target="_blank">
-							<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1.5C9 0.902344 9.49219 0.375 10.125 0.375H14.5898C14.7656 0.375 14.9062 0.410156 15.0469 0.480469C15.1523 0.515625 15.293 0.621094 15.3984 0.726562C15.6094 0.9375 15.7148 1.21875 15.75 1.5V6C15.75 6.63281 15.2227 7.125 14.625 7.125C13.9922 7.125 13.5 6.63281 13.5 6V4.24219L7.52344 10.1836C7.10156 10.6406 6.36328 10.6406 5.94141 10.1836C5.48438 9.76172 5.48438 9.02344 5.94141 8.60156L11.8828 2.625H10.125C9.49219 2.625 9 2.13281 9 1.5ZM0 3.75C0 2.51953 0.984375 1.5 2.25 1.5H5.625C6.22266 1.5 6.75 2.02734 6.75 2.625C6.75 3.25781 6.22266 3.75 5.625 3.75H2.25V13.875H12.375V10.5C12.375 9.90234 12.8672 9.375 13.5 9.375C14.0977 9.375 14.625 9.90234 14.625 10.5V13.875C14.625 15.1406 13.6055 16.125 12.375 16.125H2.25C0.984375 16.125 0 15.1406 0 13.875V3.75Z" fill="var(--e-global-color-primary)"/></svg>
-						</a>
-						<?php } ?>
-					</div>
-				</div>
-			<?php
-				}
-			?>
-		</div>
-		<!-- Services End Here -->		
-       <?php
-	}
+	<?php
+	}	
 }

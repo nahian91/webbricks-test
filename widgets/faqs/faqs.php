@@ -174,10 +174,15 @@ class Faqs extends Widget_Base {
 
 		$this->add_control( 
 			'wb_faq_pro_message_notice', 
-				[
+			[
 				'type'      => Controls_Manager::RAW_HTML,
-				'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'
-			] 
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 
@@ -367,29 +372,29 @@ class Faqs extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		// get our input from the widget settings.
-		$settings = $this->get_settings_for_display();		
-		$wb_faq_list = $settings['wb_faq_list'];		
-        ?>
-
-	    <?php
-			if($wb_faq_list){
-		?>
-		<ul class="faq">
-			<?php
-			if($wb_faq_list){
-				foreach($wb_faq_list as $list) {
+		// Get our input from the widget settings.
+		$settings = $this->get_settings_for_display();        
+		$wb_faq_list = isset($settings['wb_faq_list']) ? $settings['wb_faq_list'] : [];       
+	
+		if (!empty($wb_faq_list)) {
+			?>
+			<ul class="faq">
+				<?php
+				foreach ($wb_faq_list as $list) {
+					// Sanitize and escape data at the point of output
+					$faq_title = isset($list['wb_faq_title']) ? esc_html($list['wb_faq_title']) : '';
+					$faq_content = isset($list['wb_faq_content']) ? wp_kses_post($list['wb_faq_content']) : ''; // Allow certain HTML in content
+	
 					?>
-						<li>
-							<span><?php echo esc_html($list['wb_faq_title']); ?></span>
-							<p><?php echo esc_html($list['wb_faq_content']); ?></p>
-						</li>
+					<li>
+						<h4><?php echo esc_html($faq_title); ?></h4> <!-- Title as a heading for better structure -->
+						<p><?php echo esc_html($faq_content); ?></p>
+					</li>
 					<?php
 				}
-			}
-			?>
-		</ul>
-		<?php
+				?>
+			</ul>
+			<?php
 		}
-	}
+	}	
 }

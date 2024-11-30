@@ -149,6 +149,26 @@ class About extends Widget_Base {
 			]
 		);		
 
+		// Section Heading Separator Style
+		$this->add_control(
+			'wb_about_title_tag',
+			[
+				'label' => __( 'Html Tag', 'webbricks-addons' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'webbricks-addons' ),
+					'h2' => __( 'H2', 'webbricks-addons' ),
+					'h3' => __( 'H3', 'webbricks-addons' ),
+					'h4' => __( 'H4', 'webbricks-addons' ),
+					'h5' => __( 'H5', 'webbricks-addons' ),
+					'h6' => __( 'H6', 'webbricks-addons' ),
+					'p' => __( 'P', 'webbricks-addons' ),
+					'span' => __( 'Span', 'webbricks-addons' ),
+				],
+				'default' => 'h2',
+			]
+		);
+
 		$this->end_controls_section();
 		// end of the Content tab section
 
@@ -189,7 +209,7 @@ class About extends Widget_Base {
 				'label' => esc_html__( 'Choose Featured Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/about.webp',
+					'url' => plugins_url( 'assets/img/about.png', dirname(__FILE__, 2) ),
 				]
 			]
 		);
@@ -201,7 +221,7 @@ class About extends Widget_Base {
 				'label' => esc_html__( 'Background Pattern', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => WBEA_ASSETS_URL . 'img/about-bg.png',
+					'url' => plugins_url( 'assets/img/about-bg.png', dirname(__FILE__, 2) ),
 				]
 			]
 		);
@@ -388,8 +408,14 @@ class About extends Widget_Base {
 		 $this->add_control( 
 			'wb_about_pro_message_notice', 
 			[
-            'type'      => Controls_Manager::RAW_HTML,
-            'raw'       => '<div style="text-align:center;line-height:1.6;"><p style="margin-bottom:10px">Web Bricks Premium is coming soon with more widgets, features, and customization options.</p></div>'] 
+				'type'      => Controls_Manager::RAW_HTML,
+				'raw'       => sprintf(
+					'<div style="text-align:center;line-height:1.6;">
+						<p style="margin-bottom:10px">%s</p>
+					</div>',
+					esc_html__('Web Bricks Premium is coming soon with more widgets, features, and customization options.', 'webbricks-addons')
+				)
+			]  
 		);
 		$this->end_controls_section();
 		
@@ -1154,19 +1180,24 @@ class About extends Widget_Base {
 		// Get widget settings
 		$settings = $this->get_settings_for_display();
 		
-		// Extract settings variables
-		$wb_about_subheading_show_btn = $settings['wb_about_subheading_show_btn'];
-		$wb_about_title = $settings['wb_about_title'];
-		$wb_about_desc = $settings['wb_about_desc'];
-		$wb_about_featured_img = $settings['wb_about_featured_img']['url'];
-		$wb_about_bg_img = $settings['wb_about_bg_img']['url'];
-		$wb_about_counter = $settings['wb_about_counter'];
-		$wb_about_counter_title_tag = $settings['wb_about_counter_title_tag'];
-		$wb_about_btn1_title = $settings['wb_about_btn1_title'];
-		$wb_about_btn1_link = $settings['wb_about_btn1_link']['url'];
-		$wb_about_btn2_title = $settings['wb_about_btn2_title'];
-		$wb_about_btn2_link = $settings['wb_about_btn2_link']['url'];
-	
+		// Extract settings variables with fallbacks
+		$wb_about_subheading_show_btn = $settings['wb_about_subheading_show_btn'] ?? '';
+		$wb_about_title = $settings['wb_about_title'] ?? '';
+		$wb_about_title_tag = $settings['wb_about_title_tag'] ?? 'h2'; 
+		$wb_about_desc = $settings['wb_about_desc'] ?? '';
+		$wb_about_featured_img = !empty($settings['wb_about_featured_img']['url']) ? esc_url($settings['wb_about_featured_img']['url']) : '';    
+		$wb_about_bg_img = !empty($settings['wb_about_bg_img']['url']) ? esc_url($settings['wb_about_bg_img']['url']) : '';
+		$wb_about_counter = $settings['wb_about_counter'] ?? [];
+		$wb_about_counter_title_tag = $settings['wb_about_counter_title_tag'] ?? 'h3';
+		$wb_about_btn1_title = sanitize_text_field($settings['wb_about_btn1_title'] ?? '');
+		$wb_about_btn1_link = isset($settings['wb_about_btn1_link']['url']) ? esc_url($settings['wb_about_btn1_link']['url']) : '';
+		$wb_about_btn2_title = sanitize_text_field($settings['wb_about_btn2_title'] ?? '');
+		$wb_about_btn2_link = isset($settings['wb_about_btn2_link']['url']) ? esc_url($settings['wb_about_btn2_link']['url']) : '';
+		
+		// Allow-list for heading tags
+		$allowed_heading_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'span'];
+		$wb_about_title_tag = in_array($wb_about_title_tag, $allowed_heading_tags, true) ? $wb_about_title_tag : 'h2';
+		
 		// Render HTML
 		?>
 		<!-- About Start Here -->
@@ -1176,28 +1207,32 @@ class About extends Widget_Base {
 					<div class="section-title">
 						<?php if ($wb_about_subheading_show_btn === 'yes') : ?>
 							<?php
-							$wb_about_subheading_sep_variotion = $settings['wb_about_subheading_sep_variotion'];
-							$wb_about_subheading = $settings['wb_about_subheading'];
+							$wb_about_subheading_sep_variotion = sanitize_html_class($settings['wb_about_subheading_sep_variotion'] ?? '');
+							$wb_about_subheading = sanitize_text_field($settings['wb_about_subheading'] ?? '');
 							?>
 							<span class="<?php echo esc_attr($wb_about_subheading_sep_variotion); ?> section-subheading"><?php echo esc_html($wb_about_subheading); ?></span>
 						<?php endif; ?>
-						<h4 class="section-heading"><?php echo esc_html($wb_about_title); ?></h4>
+						<<?php echo esc_attr($wb_about_title_tag); ?> class="section-heading"><?php echo esc_html($wb_about_title); ?></<?php echo esc_attr($wb_about_title_tag); ?>>
 					</div> <!-- section-heading end here -->
 					<div class="about-img">
-						<img src="<?php echo esc_url($wb_about_featured_img); ?>" alt="<?php echo esc_attr($wb_about_title); ?>">
-						<img src="<?php echo esc_url($wb_about_bg_img); ?>" alt="<?php echo esc_attr($wb_about_title); ?>">
+						<?php if (!empty($wb_about_featured_img)) : ?>
+							<img src="<?php echo esc_url($wb_about_featured_img); ?>" alt="<?php echo esc_attr($wb_about_title); ?>">
+						<?php endif; ?>
+						<?php if (!empty($wb_about_bg_img)) : ?>
+							<img src="<?php echo esc_url($wb_about_bg_img); ?>" alt="<?php echo esc_attr($wb_about_title); ?>">
+						<?php endif; ?>
 					</div>
 				</div>
 				<div class="wb-grid-desktop-6 wb-grid-tablet-12 wb-grid-mobile-12">
 					<div class="about-desc">
-						<p><?php echo wp_kses_post($wb_about_desc, 'post'); ?></p>
+						<p><?php echo wp_kses_post($wb_about_desc); ?></p>
 					</div>
 					<div class="about-counter">
 						<?php if ($wb_about_counter) :
 							foreach ($wb_about_counter as $counter) :
-								$counter_number = $counter['wb_about_counter_number'];
-								$counter_suffix = $counter['wb_about_counter_suffix'];
-								$counter_title = $counter['wb_about_counter_title'];
+								$counter_number = sanitize_text_field($counter['wb_about_counter_number'] ?? '');
+								$counter_suffix = sanitize_text_field($counter['wb_about_counter_suffix'] ?? '');
+								$counter_title = sanitize_text_field($counter['wb_about_counter_title'] ?? '');
 								?>
 								<div class="single-about-counter">
 									<div><span class="about-counter-js"><?php echo esc_attr($counter_number); ?></span> <?php echo esc_html($counter_suffix); ?></div>
@@ -1208,25 +1243,24 @@ class About extends Widget_Base {
 					</div>
 					<div class="about-btn">
 						<?php if ($wb_about_btn1_link) : ?>
-							<a href="<?php echo esc_url($wb_about_btn1_link); ?>" class="btn-bg" target="_blank"><?php echo esc_html($wb_about_btn1_title); ?>
+							<a href="<?php echo esc_url($wb_about_btn1_link); ?>" class="btn-bg" target="_blank" rel="noopener noreferrer"><?php echo esc_html($wb_about_btn1_title); ?>
 								<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
 								</svg>
 							</a>
 						<?php endif; ?>
-	
+			
 						<?php if ($wb_about_btn2_link) : ?>
-							<a href="<?php echo esc_url($wb_about_btn2_link); ?>" class="btn-border" target="_blank"><?php echo esc_html($wb_about_btn2_title); ?>
+							<a href="<?php echo esc_url($wb_about_btn2_link); ?>" class="btn-border" target="_blank" rel="noopener noreferrer"><?php echo esc_html($wb_about_btn2_title); ?>
 								<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
 								</svg>
 							</a>
 						<?php endif; ?>
-					</div>
+					</div> <!-- about-btn end here -->
 				</div>
 			</div>
 		</section>
-		<!-- About End Here -->
 		<?php
 	}	
 }
