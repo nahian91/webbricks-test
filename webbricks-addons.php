@@ -74,7 +74,7 @@ function wbea_admin_notice_missing_elementor() {
 
     printf(
     '<div class="notice notice-warning is-dismissible"><p style="padding: 5px 0">%s</p></div>',
-    esc_html($message)
+    wp_kses_post($message)
 );
 
 }
@@ -95,7 +95,7 @@ function wbea_admin_notice_minimum_elementor_version() {
 
     printf(
     '<div class="notice notice-warning is-dismissible"><p>%s</p></div>',
-    esc_html($message)
+    wp_kses_post($message)
 );
 
 }
