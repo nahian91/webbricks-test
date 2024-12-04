@@ -14,6 +14,51 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
+
+
+ if ( ! function_exists( 'wbea_fs' ) ) {
+    // Create a helper function for easy SDK access.
+    function wbea_fs() {
+        global $wbea_fs;
+
+        if ( ! isset( $wbea_fs ) ) {
+            // Manually include the Freemius SDK (not needed if using Composer).
+            if ( file_exists( dirname( __FILE__ ) . '/vendor/freemius/start.php' ) ) {
+                require_once dirname( __FILE__ ) . '/vendor/freemius/start.php';
+            } else {
+                require_once dirname( __FILE__ ) . '/freemius/start.php';
+            }
+
+            $wbea_fs = fs_dynamic_init( array(
+                'id'                  => '14414',
+                'slug'                => 'web-bricks-elementor-addons',
+                'type'                => 'plugin',
+                'public_key'          => 'pk_c8c61204ed3f64299f39727de591d',
+                'is_premium'          => true,
+                'is_premium_only'     => true,
+                'has_addons'          => false,
+                'has_paid_plans'      => true,
+                'has_affiliation'     => 'selected',
+                'menu'                => array(
+                    'slug'           => 'wbea-settings',
+                    'first-path'     => 'admin.php?page=wbea-settings',
+                    'support'        => false,
+                ),
+            ) );
+        }
+
+        return $wbea_fs;
+    }
+
+    // Init Freemius.
+    wbea_fs();
+    // Signal that SDK was initiated.
+    do_action( 'wbea_fs_loaded' );
+}
+
+
+
+
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
