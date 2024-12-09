@@ -288,7 +288,7 @@ class Products_Category extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .product-category img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .product-category-img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -307,7 +307,7 @@ class Products_Category extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .product-category img' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .product-category-img' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -575,14 +575,14 @@ protected function render() {
                 if ($category && !is_wp_error($category)) { 
                     // Display category image if available
                     $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
-                    $image = wp_get_attachment_image_src($thumbnail_id, 'thumbnail');
+                    $image = wp_get_attachment_image_src($thumbnail_id, 'medium');
                     ?>
                     <div class="<?php echo esc_attr($this->get_grid_classes($settings)); ?> wb-grid-tablet-6 wb-grid-mobile-12">
                         <div class="product-category">
                             <?php 
                             if ($image) {
                                 ?>
-                                <img src="<?php echo esc_url($image[0]); ?>" alt="<?php echo esc_attr($category->name); ?>">  
+								<div class="product-category-img" style="background-image:url('<?php echo esc_url($image[0]); ?>')"></div>
                                 <?php
                             } else {
                                 ?>

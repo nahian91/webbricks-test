@@ -808,7 +808,7 @@ class Testimonial_Carousel extends Widget_Base {
 	
 					<div class="single-testimonial">
 						<?php if (!empty($testimonial_image_url)) : ?>
-							<img src="<?php echo esc_url($testimonial_image_url); ?>" alt="<?php echo esc_attr($testimonial_name); ?>">
+							<div class="testimonial-image" style="background-image: url('<?php echo esc_url($testimonial_image_url); ?>');"></div>
 						<?php endif; ?>
 	
 						<div class="author-info">

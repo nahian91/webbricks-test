@@ -828,8 +828,10 @@ p, span, div{
   position: relative;
 }
 .hero-img {
+	padding-top: 100%;
+	background-size: cover;
+	background-position: center;
   border-radius: 24px;
-  overflow: hidden;
 }
 .hero-content {
   border: 1px solid var(--e-global-color-primary);
@@ -1486,11 +1488,6 @@ p, span, div{
 }
 
 /* 21. Team */
-.team-img{
-  vertical-align: middle;
-  border-radius: 24px;
-  height: 282px;
-}
 .team-bg {
   background-size: cover;
   background-position: center center;
@@ -1520,11 +1517,14 @@ p, span, div{
 .team-carousel.heading-top{
 	margin-top: 125px;
 }
-.team-img{
-  vertical-align: middle;
-  border-radius: 24px;
-  height: 282px;
-  margin: auto;
+.team-img {
+	vertical-align: middle;
+	border-radius: 24px;
+	padding-top: 100%;
+	margin: auto;
+	background-size: cover;
+	background-position: center;
+  background-repeat: no-repeat;
 }
 .team-bg {
   background-size: cover;
@@ -1561,11 +1561,15 @@ p, span, div{
   display: flex !important;
   align-items: center;
 }
-.testimonials .single-testimonial img {
+.testimonials .testimonial-image {
+  flex: 0 0 180px;
+  height: 180px;
+  width: 180px;
+  background-size: cover;
+  background-position: center;
   margin-right: 24px;
   border: 2px solid var(--e-global-color-primary);
   border-radius: 16px;
-  max-width: 180px;
   margin-left: 2px;
 }
 .testimonials .testimonial-arrow {
@@ -1782,10 +1786,10 @@ p, span, div{
   flex-direction: column;
   height: 100%;
 }
-
-.single-product img {
-  max-width: 100%;
-  height: auto;
+.product-img {
+	background-size: cover;
+	background-position: center;
+	padding-top: 100%;
 }
 .products-carousel {
   display: grid;
@@ -1823,17 +1827,43 @@ p, span, div{
   margin-bottom: 20px; /* Adjust spacing between items */
 }
 
-.product-category {
-  /* Your existing styles for each category item */
-  /* Make sure to include necessary styles */
+.product-category-img {
+	background-size: cover;
+	background-position: center;
+	padding-top: 100%;
+}
+.brand-logo-img {
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;
+	min-height: 30px;
+}
+.affiliate-img-bg {
+	padding-top: 100%;
+	background-size: cover;
+	background-position: center;
 }
 
-
+.about-featured-img {
+  padding-top: 75%;
+  background-size: cover;
+  background-position: center;
+}
 .single-filter-gallery {
   position: relative;
 }
-.single-filter-gallery img{
-  width: 100%;
+.filter-img {
+  padding-top: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.filter-img-overlay {
+  background-size: cover;
+  background-position: center;
+  width: 50px;
+  height: 50px;
 }
 .image-overlay {
   position: absolute;

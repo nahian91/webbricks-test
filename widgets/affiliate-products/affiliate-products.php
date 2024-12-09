@@ -810,7 +810,7 @@ class Affiliate_Products extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'wb_price_border',
-				'selector' => '{{WRAPPER}} .affiliate-img img',
+				'selector' => '{{WRAPPER}} .affiliate-img-bg',
 			]
 		);	
 
@@ -822,7 +822,7 @@ class Affiliate_Products extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .affiliate-img img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .affiliate-img-bg' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -841,7 +841,7 @@ class Affiliate_Products extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .affiliate-img img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .affiliate-img-bg' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -860,7 +860,7 @@ class Affiliate_Products extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .affiliate-img img' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .affiliate-img-bg' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1079,7 +1079,7 @@ class Affiliate_Products extends Widget_Base {
 						<div class="single-affiliate">
 							<div class="affiliate-img">
 								<?php if ($list_img) : ?>
-									<img src="<?php echo esc_url($list_img); ?>" alt="">
+									<div class="affiliate-img-bg" style="background-image:url('<?php echo esc_url($list_img); ?>')"></div>
 								<?php endif; ?>
 								<?php if ($list_link) : ?>
 									<a href="<?php echo esc_url($list_link); ?>" class="icon-border" target="_blank">

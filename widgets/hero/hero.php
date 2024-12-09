@@ -1031,9 +1031,7 @@ class Hero extends Widget_Base {
 				</div>
 				<!-- Hero Image Section -->
 				<div class="wb-grid-desktop-7 wb-grid-tablet-6 wb-grid-mobile-12">
-					<div class="hero-img">
-						<img src="<?php echo esc_url($wb_hero_featured_img); ?>" alt="<?php echo esc_attr($wb_hero_heading); ?>">
-					</div>
+					<div class="hero-img" style="background-image:url('<?php echo esc_url($wb_hero_featured_img); ?>)"></div>
 				</div>
 			</div>      
 		</section>          

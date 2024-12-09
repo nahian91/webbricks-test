@@ -288,7 +288,7 @@ class Products extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'wb_product_border',
-				'selector' => '{{WRAPPER}} .single-product img',
+				'selector' => '{{WRAPPER}} .product-img',
 			]
 		);	
 
@@ -307,7 +307,7 @@ class Products extends Widget_Base {
 					'unit' => 'px',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .single-product img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .product-img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -326,7 +326,7 @@ class Products extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .single-product img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .product-img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -345,7 +345,7 @@ class Products extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .single-product img' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .product-img' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -701,7 +701,7 @@ class Products extends Widget_Base {
 							<?php if ($sale) : ?>
 								<span class="sale"><?php echo esc_html__('Sale', 'webbricks-addons'); ?></span>
 							<?php endif; ?>
-							<img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
+							<div class="product-img" style="background-image:url('<?php echo esc_url($thumbnail_url); ?>')"></div>
 							<<?php echo esc_html($wp_product_title_tag); ?> class="product-title">
 								<a href="<?php echo esc_url(get_permalink()); ?>"><?php echo esc_html(get_the_title()); ?></a>
 							</<?php echo esc_html($wp_product_title_tag); ?>>

@@ -533,10 +533,10 @@ class Filter_Gallery extends Widget_Base {
 				?>
 				<div class="<?php echo esc_attr($this->get_grid_classes($settings)); ?> wb-grid-tablet-6 wb-grid-mobile-12 grid-item <?php echo esc_attr(trim($category_classes)); ?>">
 					<div class="single-filter-gallery">
-						<img src="<?php echo esc_url($filter_image); ?>" alt="<?php esc_attr_e('Gallery Image', 'webbricks-addons'); ?>">
+						<div class="filter-img" style="background-image:url('<?php echo esc_url($filter_image); ?>')"></div>
 						<div class="image-overlay">
 							<a href="<?php echo esc_url($filter_image); ?>" class="elementor-lightbox">
-								<img src="<?php echo esc_url(WBEA_ASSETS_URL . 'img/icon-zoom.svg'); ?>" alt="<?php esc_attr_e('Zoom Icon', 'webbricks-addons'); ?>">
+								<div class="filter-img-overlay" style="background-image:url('<?php echo esc_url(WBEA_ASSETS_URL . 'img/icon-zoom.svg'); ?>')"></div>
 							</a>
 						</div>
 					</div>

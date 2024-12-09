@@ -641,7 +641,7 @@ class Team extends Widget_Base {
 		<?php endif; ?>
 	
 		<div class="team">
-			<img class="team-img" src="<?php echo esc_url($wb_team_image); ?>" alt="<?php echo esc_attr($wb_team_name); ?>">
+			<div class="team-img" style="background-image:url(<?php echo esc_url($wb_team_image); ?>)"></div>
 			<div class="team-bg">
 				<div class="team-content">
 					<<?php echo esc_attr($wb_team_name_tag); ?> class="team-name">

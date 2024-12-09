@@ -732,7 +732,7 @@ class Products_Carousel extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'wb_product_border',
-				'selector' => '{{WRAPPER}} .single-product img',
+				'selector' => '{{WRAPPER}} .product-img',
 			]
 		);	
 
@@ -751,7 +751,7 @@ class Products_Carousel extends Widget_Base {
 					'unit' => 'px',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .single-product img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .product-img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -770,7 +770,7 @@ class Products_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .single-product img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .product-img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -789,7 +789,7 @@ class Products_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .single-product img' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .product-img' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1312,7 +1312,7 @@ class Products_Carousel extends Widget_Base {
 						?>
 							<span class="sale"><?php echo esc_html('Sale', 'webbricks-addons'); ?></span>
 						<?php } ?>
-						<img src="<?php echo esc_url(get_the_post_thumbnail_url());?>" alt="<?php esc_attr(the_title());?>">
+						<div class="product-img" style="background-image:url('<?php echo esc_url(get_the_post_thumbnail_url());?>')"></div>
 						<h4><a href="<?php echo esc_url(get_the_permalink());?>"><?php the_title();?></a></h4>
 						<div class="price-bottom">
 							<p><?php echo esc_attr(get_woocommerce_currency_symbol());?> 

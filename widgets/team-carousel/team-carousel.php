@@ -1263,7 +1263,7 @@ class Team_Carousel extends Widget_Base {
 					?>
 					<div class="single-team">
 						<?php if ($team_image) { ?>
-							<img decoding="async" loading="lazy" class="team-img" src="<?php echo esc_url($team_image); ?>" alt="<?php echo esc_attr($team_name); ?>">
+							<div class="team-img" style="background-image:url(<?php echo esc_url($team_image); ?>)"></div>
 						<?php } ?>
 						<div class="team-bg">
 							<div class="team-content">

@@ -902,7 +902,7 @@ class Brand extends Widget_Base {
 						?>
 								<div class="wb-grid-desktop-4 wb-grid-tablet-4 wb-grid-mobile-12">
 									<a href="<?php echo esc_url($brand_logo_link); ?>">
-										<img src="<?php echo esc_url($brand_img); ?>" alt="<?php echo esc_attr($brand['wb_brand_logo_img']['alt'] ?? 'Brand logo'); ?>">
+										<div class="brand-logo-img" style="background-image:url('<?php echo esc_url($brand_img); ?>')"></div>
 									</a>
 								</div>
 						<?php

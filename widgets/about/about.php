@@ -1216,10 +1216,10 @@ class About extends Widget_Base {
 					</div> <!-- section-heading end here -->
 					<div class="about-img">
 						<?php if (!empty($wb_about_featured_img)) : ?>
-							<img src="<?php echo esc_url($wb_about_featured_img); ?>" alt="<?php echo esc_attr($wb_about_title); ?>">
+							<div class="about-featured-img" style="background-image:url('<?php echo esc_url($wb_about_featured_img); ?>')"></div>
 						<?php endif; ?>
 						<?php if (!empty($wb_about_bg_img)) : ?>
-							<img src="<?php echo esc_url($wb_about_bg_img); ?>" alt="<?php echo esc_attr($wb_about_title); ?>">
+							<div class="about-featured-bg" style="background-image:url('<?php echo esc_url($wb_about_bg_img); ?>')"></div>
 						<?php endif; ?>
 					</div>
 				</div>
