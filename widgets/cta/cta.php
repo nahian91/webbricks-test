@@ -80,6 +80,10 @@ class CTA extends Widget_Base {
 		return [ 'cta', 'wb'];
 	}
 
+	public function get_style_depends() {
+        return [ 'webbricks-cta-widget-style' ];
+    }
+
 	/**
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *

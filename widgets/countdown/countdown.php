@@ -539,7 +539,7 @@ protected function render() {
                     echo '<div class=\'single-countdown\'><span class=\'single-countdown-digits\'>$2</span><span class=\'single-countdown-label\'>'. esc_html($settings['wb_countdown_label_hours']) .'</span></div>';
                 }
                 if ($minute == 'yes') {
-                    echo '<div class=\'single-countdown\'><span class=\'single-countdown-digits\'>$3</span><span class=\'single-countdown-label\'>'. esc_html($settings['wb_countdown_label_minutes']) .'</span></div>';
+                    echo '<div class=\'single-countdown\'><span class=\'single-countdown-digits\'>$3</span><span class=\'single-countdown-label\'>'. esc_html($settings['wb_countdown_label_minuts']) .'</span></div>';
                 }
                 if ($seconds == 'yes') {
                     echo '<div class=\'single-countdown\'><span class=\'single-countdown-digits\'>$4</span><span class=\'single-countdown-label\'>'. esc_html($settings['wb_countdown_label_seconds']) .'</span></div>';
