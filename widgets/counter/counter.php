@@ -412,7 +412,7 @@ class Counter extends Widget_Base {
 	protected function render() {
 		// Get our input from the widget settings.
 		$settings = $this->get_settings_for_display();		
-		$wb_counter_icon = isset($settings['wb_counter_icon']) ? $settings['wb_counter_icon'] : '';
+		$wb_counter_icon = isset($settings['wb_counter_icon']['value']) ? $settings['wb_counter_icon'] : '';
 		$wb_counter_number = isset($settings['wb_counter_number']) ? intval($settings['wb_counter_number']) : 0;
 		$wb_counter_number_suffix = isset($settings['wb_counter_number_suffix']) ? $settings['wb_counter_number_suffix'] : '';
 		$wb_counter_title = isset($settings['wb_counter_title']) ? $settings['wb_counter_title'] : '';
@@ -429,9 +429,9 @@ class Counter extends Widget_Base {
 		?>
 		<!-- Counter Start Here -->			
 		<div class="counter-box">
-			<div class="counter-number">					
+			<div class="counter-number">				
 				<?php if (!empty($wb_counter_icon)): ?>
-					<i class="<?php echo esc_attr($wb_counter_icon); ?>"></i>
+					<i class="<?php echo esc_attr($wb_counter_icon['value']); ?>"></i>
 				<?php endif; ?>
 			</div>
 			<div class="counter-content">
