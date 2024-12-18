@@ -717,11 +717,26 @@ class Contact_Info extends Widget_Base {
 			]
 		);
 
+		// Contact Info Social Lists Icon Color
+		$this->add_control(
+			'wb_contact_info_icon_hover_color',
+			[
+				'label' => esc_html__( 'Hover Color', 'webbricks-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .single-contact-info-follows:hover i' => 'color: {{VALUE}}',
+				],
+				'global' => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				]
+			]
+		);
+
 		// Contact Info Social Lists Heading Options
 		$this->add_control(
 			'wb_contact_info_social_lists_icon_heading_options',
 			[
-				'label' => esc_html__( 'Heading', 'webbricks-addons' ),
+				'label' => esc_html__( 'Title', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -738,6 +753,21 @@ class Contact_Info extends Widget_Base {
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
+				]
+			]
+		);
+
+		// Contact Info Social Lists Icon Color
+		$this->add_control(
+			'wb_contact_info_socials_heading_hover_color',
+			[
+				'label' => esc_html__( 'Hover Color', 'webbricks-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .single-contact-info-follows:hover a' => 'color: {{VALUE}}',
+				],
+				'global' => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				]
 			]
 		);
