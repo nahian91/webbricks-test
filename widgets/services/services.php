@@ -92,7 +92,7 @@ class Services extends Widget_Base {
 
 		// Services Section Heading Layout
 		$this->start_controls_section(
-			'wb_services_section_layout_box',
+			'wbea_services_section_layout_box',
 			[
 				'label' => esc_html__('Layout', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,
@@ -101,7 +101,7 @@ class Services extends Widget_Base {
 
 		// Services Section Heading Show
 		$this->add_control(
-			'wb_services_section_heading_show',
+			'wbea_services_section_heading_show',
 			[
 				'label' => esc_html__( 'Show Section Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -115,7 +115,7 @@ class Services extends Widget_Base {
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wb_services_bg_pattern',
+			'wbea_services_bg_pattern',
 			[
 				'label' => __( 'Background Pattern', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -132,19 +132,19 @@ class Services extends Widget_Base {
 
 		// Services Section Sub Heading Box
 		$this->start_controls_section(
-			'wb_services_section_subheading_box',
+			'wbea_services_section_subheading_box',
 			[
 				'label' => esc_html__('Sub Heading', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 				'condition' => [
-					'wb_services_section_heading_show' => 'yes'
+					'wbea_services_section_heading_show' => 'yes'
 				],
 			]
 		);
 
 		// Services Section Sub Heading Show?
 		$this->add_control(
-			'wb_services_section_subheading_show',
+			'wbea_services_section_subheading_show',
 			[
 				'label' => esc_html__( 'Show Sub Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -157,7 +157,7 @@ class Services extends Widget_Base {
 		);
 		// Services Sub Heading
 		$this->add_control(
-		    'wb_services_section_subheading',
+		    'wbea_services_section_subheading',
 			[
 			    'label' => esc_html__('Sub Heading', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
@@ -165,7 +165,7 @@ class Services extends Widget_Base {
 				'default' => esc_html__('Services', 'webbricks-addons'),
 				'separator' => 'before',
 				'condition' => [
-					'wb_services_section_subheading_show' => 'yes'
+					'wbea_services_section_subheading_show' => 'yes'
 				],
 			]
 		);
@@ -174,19 +174,19 @@ class Services extends Widget_Base {
 
 		// Services Section Heading Box
 		$this->start_controls_section(
-			'wb_services_section_heading_box',
+			'wbea_services_section_heading_box',
 			[
 				'label' => esc_html__('Heading', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 				'condition' => [
-					'wb_services_section_heading_show' => 'yes'
+					'wbea_services_section_heading_show' => 'yes'
 				],
 			]
 		);
 		
 		// Services Section Heading
 		$this->add_control(
-		    'wb_services_section_heading',
+		    'wbea_services_section_heading',
 			[
 			    'label' => esc_html__('Heading', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
@@ -198,7 +198,7 @@ class Services extends Widget_Base {
 
 		// Services Section Heading Tag
 		$this->add_control(
-			'wb_services_section_heading_tag',
+			'wbea_services_section_heading_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -220,19 +220,19 @@ class Services extends Widget_Base {
 
 		// Services Section Description
 		$this->start_controls_section(
-			'wb_services_section_desc_box',
+			'wbea_services_section_desc_box',
 			[
 				'label' => esc_html__('Description', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 				'condition' => [
-					'wb_services_section_heading_show' => 'yes'
+					'wbea_services_section_heading_show' => 'yes'
 				],
 			]
 		);
 
 		// Services Section Heading Description Show?
 		$this->add_control(
-			'wb_services_section_desc_show',
+			'wbea_services_section_desc_show',
 			[
 				'label' => esc_html__( 'Show Description', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -246,7 +246,7 @@ class Services extends Widget_Base {
 
 		// Services Section Heading Description
 		$this->add_control(
-		    'wb_services_section_desc',
+		    'wbea_services_section_desc',
 			[
 			    'label' => esc_html__('Description', 'webbricks-addons'),
 				'type' => Controls_Manager::WYSIWYG,
@@ -254,7 +254,7 @@ class Services extends Widget_Base {
 				'default' => esc_html__('Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons'),
 				'separator' => 'before',
 				'condition' => [
-					'wb_services_section_desc_show' => 'yes'
+					'wbea_services_section_desc_show' => 'yes'
 				],
 			]
 		);
@@ -274,7 +274,7 @@ class Services extends Widget_Base {
 		$repeater = new Repeater();
  
 		$repeater->add_control(
-			'wb_service_icon',
+			'wbea_service_icon',
 			[
 				'label' => esc_html__( 'Icon', 'webbricks-addons' ),
 				'type' => Controls_Manager::ICONS,
@@ -285,7 +285,7 @@ class Services extends Widget_Base {
 		);
  
 		$repeater->add_control(
-			'wb_service_title',
+			'wbea_service_title',
 			[
 				'label' => esc_html__( 'Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -296,7 +296,7 @@ class Services extends Widget_Base {
 		);
  
 		$repeater->add_control(
-			'wb_service_desc',
+			'wbea_service_desc',
 			[
 				'label' => esc_html__( 'Description', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXTAREA,
@@ -307,7 +307,7 @@ class Services extends Widget_Base {
 		);
  
 		$repeater->add_control(
-			'wb_service_link', [
+			'wbea_service_link', [
 				'label' => esc_html__( 'Button Link', 'webbricks-addons' ),
 				'type' => Controls_Manager::URL,
 				'default' => [
@@ -320,53 +320,53 @@ class Services extends Widget_Base {
 		);
 
 		$this->add_control(
-			'wb_services',
+			'wbea_services',
 			[
 				'label' => esc_html__( 'Services List', 'webbricks-addons' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'wb_service_icon' => [
+						'wbea_service_icon' => [
 							'value' => 'fas fa-route',
 						],
-						'wb_service_title' => esc_html__( 'Travel Plan', 'webbricks-addons' ),
-						'wb_service_desc' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat.', 'webbricks-addons'),
-						'wb_service_link' => 'https://getwebbricks.com/',
+						'wbea_service_title' => esc_html__( 'Travel Plan', 'webbricks-addons' ),
+						'wbea_service_desc' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat.', 'webbricks-addons'),
+						'wbea_service_link' => 'https://getwebbricks.com/',
 					],
 					[
-						'wb_service_icon' => [
+						'wbea_service_icon' => [
 							'value' => 'far fa-compass',
 						],
-						'wb_service_title' => esc_html__( 'Tour Advice', 'webbricks-addons' ),
-						'wb_service_desc' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat.', 'webbricks-addons'),
+						'wbea_service_title' => esc_html__( 'Tour Advice', 'webbricks-addons' ),
+						'wbea_service_desc' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat.', 'webbricks-addons'),
 					],
 					[
-						'wb_service_icon' => [
+						'wbea_service_icon' => [
 							'value' => 'fas fa-hotel',
 						],
-						'wb_service_title' => esc_html__( 'Hotel Rental', 'webbricks-addons' ),
-						'wb_service_desc' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat.', 'webbricks-addons'),
-						'wb_service_link' => 'https://getwebbricks.com/',
+						'wbea_service_title' => esc_html__( 'Hotel Rental', 'webbricks-addons' ),
+						'wbea_service_desc' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat.', 'webbricks-addons'),
+						'wbea_service_link' => 'https://getwebbricks.com/',
 					],
 					[
-						'wb_service_icon' => [
+						'wbea_service_icon' => [
 							'value' => 'fas fa-briefcase',
 						],
-						'wb_service_title' => esc_html__( 'Business', 'webbricks-addons' ),
-						'wb_service_desc' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat.', 'webbricks-addons'),
-						'wb_service_link' => 'https://getwebbricks.com/',
+						'wbea_service_title' => esc_html__( 'Business', 'webbricks-addons' ),
+						'wbea_service_desc' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat.', 'webbricks-addons'),
+						'wbea_service_link' => 'https://getwebbricks.com/',
 					],
 					[
-						'wb_service_icon' => [
+						'wbea_service_icon' => [
 							'value' => 'fas fa-ticket-alt',
 						],
-						'wb_service_title' => esc_html__( 'Ticket', 'webbricks-addons' ),
+						'wbea_service_title' => esc_html__( 'Ticket', 'webbricks-addons' ),
 						'service_desc' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat.', 'webbricks-addons'),
-						'wb_service_link' => 'https://getwebbricks.com/',
+						'wbea_service_link' => 'https://getwebbricks.com/',
 					]
 				],
-				'title_field' => '{{{ wb_service_title }}}',
+				'title_field' => '{{{ wbea_service_title }}}',
 				'separator' => 'before',
 			]
 		);
@@ -375,7 +375,7 @@ class Services extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_services_settings',
+			'wbea_services_settings',
 			[
 				'label' => esc_html__('Settings', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -384,7 +384,7 @@ class Services extends Widget_Base {
 
 		// Services Number
 		$this->add_control(
-			'wb_services_number',
+			'wbea_services_number',
 			[
                 'label'     => esc_html__( 'No. of items per slide', 'webbricks-addons' ),
                 'type'      => Controls_Manager::SELECT,
@@ -403,7 +403,7 @@ class Services extends Widget_Base {
 
 		// Services Arrows
 		$this->add_control(
-			'wb_services_arrows',
+			'wbea_services_arrows',
 			[
 				'label' => esc_html__( 'Arrows', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -416,7 +416,7 @@ class Services extends Widget_Base {
 
 		// Services Loops
 		$this->add_control(
-			'wb_services_loop',
+			'wbea_services_loop',
 			[
 				'label' => esc_html__( 'Loops', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -429,7 +429,7 @@ class Services extends Widget_Base {
 
 		// Services Autoplay
 		$this->add_control(
-			'wb_services_autoplay',
+			'wbea_services_autoplay',
 			[
 				'label' => esc_html__( 'Autoplay', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -442,7 +442,7 @@ class Services extends Widget_Base {
 
 		// Services Pause
 		$this->add_control(
-			'wb_services_pause',
+			'wbea_services_pause',
 			[
 				'label' => esc_html__( 'Pause on hover', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -455,7 +455,7 @@ class Services extends Widget_Base {
 
 		// Services Autoplay Speed
 		$this->add_control(
-			'wb_services_autoplay_speed',
+			'wbea_services_autoplay_speed',
 			[
 				'label' => esc_html__( 'Speed', 'webbricks-addons' ),
 				'type' => Controls_Manager::SELECT,
@@ -477,7 +477,7 @@ class Services extends Widget_Base {
 
 		// Services Animation Speed
 		$this->add_control(
-			'wb_services_autoplay_animation',
+			'wbea_services_autoplay_animation',
 			[
 				'label' => esc_html__( 'Timeout', 'webbricks-addons' ),
 				'type' => Controls_Manager::SELECT,
@@ -502,7 +502,7 @@ class Services extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_services_pro_message',
+			'wbea_services_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -510,7 +510,7 @@ class Services extends Widget_Base {
 		);
 
 		$this->add_control( 
-			'wb_services_pro_message_notice', 
+			'wbea_services_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -525,20 +525,20 @@ class Services extends Widget_Base {
 		
 		// Service Section Heading Style
 		$this->start_controls_section(
-			'wb_service_section_subheading_style',
+			'wbea_service_section_subheading_style',
 			[
 				'label' => esc_html__( 'Sub Heading', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_services_section_heading_show' => 'yes',
-					'wb_services_section_subheading_show' => 'yes'
+					'wbea_services_section_heading_show' => 'yes',
+					'wbea_services_section_subheading_show' => 'yes'
 				],
 			]
 		);
 
 		// Heading Control
 		$this->add_control(
-			'wb_section_heading_separator_variation_style',
+			'wbea_section_heading_separator_variation_style',
 			[
 				'label' => __('Bullet', 'webbricks-addons'),
 				'type' => \Elementor\Controls_Manager::HEADING,
@@ -547,7 +547,7 @@ class Services extends Widget_Base {
 
 		// Services Section Heading Separator Style
 		$this->add_control(
-			'wb_section_heading_separator_variation',
+			'wbea_section_heading_separator_variation',
 			[
 				'label' => __( 'Style', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -565,12 +565,12 @@ class Services extends Widget_Base {
 
 		// Service Section Bullet Color
 		$this->add_control(
-			'wb_service_section_sep_bg',
+			'wbea_service_section_sep_bg',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .section-title span:before' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-section-title span:before' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -580,23 +580,23 @@ class Services extends Widget_Base {
 
 		// Service Section Bullet Round
 		$this->add_control(
-			'wb_service_section_sep_round',
+			'wbea_service_section_sep_round',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .section-title span:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-section-title span:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
-					'wb_section_heading_separator_variation' => 'custom', 
+					'wbea_section_heading_separator_variation' => 'custom', 
 				],
 			]
 		);
 
 		// Heading Control
 		$this->add_control(
-			'wb_service_section_subheading_title_style',
+			'wbea_service_section_subheading_title_style',
 			[
 				'label' => __('Sub Heading', 'webbricks-addons'),
 				'type' => \Elementor\Controls_Manager::HEADING,
@@ -606,12 +606,12 @@ class Services extends Widget_Base {
 
 		// Service Section Sub Heading Color
 		$this->add_control(
-			'wb_service_section_subheading_color',
+			'wbea_service_section_subheading_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .section-title span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-section-title span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -623,8 +623,8 @@ class Services extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_service_section_subheading_typography',
-				'selector' => '{{WRAPPER}} .section-title span',
+				'name' => 'wbea_service_section_subheading_typography',
+				'selector' => '{{WRAPPER}} .wbea-section-title span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -635,24 +635,24 @@ class Services extends Widget_Base {
 
 		// Service Section Heading Options
 		$this->start_controls_section(
-			'wb_service_section_heading_style',
+			'wbea_service_section_heading_style',
 			[
 				'label' => esc_html__( 'Heading', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_services_section_heading_show' => 'yes'
+					'wbea_services_section_heading_show' => 'yes'
 				],
 			]
 		);
 
 		// Service Section Heading Color
 		$this->add_control(
-			'wb_section_title_color',
+			'wbea_section_title_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .section-title .section-heading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-section-title .wbea-section-heading' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -664,8 +664,8 @@ class Services extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_section_title_typography',
-				'selector' => '{{WRAPPER}} .section-title .section-heading',
+				'name' => 'wbea_section_title_typography',
+				'selector' => '{{WRAPPER}} .wbea-section-title .wbea-section-heading',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				]
@@ -676,25 +676,25 @@ class Services extends Widget_Base {
 
 		// Service Section Description Options
 		$this->start_controls_section(
-			'wb_service_section_desc_style',
+			'wbea_service_section_desc_style',
 			[
 				'label' => esc_html__( 'Description', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_services_section_heading_show' => 'yes',
-					'wb_services_section_desc_show' => 'yes'
+					'wbea_services_section_heading_show' => 'yes',
+					'wbea_services_section_desc_show' => 'yes'
 				],
 			]
 		);
 
 		// Service Section Description Color
 		$this->add_control(
-			'wb_section_desc_color',
+			'wbea_section_desc_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .section-title p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-section-title p' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -706,8 +706,8 @@ class Services extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_section_desc_typography',
-				'selector' => '{{WRAPPER}} .section-title p',
+				'name' => 'wbea_section_desc_typography',
+				'selector' => '{{WRAPPER}} .wbea-section-title p',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				]
@@ -718,7 +718,7 @@ class Services extends Widget_Base {
 
 		// Service Box Style
 		$this->start_controls_section(
-			'wb_service_box_style',
+			'wbea_service_box_style',
 			[
 				'label' => esc_html__( 'Service Content', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -727,7 +727,7 @@ class Services extends Widget_Base {
 
 		// Service Box Layout Options
 		$this->add_control(
-			'wb_service_box_layout_options',
+			'wbea_service_box_layout_options',
 			[
 				'label' => esc_html__( 'Layout', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -739,27 +739,27 @@ class Services extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wb_service_border',
-				'selector' => '{{WRAPPER}} .single-service',
+				'name' => 'wbea_service_border',
+				'selector' => '{{WRAPPER}} .wbea-single-service',
 			]
 		);	
 
 		// Service Border Radius
 		$this->add_control(
-			'wb_service_border_radius',
+			'wbea_service_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem'],
 				'selectors' => [
-					'{{WRAPPER}} .single-service' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-single-service' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Service Box Icon Options
 		$this->add_control(
-			'wb_service_box_icon_options',
+			'wbea_service_box_icon_options',
 			[
 				'label' => esc_html__( 'Icon', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -769,12 +769,12 @@ class Services extends Widget_Base {
 
 		// Service Box Icon Color
 		$this->add_control(
-			'wb_service_box_icon_color',
+			'wbea_service_box_icon_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .service-content i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-service-content i' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -784,7 +784,7 @@ class Services extends Widget_Base {
 
 		// Service Box Heading Options
 		$this->add_control(
-			'wb_service_box_title_options',
+			'wbea_service_box_title_options',
 			[
 				'label' => esc_html__( 'Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -794,12 +794,12 @@ class Services extends Widget_Base {
 
 		// Service Box Heading Color
 		$this->add_control(
-			'wb_service_box_title_color',
+			'wbea_service_box_title_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-service h3' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-service h3' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -811,8 +811,8 @@ class Services extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_service_box_title_typography',
-				'selector' => '{{WRAPPER}} .single-service h3',
+				'name' => 'wbea_service_box_title_typography',
+				'selector' => '{{WRAPPER}} .wbea-single-service h3',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -821,7 +821,7 @@ class Services extends Widget_Base {
 
 		// Service Box Description Options
 		$this->add_control(
-			'wb_service_box_desc_options',
+			'wbea_service_box_desc_options',
 			[
 				'label' => esc_html__( 'Description', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -831,12 +831,12 @@ class Services extends Widget_Base {
 
 		// Service Box Description Color
 		$this->add_control(
-			'wb_service_box_desc_color',
+			'wbea_service_box_desc_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-service p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-service p' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -848,8 +848,8 @@ class Services extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_service_box_desc_typography',
-				'selector' => '{{WRAPPER}} .single-service p',
+				'name' => 'wbea_service_box_desc_typography',
+				'selector' => '{{WRAPPER}} .wbea-single-service p',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				]
@@ -859,7 +859,7 @@ class Services extends Widget_Base {
 
 		// Service Box Button Style
 		$this->start_controls_section(
-			'wb_service_box_btn_style',
+			'wbea_service_box_btn_style',
 			[
 				'label' => esc_html__( 'Service Button', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -880,12 +880,12 @@ class Services extends Widget_Base {
 
 		// Service Box Button Color
 		$this->add_control(
-			'wb_service_btn_color',
+			'wbea_service_btn_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .service-bottom a svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-service-bottom a svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -895,12 +895,12 @@ class Services extends Widget_Base {
 
 		// Service Box Button Border Color
 		$this->add_control(
-			'wb_service_btn_border_color',
+			'wbea_service_btn_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .service-bottom a' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-service-bottom a' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -910,12 +910,12 @@ class Services extends Widget_Base {
 
 		// Service Box Button Background Color
 		$this->add_control(
-			'wb_service_btn_bg_color',
+			'wbea_service_btn_bg_color',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .service-bottom a' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-service-bottom a' => 'background-color: {{VALUE}}',
 				],
 				'default' => '#fff',
 			]
@@ -933,12 +933,12 @@ class Services extends Widget_Base {
 
 		// Service Button Hover Icon Color
 		$this->add_control(
-			'wb_blog_btn_bg_hover_color',
+			'wbea_blog_btn_bg_hover_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .service-bottom a:hover svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-service-bottom a:hover svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -948,12 +948,12 @@ class Services extends Widget_Base {
 
 		// Service Box Button Hover Border Color
 		$this->add_control(
-			'wb_service_btn_hover_border_color',
+			'wbea_service_btn_hover_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .service-bottom a:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-service-bottom a:hover' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -963,12 +963,12 @@ class Services extends Widget_Base {
 
 		// Service Button Hover Background
 		$this->add_control(
-			'wb_service_btn_hover_bg',
+			'wbea_service_btn_hover_bg',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .service-bottom a:after' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-service-bottom a:after' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -984,7 +984,7 @@ class Services extends Widget_Base {
 
 		// Service Arrow Style
 		$this->start_controls_section(
-			'wb_service_arrow_style',
+			'wbea_service_arrow_style',
 			[
 				'label' => esc_html__( 'Arrow Buttons', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -1005,12 +1005,12 @@ class Services extends Widget_Base {
 
 		// Service Arrow Color
 		$this->add_control(
-			'wb_service_arrow_color',
+			'wbea_service_arrow_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .carousel-arrow-border svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-carousel-arrow-border svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -1020,12 +1020,12 @@ class Services extends Widget_Base {
 
 		// Service Arrow Border Color
 		$this->add_control(
-			'wb_service_arrow_border_color',
+			'wbea_service_arrow_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .carousel-arrow-border' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-carousel-arrow-border' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -1035,12 +1035,12 @@ class Services extends Widget_Base {
 
 		// Service Arrow Background Color
 		$this->add_control(
-			'wb_service_arrow_bg_color',
+			'wbea_service_arrow_bg_color',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .carousel-arrow-border' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-carousel-arrow-border' => 'background-color: {{VALUE}}',
 				],
 				'default' => '#fff',
 			]
@@ -1048,26 +1048,26 @@ class Services extends Widget_Base {
 
 		// Service Arrow Padding
 		$this->add_control(
-			'wb_service_arrow_padding',
+			'wbea_service_arrow_padding',
 			[
 				'label' => esc_html__( 'Padding', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .carousel-arrow-border' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-carousel-arrow-border' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Service Arrow Round
 		$this->add_control(
-			'wb_service_arrow_round',
+			'wbea_service_arrow_round',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .carousel-arrow-border' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-carousel-arrow-border' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1084,12 +1084,12 @@ class Services extends Widget_Base {
 
 		// Service Arrow Hover Icon Color
 		$this->add_control(
-			'wb_service_arrow_hover_color',
+			'wbea_service_arrow_hover_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .carousel-arrow-border:hover svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-carousel-arrow-border:hover svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -1099,12 +1099,12 @@ class Services extends Widget_Base {
 
 		// Service Arrow Border Color
 		$this->add_control(
-			'wb_service_arrow_hover_border_color',
+			'wbea_service_arrow_hover_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .carousel-arrow-border:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-carousel-arrow-border:hover' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -1114,12 +1114,12 @@ class Services extends Widget_Base {
 
 		// Service Arrow Round
 		$this->add_control(
-			'wb_service_arrow_hover_bg',
+			'wbea_service_arrow_hover_bg',
 			[
 				'label' => esc_html__( 'Background Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .carousel-arrow-border:after' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-carousel-arrow-border:after' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -1147,20 +1147,20 @@ class Services extends Widget_Base {
 	protected function render() {
 		// Get input from widget settings
 		$settings = $this->get_settings_for_display();
-		$wb_services_bg_pattern = isset($settings['wb_services_bg_pattern']) ? $settings['wb_services_bg_pattern'] : '';
-		$wb_services_section_heading_show = isset($settings['wb_services_section_heading_show']) ? $settings['wb_services_section_heading_show'] : '';
-		$wb_services = isset($settings['wb_services']) ? $settings['wb_services'] : [];
-		$wb_services_number = isset($settings['wb_services_number']) ? $settings['wb_services_number'] : '';
-		$wb_services_loop = isset($settings['wb_services_loop']) ? $settings['wb_services_loop'] : '';
-		$wb_services_autoplay = isset($settings['wb_services_autoplay']) ? $settings['wb_services_autoplay'] : '';
-		$wb_services_arrows = isset($settings['wb_services_arrows']) ? $settings['wb_services_arrows'] : '';
-		$wb_services_pause = isset($settings['wb_services_pause']) ? $settings['wb_services_pause'] : '';
-		$wb_services_autoplay_speed = isset($settings['wb_services_autoplay_speed']) ? $settings['wb_services_autoplay_speed'] : '';
-		$wb_services_autoplay_animation = isset($settings['wb_services_autoplay_animation']) ? $settings['wb_services_autoplay_animation'] : '';
+		$wbea_services_bg_pattern = isset($settings['wbea_services_bg_pattern']) ? $settings['wbea_services_bg_pattern'] : '';
+		$wbea_services_section_heading_show = isset($settings['wbea_services_section_heading_show']) ? $settings['wbea_services_section_heading_show'] : '';
+		$wbea_services = isset($settings['wbea_services']) ? $settings['wbea_services'] : [];
+		$wbea_services_number = isset($settings['wbea_services_number']) ? $settings['wbea_services_number'] : '';
+		$wbea_services_loop = isset($settings['wbea_services_loop']) ? $settings['wbea_services_loop'] : '';
+		$wbea_services_autoplay = isset($settings['wbea_services_autoplay']) ? $settings['wbea_services_autoplay'] : '';
+		$wbea_services_arrows = isset($settings['wbea_services_arrows']) ? $settings['wbea_services_arrows'] : '';
+		$wbea_services_pause = isset($settings['wbea_services_pause']) ? $settings['wbea_services_pause'] : '';
+		$wbea_services_autoplay_speed = isset($settings['wbea_services_autoplay_speed']) ? $settings['wbea_services_autoplay_speed'] : '';
+		$wbea_services_autoplay_animation = isset($settings['wbea_services_autoplay_animation']) ? $settings['wbea_services_autoplay_animation'] : '';
 	
 		// Background pattern URLs
 		$service_pattern_url = '';
-		switch ($wb_services_bg_pattern) {
+		switch ($wbea_services_bg_pattern) {
 			case 'style-1':
 				$service_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/service-pattern-1.svg';
 				break;
@@ -1176,51 +1176,51 @@ class Services extends Widget_Base {
 		}
 	?>
 	
-	<?php if ($wb_services_section_heading_show === 'yes') { 
-		$wb_services_section_subheading_show = isset($settings['wb_services_section_subheading_show']) ? $settings['wb_services_section_subheading_show'] : '';
-		$wb_services_section_subheading = isset($settings['wb_services_section_subheading']) ? $settings['wb_services_section_subheading'] : '';
-		$wb_section_heading_separator_variation = isset($settings['wb_section_heading_separator_variation']) ? $settings['wb_section_heading_separator_variation'] : '';
-		$wb_services_section_heading = isset($settings['wb_services_section_heading']) ? $settings['wb_services_section_heading'] : '';
-		$wb_services_section_heading_tag = isset($settings['wb_services_section_heading_tag']) ? $settings['wb_services_section_heading_tag'] : 'h2';
-		$wb_services_section_desc_show = isset($settings['wb_services_section_desc_show']) ? $settings['wb_services_section_desc_show'] : '';
-		$wb_services_section_desc = isset($settings['wb_services_section_desc']) ? $settings['wb_services_section_desc'] : '';
+	<?php if ($wbea_services_section_heading_show === 'yes') { 
+		$wbea_services_section_subheading_show = isset($settings['wbea_services_section_subheading_show']) ? $settings['wbea_services_section_subheading_show'] : '';
+		$wbea_services_section_subheading = isset($settings['wbea_services_section_subheading']) ? $settings['wbea_services_section_subheading'] : '';
+		$wbea_section_heading_separator_variation = isset($settings['wbea_section_heading_separator_variation']) ? $settings['wbea_section_heading_separator_variation'] : '';
+		$wbea_services_section_heading = isset($settings['wbea_services_section_heading']) ? $settings['wbea_services_section_heading'] : '';
+		$wbea_services_section_heading_tag = isset($settings['wbea_services_section_heading_tag']) ? $settings['wbea_services_section_heading_tag'] : 'h2';
+		$wbea_services_section_desc_show = isset($settings['wbea_services_section_desc_show']) ? $settings['wbea_services_section_desc_show'] : '';
+		$wbea_services_section_desc = isset($settings['wbea_services_section_desc']) ? $settings['wbea_services_section_desc'] : '';
 	?>
-		<div class="section-title service-title">
-			<?php if ($wb_services_section_subheading_show === 'yes') { ?>
-				<span class="<?php echo esc_attr($wb_section_heading_separator_variation); ?> section-subheading"><?php echo esc_html($wb_services_section_subheading); ?></span>
+		<div class="wbea-section-title wbea-service-title">
+			<?php if ($wbea_services_section_subheading_show === 'yes') { ?>
+				<span class="<?php echo esc_attr($wbea_section_heading_separator_variation); ?> wbea-section-subheading"><?php echo esc_html($wbea_services_section_subheading); ?></span>
 			<?php } ?>
-			<<?php echo esc_attr($wb_services_section_heading_tag); ?> class="section-heading"><?php echo esc_html($wb_services_section_heading); ?></<?php echo esc_attr($wb_services_section_heading_tag); ?>>
+			<<?php echo esc_attr($wbea_services_section_heading_tag); ?> class="wbea-section-heading"><?php echo esc_html($wbea_services_section_heading); ?></<?php echo esc_attr($wbea_services_section_heading_tag); ?>>
 			
-			<?php if ($wb_services_section_desc_show === 'yes') { ?>
-				<p><?php echo wp_kses_post($wb_services_section_desc); ?></p>
+			<?php if ($wbea_services_section_desc_show === 'yes') { ?>
+				<p><?php echo wp_kses_post($wbea_services_section_desc); ?></p>
 			<?php } ?>
 		</div>
 	<?php } ?>
 	
-	<div class="services owl-carousel <?php echo esc_attr($wb_services_arrows === 'yes' ? 'carousel-top-arrows' : ''); ?> <?php echo esc_attr($wb_services_section_heading_show === 'yes' ? 'heading-top' : ''); ?>" 
-		services-scroll="<?php echo esc_attr($wb_services_number); ?>" 
-		services-loop="<?php echo esc_attr($wb_services_loop); ?>" 
-		services-autoplay="<?php echo esc_attr($wb_services_autoplay); ?>" 
-		services-pause="<?php echo esc_attr($wb_services_pause); ?>" 
-		services-arrows="<?php echo esc_attr($wb_services_arrows); ?>" 
-		services-animation="<?php echo esc_attr($wb_services_autoplay_animation); ?>" 
-		services-speed="<?php echo esc_attr($wb_services_autoplay_speed); ?>">
+	<div class="wbea-services owl-carousel <?php echo esc_attr($wbea_services_arrows === 'yes' ? 'wbea-carousel-top-arrows' : ''); ?> <?php echo esc_attr($wbea_services_section_heading_show === 'yes' ? 'heading-top' : ''); ?>" 
+		services-scroll="<?php echo esc_attr($wbea_services_number); ?>" 
+		services-loop="<?php echo esc_attr($wbea_services_loop); ?>" 
+		services-autoplay="<?php echo esc_attr($wbea_services_autoplay); ?>" 
+		services-pause="<?php echo esc_attr($wbea_services_pause); ?>" 
+		services-arrows="<?php echo esc_attr($wbea_services_arrows); ?>" 
+		services-animation="<?php echo esc_attr($wbea_services_autoplay_animation); ?>" 
+		services-speed="<?php echo esc_attr($wbea_services_autoplay_speed); ?>">
 	
-		<?php foreach ($wb_services as $service) { 
-			$service_icon = isset($service['wb_service_icon']['value']) ? esc_attr($service['wb_service_icon']['value']) : ''; // Escape icon class
-			$service_title = isset($service['wb_service_title']) ? esc_html($service['wb_service_title']) : ''; // Escape title
-			$service_desc = isset($service['wb_service_desc']) ? wp_kses_post($service['wb_service_desc']) : ''; // Allow limited HTML in description
-			$service_url = isset($service['wb_service_link']['url']) ? esc_url($service['wb_service_link']['url']) : ''; // Escape URL
+		<?php foreach ($wbea_services as $service) { 
+			$service_icon = isset($service['wbea_service_icon']['value']) ? esc_attr($service['wbea_service_icon']['value']) : ''; // Escape icon class
+			$service_title = isset($service['wbea_service_title']) ? esc_html($service['wbea_service_title']) : ''; // Escape title
+			$service_desc = isset($service['wbea_service_desc']) ? wp_kses_post($service['wbea_service_desc']) : ''; // Allow limited HTML in description
+			$service_url = isset($service['wbea_service_link']['url']) ? esc_url($service['wbea_service_link']['url']) : ''; // Escape URL
 		?>
-			<div class="single-service">
-				<div class="service-content">
+			<div class="wbea-single-service">
+				<div class="wbea-service-content">
 					<i class="<?php echo esc_attr($service_icon); ?>"></i>
 					<h3><?php echo esc_html($service_title); ?></h3>
 					<p><?php echo esc_html($service_desc); ?></p>
 				</div>
-				<div class="service-bottom" style="background-image: url('<?php echo esc_url($service_pattern_url); ?>');">
+				<div class="wbea-service-bottom" style="background-image: url('<?php echo esc_url($service_pattern_url); ?>');">
 					<?php if (!empty($service_url)) { ?>
-						<a href="<?php echo esc_url($service_url); ?>" class="icon-border" target="_blank">
+						<a href="<?php echo esc_url($service_url); ?>" class="wbea-icon-border" target="_blank">
 							<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M9 1.5C9 0.902344 9.49219 0.375 10.125 0.375H14.5898C14.7656 0.375 14.9062 0.410156 15.0469 0.480469C15.1523 0.515625 15.293 0.621094 15.3984 0.726562C15.6094 0.9375 15.7148 1.21875 15.75 1.5V6C15.75 6.63281 15.2227 7.125 14.625 7.125C13.9922 7.125 13.5 6.63281 13.5 6V4.24219L7.52344 10.1836C7.10156 10.6406 6.36328 10.6406 5.94141 10.1836C5.48438 9.76172 5.48438 9.02344 5.94141 8.60156L11.8828 2.625H10.125C9.49219 2.625 9 2.13281 9 1.5ZM0 3.75C0 2.51953 0.984375 1.5 2.25 1.5H5.625C6.22266 1.5 6.75 2.02734 6.75 2.625C6.75 3.25781 6.22266 3.75 5.625 3.75H2.25V13.875H12.375V10.5C12.375 9.90234 12.8672 9.375 13.5 9.375C14.0977 9.375 14.625 9.90234 14.625 10.5V13.875C14.625 15.1406 13.6055 16.125 12.375 16.125H2.25C0.984375 16.125 0 15.1406 0 13.875V3.75Z" fill="currentColor"/>
 							</svg>

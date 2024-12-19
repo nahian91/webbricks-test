@@ -102,7 +102,7 @@ class Faqs extends Widget_Base {
 
 		// FAQ Title
 		$repeater->add_control(
-			'wb_faq_title',
+			'wbea_faq_title',
 			[
 				'label' => esc_html__( 'FAQ Question', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -114,7 +114,7 @@ class Faqs extends Widget_Base {
 
 		// FAQ Content
 		$repeater->add_control(
-			'wb_faq_content',
+			'wbea_faq_content',
 			[
 				'label' => esc_html__( 'FAQ Answer', 'webbricks-addons' ),
 				'type' => Controls_Manager::WYSIWYG,
@@ -124,37 +124,37 @@ class Faqs extends Widget_Base {
 
 		// FAQ Lists
 		$this->add_control(
-			'wb_faq_list',
+			'wbea_faq_list',
 			[
 				'label' => esc_html__( 'FAQ Lists', 'webbricks-addons' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
-				'title_field' => '{{{ wb_faq_title }}}',
+				'title_field' => '{{{ wbea_faq_title }}}',
 				'separator' => 'before',
 				'default' => [
 					[
-						'wb_faq_title' => esc_html__( 'Where can I find your warranty policy?', 'webbricks-addons' ),
-						'wb_faq_content' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons' )
+						'wbea_faq_title' => esc_html__( 'Where can I find your warranty policy?', 'webbricks-addons' ),
+						'wbea_faq_content' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons' )
 					],
 					[
-						'wb_faq_title' => esc_html__( 'Where can I change or cancel my order?', 'webbricks-addons'),
-						'wb_faq_content' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons' )
+						'wbea_faq_title' => esc_html__( 'Where can I change or cancel my order?', 'webbricks-addons'),
+						'wbea_faq_content' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons' )
 					],
 					[
-						'wb_faq_title' => esc_html__( 'Are there any return exclusions?', 'webbricks-addons'),
-						'wb_faq_content' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons' )
+						'wbea_faq_title' => esc_html__( 'Are there any return exclusions?', 'webbricks-addons'),
+						'wbea_faq_content' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons' )
 					],
 					[
-						'wb_faq_title' => esc_html__( 'How soon will my order ship?', 'webbricks-addons'),
-						'wb_faq_content' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons' )
+						'wbea_faq_title' => esc_html__( 'How soon will my order ship?', 'webbricks-addons'),
+						'wbea_faq_content' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons' )
 					],
 					[
-						'wb_faq_title' => esc_html__( 'What are the returns and exchange requirements?', 'webbricks-addons'),
-						'wb_faq_content' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons' )
+						'wbea_faq_title' => esc_html__( 'What are the returns and exchange requirements?', 'webbricks-addons'),
+						'wbea_faq_content' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons' )
 					],
 					[
-						'wb_faq_title' => esc_html__( 'When will I be charged for my order?', 'webbricks-addons'),
-						'wb_faq_content' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons' )
+						'wbea_faq_title' => esc_html__( 'When will I be charged for my order?', 'webbricks-addons'),
+						'wbea_faq_content' => esc_html__( 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons' )
 					]
 				],
 			]
@@ -165,7 +165,7 @@ class Faqs extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_faq_pro_message',
+			'wbea_faq_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -173,7 +173,7 @@ class Faqs extends Widget_Base {
 		);
 
 		$this->add_control( 
-			'wb_faq_pro_message_notice', 
+			'wbea_faq_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -188,7 +188,7 @@ class Faqs extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_faq_options',
+			'wbea_faq_options',
 			[
 				'label' => esc_html__( 'Layouts', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -197,7 +197,7 @@ class Faqs extends Widget_Base {
 
 		// FAQ Border Color
 		$this->add_control(
-			'wb_faq_border_color',
+			'wbea_faq_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
@@ -205,7 +205,7 @@ class Faqs extends Widget_Base {
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .faq' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-faq' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -215,7 +215,7 @@ class Faqs extends Widget_Base {
 		
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_faq_title_options',
+			'wbea_faq_title_options',
 			[
 				'label' => esc_html__( 'FAQ Question', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -224,7 +224,7 @@ class Faqs extends Widget_Base {
 		
 		// FAQ Title Color
 		$this->add_control(
-			'wb_faq_title_color',
+			'wbea_faq_title_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
@@ -232,14 +232,14 @@ class Faqs extends Widget_Base {
 					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .faq li span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-faq li span' => 'color: {{VALUE}}',
 				],
 			]
 		);
 
 		// FAQ Title Border Color
 		$this->add_control(
-			'wb_faq_title_border',
+			'wbea_faq_title_border',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
@@ -247,14 +247,14 @@ class Faqs extends Widget_Base {
 					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .faq li' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-faq li' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
 
 		// FAQ Title Border Active Color
 		$this->add_control(
-			'wb_faq_title_border_active_color',
+			'wbea_faq_title_border_active_color',
 			[
 				'label' => esc_html__( 'Border Active', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
@@ -262,7 +262,7 @@ class Faqs extends Widget_Base {
 					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .faq li span.active' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-faq li span.active' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -271,8 +271,8 @@ class Faqs extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_faq_title_typography',
-				'selector' => '{{WRAPPER}} .faq li span',
+				'name' => 'wbea_faq_title_typography',
+				'selector' => '{{WRAPPER}} .wbea-faq li span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -283,7 +283,7 @@ class Faqs extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_faq_desc_options',
+			'wbea_faq_desc_options',
 			[
 				'label' => esc_html__( 'FAQ Answer', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -292,7 +292,7 @@ class Faqs extends Widget_Base {
 		
 		// FAQ Description Color
 		$this->add_control(
-			'wb_faq_desc_color',
+			'wbea_faq_desc_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
@@ -300,7 +300,7 @@ class Faqs extends Widget_Base {
 					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .faq li, {{WRAPPER}} .faq li p, {{WRAPPER}} .faq li ul, {{WRAPPER}} .faq li ol' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-faq li, {{WRAPPER}} .wbea-faq li p, {{WRAPPER}} .wbea-faq li ul, {{WRAPPER}} .wbea-faq li ol' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -309,8 +309,8 @@ class Faqs extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_faq_desc_typography',
-				'selector' => '{{WRAPPER}} .faq li, {{WRAPPER}} .faq li p, {{WRAPPER}} .faq li ul, {{WRAPPER}} .faq li ol',
+				'name' => 'wbea_faq_desc_typography',
+				'selector' => '{{WRAPPER}} .faq li, {{WRAPPER}} .faq li p, {{WRAPPER}} .wbea-faq li ul, {{WRAPPER}} .wbea-faq li ol',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				]
@@ -321,7 +321,7 @@ class Faqs extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_faq_icon_options',
+			'wbea_faq_icon_options',
 			[
 				'label' => esc_html__( 'Icon', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -330,7 +330,7 @@ class Faqs extends Widget_Base {
 
 		// FAQ Icon Color
 		$this->add_control(
-			'wb_faq_icon_color',
+			'wbea_faq_icon_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
@@ -338,14 +338,14 @@ class Faqs extends Widget_Base {
 					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .faq span:after' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-faq span:after' => 'color: {{VALUE}}',
 				],
 			]
 		);
 
 		// FAQ Icon Active Color
 		$this->add_control(
-			'wb_faq_icon_active_color',
+			'wbea_faq_icon_active_color',
 			[
 				'label' => esc_html__( 'Active Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
@@ -374,16 +374,16 @@ class Faqs extends Widget_Base {
 	protected function render() {
 		// Get our input from the widget settings.
 		$settings = $this->get_settings_for_display();        
-		$wb_faq_list = isset($settings['wb_faq_list']) ? $settings['wb_faq_list'] : [];       
+		$wbea_faq_list = isset($settings['wbea_faq_list']) ? $settings['wbea_faq_list'] : [];       
 	
-		if (!empty($wb_faq_list)) {
+		if (!empty($wbea_faq_list)) {
 			?>
-			<ul class="faq">
+			<ul class="wbea-faq">
 				<?php
-				foreach ($wb_faq_list as $list) {
+				foreach ($wbea_faq_list as $list) {
 					// Sanitize and escape data at the point of output
-					$faq_title = isset($list['wb_faq_title']) ? esc_html($list['wb_faq_title']) : '';
-					$faq_content = isset($list['wb_faq_content']) ? wp_kses_post($list['wb_faq_content']) : ''; // Allow certain HTML in content
+					$faq_title = isset($list['wbea_faq_title']) ? esc_html($list['wbea_faq_title']) : '';
+					$faq_content = isset($list['wbea_faq_content']) ? wp_kses_post($list['wbea_faq_content']) : ''; // Allow certain HTML in content
 	
 					?>
 					<li>

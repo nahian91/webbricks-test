@@ -91,7 +91,7 @@ class Counter extends Widget_Base {
 		
 		// start of the Content tab section
 	   $this->start_controls_section(
-	       'wb_counter_contents',
+	       'wbea_counter_contents',
 		    [
 		        'label' => esc_html__('Content', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,		   
@@ -100,7 +100,7 @@ class Counter extends Widget_Base {
 
 		// Counter Icon
 		$this->add_control(
-			'wb_counter_icon',
+			'wbea_counter_icon',
 			[
 				'label' => esc_html__( 'Icon', 'webbricks-addons' ),
 				'type' => Controls_Manager::ICONS,
@@ -113,7 +113,7 @@ class Counter extends Widget_Base {
 
 		// Counter Number
 		$this->add_control(
-			'wb_counter_number',
+			'wbea_counter_number',
 			[
 				'label' => esc_html__( 'Number', 'webbricks-addons' ),
 				'type' => Controls_Manager::NUMBER,
@@ -123,7 +123,7 @@ class Counter extends Widget_Base {
 
 		// Counter Number Suffix
 		$this->add_control(
-			'wb_counter_number_suffix',
+			'wbea_counter_number_suffix',
 			[
 				'label' => esc_html__( 'Number Suffix', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -134,7 +134,7 @@ class Counter extends Widget_Base {
 		
 		// Counter Tite
 		$this->add_control(
-		    'wb_counter_title',
+		    'wbea_counter_title',
 			[
 			    'label' => esc_html__('Title', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
@@ -148,7 +148,7 @@ class Counter extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_counter_pro_message',
+			'wbea_counter_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -156,7 +156,7 @@ class Counter extends Widget_Base {
 		 );
 
 		 $this->add_control( 
-			'wb_counter_pro_message_notice', 
+			'wbea_counter_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -171,7 +171,7 @@ class Counter extends Widget_Base {
 		
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_counter_layout_style',
+			'wbea_counter_layout_style',
 			[
 				'label' => esc_html__( 'Layout', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -180,12 +180,12 @@ class Counter extends Widget_Base {
 
 		// Counter Background
 		$this->add_control(
-			'wb_counter_background',
+			'wbea_counter_background',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .counter-box' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-counter-box' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -197,33 +197,33 @@ class Counter extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wb_counter_border',
-				'selector' => '{{WRAPPER}} .counter-box',
+				'name' => 'wbea_counter_border',
+				'selector' => '{{WRAPPER}} .wbea-counter-box',
 			]
 		);
 
 		// Counter Border Radius
 		$this->add_control(
-			'wb_counter_border_radius',
+			'wbea_counter_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .counter-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-counter-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 		
 		// Counter Padding
 		$this->add_control(
-			'wb_counter_padding',
+			'wbea_counter_padding',
 			[
 				'label' => esc_html__( 'Padding', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .counter-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-counter-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -232,7 +232,7 @@ class Counter extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_counter_icon_style',
+			'wbea_counter_icon_style',
 			[
 				'label' => esc_html__( 'Icon', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -241,12 +241,12 @@ class Counter extends Widget_Base {
 
 		// Counter Icon Color
 		$this->add_control(
-			'wb_counter_icon_color',
+			'wbea_counter_icon_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .counter-number i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-counter-number i' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -256,7 +256,7 @@ class Counter extends Widget_Base {
 
 		// Counter Icon Size
 		$this->add_control(
-			'wb_counter_icon_size',
+			'wbea_counter_icon_size',
 			[
 				'label' => esc_html__( 'Icon Size', 'webbricks-addons' ),
 				'type' => Controls_Manager::SLIDER,
@@ -277,7 +277,7 @@ class Counter extends Widget_Base {
 					'size' => 55,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .counter-number i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-counter-number i' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -287,7 +287,7 @@ class Counter extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_counter_number_style',
+			'wbea_counter_number_style',
 			[
 				'label' => esc_html__( 'Number', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -296,12 +296,12 @@ class Counter extends Widget_Base {
 
 		// Counter Number Color
 		$this->add_control(
-			'wb_counter_number_color',
+			'wbea_counter_number_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .counter-content p span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-counter-content p span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -313,8 +313,8 @@ class Counter extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_counter_number_typography',
-				'selector' => '{{WRAPPER}} .counter-content p span',
+				'name' => 'wbea_counter_number_typography',
+				'selector' => '{{WRAPPER}} .wbea-counter-content p span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -323,12 +323,12 @@ class Counter extends Widget_Base {
 
 		// Counter Number Suffix Color
 		$this->add_control(
-			'wb_counter_number_suffix_color',
+			'wbea_counter_number_suffix_color',
 			[
 				'label' => esc_html__( 'Suffix Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .counter-content p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-counter-content p' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -341,7 +341,7 @@ class Counter extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_counter_title_style',
+			'wbea_counter_title_style',
 			[
 				'label' => esc_html__( 'Title', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -350,12 +350,12 @@ class Counter extends Widget_Base {
 
 		// Counter Title Color
 		$this->add_control(
-			'wb_counter_title_color',
+			'wbea_counter_title_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .counter-content .counter-title' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-counter-content .counter-title' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -367,8 +367,8 @@ class Counter extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_counter_title_typography',
-				'selector' => '{{WRAPPER}} .counter-content .counter-title',
+				'name' => 'wbea_counter_title_typography',
+				'selector' => '{{WRAPPER}} .wbea-counter-content .wbea-counter-title',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -377,7 +377,7 @@ class Counter extends Widget_Base {
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wb_counter_title_tag',
+			'wbea_counter_title_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -412,36 +412,36 @@ class Counter extends Widget_Base {
 	protected function render() {
 		// Get our input from the widget settings.
 		$settings = $this->get_settings_for_display();		
-		$wb_counter_icon = isset($settings['wb_counter_icon']['value']) ? $settings['wb_counter_icon'] : '';
-		$wb_counter_number = isset($settings['wb_counter_number']) ? intval($settings['wb_counter_number']) : 0;
-		$wb_counter_number_suffix = isset($settings['wb_counter_number_suffix']) ? $settings['wb_counter_number_suffix'] : '';
-		$wb_counter_title = isset($settings['wb_counter_title']) ? $settings['wb_counter_title'] : '';
-		$wb_counter_title_tag = isset($settings['wb_counter_title_tag']) ? $settings['wb_counter_title_tag'] : 'h2';
+		$wbea_counter_icon = isset($settings['wbea_counter_icon']['value']) ? $settings['wbea_counter_icon'] : '';
+		$wbea_counter_number = isset($settings['wbea_counter_number']) ? intval($settings['wbea_counter_number']) : 0;
+		$wbea_counter_number_suffix = isset($settings['wbea_counter_number_suffix']) ? $settings['wbea_counter_number_suffix'] : '';
+		$wbea_counter_title = isset($settings['wbea_counter_title']) ? $settings['wbea_counter_title'] : '';
+		$wbea_counter_title_tag = isset($settings['wbea_counter_title_tag']) ? $settings['wbea_counter_title_tag'] : 'h2';
 	
 		// Sanitize the counter number to ensure it's a valid number
-		$wb_counter_number = intval($wb_counter_number);
+		$wbea_counter_number = intval($wbea_counter_number);
 		
 		// Valid HTML tags for the counter title
 		$valid_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
-		if (!in_array($wb_counter_title_tag, $valid_tags)) {
-			$wb_counter_title_tag = 'h2'; // Default to h2 if invalid tag
+		if (!in_array($wbea_counter_title_tag, $valid_tags)) {
+			$wbea_counter_title_tag = 'h2'; // Default to h2 if invalid tag
 		}
 		?>
 		<!-- Counter Start Here -->			
-		<div class="counter-box">
-			<div class="counter-number">				
-				<?php if (!empty($wb_counter_icon)): ?>
-					<i class="<?php echo esc_attr($wb_counter_icon['value']); ?>"></i>
+		<div class="wbea-counter-box">
+			<div class="wbea-counter-number">				
+				<?php if (!empty($wbea_counter_icon)): ?>
+					<i class="<?php echo esc_attr($wbea_counter_icon['value']); ?>"></i>
 				<?php endif; ?>
 			</div>
-			<div class="counter-content">
+			<div class="wbea-counter-content">
 				<p>
-					<span class="counter" aria-live="polite"><?php echo esc_html($wb_counter_number); ?></span>
-					<?php echo esc_html($wb_counter_number_suffix); ?>
+					<span class="wbea-counter" aria-live="polite"><?php echo esc_html($wbea_counter_number); ?></span>
+					<?php echo esc_html($wbea_counter_number_suffix); ?>
 				</p>
-				<<?php echo esc_attr($wb_counter_title_tag); ?> class="counter-title">
-					<?php echo esc_html($wb_counter_title); ?>
-				</<?php echo esc_attr($wb_counter_title_tag); ?>>
+				<<?php echo esc_attr($wbea_counter_title_tag); ?> class="wbea-counter-title">
+					<?php echo esc_html($wbea_counter_title); ?>
+				</<?php echo esc_attr($wbea_counter_title_tag); ?>>
 			</div>
 		</div>			
 		<!-- Counter End Here -->

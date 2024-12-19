@@ -89,7 +89,7 @@ class Countdown extends Widget_Base {
 	 */
 	protected function register_controls() {
 		$this->start_controls_section(
-			'wb_countdown_section',
+			'wbea_countdown_section',
 			[
 				'label' => __( 'Countdown', 'webbricks-addons' ),
 			]
@@ -97,7 +97,7 @@ class Countdown extends Widget_Base {
 
 		// Countdown Due Date
 		$this->add_control(
-			'wb_countdown_due_date',
+			'wbea_countdown_due_date',
 			[
 				'label' => __( 'Due Date', 'webbricks-addons' ),
 				'type' => Controls_Manager::DATE_TIME,
@@ -108,7 +108,7 @@ class Countdown extends Widget_Base {
 
 		// Countdown Show Days
 		$this->add_control(
-			'wb_countdown_show_days',
+			'wbea_countdown_show_days',
 			[
 				'label' => __( 'Days', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -121,7 +121,7 @@ class Countdown extends Widget_Base {
 
 		// Countdown Show Hours
 		$this->add_control(
-			'wb_countdown_show_hours',
+			'wbea_countdown_show_hours',
 			[
 				'label' => __( 'Hours', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -134,7 +134,7 @@ class Countdown extends Widget_Base {
 
 		// Countdown Show Minutes
 		$this->add_control(
-			'wb_countdown_show_minutes',
+			'wbea_countdown_show_minutes',
 			[
 				'label' => __( 'Minutes', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -147,7 +147,7 @@ class Countdown extends Widget_Base {
 
 		// Countdown Show Seconds
 		$this->add_control(
-			'wb_countdown_show_seconds',
+			'wbea_countdown_show_seconds',
 			[
 				'label' => __( 'Seconds', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -161,7 +161,7 @@ class Countdown extends Widget_Base {
 		
 		// Countdown Expire Action
 		$this->start_controls_section(
-			'wb_countdown_expire_section',
+			'wbea_countdown_expire_section',
 			[
 				'label' => __( 'Countdown Expire' , 'webbricks-addons' )
 			]
@@ -169,7 +169,7 @@ class Countdown extends Widget_Base {
 
 		// Countdown Expire Type
 		$this->add_control(
-			'wb_countdown_expire_show_type',
+			'wbea_countdown_expire_show_type',
 			[
 				'label'			=> __('Expire Type', 'webbricks-addons'),
 				'label_block'	=> false,
@@ -185,20 +185,20 @@ class Countdown extends Widget_Base {
 
 		// Countdown Expire Message
 		$this->add_control(
-			'wb_countdown_expire_message',
+			'wbea_countdown_expire_message',
 			[
 				'label'			=> __('Expire Message', 'webbricks-addons'),
 				'type'			=> Controls_Manager::TEXTAREA,
 				'default'		=> __('Sorry you are late!', 'webbricks-addons'),
 				'condition'		=> [
-					'wb_countdown_expire_show_type' => 'message'
+					'wbea_countdown_expire_show_type' => 'message'
 				]
 			]
 		);
 
 		// Countdown Redirect Link
 		$this->add_control(
-			'wb_countdown_expire_redirect_link',
+			'wbea_countdown_expire_redirect_link',
 			[
 				'label'			=> __('Redirect On', 'webbricks-addons'),
 				'type'			=> Controls_Manager::URL,
@@ -209,7 +209,7 @@ class Countdown extends Widget_Base {
 					'nofollow' => true,
 				],
 				'condition'		=> [
-					'wb_countdown_expire_show_type' => 'redirect_link'
+					'wbea_countdown_expire_show_type' => 'redirect_link'
 				],
 			]
 		);
@@ -218,7 +218,7 @@ class Countdown extends Widget_Base {
 		
 		// Countdown Label Text
 		$this->start_controls_section(
-			'wb_countdown_label_text_section',
+			'wbea_countdown_label_text_section',
 			[
 				'label' => __( 'Change Labels Text' , 'webbricks-addons' )
 			]
@@ -226,7 +226,7 @@ class Countdown extends Widget_Base {
 
 		// Countdowon Change Label Text
         $this->add_control(
-			'wb_countdown_change_labels',
+			'wbea_countdown_change_labels',
 			[
 				'label' => __( 'Change Labels', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -239,60 +239,60 @@ class Countdown extends Widget_Base {
 
 		// Countdowon Change Label Days
 		$this->add_control(
-			'wb_countdown_label_days',
+			'wbea_countdown_label_days',
 			[
 				'label' => __( 'Days', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
 				'default' => __( 'Days', 'webbricks-addons' ),
 				'placeholder' => __( 'Days', 'webbricks-addons' ),
 				'condition' => [
-					'wb_countdown_change_labels' => 'yes',
-					'wb_countdown_show_days' => 'yes',
+					'wbea_countdown_change_labels' => 'yes',
+					'wbea_countdown_show_days' => 'yes',
 				],
 			]
 		);
 
 		// Countdowon Change Label Hours
 		$this->add_control(
-			'wb_countdown_label_hours',
+			'wbea_countdown_label_hours',
 			[
 				'label' => __( 'Hours', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
 				'default' => __( 'Hours', 'webbricks-addons' ),
 				'placeholder' => __( 'Hours', 'webbricks-addons' ),
 				'condition' => [
-					'wb_countdown_change_labels' => 'yes',
-					'wb_countdown_show_hours' => 'yes',
+					'wbea_countdown_change_labels' => 'yes',
+					'wbea_countdown_show_hours' => 'yes',
 				],
 			]
 		);
 
 		// Countdowon Change Label Minutes
 		$this->add_control(
-			'wb_countdown_label_minuts',
+			'wbea_countdown_label_minuts',
 			[
 				'label' => __( 'Minutes', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
 				'default' => __( 'Minutes', 'webbricks-addons' ),
 				'placeholder' => __( 'Minutes', 'webbricks-addons' ),
 				'condition' => [
-					'wb_countdown_change_labels' => 'yes',
-					'wb_countdown_show_minutes' => 'yes',
+					'wbea_countdown_change_labels' => 'yes',
+					'wbea_countdown_show_minutes' => 'yes',
 				],
 			]
 		);
 
 		// Countdowon Change Label Seconds
 		$this->add_control(
-			'wb_countdown_label_seconds',
+			'wbea_countdown_label_seconds',
 			[
 				'label' => __( 'Seconds', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
 				'default' => __( 'Seconds', 'webbricks-addons' ),
 				'placeholder' => __( 'Seconds', 'webbricks-addons' ),
 				'condition' => [
-					'wb_countdown_change_labels' => 'yes',
-					'wb_countdown_show_seconds' => 'yes',
+					'wbea_countdown_change_labels' => 'yes',
+					'wbea_countdown_show_seconds' => 'yes',
 				],
 			]
 		);
@@ -300,7 +300,7 @@ class Countdown extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_countdown_pro_message',
+			'wbea_countdown_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -308,7 +308,7 @@ class Countdown extends Widget_Base {
 		);
 
 		$this->add_control( 
-			'wb_countdown_pro_message_notice', 
+			'wbea_countdown_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -323,7 +323,7 @@ class Countdown extends Widget_Base {
 		
 		// Countdowon Layout Style
 		$this->start_controls_section(   
-			'wb_countdown_style_section',
+			'wbea_countdown_style_section',
 			[
 				'label' => __( 'Layout', 'webbricks-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
@@ -332,7 +332,7 @@ class Countdown extends Widget_Base {
 
 		// Countdown Box Spacing
 		$this->add_responsive_control(
-			'wb_countdown_box_spacing',
+			'wbea_countdown_box_spacing',
 			[
 				'label' => __( 'Box Gap', 'webbricks-addons' ),
 				'type' => Controls_Manager::SLIDER,
@@ -346,10 +346,10 @@ class Countdown extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'body:not(.rtl) {{WRAPPER}} .single-countdown:not(:first-of-type)' => 'margin-left: calc( {{SIZE}}{{UNIT}}/2 );',
-					'body:not(.rtl) {{WRAPPER}} .single-countdown:not(:last-of-type)' => 'margin-right: calc( {{SIZE}}{{UNIT}}/2 );',
-					'body.rtl {{WRAPPER}} .single-countdown:not(:first-of-type)' => 'margin-right: calc( {{SIZE}}{{UNIT}}/2 );',
-					'body.rtl {{WRAPPER}} .single-countdown:not(:last-of-type)' => 'margin-left: calc( {{SIZE}}{{UNIT}}/2 );',
+					'body:not(.rtl) {{WRAPPER}} .wbea-single-countdown:not(:first-of-type)' => 'margin-left: calc( {{SIZE}}{{UNIT}}/2 );',
+					'body:not(.rtl) {{WRAPPER}} .wbea-single-countdown:not(:last-of-type)' => 'margin-right: calc( {{SIZE}}{{UNIT}}/2 );',
+					'body.rtl {{WRAPPER}} .wbea-single-countdown:not(:first-of-type)' => 'margin-right: calc( {{SIZE}}{{UNIT}}/2 );',
+					'body.rtl {{WRAPPER}} .wbea-single-countdown:not(:last-of-type)' => 'margin-left: calc( {{SIZE}}{{UNIT}}/2 );',
 				],
 			]
 		);
@@ -358,20 +358,20 @@ class Countdown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wb_countdown_box_border',
-	            'selector' => '{{WRAPPER}} .single-countdown',
+				'name' => 'wbea_countdown_box_border',
+	            'selector' => '{{WRAPPER}} .wbea-single-countdown',
 			]
 		);
 
 		// Countdown Box Radius
 		$this->add_control(
-			'wb_countdown_box_border_radius',
+			'wbea_countdown_box_border_radius',
 			[
 				'label' => __( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .single-countdown' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-single-countdown' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -380,7 +380,7 @@ class Countdown extends Widget_Base {
 		
 		// Countdown Digit
 		$this->start_controls_section(
-			'wb_countdown_digits_style_section',
+			'wbea_countdown_digits_style_section',
 			[
 				'label' => __( 'Digits', 'webbricks-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
@@ -389,12 +389,12 @@ class Countdown extends Widget_Base {
 
 		// Countdown Digit Color
 		$this->add_control(
-			'wb_countdown_digits_color',
+			'wbea_countdown_digits_color',
 			[
 				'label' => __( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-countdown-digits' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wbea-single-countdown-digits' => 'color: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -406,8 +406,8 @@ class Countdown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_countdown_digits_typography',
-				'selector' => '{{WRAPPER}} .single-countdown-digits',
+				'name' => 'wbea_countdown_digits_typography',
+				'selector' => '{{WRAPPER}} .wbea-single-countdown-digits',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				]
@@ -417,7 +417,7 @@ class Countdown extends Widget_Base {
 		
 		// Countdown Label
 		$this->start_controls_section(
-			'wb_countdown_label_style_section',
+			'wbea_countdown_label_style_section',
 			[
 				'label' => __( 'Labels', 'webbricks-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
@@ -426,12 +426,12 @@ class Countdown extends Widget_Base {
 
 		// Countdown Label Color
 		$this->add_control(
-			'wb_countdown_label_color',
+			'wbea_countdown_label_color',
 			[
 				'label' => __( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-countdown-label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wbea-single-countdown-label' => 'color: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -443,8 +443,8 @@ class Countdown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_countdown_label_typography',
-				'selector' => '{{WRAPPER}} .single-countdown-label',				
+				'name' => 'wbea_countdown_label_typography',
+				'selector' => '{{WRAPPER}} .wbea-single-countdown-label',				
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				]		
@@ -453,12 +453,12 @@ class Countdown extends Widget_Base {
 
 		// Countdown Label Border
 		$this->add_control(
-			'wb_countdown_label_border_color',
+			'wbea_countdown_label_border_color',
 			[
 				'label' => __( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-countdown-label' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .wbea-single-countdown-label' => 'border-color: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -470,7 +470,7 @@ class Countdown extends Widget_Base {
 		
 		// Countdown Message
 		$this->start_controls_section(
-			'wb_countdown_finish_message_style_section',
+			'wbea_countdown_finish_message_style_section',
 			[
 				'label' => __( 'Message', 'webbricks-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
@@ -479,12 +479,12 @@ class Countdown extends Widget_Base {
 
 		// Countdown Message Color
 		$this->add_control(
-			'wb_countdown_message_color',
+			'wbea_countdown_message_color',
 			[
 				'label' => __( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .finished-message' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wbea-finished-message' => 'color: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -496,8 +496,8 @@ class Countdown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_countdown_message_typography',
-				'selector' => '{{WRAPPER}} .finished-message',
+				'name' => 'wbea_countdown_message_typography',
+				'selector' => '{{WRAPPER}} .wbea-finished-message',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				]
@@ -516,49 +516,49 @@ class Countdown extends Widget_Base {
  */
 protected function render() {
     $settings = $this->get_settings();
-    $day = $settings['wb_countdown_show_days'];
-    $hours = $settings['wb_countdown_show_hours'];
-    $minute = $settings['wb_countdown_show_minutes'];
-    $seconds = $settings['wb_countdown_show_seconds'];
-    $show_type = $settings['wb_countdown_expire_show_type'];
+    $day = $settings['wbea_countdown_show_days'];
+    $hours = $settings['wbea_countdown_show_hours'];
+    $minute = $settings['wbea_countdown_show_minutes'];
+    $seconds = $settings['wbea_countdown_show_seconds'];
+    $show_type = $settings['wbea_countdown_expire_show_type'];
     ?>
-    <div class="countdown-timer-widget">
-        <div id="countdown-timer-<?php echo esc_attr($this->get_id()); ?>" class="countdown-timer-init"></div>
-        <div id="finished-message-<?php echo esc_attr($this->get_id()); ?>" class="finished-message"></div>
+    <div class="wbea-countdown-timer-widget">
+        <div id="wbea-countdown-timer-<?php echo esc_attr($this->get_id()); ?>" class="wbea-countdown-timer-init"></div>
+        <div id="wbea-finished-message-<?php echo esc_attr($this->get_id()); ?>" class="wbea-finished-message"></div>
     </div>
     <script>
         jQuery(function ($) {
-            $('#countdown-timer-<?php echo esc_attr($this->get_id()); ?>').countdowntimer({
-                dateAndTime: "<?php echo esc_js(preg_replace('/-/', '/', $settings['wb_countdown_due_date'])); ?>",
+            $('#wbea-countdown-timer-<?php echo esc_attr($this->get_id()); ?>').countdowntimer({
+                dateAndTime: "<?php echo esc_js(preg_replace('/-/', '/', $settings['wbea_countdown_due_date'])); ?>",
                 regexpMatchFormat: "([0-9]{1,3}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
                 regexpReplaceWith: "<?php
                 if ($day == 'yes') {
-                    echo '<div class=\'single-countdown\'><span class=\'single-countdown-digits\'>$1</span><span class=\'single-countdown-label\'>'. esc_html($settings['wb_countdown_label_days']) .'</span></div>';
+                    echo '<div class=\'wbea-single-countdown\'><span class=\'wbea-single-countdown-digits\'>$1</span><span class=\'wbea-single-countdown-label\'>'. esc_html($settings['wbea_countdown_label_days']) .'</span></div>';
                 }
                 if ($hours == 'yes') {
-                    echo '<div class=\'single-countdown\'><span class=\'single-countdown-digits\'>$2</span><span class=\'single-countdown-label\'>'. esc_html($settings['wb_countdown_label_hours']) .'</span></div>';
+                    echo '<div class=\'wbea-single-countdown\'><span class=\'wbea-single-countdown-digits\'>$2</span><span class=\'wbea-single-countdown-label\'>'. esc_html($settings['wbea_countdown_label_hours']) .'</span></div>';
                 }
                 if ($minute == 'yes') {
-                    echo '<div class=\'single-countdown\'><span class=\'single-countdown-digits\'>$3</span><span class=\'single-countdown-label\'>'. esc_html($settings['wb_countdown_label_minuts']) .'</span></div>';
+                    echo '<div class=\'wbea-single-countdown\'><span class=\'wbea-single-countdown-digits\'>$3</span><span class=\'wbea-single-countdown-label\'>'. esc_html($settings['wbea_countdown_label_minuts']) .'</span></div>';
                 }
                 if ($seconds == 'yes') {
-                    echo '<div class=\'single-countdown\'><span class=\'single-countdown-digits\'>$4</span><span class=\'single-countdown-label\'>'. esc_html($settings['wb_countdown_label_seconds']) .'</span></div>';
+                    echo '<div class=\'wbea-single-countdown\'><span class=\'wbea-single-countdown-digits\'>$4</span><span class=\'wbea-single-countdown-label\'>'. esc_html($settings['wbea_countdown_label_seconds']) .'</span></div>';
                 }
                 ?>",
                 <?php if ($show_type === 'redirect_link'): ?>
                 timeUp: function () {
                     <?php
-                    $target = $settings['wb_countdown_expire_redirect_link']['is_external'] ? '_blank' : '_self';
+                    $target = $settings['wbea_countdown_expire_redirect_link']['is_external'] ? '_blank' : '_self';
                     if (defined('ELEMENTOR_PATH') && class_exists('Elementor\Plugin') && \Elementor\Plugin::$instance->editor->is_edit_mode()): ?>
-                    $("#finished-message-<?php echo esc_attr($this->get_id()); ?>").html("<?php echo esc_js(__('You cannot redirect URLs from Elementor Editor.', 'webbricks-addons')); ?>");
+                    $("#wbea-finished-message-<?php echo esc_attr($this->get_id()); ?>").html("<?php echo esc_js(__('You cannot redirect URLs from Elementor Editor.', 'webbricks-addons')); ?>");
                     <?php else: ?>
-                    window.open("<?php echo esc_url($settings['wb_countdown_expire_redirect_link']['url']); ?>", "<?php echo esc_js($target); ?>");
+                    window.open("<?php echo esc_url($settings['wbea_countdown_expire_redirect_link']['url']); ?>", "<?php echo esc_js($target); ?>");
                     <?php endif; ?>
                 },
                 <?php endif; ?>
                 <?php if ($show_type === 'message'): ?>
                 timeUp: function () {
-                    $("#finished-message-<?php echo esc_attr($this->get_id()); ?>").html("<span><?php echo esc_html($settings['wb_countdown_expire_message']); ?></span>");
+                    $("#wbea-finished-message-<?php echo esc_attr($this->get_id()); ?>").html("<span><?php echo esc_html($settings['wbea_countdown_expire_message']); ?></span>");
                 },
                 <?php endif; ?>
             });

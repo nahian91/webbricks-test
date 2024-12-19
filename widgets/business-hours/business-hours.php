@@ -91,7 +91,7 @@ class Business_Hours extends Widget_Base {
 
 		// start of the Buesiness Hours Content tab section
 	    $this->start_controls_section(
-			'wb_business_hours_heading_contents',
+			'wbea_business_hours_heading_contents',
 			[
 				'label' => esc_html__('Heading', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		   
@@ -100,7 +100,7 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Heading?
 		$this->add_control(
-			'wb_business_hours_heading_show_btn',
+			'wbea_business_hours_heading_show_btn',
 			[
 				'label' => esc_html__( 'Show Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -114,21 +114,21 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Heading
 		$this->add_control(
-			'wb_business_hours_heading',
+			'wbea_business_hours_heading',
 			[
 				'label' => esc_html__('Heading', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => esc_html__('Business Hours', 'webbricks-addons'),
 				'condition' => [
-					'wb_business_hours_heading_show_btn' => 'yes'
+					'wbea_business_hours_heading_show_btn' => 'yes'
 				],
 			]
 		);		
 
 		// Business Hours Heading Html Tag
 		$this->add_control(
-			'wb_business_hours_heading_tag',
+			'wbea_business_hours_heading_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -145,7 +145,7 @@ class Business_Hours extends Widget_Base {
 				],
 				'default' => 'h2',
 				'condition' => [
-					'wb_business_hours_heading_show_btn' => 'yes'
+					'wbea_business_hours_heading_show_btn' => 'yes'
 				],
 			]
 		);
@@ -155,7 +155,7 @@ class Business_Hours extends Widget_Base {
 		
 	    // start of the Buesiness Hours Content tab section
 	    $this->start_controls_section(
-	       'wb_business_hours_contents',
+	       'wbea_business_hours_contents',
 		    [
 		        'label' => esc_html__('Business Hours', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		   
@@ -167,7 +167,7 @@ class Business_Hours extends Widget_Base {
 
 		// Business Open / Close Select
 		$repeater->add_control(
-			'wb_business_open_close_select',
+			'wbea_business_open_close_select',
 			[
 				'label' => esc_html__( 'Open / Close', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -181,7 +181,7 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Day
 		$repeater->add_control(
-			'wb_business_hours_day',
+			'wbea_business_hours_day',
 			[
 				'label' => esc_html__( 'Day', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -191,73 +191,73 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Duration
 		$repeater->add_control(
-			'wb_business_hours_duration',
+			'wbea_business_hours_duration',
 			[
 				'label' => esc_html__( 'Duration', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
 				'default' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
 				'condition' => [
-					'wb_business_open_close_select' => 'Open'
+					'wbea_business_open_close_select' => 'Open'
 				],
 			]
 		);
 
 		// Business Hours Close Title
 		$repeater->add_control(
-			'wb_business_close_title',
+			'wbea_business_close_title',
 			[
 				'label' => esc_html__( 'Title', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
 				'default' => esc_html__( 'Close', 'webbricks-addons' ),
 				'condition' => [
-					'wb_business_open_close_select!' => 'Open'
+					'wbea_business_open_close_select!' => 'Open'
 				],
 			]
 		);
 		
 		// Business Hours Repeater
 		$this->add_control(
-			'wb_business_hours_list',
+			'wbea_business_hours_list',
 			[
 				'label' => esc_html__( 'Business Hours', 'webbricks-addons' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
-				'title_field' => '{{{ wb_business_hours_day }}}',
+				'title_field' => '{{{ wbea_business_hours_day }}}',
 				'default' => [
 					[
-						'wb_business_open_close_select' => esc_html__( 'Open', 'webbricks-addons' ),
-						'wb_business_hours_day' => esc_html__( 'Monday', 'webbricks-addons' ),
-						'wb_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
+						'wbea_business_open_close_select' => esc_html__( 'Open', 'webbricks-addons' ),
+						'wbea_business_hours_day' => esc_html__( 'Monday', 'webbricks-addons' ),
+						'wbea_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
 					],
 					[
-						'wb_business_open_close_select' => esc_html__( 'Open', 'webbricks-addons' ),
-						'wb_business_hours_day' => esc_html__( 'Tuesday', 'webbricks-addons' ),
-						'wb_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
+						'wbea_business_open_close_select' => esc_html__( 'Open', 'webbricks-addons' ),
+						'wbea_business_hours_day' => esc_html__( 'Tuesday', 'webbricks-addons' ),
+						'wbea_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
 					],
 					[
-						'wb_business_open_close_select' => esc_html__( 'Open', 'webbricks-addons' ),
-						'wb_business_hours_day' => esc_html__( 'Wednesday', 'webbricks-addons' ),
-						'wb_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
+						'wbea_business_open_close_select' => esc_html__( 'Open', 'webbricks-addons' ),
+						'wbea_business_hours_day' => esc_html__( 'Wednesday', 'webbricks-addons' ),
+						'wbea_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
 					],
 					[
-						'wb_business_open_close_select' => esc_html__( 'Open', 'webbricks-addons' ),
-						'wb_business_hours_day' => esc_html__( 'Thrusday', 'webbricks-addons' ),
-						'wb_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
+						'wbea_business_open_close_select' => esc_html__( 'Open', 'webbricks-addons' ),
+						'wbea_business_hours_day' => esc_html__( 'Thrusday', 'webbricks-addons' ),
+						'wbea_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
 					],
 					[
-						'wb_business_open_close_select' => esc_html__( 'Open', 'webbricks-addons' ),
-						'wb_business_hours_day' => esc_html__( 'Friday', 'webbricks-addons' ),
-						'wb_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
+						'wbea_business_open_close_select' => esc_html__( 'Open', 'webbricks-addons' ),
+						'wbea_business_hours_day' => esc_html__( 'Friday', 'webbricks-addons' ),
+						'wbea_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
 					],
 					[
-						'wb_business_open_close_select' => esc_html__( 'Close', 'webbricks-addons' ),
-						'wb_business_hours_day' => esc_html__( 'Saturday', 'webbricks-addons' ),
-						'wb_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
+						'wbea_business_open_close_select' => esc_html__( 'Close', 'webbricks-addons' ),
+						'wbea_business_hours_day' => esc_html__( 'Saturday', 'webbricks-addons' ),
+						'wbea_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
 					],
 					[
-						'wb_business_open_close_select' => esc_html__( 'Close', 'webbricks-addons' ),
-						'wb_business_hours_day' => esc_html__( 'Sunday', 'webbricks-addons' ),
-						'wb_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
+						'wbea_business_open_close_select' => esc_html__( 'Close', 'webbricks-addons' ),
+						'wbea_business_hours_day' => esc_html__( 'Sunday', 'webbricks-addons' ),
+						'wbea_business_hours_duration' => esc_html__( '09:00AM to 08:00PM', 'webbricks-addons' ),
 					]
 				]
 			]
@@ -268,7 +268,7 @@ class Business_Hours extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_business_hours_pro_message',
+			'wbea_business_hours_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -276,7 +276,7 @@ class Business_Hours extends Widget_Base {
 		 );
 
 		 $this->add_control( 
-			'wb_business_hours_pro_message_notice', 
+			'wbea_business_hours_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -293,24 +293,24 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Heading
 		$this->start_controls_section(
-			'wb_business_hours_heading_style',
+			'wbea_business_hours_heading_style',
 			[
 				'label' => esc_html__( 'Heading', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_business_hours_heading_show_btn' => 'yes'
+					'wbea_business_hours_heading_show_btn' => 'yes'
 				],
 			]
 		);
 
 		// Business Hours Heading Color
 		$this->add_control(
-			'wb_business_hours_section_title_color',
+			'wbea_business_hours_section_title_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .business-hours .business-hours-heading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-business-hours .wbea-business-hours-heading' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -322,8 +322,8 @@ class Business_Hours extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_business_hours_section_title_typography',
-				'selector' => '{{WRAPPER}} .business-hours .business-hours-heading',
+				'name' => 'wbea_business_hours_section_title_typography',
+				'selector' => '{{WRAPPER}} .wbea-business-hours .wbea-business-hours-heading',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -332,13 +332,13 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Heading Margin
 		$this->add_control(
-			'wb_business_hours_section_title_margin',
+			'wbea_business_hours_section_title_margin',
 			[
 				'label' => esc_html__( 'Margin', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem'],
 				'selectors' => [
-					'{{WRAPPER}} .business-hours .business-hours-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-business-hours .wbea-business-hours-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -347,7 +347,7 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Day
 		$this->start_controls_section(
-			'wb_business_hours_day_style',
+			'wbea_business_hours_day_style',
 			[
 				'label' => esc_html__( 'Day', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -356,12 +356,12 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Day Color
 		$this->add_control(
-			'wb_business_hours_day_color',
+			'wbea_business_hours_day_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .business-hours-list li span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-business-hours-list li span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -373,8 +373,8 @@ class Business_Hours extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_business_hours_day_typography',
-				'selector' => '{{WRAPPER}} .business-hours-list li span',
+				'name' => 'wbea_business_hours_day_typography',
+				'selector' => '{{WRAPPER}} .wbea-business-hours-list li span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -383,12 +383,12 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Day Border Color
 		$this->add_control(
-			'wb_business_hours_border_color',
+			'wbea_business_hours_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .business-hours-list li span, .business-hours-list li' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-business-hours-list li span, .wbea-business-hours-list li' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -400,7 +400,7 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Title
 		$this->start_controls_section(
-			'wb_business_hours_title_style',
+			'wbea_business_hours_title_style',
 			[
 				'label' => esc_html__( 'Title', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -409,12 +409,12 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Title Color
 		$this->add_control(
-			'wb_business_hours_title_color',
+			'wbea_business_hours_title_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .business-hours-list li p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-business-hours-list li p' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -426,8 +426,8 @@ class Business_Hours extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_business_hours_title_typography',
-				'selector' => '{{WRAPPER}} .business-hours-list li p',
+				'name' => 'wbea_business_hours_title_typography',
+				'selector' => '{{WRAPPER}} .wbea-business-hours-list li p',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -438,7 +438,7 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Duration
 		$this->start_controls_section(
-			'wb_business_hours_duration_style',
+			'wbea_business_hours_duration_style',
 			[
 				'label' => esc_html__( 'Duration', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -447,12 +447,12 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Duration Color
 		$this->add_control(
-			'wb_business_hours_duration_color',
+			'wbea_business_hours_duration_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .business-hours-list li p span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-business-hours-list li p span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -464,8 +464,8 @@ class Business_Hours extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_business_hours_duration_typography',
-				'selector' => '{{WRAPPER}} .business-hours-list li p span',
+				'name' => 'wbea_business_hours_duration_typography',
+				'selector' => '{{WRAPPER}} .wbea-business-hours-list li p span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -476,7 +476,7 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Close
 		$this->start_controls_section(
-			'wb_business_hours_close_style',
+			'wbea_business_hours_close_style',
 			[
 				'label' => esc_html__( 'Close', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -485,14 +485,14 @@ class Business_Hours extends Widget_Base {
 
 		// Business Hours Close Color
 		$this->add_control(
-			'wb_business_hours_close_color',
+			'wbea_business_hours_close_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .business-hours-list li.close span' => 'border-color: {{VALUE}} !important',
-					'{{WRAPPER}} .business-hours-list li.close p' => 'color: {{VALUE}} !important',
-					'{{WRAPPER}} .business-hours-list li.close' => 'border-color: {{VALUE}} !important'
+					'{{WRAPPER}} .wbea-business-hours-list li.close span' => 'border-color: {{VALUE}} !important',
+					'{{WRAPPER}} .wbea-business-hours-list li.close p' => 'color: {{VALUE}} !important',
+					'{{WRAPPER}} .wbea-business-hours-list li.close' => 'border-color: {{VALUE}} !important'
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -516,8 +516,8 @@ class Business_Hours extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		
 		// Sanitize and escape settings for display.
-		$wb_business_hours_heading_show_btn = !empty($settings['wb_business_hours_heading_show_btn']) ? sanitize_text_field($settings['wb_business_hours_heading_show_btn']) : '';
-		$wb_business_hours_list = isset($settings['wb_business_hours_list']) ? $settings['wb_business_hours_list'] : [];
+		$wbea_business_hours_heading_show_btn = !empty($settings['wbea_business_hours_heading_show_btn']) ? sanitize_text_field($settings['wbea_business_hours_heading_show_btn']) : '';
+		$wbea_business_hours_list = isset($settings['wbea_business_hours_list']) ? $settings['wbea_business_hours_list'] : [];
 		
 		// Allowed heading tags.
 		$allowed_heading_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
@@ -525,27 +525,27 @@ class Business_Hours extends Widget_Base {
 		?>
 		<!-- Business Hours Start Here -->          
 		<div class="business-hours">
-			<?php if ($wb_business_hours_heading_show_btn === 'yes') : ?>
+			<?php if ($wbea_business_hours_heading_show_btn === 'yes') : ?>
 				<?php
 				// Sanitize the heading text and tag for output.
-				$wb_business_hours_heading = !empty($settings['wb_business_hours_heading']) ? sanitize_text_field($settings['wb_business_hours_heading']) : '';
-				$wb_business_hours_heading_tag = isset($settings['wb_business_hours_heading_tag']) && in_array(sanitize_key($settings['wb_business_hours_heading_tag']), $allowed_heading_tags, true)
-					? sanitize_key($settings['wb_business_hours_heading_tag'])
+				$wbea_business_hours_heading = !empty($settings['wbea_business_hours_heading']) ? sanitize_text_field($settings['wbea_business_hours_heading']) : '';
+				$wbea_business_hours_heading_tag = isset($settings['wbea_business_hours_heading_tag']) && in_array(sanitize_key($settings['wbea_business_hours_heading_tag']), $allowed_heading_tags, true)
+					? sanitize_key($settings['wbea_business_hours_heading_tag'])
 					: 'h2';
 				?>
-				<<?php echo esc_attr($wb_business_hours_heading_tag); ?> class="business-hours-heading">
-					<?php echo esc_html($wb_business_hours_heading); ?>
-				</<?php echo esc_attr($wb_business_hours_heading_tag); ?>>
+				<<?php echo esc_attr($wbea_business_hours_heading_tag); ?> class="wbea-business-hours-heading">
+					<?php echo esc_html($wbea_business_hours_heading); ?>
+				</<?php echo esc_attr($wbea_business_hours_heading_tag); ?>>
 			<?php endif; ?>
 		
-			<?php if (!empty($wb_business_hours_list)) : ?>
-				<ul class="business-hours-list">
-					<?php foreach ($wb_business_hours_list as $list) :
+			<?php if (!empty($wbea_business_hours_list)) : ?>
+				<ul class="wbea-business-hours-list">
+					<?php foreach ($wbea_business_hours_list as $list) :
 						// Sanitize each field from the list.
-						$business_open_close_select = !empty($list['wb_business_open_close_select']) ? sanitize_text_field($list['wb_business_open_close_select']) : '';
-						$business_day = !empty($list['wb_business_hours_day']) ? sanitize_text_field($list['wb_business_hours_day']) : '';
-						$wb_business_close_title = !empty($list['wb_business_close_title']) ? sanitize_text_field($list['wb_business_close_title']) : '';
-						$business_duration = !empty($list['wb_business_hours_duration']) ? sanitize_text_field($list['wb_business_hours_duration']) : '';
+						$business_open_close_select = !empty($list['wbea_business_open_close_select']) ? sanitize_text_field($list['wbea_business_open_close_select']) : '';
+						$business_day = !empty($list['wbea_business_hours_day']) ? sanitize_text_field($list['wbea_business_hours_day']) : '';
+						$wbea_business_close_title = !empty($list['wbea_business_close_title']) ? sanitize_text_field($list['wbea_business_close_title']) : '';
+						$business_duration = !empty($list['wbea_business_hours_duration']) ? sanitize_text_field($list['wbea_business_hours_duration']) : '';
 						
 						// Validate if the 'open' or 'close' value is valid.
 						$business_open_close_select = in_array($business_open_close_select, ['Open', 'Close'], true) ? $business_open_close_select : '';
@@ -557,7 +557,7 @@ class Business_Hours extends Widget_Base {
 								<?php if ($business_open_close_select === 'Open') : ?>
 									&nbsp;<?php echo esc_html($business_open_close_select); ?>
 								<?php else : ?>
-									<?php echo esc_html($wb_business_close_title); ?>
+									<?php echo esc_html($wbea_business_close_title); ?>
 								<?php endif; ?>
 							</p>
 						</li>

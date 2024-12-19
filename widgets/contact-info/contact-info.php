@@ -91,7 +91,7 @@ class Contact_Info extends Widget_Base {
 		
 	    // start of the Contact Info Content tab section
 	    $this->start_controls_section(
-	       'wb_contact_info_heading_contents',
+	       'wbea_contact_info_heading_contents',
 		    [
 		        'label' => esc_html__('Heading', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT
@@ -100,7 +100,7 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Infos Show Heading?
 		$this->add_control(
-			'wb_contact_info_show_heading',
+			'wbea_contact_info_show_heading',
 			[
 				'label' => esc_html__( 'Show Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -113,21 +113,21 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Heading
 		$this->add_control(
-			'wb_contact_info_heading',
+			'wbea_contact_info_heading',
 			[
 				'label' => esc_html__('Heading', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => esc_html__('Contact', 'webbricks-addons'),
 				'condition' => [
-					'wb_contact_info_show_heading' => 'yes'
+					'wbea_contact_info_show_heading' => 'yes'
 				],
 			]
 		);
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wb_contact_info_heading_tag',
+			'wbea_contact_info_heading_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -144,7 +144,7 @@ class Contact_Info extends Widget_Base {
 				],
 				'default' => 'h2',
 				'condition' => [
-					'wb_contact_info_show_heading' => 'yes'
+					'wbea_contact_info_show_heading' => 'yes'
 				],
 			]
 		);
@@ -154,7 +154,7 @@ class Contact_Info extends Widget_Base {
 
 		// start of the Contact Info Content tab section
 	    $this->start_controls_section(
-			'wb_contact_info_desc_contents',
+			'wbea_contact_info_desc_contents',
 			[
 				'label' => esc_html__('Description', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT
@@ -163,7 +163,7 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Infos Show Description?
 		$this->add_control(
-			'wb_contact_info_show_desc',
+			'wbea_contact_info_show_desc',
 			[
 				'label' => esc_html__( 'Show Description', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -176,14 +176,14 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Description
 		$this->add_control(
-			'wb_contact_info_desc',
+			'wbea_contact_info_desc',
 			[
 				'label' => esc_html__('Description', 'webbricks-addons'),
 				'type' => Controls_Manager::WYSIWYG,
 				'label_block' => true,
 				'default' => esc_html__('Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.', 'webbricks-addons'),
 				'condition' => [
-					'wb_contact_info_show_desc' => 'yes'
+					'wbea_contact_info_show_desc' => 'yes'
 				],
 			]
 		);		
@@ -193,7 +193,7 @@ class Contact_Info extends Widget_Base {
 
 		// start of the Contact Info Content tab section
 	    $this->start_controls_section(
-			'wb_contact_info_lists',
+			'wbea_contact_info_lists',
 			[
 				'label' => esc_html__('Infos', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -202,7 +202,7 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Infos Show Button?
 		$this->add_control(
-			'wb_contact_infos_show_btn',
+			'wbea_contact_infos_show_btn',
 			[
 				'label' => esc_html__( 'Show Infos', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -217,7 +217,7 @@ class Contact_Info extends Widget_Base {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
-			'wb_contact_info_list_icon',
+			'wbea_contact_info_list_icon',
 			[
 				'label' => esc_html__( 'Contact Info Icon', 'webbricks-addons' ),
 				'type' => Controls_Manager::ICONS,
@@ -229,7 +229,7 @@ class Contact_Info extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'wb_contact_info_list_name',
+			'wbea_contact_info_list_name',
 			[
 				'label' => esc_html__( 'Contact Info Name', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -240,35 +240,35 @@ class Contact_Info extends Widget_Base {
 		);
 
 		$this->add_control(
-			'wb_contact_info_list',
+			'wbea_contact_info_list',
 			[
 				'label' => esc_html__( 'Contact Info List', 'webbricks-addons' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'wb_contact_info_list_icon' => [
+						'wbea_contact_info_list_icon' => [
 							'value' => 'fas fa-map-marker-alt',
 						],
-						'wb_contact_info_list_name' => esc_html__( '8502 Preston Rd. Inglewood, Maine 98380', 'webbricks-addons' ),
+						'wbea_contact_info_list_name' => esc_html__( '8502 Preston Rd. Inglewood, Maine 98380', 'webbricks-addons' ),
 					],					
 					[
-						'wb_contact_info_list_icon' => [
+						'wbea_contact_info_list_icon' => [
 							'value' => 'far fa-envelope',
 						],
-						'wb_contact_info_list_name' => esc_html__( 'connect@getwebbricks.com', 'webbricks-addons' ),
+						'wbea_contact_info_list_name' => esc_html__( 'connect@getwebbricks.com', 'webbricks-addons' ),
 					],
 					[
-						'wb_contact_info_list_icon' => [
+						'wbea_contact_info_list_icon' => [
 							'value' => 'fas fa-phone-alt',
 						],
-						'wb_contact_info_list_name' => esc_html__( '(671) 555-0110', 'webbricks-addons' ),
+						'wbea_contact_info_list_name' => esc_html__( '(671) 555-0110', 'webbricks-addons' ),
 					]
 				],
-				'title_field' => '{{{ wb_contact_info_list_name }}}',
+				'title_field' => '{{{ wbea_contact_info_list_name }}}',
 				'separator' => 'before',
 				'condition' => [
-					'wb_contact_infos_show_btn' => 'yes'
+					'wbea_contact_infos_show_btn' => 'yes'
 				],
 			]
 		);
@@ -278,7 +278,7 @@ class Contact_Info extends Widget_Base {
 
 		// start of the Contact Info Content tab section
 	    $this->start_controls_section(
-			'wb_contact_info_socials',
+			'wbea_contact_info_socials',
 			[
 				'label' => esc_html__('Socials', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,		
@@ -287,7 +287,7 @@ class Contact_Info extends Widget_Base {
 
 		// Socials Show Button?
 		$this->add_control(
-			'wb_contact_info_socials_show_btn',
+			'wbea_contact_info_socials_show_btn',
 			[
 				'label' => esc_html__( 'Show Socials', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -299,21 +299,21 @@ class Contact_Info extends Widget_Base {
 		);
 
 		$this->add_control(
-			'wb_contact_social_heading',
+			'wbea_contact_social_heading',
 			[
 				'label' => esc_html__('Heading', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => esc_html__('Follow Us', 'webbricks-addons'),
 				'condition' => [
-					'wb_contact_info_socials_show_btn' => 'yes'
+					'wbea_contact_info_socials_show_btn' => 'yes'
 				],
 			]
 		);
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wb_contact_social_heading_tag',
+			'wbea_contact_social_heading_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -330,7 +330,7 @@ class Contact_Info extends Widget_Base {
 				],
 				'default' => 'h4',
 				'condition' => [
-					'wb_contact_info_socials_show_btn' => 'yes'
+					'wbea_contact_info_socials_show_btn' => 'yes'
 				],
 			]
 		);
@@ -339,7 +339,7 @@ class Contact_Info extends Widget_Base {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
-			'wb_contact_info_socials_list_icon',
+			'wbea_contact_info_socials_list_icon',
 			[
 				'label' => esc_html__( 'Contact Social Icon', 'webbricks-addons' ),
 				'type' => Controls_Manager::ICONS,
@@ -351,7 +351,7 @@ class Contact_Info extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'wb_contact_info_socials_list_name',
+			'wbea_contact_info_socials_list_name',
 			[
 				'label' => esc_html__( 'Contact Social Name', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -362,7 +362,7 @@ class Contact_Info extends Widget_Base {
 		);
 
 		$repeater->add_control(
-		    'wb_contact_info_socials_list_link',
+		    'wbea_contact_info_socials_list_link',
 			[
 			    'label' => esc_html__( 'Contact Social Link', 'webbricks-addons' ),
 				'type' => Controls_Manager::URL,
@@ -376,7 +376,7 @@ class Contact_Info extends Widget_Base {
 		);		
 
 		$repeater->add_control(
-			'wb_contact_info_socials_list_icon_color',
+			'wbea_contact_info_socials_list_icon_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
@@ -390,41 +390,41 @@ class Contact_Info extends Widget_Base {
 		);
 
 		$this->add_control(
-			'wb_contact_info_socials_list',
+			'wbea_contact_info_socials_list',
 			[
 				'label' => esc_html__( 'Contact Socials List', 'webbricks-addons' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'wb_contact_info_socials_list_icon' => [
+						'wbea_contact_info_socials_list_icon' => [
 							'value' => 'fab fa-youtube',
 						],
-						'wb_contact_info_socials_list_name' => esc_html__( '@web-bricks', 'webbricks-addons' ),
+						'wbea_contact_info_socials_list_name' => esc_html__( '@web-bricks', 'webbricks-addons' ),
 					],					
 					[
-						'wb_contact_info_socials_list_icon' => [
+						'wbea_contact_info_socials_list_icon' => [
 							'value' => 'fab fa-twitter',
 						],
-						'wb_contact_info_socials_list_name' => esc_html__( '@webbricks_', 'webbricks-addons' ),
+						'wbea_contact_info_socials_list_name' => esc_html__( '@webbricks_', 'webbricks-addons' ),
 					],
 					[
-						'wb_contact_info_socials_list_icon' => [
+						'wbea_contact_info_socials_list_icon' => [
 							'value' => 'fab fa-linkedin-in',
 						],
-						'wb_contact_info_socials_list_name' => esc_html__( '/company/web-bricks-wp', 'webbricks-addons' ),
+						'wbea_contact_info_socials_list_name' => esc_html__( '/company/web-bricks-wp', 'webbricks-addons' ),
 					],
 					[
-						'wb_contact_info_socials_list_icon' => [
+						'wbea_contact_info_socials_list_icon' => [
 							'value' => 'fab fa-facebook-f',
 						],
-						'wb_contact_info_socials_list_name' => esc_html__( '@webBricksWP', 'webbricks-addons' ),
+						'wbea_contact_info_socials_list_name' => esc_html__( '@webBricksWP', 'webbricks-addons' ),
 					]
 				],
-				'title_field' => '{{{ wb_contact_info_socials_list_name }}}',
+				'title_field' => '{{{ wbea_contact_info_socials_list_name }}}',
 				'separator' => 'before',
 				'condition' => [
-					'wb_contact_info_socials_show_btn' => 'yes'
+					'wbea_contact_info_socials_show_btn' => 'yes'
 				],
 			]
 		);
@@ -434,7 +434,7 @@ class Contact_Info extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_contact_info_pro_message',
+			'wbea_contact_info_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -442,7 +442,7 @@ class Contact_Info extends Widget_Base {
 		 );
 
 		 $this->add_control( 
-			'wb_contact_info_pro_message_notice', 
+			'wbea_contact_info_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -459,24 +459,24 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Heading Section
 		$this->start_controls_section(
-			'wb_contact_info_heading_style',
+			'wbea_contact_info_heading_style',
 			[
 				'label' => esc_html__( 'Heading', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_contact_info_show_heading' => 'yes'
+					'wbea_contact_info_show_heading' => 'yes'
 				],
 			]
 		);
 
 		// Contact Info Border Color
 		$this->add_control(
-			'wb_contact_info_border_color',
+			'wbea_contact_info_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .contact-info' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-contact-info' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -486,12 +486,12 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Heading Color
 		$this->add_control(
-			'wb_contact_info_heading_color',
+			'wbea_contact_info_heading_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .contact-info .contact-info-heading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-contact-info .wbea-contact-info-heading' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -503,8 +503,8 @@ class Contact_Info extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_contact_info_heading_typography',
-				'selector' => '{{WRAPPER}} .contact-info .contact-info-heading',
+				'name' => 'wbea_contact_info_heading_typography',
+				'selector' => '{{WRAPPER}} .wbea-contact-info .wbea-contact-info-heading',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -513,13 +513,13 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Heading Margin
 		$this->add_control(
-			'wb_contact_info_heading_margin',
+			'wbea_contact_info_heading_margin',
 			[
 				'label' => esc_html__( 'Margin', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem'],
 				'selectors' => [
-					'{{WRAPPER}} .contact-info .contact-info-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-contact-info .wbea-contact-info-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -528,24 +528,24 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Description Section
 		$this->start_controls_section(
-			'wb_contact_info_desc_style',
+			'wbea_contact_info_desc_style',
 			[
 				'label' => esc_html__( 'Description', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_contact_info_show_desc' => 'yes'
+					'wbea_contact_info_show_desc' => 'yes'
 				],
 			]
 		);
 
 		// Contact Info Description Color
 		$this->add_control(
-			'wb_contact_info_desc_color',
+			'wbea_contact_info_desc_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .contact-info > p, {{WRAPPER}} .contact-info ul li, {{WRAPPER}} .contact-info ol li' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-contact-info > p, {{WRAPPER}} .wbea-contact-info ul li, {{WRAPPER}} .wbea-contact-info ol li' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -557,8 +557,8 @@ class Contact_Info extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_contact_info_desc_typography',
-				'selector' => '{{WRAPPER}} .contact-info > p, {{WRAPPER}} .contact-info ul li, {{WRAPPER}} .contact-info ol li',
+				'name' => 'wbea_contact_info_desc_typography',
+				'selector' => '{{WRAPPER}} .wbea-contact-info > p, {{WRAPPER}} .wbea-contact-info ul li, {{WRAPPER}} .wbea-contact-info ol li',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				]
@@ -569,19 +569,19 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Lists Section
 		$this->start_controls_section(
-			'wb_contact_info_lists_style',
+			'wbea_contact_info_lists_style',
 			[
 				'label' => esc_html__( 'Infos', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_contact_infos_show_btn' => 'yes'
+					'wbea_contact_infos_show_btn' => 'yes'
 				],
 			]
 		);
 
 		// Contact Info Lists Icon
 		$this->add_control(
-			'wb_contact_info_lists_icon_options',
+			'wbea_contact_info_lists_icon_options',
 			[
 				'label' => esc_html__( 'Icon', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -591,12 +591,12 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Lists Icon Color
 		$this->add_control(
-			'wb_contact_info_lists_icon_color',
+			'wbea_contact_info_lists_icon_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-contact-info-list i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-contact-info-list i' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -606,7 +606,7 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Lists Heading Options
 		$this->add_control(
-			'wb_contact_info_lists_heading_options',
+			'wbea_contact_info_lists_heading_options',
 			[
 				'label' => esc_html__( 'Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -616,12 +616,12 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Lists Heading Color
 		$this->add_control(
-			'wb_contact_info_lists_heading_color',
+			'wbea_contact_info_lists_heading_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-contact-info-list p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-contact-info-list p' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -633,8 +633,8 @@ class Contact_Info extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_contact_info_lists_heading_typography',
-				'selector' => '{{WRAPPER}} .single-contact-info-list p',
+				'name' => 'wbea_contact_info_lists_heading_typography',
+				'selector' => '{{WRAPPER}} .wbea-single-contact-info-list p',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -645,19 +645,19 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Social Lists
 		$this->start_controls_section(
-			'wb_contact_info_socials_style',
+			'wbea_contact_info_socials_style',
 			[
 				'label' => esc_html__( 'Socials', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_contact_info_socials_show_btn' => 'yes'
+					'wbea_contact_info_socials_show_btn' => 'yes'
 				],
 			]
 		);
 
 		// Contact Info Social Lists Heading Options
 		$this->add_control(
-			'wb_contact_info_social_lists_heading_options',
+			'wbea_contact_info_social_lists_heading_options',
 			[
 				'label' => esc_html__( 'Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -667,12 +667,12 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Social Lists Heading Color
 		$this->add_control(
-			'wb_contact_info_social_lists_heading_color',
+			'wbea_contact_info_social_lists_heading_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .contact-info-follows .contact-info-socials-heading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-contact-info-follows .wbea-contact-info-socials-heading' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -684,8 +684,8 @@ class Contact_Info extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_contact_info_social_lists_heading_typography',
-				'selector' => '{{WRAPPER}} .contact-info-follows .contact-info-socials-heading',
+				'name' => 'wbea_contact_info_social_lists_heading_typography',
+				'selector' => '{{WRAPPER}} .wbea-contact-info-follows .wbea-contact-info-socials-heading',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -694,7 +694,7 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Social Lists Icon Options
 		$this->add_control(
-			'wb_contact_info_social_lists_icon_options',
+			'wbea_contact_info_social_lists_icon_options',
 			[
 				'label' => esc_html__( 'Icon', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -704,12 +704,12 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Social Lists Icon Color
 		$this->add_control(
-			'wb_contact_info_icon_color',
+			'wbea_contact_info_icon_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-contact-info-follows i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-contact-info-follows i' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -719,12 +719,12 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Social Lists Icon Color
 		$this->add_control(
-			'wb_contact_info_icon_hover_color',
+			'wbea_contact_info_icon_hover_color',
 			[
 				'label' => esc_html__( 'Hover Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-contact-info-follows:hover i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-contact-info-follows:hover i' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -734,7 +734,7 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Social Lists Heading Options
 		$this->add_control(
-			'wb_contact_info_social_lists_icon_heading_options',
+			'wbea_contact_info_social_lists_icon_heading_options',
 			[
 				'label' => esc_html__( 'Title', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -744,12 +744,12 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Social Lists Icon Color
 		$this->add_control(
-			'wb_contact_info_socials_icon_color',
+			'wbea_contact_info_socials_icon_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-contact-info-follows a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-contact-info-follows a' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -759,12 +759,12 @@ class Contact_Info extends Widget_Base {
 
 		// Contact Info Social Lists Icon Color
 		$this->add_control(
-			'wb_contact_info_socials_heading_hover_color',
+			'wbea_contact_info_socials_heading_hover_color',
 			[
 				'label' => esc_html__( 'Hover Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-contact-info-follows:hover a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-contact-info-follows:hover a' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -776,8 +776,8 @@ class Contact_Info extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_contact_info_socials_icon_typography',
-				'selector' => '{{WRAPPER}} .single-contact-info-follows a',
+				'name' => 'wbea_contact_info_socials_icon_typography',
+				'selector' => '{{WRAPPER}} .wbea-single-contact-info-follows a',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -801,20 +801,20 @@ class Contact_Info extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 	
 		// Sanitize and escape settings for display
-		$wb_contact_info_show_heading = isset($settings['wb_contact_info_show_heading']) ? sanitize_text_field($settings['wb_contact_info_show_heading']) : '';
-		$wb_contact_info_heading = isset($settings['wb_contact_info_heading']) ? sanitize_text_field($settings['wb_contact_info_heading']) : '';
-		$wb_contact_info_heading_tag = isset($settings['wb_contact_info_heading_tag']) ? sanitize_key($settings['wb_contact_info_heading_tag']) : 'h2';
-		$wb_contact_info_show_desc = isset($settings['wb_contact_info_show_desc']) ? sanitize_text_field($settings['wb_contact_info_show_desc']) : '';
-		$wb_contact_info_desc = isset($settings['wb_contact_info_desc']) ? $settings['wb_contact_info_desc'] : '';
-		$wb_contact_info_list = isset($settings['wb_contact_info_list']) ? $settings['wb_contact_info_list'] : [];
-		$wb_contact_social_heading = isset($settings['wb_contact_social_heading']) ? sanitize_text_field($settings['wb_contact_social_heading']) : '';
-		$wb_contact_social_heading_tag = isset($settings['wb_contact_social_heading_tag']) ? sanitize_key($settings['wb_contact_social_heading_tag']) : 'h3';
-		$wb_contact_info_socials_list = isset($settings['wb_contact_info_socials_list']) ? $settings['wb_contact_info_socials_list'] : [];
-		$wb_contact_infos_show_btn = isset($settings['wb_contact_infos_show_btn']) ? sanitize_text_field($settings['wb_contact_infos_show_btn']) : '';
-		$wb_contact_info_socials_show_btn = isset($settings['wb_contact_info_socials_show_btn']) ? sanitize_text_field($settings['wb_contact_info_socials_show_btn']) : '';
+		$wbea_contact_info_show_heading = isset($settings['wbea_contact_info_show_heading']) ? sanitize_text_field($settings['wbea_contact_info_show_heading']) : '';
+		$wbea_contact_info_heading = isset($settings['wbea_contact_info_heading']) ? sanitize_text_field($settings['wbea_contact_info_heading']) : '';
+		$wbea_contact_info_heading_tag = isset($settings['wbea_contact_info_heading_tag']) ? sanitize_key($settings['wbea_contact_info_heading_tag']) : 'h2';
+		$wbea_contact_info_show_desc = isset($settings['wbea_contact_info_show_desc']) ? sanitize_text_field($settings['wbea_contact_info_show_desc']) : '';
+		$wbea_contact_info_desc = isset($settings['wbea_contact_info_desc']) ? $settings['wbea_contact_info_desc'] : '';
+		$wbea_contact_info_list = isset($settings['wbea_contact_info_list']) ? $settings['wbea_contact_info_list'] : [];
+		$wbea_contact_social_heading = isset($settings['wbea_contact_social_heading']) ? sanitize_text_field($settings['wbea_contact_social_heading']) : '';
+		$wbea_contact_social_heading_tag = isset($settings['wbea_contact_social_heading_tag']) ? sanitize_key($settings['wbea_contact_social_heading_tag']) : 'h3';
+		$wbea_contact_info_socials_list = isset($settings['wbea_contact_info_socials_list']) ? $settings['wbea_contact_info_socials_list'] : [];
+		$wbea_contact_infos_show_btn = isset($settings['wbea_contact_infos_show_btn']) ? sanitize_text_field($settings['wbea_contact_infos_show_btn']) : '';
+		$wbea_contact_info_socials_show_btn = isset($settings['wbea_contact_info_socials_show_btn']) ? sanitize_text_field($settings['wbea_contact_info_socials_show_btn']) : '';
 	
 		// Early exit if no contact information or social buttons should be shown.
-		if (!$wb_contact_info_show_heading && !$wb_contact_info_show_desc && !$wb_contact_infos_show_btn && !$wb_contact_info_socials_show_btn) {
+		if (!$wbea_contact_info_show_heading && !$wbea_contact_info_show_desc && !$wbea_contact_infos_show_btn && !$wbea_contact_info_socials_show_btn) {
 			return;
 		}
 	
@@ -822,49 +822,53 @@ class Contact_Info extends Widget_Base {
 		<!-- Contact Info Start Here -->          
 		<div class="contact-info">
 	
-			<?php if ($wb_contact_info_show_heading === 'yes') : ?>
-				<<?php echo esc_attr($wb_contact_info_heading_tag); ?> class="contact-info-heading">
-					<?php echo esc_html($wb_contact_info_heading); ?>
-				</<?php echo esc_attr($wb_contact_info_heading_tag); ?>>
+			<?php if ($wbea_contact_info_show_heading === 'yes') : ?>
+				<<?php echo esc_attr($wbea_contact_info_heading_tag); ?> class="wbea-contact-info-heading">
+					<?php echo esc_html($wbea_contact_info_heading); ?>
+				</<?php echo esc_attr($wbea_contact_info_heading_tag); ?>>
 			<?php endif; ?>
 	
-			<?php if ($wb_contact_info_show_desc === 'yes') : ?>
-				<p><?php echo wp_kses_post($wb_contact_info_desc); ?></p>
+			<?php if ($wbea_contact_info_show_desc === 'yes') : ?>
+				<p><?php echo wp_kses_post($wbea_contact_info_desc); ?></p>
 			<?php endif; ?>
 	
-			<?php if ($wb_contact_infos_show_btn === 'yes' && !empty($wb_contact_info_list)) : ?>
-				<div class="contact-info-list">
-					<?php foreach ($wb_contact_info_list as $info_list) : ?>
+			<?php if ($wbea_contact_infos_show_btn === 'yes' && !empty($wbea_contact_info_list)) : ?>
+				<div class="wbea-contact-info-list">
+					<?php foreach ($wbea_contact_info_list as $info_list) : ?>
 						<?php
 						// Sanitize each field from the contact info list
-						$wb_contact_info_list_icon = isset($info_list['wb_contact_info_list_icon']['value']) ? sanitize_text_field($info_list['wb_contact_info_list_icon']['value']) : '';
-						$wb_contact_info_list_name = isset($info_list['wb_contact_info_list_name']) ? sanitize_text_field($info_list['wb_contact_info_list_name']) : '';
+						$wbea_contact_info_list_icon = isset($info_list['wbea_contact_info_list_icon']['value']) ? sanitize_text_field($info_list['wbea_contact_info_list_icon']['value']) : '';
+						$wbea_contact_info_list_name = isset($info_list['wbea_contact_info_list_name']) ? sanitize_text_field($info_list['wbea_contact_info_list_name']) : '';
 						?>
-						<div class="single-contact-info-list">
-							<i aria-hidden="true" class="<?php echo esc_attr($wb_contact_info_list_icon); ?>"></i>
-							<p><?php echo esc_html($wb_contact_info_list_name); ?></p>
+						<div class="wbea-single-contact-info-list">
+							<i aria-hidden="true" class="<?php echo esc_attr($wbea_contact_info_list_icon); ?>"></i>
+							<p><?php echo esc_html($wbea_contact_info_list_name); ?></p>
 						</div>
 					<?php endforeach; ?>
 				</div>
 			<?php endif; ?>
 	
-			<?php if ($wb_contact_info_socials_show_btn === 'yes' && !empty($wb_contact_info_socials_list)) : ?>
-				<div class="contact-info-follows">
-					<<?php echo esc_attr($wb_contact_social_heading_tag); ?> class="contact-info-socials-heading">
-						<?php echo esc_html($wb_contact_social_heading); ?>
-					</<?php echo esc_attr($wb_contact_social_heading_tag); ?>>
-					<?php foreach ($wb_contact_info_socials_list as $social_list) : ?>
+			<?php if ($wbea_contact_info_socials_show_btn === 'yes' && !empty($wbea_contact_info_socials_list)) : ?>
+				<div class="wbea-contact-info-follows">
+					<<?php echo esc_attr($wbea_contact_social_heading_tag); ?> class="wbea-contact-info-socials-heading">
+						<?php echo esc_html($wbea_contact_social_heading); ?>
+					</<?php echo esc_attr($wbea_contact_social_heading_tag); ?>>
+					<?php foreach ($wbea_contact_info_socials_list as $social_list) : ?>
 						<?php
 						// Sanitize each field from the social list
-						$wb_contact_info_socials_list_icon = isset($social_list['wb_contact_info_socials_list_icon']['value']) ? sanitize_text_field($social_list['wb_contact_info_socials_list_icon']['value']) : '';
-						$wb_contact_info_socials_list_name = isset($social_list['wb_contact_info_socials_list_name']) ? sanitize_text_field($social_list['wb_contact_info_socials_list_name']) : '';
-						$wb_contact_info_socials_list_link = isset($social_list['wb_contact_info_socials_list_link']) ? $social_list['wb_contact_info_socials_list_link'] : [];
-						$wb_contact_info_socials_list_icon_color = isset($social_list['wb_contact_info_socials_list_icon_color']) ? sanitize_text_field($social_list['wb_contact_info_socials_list_icon_color']) : '';
+						$wbea_contact_info_socials_list_icon = isset($social_list['wbea_contact_info_socials_list_icon']['value']) ? sanitize_text_field($social_list['wbea_contact_info_socials_list_icon']['value']) : '';
+						$wbea_contact_info_socials_list_name = isset($social_list['wbea_contact_info_socials_list_name']) ? sanitize_text_field($social_list['wbea_contact_info_socials_list_name']) : '';
+						$wbea_contact_info_socials_list_link = isset($social_list['wbea_contact_info_socials_list_link']) ? $social_list['wbea_contact_info_socials_list_link'] : [];
+						$wbea_contact_info_socials_list_icon_color = isset($social_list['wbea_contact_info_socials_list_icon_color']) ? sanitize_text_field($social_list['wbea_contact_info_socials_list_icon_color']) : '';
+
+						// Check for 'target' and 'nofollow' options
+						$target = !empty($social_list['wbea_contact_info_socials_list_link']['is_external']) ? 'target="_blank"' : '';
+						$nofollow = !empty($social_list['wbea_contact_info_socials_list_link']['nofollow']) ? 'rel="nofollow"' : '';
 						?>
-						<div class="single-contact-info-follows">
-							<i aria-hidden="true" class="<?php echo esc_attr($wb_contact_info_socials_list_icon); ?>" style="color: <?php echo esc_attr($wb_contact_info_socials_list_icon_color); ?>"></i>
-							<a href="<?php echo esc_url($wb_contact_info_socials_list_link['url']); ?>" target="_blank" rel="noopener noreferrer">
-								<?php echo esc_html($wb_contact_info_socials_list_name); ?>
+						<div class="wbea-single-contact-info-follows">
+							<i aria-hidden="true" class="<?php echo esc_attr($wbea_contact_info_socials_list_icon); ?>" style="color: <?php echo esc_attr($wbea_contact_info_socials_list_icon_color); ?>"></i>
+							<a href="<?php echo esc_url($wbea_contact_info_socials_list_link['url']); ?>" <?php echo $target . ' ' . $nofollow; ?>>
+								<?php echo esc_html($wbea_contact_info_socials_list_name); ?>
 							</a>
 						</div>
 					<?php endforeach; ?>

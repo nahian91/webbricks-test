@@ -106,7 +106,7 @@ class Price extends Widget_Base {
 		
 		// start of the Title tab section
 	   	$this->start_controls_section(
-	       'wb_price_title_content',
+	       'wbea_price_title_content',
 		    [
 		        'label' => esc_html__('Content', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,
@@ -115,7 +115,7 @@ class Price extends Widget_Base {
 		
 		// Price Heading
 		$this->add_control(
-		    'wb_price_heading',
+		    'wbea_price_heading',
 			[
 			    'label' => esc_html__('Heading', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
@@ -126,7 +126,7 @@ class Price extends Widget_Base {
 
 		// Price Ribbon Show?
 		$this->add_control(
-			'wb_price_show_ribbon',
+			'wbea_price_show_ribbon',
 			[
 				'label' => esc_html__( 'Show Ribbon', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -140,14 +140,14 @@ class Price extends Widget_Base {
 		
 		// Price Ribbon Text
 		$this->add_control(
-		    'wb_price_ribbon_text',
+		    'wbea_price_ribbon_text',
 			[
 				'label' => esc_html__('Featured', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => esc_html__( 'Featured', 'webbricks-addons' ),
 				'condition' => [
-					'wb_price_show_ribbon' => 'yes'
+					'wbea_price_show_ribbon' => 'yes'
 				],
 			]
 		);
@@ -157,7 +157,7 @@ class Price extends Widget_Base {
 
 		// start of the Features tab section
 		$this->start_controls_section(
-			'wb_price_features_content',
+			'wbea_price_features_content',
 			[
 				'label' => esc_html__('Features', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,
@@ -169,7 +169,7 @@ class Price extends Widget_Base {
 
 		// Price Feature Name
 		$repeater->add_control(
-			'wb_price_feature_name',
+			'wbea_price_feature_name',
 			[
 				'label' => esc_html__( 'Feature Name', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -180,7 +180,7 @@ class Price extends Widget_Base {
 
 		// Price Repeater
 		$repeater->add_control(
-			'wb_price_feature_icon',
+			'wbea_price_feature_icon',
 			[
 				'label' => esc_html__( 'Feature Icon', 'webbricks-addons' ),
 				'type' => Controls_Manager::ICONS,
@@ -192,7 +192,7 @@ class Price extends Widget_Base {
 
 		// Price Icon Color
 		$repeater->add_control(
-			'wb_price_feature_icon_color',
+			'wbea_price_feature_icon_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
@@ -204,53 +204,53 @@ class Price extends Widget_Base {
 
 		// Price Feature List
 		$this->add_control(
-			'wb_price_feature',
+			'wbea_price_feature',
 			[
 				'label' => esc_html__( 'Price Feature', 'webbricks-addons' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
-				'title_field' => '{{{ wb_price_feature_name }}}',
+				'title_field' => '{{{ wbea_price_feature_name }}}',
 				'separator' => 'before',
 				'default' => [
 					[
-						'wb_price_feature_name' => esc_html__( 'Two Person', 'webbricks-addons' ),
-						'wb_price_feature_icon' => [
+						'wbea_price_feature_name' => esc_html__( 'Two Person', 'webbricks-addons' ),
+						'wbea_price_feature_icon' => [
 							'value' => 'far fa-check-circle',
 						],
 					],
 					[
-						'wb_price_feature_name' => esc_html__( 'Two Nights', 'webbricks-addons' ),
-						'wb_price_feature_icon' => [
+						'wbea_price_feature_name' => esc_html__( 'Two Nights', 'webbricks-addons' ),
+						'wbea_price_feature_icon' => [
 							'value' => 'far fa-check-circle',
 						],
 					],
 					[
-						'wb_price_feature_name' => esc_html__( 'One Location', 'webbricks-addons' ),
-						'wb_price_feature_icon' => [
+						'wbea_price_feature_name' => esc_html__( 'One Location', 'webbricks-addons' ),
+						'wbea_price_feature_icon' => [
 							'value' => 'far fa-check-circle',
 						],
 					],
 					[
-						'wb_price_feature_name' => esc_html__( 'Free Breakfast ', 'webbricks-addons' ),
-						'wb_price_feature_icon' => [
+						'wbea_price_feature_name' => esc_html__( 'Free Breakfast ', 'webbricks-addons' ),
+						'wbea_price_feature_icon' => [
 							'value' => 'far fa-check-circle',
 						],
 					],
 					[
-						'wb_price_feature_name' => esc_html__( 'Airport Pick Up', 'webbricks-addons' ),
-						'wb_price_feature_icon' => [
+						'wbea_price_feature_name' => esc_html__( 'Airport Pick Up', 'webbricks-addons' ),
+						'wbea_price_feature_icon' => [
 							'value' => 'far fa-window-close',
 						],
 					],
 					[
-						'wb_price_feature_name' => esc_html__( 'Dinner Buffet', 'webbricks-addons' ),
-						'wb_price_feature_icon' => [
+						'wbea_price_feature_name' => esc_html__( 'Dinner Buffet', 'webbricks-addons' ),
+						'wbea_price_feature_icon' => [
 							'value' => 'far fa-window-close',
 						],
 					],
 					[
-						'wb_price_feature_name' => esc_html__( 'Outdoor Activities', 'webbricks-addons' ),
-						'wb_price_feature_icon' => [
+						'wbea_price_feature_name' => esc_html__( 'Outdoor Activities', 'webbricks-addons' ),
+						'wbea_price_feature_icon' => [
 							'value' => 'far fa-window-close',
 						],
 					]
@@ -263,7 +263,7 @@ class Price extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_price_content',
+			'wbea_price_content',
 			[
 				'label' => esc_html__('Price', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -272,7 +272,7 @@ class Price extends Widget_Base {
 
 		// Price Amount
 		$this->add_control(
-		    'wb_price_amount',
+		    'wbea_price_amount',
 			[
 			    'label' => esc_html__('Amount', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
@@ -284,7 +284,7 @@ class Price extends Widget_Base {
 
 		// Purchase Link Show?
 		$this->add_control(
-			'wb_price_link_show',
+			'wbea_price_link_show',
 			[
 				'label' => esc_html__( 'Show Link', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -298,7 +298,7 @@ class Price extends Widget_Base {
 
 		// Purchase Link
 		$this->add_control(
-		    'wb_price_link',
+		    'wbea_price_link',
 			[
 			    'label' => esc_html__( 'Price Link', 'webbricks-addons' ),
 				'type' => Controls_Manager::URL,
@@ -309,14 +309,14 @@ class Price extends Widget_Base {
 					'custom_attributes' => '',
 				],
 				'condition' => [
-					'wb_price_link_show' => 'yes'
+					'wbea_price_link_show' => 'yes'
 				],
 			]
 		);
 
 		// Price Price Alignment
 		$this->add_control(
-			'wb_price_alignment',
+			'wbea_price_alignment',
 			[
 				'type' => Controls_Manager::CHOOSE,
 				'label' => esc_html__( 'Alignment', 'webbricks-addons' ),
@@ -336,17 +336,17 @@ class Price extends Widget_Base {
 				],
 				'default' => 'left',
 				'selectors' => [
-					'{{WRAPPER}} .price-btn span' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-btn span' => 'text-align: {{VALUE}}',
 				],
 				'condition' => [
-					'wb_price_link_show!' => 'yes'
+					'wbea_price_link_show!' => 'yes'
 				],
 			],
 		);
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wb_price_bg_pattern',
+			'wbea_price_bg_pattern',
 			[
 				'label' => __( 'Background Pattern', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -365,7 +365,7 @@ class Price extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_price_pro_message',
+			'wbea_price_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -373,7 +373,7 @@ class Price extends Widget_Base {
 		 );
 
 		 $this->add_control( 
-			'wb_price_pro_message_notice', 
+			'wbea_price_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -388,7 +388,7 @@ class Price extends Widget_Base {
 		
 		// Price Layout Style
 		$this->start_controls_section(
-			'wb_price_layout_style',
+			'wbea_price_layout_style',
 			[
 				'label' => esc_html__( 'Layout', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -399,20 +399,20 @@ class Price extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wb_price_border',
-				'selector' => '{{WRAPPER}} .price',
+				'name' => 'wbea_price_border',
+				'selector' => '{{WRAPPER}} .wbea-price',
 			]
 		);	
 
 		// Price Border Radius
 		$this->add_control(
-			'wb_price_border_style',
+			'wbea_price_border_style',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .price' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-price' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -421,7 +421,7 @@ class Price extends Widget_Base {
 
 		// Price Heading
 		$this->start_controls_section(
-			'wb_price_heading_style',
+			'wbea_price_heading_style',
 			[
 				'label' => esc_html__( 'Heading', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -430,12 +430,12 @@ class Price extends Widget_Base {
 
 		// Price Heading Color
 		$this->add_control(
-			'wb_price_heading_color',
+			'wbea_price_heading_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .price-heading h4' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-heading h4' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -447,8 +447,8 @@ class Price extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_price_heading_typography',
-				'selector' => '{{WRAPPER}} .price-heading h4',
+				'name' => 'wbea_price_heading_typography',
+				'selector' => '{{WRAPPER}} .wbea-price-heading h4',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -457,7 +457,7 @@ class Price extends Widget_Base {
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wb_price_heading_tag',
+			'wbea_price_heading_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -478,12 +478,12 @@ class Price extends Widget_Base {
 
 		// Price Separator Color
 		$this->add_control(
-			'wb_price_sep_color',
+			'wbea_price_sep_color',
 			[
 				'label' => esc_html__( 'Separator Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .price-heading h4:after' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-heading h4:after' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -495,24 +495,24 @@ class Price extends Widget_Base {
 
 		// Price Ribbon
 		$this->start_controls_section(
-			'wb_price_ribbon_style',
+			'wbea_price_ribbon_style',
 			[
 				'label' => esc_html__( 'Ribbon', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_price_show_ribbon' => 'yes'
+					'wbea_price_show_ribbon' => 'yes'
 				],
 			]
 		);
 
 		// Price Ribbon Color
 		$this->add_control(
-			'wb_price_ribbon_color',
+			'wbea_price_ribbon_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .price-heading span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-heading span' => 'color: {{VALUE}}',
 				],
 				'global' => '#fff'
 			]
@@ -520,12 +520,12 @@ class Price extends Widget_Base {
 
 		// Price Ribbon Background
 		$this->add_control(
-			'wb_price_ribbon_bg',
+			'wbea_price_ribbon_bg',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .price-heading span' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-heading span' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -537,8 +537,8 @@ class Price extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_price_ribbon_typography',
-				'selector' => '{{WRAPPER}} .price-heading span',
+				'name' => 'wbea_price_ribbon_typography',
+				'selector' => '{{WRAPPER}} .wbea-price-heading span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -549,7 +549,7 @@ class Price extends Widget_Base {
 
 		// Price Feature
 		$this->start_controls_section(
-			'wb_price_feature_style',
+			'wbea_price_feature_style',
 			[
 				'label' => esc_html__( 'Features', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -558,12 +558,12 @@ class Price extends Widget_Base {
 
 		// Price Feature Color
 		$this->add_control(
-			'wb_price_feature_color',
+			'wbea_price_feature_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .price-feature span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-feature span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -575,8 +575,8 @@ class Price extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_price_feature_typography',
-				'selector' => '{{WRAPPER}} .price-feature span',
+				'name' => 'wbea_price_feature_typography',
+				'selector' => '{{WRAPPER}} .wbea-price-feature span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				]
@@ -585,12 +585,12 @@ class Price extends Widget_Base {
 
 		// Price Feature Border Color
 		$this->add_control(
-			'wb_price_feature_border_color',
+			'wbea_price_feature_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .price-feature span' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-feature span' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -600,20 +600,20 @@ class Price extends Widget_Base {
 
 		// Price Feature Padding
 		$this->add_control(
-			'wb_price_feature_padding',
+			'wbea_price_feature_padding',
 			[
 				'label' => esc_html__( 'Padding', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .price-feature' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-price-feature' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Price Feature Alignment
 		$this->add_control(
-			'wb_price_feature_alignment',
+			'wbea_price_feature_alignment',
 			[
 				'type' => Controls_Manager::CHOOSE,
 				'label' => esc_html__( 'Alignment', 'webbricks-addons' ),
@@ -633,7 +633,7 @@ class Price extends Widget_Base {
 				],
 				'default' => 'left',
 				'selectors' => [
-					'{{WRAPPER}} .price-feature' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-feature' => 'text-align: {{VALUE}}',
 				],
 			],
 		);
@@ -642,7 +642,7 @@ class Price extends Widget_Base {
 
 		// Price Amount
 		$this->start_controls_section(
-			'wb_price_bottom_style',
+			'wbea_price_bottom_style',
 			[
 				'label' => esc_html__( 'Price', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -651,12 +651,12 @@ class Price extends Widget_Base {
 
 		// Price Amount Color
 		$this->add_control(
-			'wb_price_amount_color',
+			'wbea_price_amount_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .price-btn span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-btn span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -668,8 +668,8 @@ class Price extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_price_amount_typography',
-				'selector' => '{{WRAPPER}} .price-btn span',
+				'name' => 'wbea_price_amount_typography',
+				'selector' => '{{WRAPPER}} .wbea-price-btn span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -678,12 +678,12 @@ class Price extends Widget_Base {
 
 		// Price Bottom Background
 		$this->add_control(
-			'wb_price_bottom_background',
+			'wbea_price_bottom_background',
 			[
 				'label' => esc_html__( 'Background Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .price-btn' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-btn' => 'background-color: {{VALUE}}',
 				],
 				'default' => 'rgba(0,0,0,0)',
 			]
@@ -691,22 +691,22 @@ class Price extends Widget_Base {
 
 		// Price Purchase Link
 		$this->add_control(
-			'wb_price_bottom_link',
+			'wbea_price_bottom_link',
 			[
 				'label' => esc_html__( 'Price Link', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
-					'wb_price_link_show' => 'yes'
+					'wbea_price_link_show' => 'yes'
 				],
 			]
 		);
 
 		$this->start_controls_tabs(
-			'wb_price_link_style_tabs',
+			'wbea_price_link_style_tabs',
 			[
 				'condition' => [
-					'wb_price_link_show' => 'yes'
+					'wbea_price_link_show' => 'yes'
 				]
 			]
 		);
@@ -714,7 +714,7 @@ class Price extends Widget_Base {
 
 		// Price Button Normal Tab
 		$this->start_controls_tab(
-			'wb_price_link_normal_tab',
+			'wbea_price_link_normal_tab',
 			[
 				'label' => esc_html__( 'Normal', 'webbricks-addons' ),
 			]
@@ -722,12 +722,12 @@ class Price extends Widget_Base {
 
 		// Price Button Normal Icon Color
 		$this->add_control(
-			'wb_price_link_icon_color',
+			'wbea_price_link_icon_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .price-btn a svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-btn a svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -737,12 +737,12 @@ class Price extends Widget_Base {
 
 		// Price Button Normal Border Color
 		$this->add_control(
-			'wb_price_link_border_color',
+			'wbea_price_link_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .price-btn a' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-btn a' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -752,13 +752,13 @@ class Price extends Widget_Base {
 
 		// Price Button Normal Border Radius
 		$this->add_control(
-			'wb_price_link_border_radius',
+			'wbea_price_link_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .price-btn a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-price-btn a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -767,7 +767,7 @@ class Price extends Widget_Base {
 
 		// Price Link Hover Tab
 		$this->start_controls_tab(
-			'wb_price_link_hover_tab',
+			'wbea_price_link_hover_tab',
 			[
 				'label' => esc_html__( 'Hover', 'webbricks-addons' ),
 			]
@@ -775,12 +775,12 @@ class Price extends Widget_Base {
 
 		// Price Button Hover Icon Color
 		$this->add_control(
-			'wb_price_link_hover_icon_color',
+			'wbea_price_link_hover_icon_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .price-btn a:hover svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-btn a:hover svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -790,12 +790,12 @@ class Price extends Widget_Base {
 
 		// Price Button Hover Border
 		$this->add_control(
-			'wb_price_link_hover_border',
+			'wbea_price_link_hover_border',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .price-btn a:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-btn a:hover' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -805,12 +805,12 @@ class Price extends Widget_Base {
 
 		// Price Button Hover Background
 		$this->add_control(
-			'wb_price_link_hover_color',
+			'wbea_price_link_hover_color',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .price-btn a:after' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-btn a:after' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -839,18 +839,18 @@ class Price extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 	
 		// Sanitize settings to avoid unsafe data
-		$wb_price_heading = isset($settings['wb_price_heading']) ? sanitize_text_field($settings['wb_price_heading']) : '';
-		$wb_price_show_ribbon = isset($settings['wb_price_show_ribbon']) ? sanitize_text_field($settings['wb_price_show_ribbon']) : 'no';
-		$wb_price_ribbon_text = isset($settings['wb_price_ribbon_text']) ? sanitize_text_field($settings['wb_price_ribbon_text']) : '';
-		$wb_price_feature = isset($settings['wb_price_feature']) ? $settings['wb_price_feature'] : [];
-		$wb_price_amount = isset($settings['wb_price_amount']) ? sanitize_text_field($settings['wb_price_amount']) : '';
-		$wb_price_link_show = isset($settings['wb_price_link_show']) ? sanitize_text_field($settings['wb_price_link_show']) : 'no';
-		$wb_price_link = isset($settings['wb_price_link']['url']) ? esc_url($settings['wb_price_link']['url']) : '';
-		$wb_price_bg_pattern = isset($settings['wb_price_bg_pattern']) ? sanitize_text_field($settings['wb_price_bg_pattern']) : '';
+		$wbea_price_heading = isset($settings['wbea_price_heading']) ? sanitize_text_field($settings['wbea_price_heading']) : '';
+		$wbea_price_show_ribbon = isset($settings['wbea_price_show_ribbon']) ? sanitize_text_field($settings['wbea_price_show_ribbon']) : 'no';
+		$wbea_price_ribbon_text = isset($settings['wbea_price_ribbon_text']) ? sanitize_text_field($settings['wbea_price_ribbon_text']) : '';
+		$wbea_price_feature = isset($settings['wbea_price_feature']) ? $settings['wbea_price_feature'] : [];
+		$wbea_price_amount = isset($settings['wbea_price_amount']) ? sanitize_text_field($settings['wbea_price_amount']) : '';
+		$wbea_price_link_show = isset($settings['wbea_price_link_show']) ? sanitize_text_field($settings['wbea_price_link_show']) : 'no';
+		$wbea_price_link = isset($settings['wbea_price_link']['url']) ? esc_url($settings['wbea_price_link']['url']) : '';
+		$wbea_price_bg_pattern = isset($settings['wbea_price_bg_pattern']) ? sanitize_text_field($settings['wbea_price_bg_pattern']) : '';
 	
 		// Set price pattern URL based on user input
 		$price_pattern_url = '';
-		switch ($wb_price_bg_pattern) {
+		switch ($wbea_price_bg_pattern) {
 			case 'price-pattern-1':
 				$price_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/price-pattern.svg';
 				break;
@@ -866,21 +866,21 @@ class Price extends Widget_Base {
 		}
 		?>
 		<!-- Price Start Here -->
-		<div class="price">
-			<div class="price-heading">
-				<h4><?php echo esc_html($wb_price_heading); ?></h4>
-				<?php if ($wb_price_show_ribbon === 'yes') { ?>
-					<span><?php echo esc_html($wb_price_ribbon_text); ?></span>
+		<div class="wbea-price">
+			<div class="wbea-price-heading">
+				<h4><?php echo esc_html($wbea_price_heading); ?></h4>
+				<?php if ($wbea_price_show_ribbon === 'yes') { ?>
+					<span><?php echo esc_html($wbea_price_ribbon_text); ?></span>
 				<?php } ?>
 			</div>
 	
-			<div class="price-feature">
+			<div class="wbea-price-feature">
 				<?php
-				if ($wb_price_feature) {
-					foreach ($wb_price_feature as $feature) {
-						$feature_icon_color = isset($feature['wb_price_feature_icon_color']) ? esc_attr($feature['wb_price_feature_icon_color']) : '';
-						$feature_icon = isset($feature['wb_price_feature_icon']['value']) ? esc_attr($feature['wb_price_feature_icon']['value']) : '';
-						$feature_name = isset($feature['wb_price_feature_name']) ? esc_html($feature['wb_price_feature_name']) : '';
+				if ($wbea_price_feature) {
+					foreach ($wbea_price_feature as $feature) {
+						$feature_icon_color = isset($feature['wbea_price_feature_icon_color']) ? esc_attr($feature['wbea_price_feature_icon_color']) : '';
+						$feature_icon = isset($feature['wbea_price_feature_icon']['value']) ? esc_attr($feature['wbea_price_feature_icon']['value']) : '';
+						$feature_name = isset($feature['wbea_price_feature_name']) ? esc_html($feature['wbea_price_feature_name']) : '';
 				?>
 						<span>
 							<i style="color: <?php echo esc_attr($feature_icon_color); ?>" class="<?php echo esc_attr($feature_icon); ?>"></i> 
@@ -892,20 +892,20 @@ class Price extends Widget_Base {
 				?>
 			</div>
 	
-			<?php if ($wb_price_bg_pattern !== 'price-pattern-none' && !empty($price_pattern_url)) { ?>
+			<?php if ($wbea_price_bg_pattern !== 'price-pattern-none' && !empty($price_pattern_url)) { ?>
 			<style>
-				.price-btn {
+				.wbea-price-btn {
 					background-image: url('<?php echo esc_url($price_pattern_url); ?>');
 				}
 			</style>
 			<?php } ?>
 	
-			<div class="price-btn">
-				<span><?php echo esc_html($wb_price_amount); ?></span>
+			<div class="wbea-price-btn">
+				<span><?php echo esc_html($wbea_price_amount); ?></span>
 				<?php 
-				if ($wb_price_link_show === 'yes' && !empty($wb_price_link)) {
+				if ($wbea_price_link_show === 'yes' && !empty($wbea_price_link)) {
 				?>
-					<a href="<?php echo esc_url($wb_price_link); ?>" target="_blank" rel="noopener noreferrer">
+					<a href="<?php echo esc_url($wbea_price_link); ?>" target="_blank" rel="noopener noreferrer">
 						<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 							<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
 						</svg>

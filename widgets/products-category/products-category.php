@@ -82,7 +82,7 @@ class Products_Category extends Widget_Base {
 		return [ 'products', 'category', 'wb'];
 	}
 
-	public function get_grid_classes( $settings, $columns_field = 'wb_column_per_row' ) {
+	public function get_grid_classes( $settings, $columns_field = 'wbea_column_per_row' ) {
         
         $grid_classes = 'wb-grid-desktop-';
         $grid_classes .= $settings[$columns_field];
@@ -91,7 +91,7 @@ class Products_Category extends Widget_Base {
         // $grid_classes .= ' wb-grid-mobile-';
         // $grid_classes .= $settings[$columns_field . '_mobile'];
 
-        return apply_filters( 'wb_grid_classes', $grid_classes, $settings, $columns_field );
+        return apply_filters( 'wbea_grid_classes', $grid_classes, $settings, $columns_field );
     }
 
 	/**
@@ -104,7 +104,7 @@ class Products_Category extends Widget_Base {
 		
 		// start of the Content tab section
 		$this->start_controls_section(
-	       'wb_product_categories_contents',
+	       'wbea_product_categories_contents',
 		    [
 		        'label' => esc_html__('Contents', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		   
@@ -113,7 +113,7 @@ class Products_Category extends Widget_Base {
 		
 		// Product Categories
 		$this->add_control(
-			'wb_product_categories',
+			'wbea_product_categories',
 			[
                 'label' => esc_html__('Select Category', 'webbricks-addons'),
                 'type' => Controls_Manager::SELECT2,
@@ -125,7 +125,7 @@ class Products_Category extends Widget_Base {
 
 		// Show Product Category Count
 		$this->add_control(
-			'wb_product_categories_count',
+			'wbea_product_categories_count',
 			[
 				'label' => esc_html__( 'Show Products Count', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -138,7 +138,7 @@ class Products_Category extends Widget_Base {
 
 		// Show Product Category Button
 		$this->add_control(
-			'wb_product_categories_btn_show',
+			'wbea_product_categories_btn_show',
 			[
 				'label' => esc_html__( 'Show Button', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -150,7 +150,7 @@ class Products_Category extends Widget_Base {
 		);
 
 		$this->add_control( 
-            'wb_column_per_row', 
+            'wbea_column_per_row', 
             [
                 'label'              => esc_html__( 'Columns per row', 'webbricks-addons' ),
                 'type'               => Controls_Manager::SELECT,
@@ -170,7 +170,7 @@ class Products_Category extends Widget_Base {
 
 		// Product Category Alignment
 		$this->add_control(
-			'wb_product_categories_alignment',
+			'wbea_product_categories_alignment',
 			[
 				'type' => Controls_Manager::CHOOSE,
 				'label' => esc_html__( 'Alignment', 'webbricks-addons' ),
@@ -201,7 +201,7 @@ class Products_Category extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_products_category_pro_message',
+			'wbea_products_category_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -209,7 +209,7 @@ class Products_Category extends Widget_Base {
 		 );
 
 		 $this->add_control( 
-			'wb_products_category_pro_message_notice', 
+			'wbea_products_category_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -224,7 +224,7 @@ class Products_Category extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_product_categories_layouts_section',
+			'wbea_product_categories_layouts_section',
 			[
 				'label' => esc_html__( 'Layouts', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -233,13 +233,13 @@ class Products_Category extends Widget_Base {
 
 		// Product Category Border Radius
 		$this->add_control(
-			'wb_product_categories_border_radius',
+			'wbea_product_categories_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .product-category' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-product-category' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -248,8 +248,8 @@ class Products_Category extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wb_product_categories_border',
-				'selector' => '{{WRAPPER}} .product-category',
+				'name' => 'wbea_product_categories_border',
+				'selector' => '{{WRAPPER}} .wbea-product-category',
 			]
 		);	
 
@@ -257,9 +257,9 @@ class Products_Category extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'wb_product_categories_bg',
+				'name' => 'wbea_product_categories_bg',
 				'types' => [ 'gradient'],
-				'selector' => '{{WRAPPER}} .product-category::before',
+				'selector' => '{{WRAPPER}} .wbea-product-category::before',
 			]
 		);	
 
@@ -267,7 +267,7 @@ class Products_Category extends Widget_Base {
 
 		// Start of the Products Content Tab Section
 		$this->start_controls_section(
-			'wb_product_category_image',
+			'wbea_product_category_image',
 			[
 				'label' => esc_html__('Images', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_STYLE		   
@@ -276,7 +276,7 @@ class Products_Category extends Widget_Base {
 
 		// Product Category Image Width
 		$this->add_control(
-			'wb_product_image_width',
+			'wbea_product_image_width',
 			[
 				'label' => esc_html__( 'Width', 'webbricks-addons' ),
 				'type' => Controls_Manager::SLIDER,
@@ -288,14 +288,14 @@ class Products_Category extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .product-category-img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-product-category-img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Product Category Image Height
 		$this->add_control(
-			'wb_product_image_height',
+			'wbea_product_image_height',
 			[
 				'label' => esc_html__( 'Height', 'webbricks-addons' ),
 				'type' => Controls_Manager::SLIDER,
@@ -307,7 +307,7 @@ class Products_Category extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .product-category-img' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-product-category-img' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -315,7 +315,7 @@ class Products_Category extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_product_categories_heading_section',
+			'wbea_product_categories_heading_section',
 			[
 				'label' => esc_html__( 'Category Name', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -324,7 +324,7 @@ class Products_Category extends Widget_Base {
 		
 		// Product Category Sub Heading Color
 		$this->add_control(
-			'wb_product_categories_heading_color',
+			'wbea_product_categories_heading_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
@@ -332,7 +332,7 @@ class Products_Category extends Widget_Base {
 					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .product-category-content .product-category-title a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-product-category-content .product-category-title a' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -341,8 +341,8 @@ class Products_Category extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_product_categories_heading_typography',
-				'selector' => '{{WRAPPER}} .product-category-content .product-category-title a',
+				'name' => 'wbea_product_categories_heading_typography',
+				'selector' => '{{WRAPPER}} .wbea-product-category-content .product-category-title a',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				]
@@ -351,7 +351,7 @@ class Products_Category extends Widget_Base {
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wb_product_carousel_title_tag',
+			'wbea_product_carousel_title_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -375,7 +375,7 @@ class Products_Category extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_affiliate_title_section',
+			'wbea_affiliate_title_section',
 			[
 				'label' => esc_html__( 'Count', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -384,7 +384,7 @@ class Products_Category extends Widget_Base {
 
 		// Product Category Title Color
 		$this->add_control(
-			'wb_product_categories_count_color',
+			'wbea_product_categories_count_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
@@ -392,7 +392,7 @@ class Products_Category extends Widget_Base {
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .product-category-content span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-product-category-content span' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -401,8 +401,8 @@ class Products_Category extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_product_categories_count_typography',
-				'selector' => '{{WRAPPER}} .product-category-content span',
+				'name' => 'wbea_product_categories_count_typography',
+				'selector' => '{{WRAPPER}} .wbea-product-category-content span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -414,7 +414,7 @@ class Products_Category extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_product_categories_btn_section',
+			'wbea_product_categories_btn_section',
 			[
 				'label' => esc_html__( 'Button', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -422,12 +422,12 @@ class Products_Category extends Widget_Base {
 		);
 
 		$this->start_controls_tabs(
-			'wb_product_categories_btn_style_tab'
+			'wbea_product_categories_btn_style_tab'
 		);
 
 		// Product Category Button Normal Tab
 		$this->start_controls_tab(
-			'wb_product_categories_btn_normal_tab',
+			'wbea_product_categories_btn_normal_tab',
 			[
 				'label' => esc_html__( 'Normal', 'webbricks-addons' ),
 			]
@@ -435,12 +435,12 @@ class Products_Category extends Widget_Base {
 
 		// Product Category Button Color
 		$this->add_control(
-			'wb_product_categories_btn_color',
+			'wbea_product_categories_btn_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .product-category-icon svg' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-product-category-icon svg' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -450,12 +450,12 @@ class Products_Category extends Widget_Base {
 
 		// Product Category Button Border Color
 		$this->add_control(
-			'wb_product_categories_btn_border_color',
+			'wbea_product_categories_btn_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .product-category-icon' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-product-category-icon' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -467,7 +467,7 @@ class Products_Category extends Widget_Base {
 
 		// Product Category Button Hover Tab
 		$this->start_controls_tab(
-			'wb_product_categories_btn_hover_tab',
+			'wbea_product_categories_btn_hover_tab',
 			[
 				'label' => esc_html__( 'Hover', 'webbricks-addons' ),
 			]
@@ -475,12 +475,12 @@ class Products_Category extends Widget_Base {
 
 		// Product Category Button Hover Color
 		$this->add_control(
-			'wb_product_categories_btn_hover_color',
+			'wbea_product_categories_btn_hover_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .product-category-icon svg:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-product-category-icon svg:hover' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -490,12 +490,12 @@ class Products_Category extends Widget_Base {
 
 		// Product Category Button Hover Border Color
 		$this->add_control(
-			'wb_product_categories_btn_hover_border_color',
+			'wbea_product_categories_btn_hover_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .product-category-icon:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-product-category-icon:hover' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -505,12 +505,12 @@ class Products_Category extends Widget_Base {
 
 		// Product Category Button Hover BG Color
 		$this->add_control(
-			'wb_product_categories_btn_hover_bg_color',
+			'wbea_product_categories_btn_hover_bg_color',
 			[
 				'label' => esc_html__( 'Background Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .product-category-icon:hover:after' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-product-category-icon:hover:after' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -555,16 +555,16 @@ private function get_all_product_categories() {
 protected function render() {
     // Get our input from the widget settings.
     $settings = $this->get_settings_for_display();
-    $wb_product_categories = isset($settings['wb_product_categories']) ? $settings['wb_product_categories'] : [];
-    $wb_product_categories_count = isset($settings['wb_product_categories_count']) ? $settings['wb_product_categories_count'] : '';
-    $wb_product_categories_btn_show = isset($settings['wb_product_categories_btn_show']) ? $settings['wb_product_categories_btn_show'] : '';
-    $wb_product_carousel_title_tag = isset($settings['wb_product_carousel_title_tag']) ? $settings['wb_product_carousel_title_tag'] : 'h2';
+    $wbea_product_categories = isset($settings['wbea_product_categories']) ? $settings['wbea_product_categories'] : [];
+    $wbea_product_categories_count = isset($settings['wbea_product_categories_count']) ? $settings['wbea_product_categories_count'] : '';
+    $wbea_product_categories_btn_show = isset($settings['wbea_product_categories_btn_show']) ? $settings['wbea_product_categories_btn_show'] : '';
+    $wbea_product_carousel_title_tag = isset($settings['wbea_product_carousel_title_tag']) ? $settings['wbea_product_carousel_title_tag'] : 'h2';
 
     ?>
     <div class="wb-grid-row">
         <?php
         // Get selected category IDs
-        $selected_category_ids = $wb_product_categories;
+        $selected_category_ids = $wbea_product_categories;
 
         // Loop through each selected category ID
         if ($selected_category_ids) {
@@ -578,15 +578,15 @@ protected function render() {
                     $image = wp_get_attachment_image_src($thumbnail_id, 'medium');
                     ?>
                     <div class="<?php echo esc_attr($this->get_grid_classes($settings)); ?> wb-grid-tablet-6 wb-grid-mobile-12">
-                        <div class="product-category">
+                        <div class="wbea-product-category">
                             <?php 
                             if ($image) {
                                 ?>
-								<div class="product-category-img" style="background-image:url('<?php echo esc_url($image[0]); ?>')"></div>
+								<div class="wbea-product-category-img" style="background-image:url('<?php echo esc_url($image[0]); ?>')"></div>
                                 <?php
                             } else {
                                 ?>
-                                <svg class="fallback-svg" viewBox="0 0 370 300" preserveAspectRatio="none">
+                                <svg class="wbea-fallback-svg" viewBox="0 0 370 300" preserveAspectRatio="none">
                                     <rect width="370" height="300" style="fill:#f2f2f2;"></rect>
                                 </svg>
                                 <?php 
@@ -594,9 +594,9 @@ protected function render() {
                             ?>
                             
                             <?php 
-                            if ($wb_product_categories_btn_show === 'yes') {
+                            if ($wbea_product_categories_btn_show === 'yes') {
                                 ?>
-                                <div class="product-category-icon">
+                                <div class="wbea-product-category-icon">
                                     <a href="<?php echo esc_url(get_term_link($category));?>">
                                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M9.33337 9.33329V6.66663C9.33337 4.45749 11.1242 2.66663 13.3334 2.66663C14.3579 2.66663 15.2923 3.05177 16 3.68516C16.7078 3.05176 17.6423 2.66663 18.6667 2.66663C20.8759 2.66663 22.6667 4.45749 22.6667 6.66663V9.33329H24.6667C25.7712 9.33329 26.6667 10.2287 26.6667 11.3333V24.6733C26.6667 27.2469 24.5803 29.3333 22.0067 29.3333H10.6667C7.72119 29.3333 5.33337 26.9454 5.33337 24V11.3333C5.33337 10.2287 6.2288 9.33329 7.33337 9.33329H9.33337ZM18.18 27.3333C17.6547 26.579 17.3467 25.6621 17.3467 24.6733V11.3333H7.33337V24C7.33337 25.8409 8.82576 27.3333 10.6667 27.3333H18.18ZM15.3334 9.33329V6.66663C15.3334 5.56205 14.4379 4.66663 13.3334 4.66663C12.2288 4.66663 11.3334 5.56205 11.3334 6.66663V9.33329H15.3334ZM17.3334 9.33329H20.6667V6.66663C20.6667 5.56205 19.7712 4.66663 18.6667 4.66663C18.0467 4.66663 17.4927 4.94871 17.1259 5.39153C17.2604 5.792 17.3334 6.2208 17.3334 6.66663V9.33329ZM19.3467 24.6733C19.3467 26.1424 20.5376 27.3333 22.0067 27.3333C23.4758 27.3333 24.6667 26.1424 24.6667 24.6733V11.3333H19.3467V24.6733Z" fill="currentColor"/>
@@ -607,12 +607,12 @@ protected function render() {
                             }
                             ?>
                             
-                            <div class="product-category-content">
-                                <<?php echo esc_attr($wb_product_carousel_title_tag); ?> class="product-category-title">
+                            <div class="wbea-product-category-content">
+                                <<?php echo esc_attr($wbea_product_carousel_title_tag); ?> class="wbea-product-category-title">
                                     <a href="<?php echo esc_url(get_term_link($category));?>"><?php echo esc_html($category->name);?></a>
-                                </<?php echo esc_attr($wb_product_carousel_title_tag); ?>>
+                                </<?php echo esc_attr($wbea_product_carousel_title_tag); ?>>
                                 <?php 
-                                if ($wb_product_categories_count === 'yes') {
+                                if ($wbea_product_categories_count === 'yes') {
                                     ?>
                                     <span><?php echo esc_html($category->count);?> <?php echo esc_html(' Products', 'webbricks-addons');?></span>
                                     <?php

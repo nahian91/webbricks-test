@@ -92,7 +92,7 @@ class Creative_Buttons extends Widget_Base {
 		
 	    // start of the Creative Buttons Content tab section
 	    $this->start_controls_section(
-	       'wb_creative_buttons_contents',
+	       'wbea_creative_buttons_contents',
 		    [
 		        'label' => esc_html__('Contents', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		   
@@ -101,7 +101,7 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Buttons Style
 		$this->add_control(
-			'wb_creative_buttons_style',
+			'wbea_creative_buttons_style',
 			[
 				'label' => esc_html__( 'Style', 'webbricks-addons' ),
 				'type' => Controls_Manager::SELECT,
@@ -115,7 +115,7 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Buttons Number
 		$this->add_control(
-			'wb_creative_buttons_number',
+			'wbea_creative_buttons_number',
 			[
 				'label' => esc_html__( 'Number of Buttons', 'webbricks-addons' ),
 				'type' => Controls_Manager::SELECT,
@@ -129,7 +129,7 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Buttons Alignment
 		$this->add_control(
-			'wb_info_box_alignment',
+			'wbea_info_box_alignment',
 			[
 				'type' => Controls_Manager::CHOOSE,
 				'label' => esc_html__( 'Alignment', 'webbricks-addons' ),
@@ -160,7 +160,7 @@ class Creative_Buttons extends Widget_Base {
 
 		// start of the Creative Buttons Content tab section
 	    $this->start_controls_section(
-			'wb_creative_button1',
+			'wbea_creative_button1',
 			[
 				'label' => esc_html__('Button 1', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,
@@ -170,7 +170,7 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 1 Title
 		$this->add_control(
-		    'wb_creative_button1_title',
+		    'wbea_creative_button1_title',
 			[
 			    'label' => esc_html__('Button 1 Text', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
@@ -181,7 +181,7 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 1 Link
 		$this->add_control(
-		    'wb_creative_button1_link',
+		    'wbea_creative_button1_link',
 			[
 			    'label' => esc_html__( 'Button 1 Link', 'webbricks-addons' ),
 				'type' => Controls_Manager::URL,
@@ -199,19 +199,19 @@ class Creative_Buttons extends Widget_Base {
 
 		 // start of the Creative Buttons Content tab section
 		 $this->start_controls_section(
-			'wb_creative_button2',
+			'wbea_creative_button2',
 			[
 				'label' => esc_html__('Button 2', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 				'condition' => [
-					'wb_creative_buttons_number' => '2',
+					'wbea_creative_buttons_number' => '2',
 				]			
 			]
 		 );
 
 		// Creative Button 2 Title
 		$this->add_control(
-		    'wb_creative_button2_title',
+		    'wbea_creative_button2_title',
 			[
 			    'label' => esc_html__('Button 2 Text', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
@@ -222,7 +222,7 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 2 Link
 		$this->add_control(
-		    'wb_creative_button2_link',
+		    'wbea_creative_button2_link',
 			[
 			    'label' => esc_html__( 'Button 2 Link', 'webbricks-addons' ),
 				'type' => Controls_Manager::URL,
@@ -240,7 +240,7 @@ class Creative_Buttons extends Widget_Base {
 
 		 // start of the Content tab section
 		$this->start_controls_section(
-			'wb_creative_buttons_pro_message',
+			'wbea_creative_buttons_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT
@@ -248,7 +248,7 @@ class Creative_Buttons extends Widget_Base {
 		 );
 
 		 $this->add_control( 
-			'wb_creative_buttons_pro_message_notice', 
+			'wbea_creative_buttons_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -277,7 +277,7 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 1 Normal Tab
 		$this->start_controls_tab(
-			'wb_creative_btn1_normal_tab',
+			'wbea_creative_btn1_normal_tab',
 			[
 				'label' => esc_html__( 'Normal', 'webbricks-addons' ),
 			]
@@ -285,12 +285,12 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 1 Color
 		$this->add_control(
-			'wb_creative_btn1_color',
+			'wbea_creative_btn1_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -300,12 +300,12 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 1 Background
 		$this->add_control(
-			'wb_creative_btn1_bg',
+			'wbea_creative_btn1_bg',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -315,12 +315,12 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 1 Border Color
 		$this->add_control(
-			'wb_creative_btn1_border_color',
+			'wbea_creative_btn1_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg' => 'border-right-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg' => 'border-right-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -332,8 +332,8 @@ class Creative_Buttons extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_creative_btn1_typography',
-				'selector' => '{{WRAPPER}} .btn-bg',
+				'name' => 'wbea_creative_btn1_typography',
+				'selector' => '{{WRAPPER}} .wbea-btn-bg',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -342,26 +342,26 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 1 Border Radius
 		$this->add_control(
-			'wb_creative_btn1_border_radius',
+			'wbea_creative_btn1_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-btn-bg' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Creative Button 1 Padding
 		$this->add_control(
-			'wb_creative_btn1_padding',
+			'wbea_creative_btn1_padding',
 			[
 				'label' => esc_html__( 'Padding', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-btn-bg' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -370,7 +370,7 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 1 Hover Tab
 		$this->start_controls_tab(
-			'wb_creative_btn1_hover_tab',
+			'wbea_creative_btn1_hover_tab',
 			[
 				'label' => esc_html__( 'Hover', 'webbricks-addons' ),
 			]
@@ -378,13 +378,13 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 1 Hover Color
 		$this->add_control(
-			'wb_creative_btn1_hover_color',
+			'wbea_creative_btn1_hover_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg:hover' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .btn-bg:hover svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg:hover svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -394,12 +394,12 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 1 Hover Background
 		$this->add_control(
-			'wb_creative_btn1_hover_bg',
+			'wbea_creative_btn1_hover_bg',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg:hover:before' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg:hover:before' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -409,12 +409,12 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 1 Hover Border
 		$this->add_control(
-			'wb_creative_btn1_hover_border',
+			'wbea_creative_btn1_hover_border',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg:hover' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -443,7 +443,7 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 2 Normal Tab
 		$this->start_controls_tab(
-			'wb_creative_btn2_normal_tab',
+			'wbea_creative_btn2_normal_tab',
 			[
 				'label' => esc_html__( 'Normal', 'webbricks-addons' ),
 			]
@@ -451,12 +451,12 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 2 Color
 		$this->add_control(
-			'wb_creative_btn2_color',
+			'wbea_creative_btn2_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -466,12 +466,12 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 2 Border
 		$this->add_control(
-			'wb_creative_btn2_border',
+			'wbea_creative_btn2_border',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -483,8 +483,8 @@ class Creative_Buttons extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_creative_btn2_typography',
-				'selector' => '{{WRAPPER}} .btn-border',
+				'name' => 'wbea_creative_btn2_typography',
+				'selector' => '{{WRAPPER}} .wbea-btn-border',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -493,26 +493,26 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 2 Border Radius
 		$this->add_control(
-			'wb_creative_btn2_border_radius',
+			'wbea_creative_btn2_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-btn-border' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Creative Button 2 Padding
 		$this->add_control(
-			'wb_creative_btn2_padding',
+			'wbea_creative_btn2_padding',
 			[
 				'label' => esc_html__( 'Padding', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-btn-border' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -521,7 +521,7 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 2 Hover Tab
 		$this->start_controls_tab(
-			'wb_creative_btn2_hover_tab',
+			'wbea_creative_btn2_hover_tab',
 			[
 				'label' => esc_html__( 'Hover', 'webbricks-addons' ),
 			]
@@ -529,13 +529,13 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 2 Hover Color
 		$this->add_control(
-			'wb_creative_btn2_hover_color',
+			'wbea_creative_btn2_hover_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border:hover' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .btn-border:hover svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -545,12 +545,12 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 2 Hover Background
 		$this->add_control(
-			'wb_creative_btn2_hover_bg',
+			'wbea_creative_btn2_hover_bg',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border:hover:before' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover:before' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -560,12 +560,12 @@ class Creative_Buttons extends Widget_Base {
 
 		// Creative Button 2 Hover Border
 		$this->add_control(
-			'wb_creative_btn2_hover_border',
+			'wbea_creative_btn2_hover_border',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -594,30 +594,30 @@ class Creative_Buttons extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 	
 		// Sanitize settings for safety
-		$wb_creative_buttons_style = isset($settings['wb_creative_buttons_style']) ? sanitize_text_field($settings['wb_creative_buttons_style']) : '';
-		$wb_creative_button1_title = isset($settings['wb_creative_button1_title']) ? sanitize_text_field($settings['wb_creative_button1_title']) : '';
-		$wb_creative_button1_link = isset($settings['wb_creative_button1_link']['url']) ? esc_url($settings['wb_creative_button1_link']['url']) : '';
-		$wb_creative_button2_title = isset($settings['wb_creative_button2_title']) ? sanitize_text_field($settings['wb_creative_button2_title']) : '';
-		$wb_creative_button2_link = isset($settings['wb_creative_button2_link']['url']) ? esc_url($settings['wb_creative_button2_link']['url']) : '';
+		$wbea_creative_buttons_style = isset($settings['wbea_creative_buttons_style']) ? sanitize_text_field($settings['wbea_creative_buttons_style']) : '';
+		$wbea_creative_button1_title = isset($settings['wbea_creative_button1_title']) ? sanitize_text_field($settings['wbea_creative_button1_title']) : '';
+		$wbea_creative_button1_link = isset($settings['wbea_creative_button1_link']['url']) ? esc_url($settings['wbea_creative_button1_link']['url']) : '';
+		$wbea_creative_button2_title = isset($settings['wbea_creative_button2_title']) ? sanitize_text_field($settings['wbea_creative_button2_title']) : '';
+		$wbea_creative_button2_link = isset($settings['wbea_creative_button2_link']['url']) ? esc_url($settings['wbea_creative_button2_link']['url']) : '';
 		?>
 		<!-- Creative Buttons Start Here -->          
-		<div class="creative-buttons <?php echo esc_attr($wb_creative_buttons_style); ?>">
+		<div class="creative-buttons <?php echo esc_attr($wbea_creative_buttons_style); ?>">
 			<?php 
-			if ($wb_creative_button1_link) {
+			if ($wbea_creative_button1_link) {
 				?>
 				<?php
 					// Get the control settings for the button
-					$wb_creative_button1_link = $this->get_settings_for_display( 'wb_creative_button1_link' );
+					$wbea_creative_button1_link = $this->get_settings_for_display( 'wbea_creative_button1_link' );
 
 					// Set the target attribute to open in a new tab if `is_external` is true
-					$target = ( isset( $wb_creative_button1_link['is_external'] ) && $wb_creative_button1_link['is_external'] ) ? ' target="_blank"' : '';
+					$target = ( isset( $wbea_creative_button1_link['is_external'] ) && $wbea_creative_button1_link['is_external'] ) ? ' target="_blank"' : '';
 
 					// Set the nofollow attribute if `nofollow` is true
-					$nofollow = ( isset( $wb_creative_button1_link['nofollow'] ) && $wb_creative_button1_link['nofollow'] ) ? ' rel="nofollow"' : '';
+					$nofollow = ( isset( $wbea_creative_button1_link['nofollow'] ) && $wbea_creative_button1_link['nofollow'] ) ? ' rel="nofollow"' : '';
 					?>
 
-					<a href="<?php echo esc_url( $wb_creative_button1_link['url'] ); ?>" class="btn-bg"<?php echo $target . $nofollow; ?>>
-						<?php echo esc_html( $wb_creative_button1_title ); ?>
+					<a href="<?php echo esc_url( $wbea_creative_button1_link['url'] ); ?>" class="wbea-btn-bg" <?php echo $target . $nofollow; ?>>
+						<?php echo esc_html( $wbea_creative_button1_title ); ?>
 						<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z" fill="var(--e-global-color-accent)"></path>
 						</svg>
@@ -628,21 +628,21 @@ class Creative_Buttons extends Widget_Base {
 			?>
 	
 			<?php 
-			if ($wb_creative_button2_link) {
+			if ($wbea_creative_button2_link) {
 				?>
 				<?php
 					// Get the control settings for the second button
-					$wb_creative_button2_link = $this->get_settings_for_display( 'wb_creative_button2_link' );
+					$wbea_creative_button2_link = $this->get_settings_for_display( 'wbea_creative_button2_link' );
 
 					// Set the target attribute to open in a new tab if `is_external` is true
-					$target = ( isset( $wb_creative_button2_link['is_external'] ) && $wb_creative_button2_link['is_external'] ) ? ' target="_blank"' : '';
+					$target = ( isset( $wbea_creative_button2_link['is_external'] ) && $wbea_creative_button2_link['is_external'] ) ? ' target="_blank"' : '';
 
 					// Set the nofollow attribute if `nofollow` is true
-					$nofollow = ( isset( $wb_creative_button2_link['nofollow'] ) && $wb_creative_button2_link['nofollow'] ) ? ' rel="nofollow"' : '';
+					$nofollow = ( isset( $wbea_creative_button2_link['nofollow'] ) && $wbea_creative_button2_link['nofollow'] ) ? ' rel="nofollow"' : '';
 					?>
 
-					<a href="<?php echo esc_url( $wb_creative_button2_link['url'] ); ?>" class="btn-border"<?php echo $target . $nofollow; ?>>
-						<?php echo esc_html( $wb_creative_button2_title ); ?>
+					<a href="<?php echo esc_url( $wbea_creative_button2_link['url'] ); ?>" class="wbea-btn-border"<?php echo $target . $nofollow; ?>>
+						<?php echo esc_html( $wbea_creative_button2_title ); ?>
 						<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z" fill="var(--e-global-color-accent)"></path>
 						</svg>

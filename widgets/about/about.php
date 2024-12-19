@@ -91,7 +91,7 @@ class About extends Widget_Base {
 		
 		// Start of the Content Tab Section
 	   	$this->start_controls_section(
-	       'wb_about_subheading_contents',
+	       'wbea_about_subheading_contents',
 		    [
 		        'label' => esc_html__('Sub Heading', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT	   
@@ -100,7 +100,7 @@ class About extends Widget_Base {
 
 		// About Sub Heading Show?
 		$this->add_control(
-			'wb_about_subheading_show_btn',
+			'wbea_about_subheading_show_btn',
 			[
 				'label' => esc_html__( 'Show Sub Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -114,14 +114,14 @@ class About extends Widget_Base {
 		
 		// About Sub Heading
 		$this->add_control(
-			'wb_about_subheading',
+			'wbea_about_subheading',
 			[
 				'label' => esc_html__('Sub Heading', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => esc_html__('About Us', 'webbricks-addons'),
 				'condition' => [
-					'wb_about_subheading_show_btn' => 'yes'
+					'wbea_about_subheading_show_btn' => 'yes'
 				],
 			]
 		);
@@ -131,7 +131,7 @@ class About extends Widget_Base {
 
 		// Start of the Content Tab Section
 		$this->start_controls_section(
-			'wb_about_heading_contents',
+			'wbea_about_heading_contents',
 			[
 				'label' => esc_html__('Heading', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT	   
@@ -140,7 +140,7 @@ class About extends Widget_Base {
 		
 		// About Heading
 		$this->add_control(
-			'wb_about_title',
+			'wbea_about_title',
 			[
 				'label' => esc_html__('Heading', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
@@ -151,7 +151,7 @@ class About extends Widget_Base {
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wb_about_title_tag',
+			'wbea_about_title_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -173,7 +173,7 @@ class About extends Widget_Base {
 		// end of the Content tab section
 
 		$this->start_controls_section(
-			'wb_about_desc_contents',
+			'wbea_about_desc_contents',
 			[
 				'label' => esc_html__('Description', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT	   
@@ -182,7 +182,7 @@ class About extends Widget_Base {
 		
 		// About Description
 		$this->add_control(
-			'wb_about_desc',
+			'wbea_about_desc',
 			[
 				'label' => esc_html__('Description', 'webbricks-addons'),
 				'type' => Controls_Manager::WYSIWYG,
@@ -195,7 +195,7 @@ class About extends Widget_Base {
 		// end of the Content tab section
 
 		$this->start_controls_section(
-			'wb_about_images_contents',
+			'wbea_about_images_contents',
 			[
 				'label' => esc_html__('Images', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT	   
@@ -204,7 +204,7 @@ class About extends Widget_Base {
 
 		// About Featured Image
 		$this->add_control(
-			'wb_about_featured_img',
+			'wbea_about_featured_img',
 			[
 				'label' => esc_html__( 'Choose Featured Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
@@ -216,7 +216,7 @@ class About extends Widget_Base {
 		 
 		// About Secondary Image
 		$this->add_control(
-			'wb_about_bg_img',
+			'wbea_about_bg_img',
 			[
 				'label' => esc_html__( 'Background Pattern', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
@@ -231,7 +231,7 @@ class About extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_about_counters',
+			'wbea_about_counters',
 			[
 				'label' => esc_html__('Counters', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,		
@@ -240,7 +240,7 @@ class About extends Widget_Base {
 
 		// About Counter Show?
 		$this->add_control(
-			'wb_about_counter_show_btn',
+			'wbea_about_counter_show_btn',
 			[
 				'label' => esc_html__( 'Show Counter', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -257,7 +257,7 @@ class About extends Widget_Base {
 
 		// About Counter Number
 		$repeater->add_control(
-			'wb_about_counter_number',
+			'wbea_about_counter_number',
 			[
 				'label' => esc_html__( 'Counter Number', 'webbricks-addons' ),
 				'type' => Controls_Manager::NUMBER,
@@ -267,7 +267,7 @@ class About extends Widget_Base {
 
 		// About Counter Number Suffix
 		$repeater->add_control(
-			'wb_about_counter_suffix',
+			'wbea_about_counter_suffix',
 			[
 				'label' => esc_html__( 'Counter Suffix', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -277,7 +277,7 @@ class About extends Widget_Base {
 
 		// About Counter Title
 		$repeater->add_control(
-			'wb_about_counter_title',
+			'wbea_about_counter_title',
 			[
 				'label' => esc_html__( 'Counter Title', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -287,31 +287,31 @@ class About extends Widget_Base {
 
 		// About Counter Repeater
 		$this->add_control(
-			'wb_about_counter',
+			'wbea_about_counter',
 			[
 				'label' => esc_html__( 'Counters', 'webbricks-addons' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
-				'title_field' => '{{{ wb_about_counter_title }}}',
+				'title_field' => '{{{ wbea_about_counter_title }}}',
 				'default' => [
 					[
-						'wb_about_counter_number' => esc_html__( '100', 'webbricks-addons' ),
-						'wb_about_counter_suffix' => esc_html__( '+', 'webbricks-addons' ),
-						'wb_about_counter_title' => esc_html__( 'Countries Visiting', 'webbricks-addons' ),
+						'wbea_about_counter_number' => esc_html__( '100', 'webbricks-addons' ),
+						'wbea_about_counter_suffix' => esc_html__( '+', 'webbricks-addons' ),
+						'wbea_about_counter_title' => esc_html__( 'Countries Visiting', 'webbricks-addons' ),
 					],
 					[
-						'wb_about_counter_number' => esc_html__( '50', 'webbricks-addons' ),
-						'wb_about_counter_suffix' => esc_html__( '+', 'webbricks-addons' ),
-						'wb_about_counter_title' => esc_html__( 'Hotels & Resorts', 'webbricks-addons' ),
+						'wbea_about_counter_number' => esc_html__( '50', 'webbricks-addons' ),
+						'wbea_about_counter_suffix' => esc_html__( '+', 'webbricks-addons' ),
+						'wbea_about_counter_title' => esc_html__( 'Hotels & Resorts', 'webbricks-addons' ),
 					],
 					[
-						'wb_about_counter_number' => esc_html__( '10', 'webbricks-addons' ),
-						'wb_about_counter_suffix' => esc_html__( '+', 'webbricks-addons' ),
-						'wb_about_counter_title' => esc_html__( 'Branches All Over', 'webbricks-addons' ),
+						'wbea_about_counter_number' => esc_html__( '10', 'webbricks-addons' ),
+						'wbea_about_counter_suffix' => esc_html__( '+', 'webbricks-addons' ),
+						'wbea_about_counter_title' => esc_html__( 'Branches All Over', 'webbricks-addons' ),
 					]
 				],
 				'condition' => [
-					'wb_about_counter_show_btn' => 'yes'
+					'wbea_about_counter_show_btn' => 'yes'
 				],
 			]
 		); 
@@ -323,7 +323,7 @@ class About extends Widget_Base {
 				'type' => Controls_Manager::RAW_HTML,
 				'content_classes' => 'notice-style',
 				'condition' => [
-					'wb_about_counter_show_btn' => 'yes'
+					'wbea_about_counter_show_btn' => 'yes'
 				]
 			]
 		);
@@ -333,7 +333,7 @@ class About extends Widget_Base {
 
 		// Start of the Buttons Tab Section
 		$this->start_controls_section(
-		'wb_about_buttons',
+		'wbea_about_buttons',
 			[
 				'label' => esc_html__('Buttons', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,			
@@ -342,7 +342,7 @@ class About extends Widget_Base {
 		 
 		// About Button 1 Title
 		$this->add_control(
-		    'wb_about_btn1_title',
+		    'wbea_about_btn1_title',
 			[
 			    'label' => esc_html__('Button 1 Text', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
@@ -353,7 +353,7 @@ class About extends Widget_Base {
 
 		// About Button 1 Link
 		$this->add_control(
-		    'wb_about_btn1_link',
+		    'wbea_about_btn1_link',
 			[
 			    'label' => esc_html__( 'Button 1 Link', 'webbricks-addons' ),
 				'type' => Controls_Manager::URL,
@@ -368,7 +368,7 @@ class About extends Widget_Base {
 		
 		// About Button 2 Title
 		$this->add_control(
-		    'wb_about_btn2_title',
+		    'wbea_about_btn2_title',
 			[
 			    'label' => esc_html__('Button 2 Text', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
@@ -380,7 +380,7 @@ class About extends Widget_Base {
 
 		// About Button 2 Link
 		$this->add_control(
-		    'wb_about_btn2_link',
+		    'wbea_about_btn2_link',
 			[
 			    'label' => esc_html__( 'Button 2 Link', 'webbricks-addons' ),
 				'type' => Controls_Manager::URL,
@@ -398,7 +398,7 @@ class About extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_about_pro_message',
+			'wbea_about_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -406,7 +406,7 @@ class About extends Widget_Base {
 		 );
 
 		 $this->add_control( 
-			'wb_about_pro_message_notice', 
+			'wbea_about_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -420,18 +420,18 @@ class About extends Widget_Base {
 		$this->end_controls_section();
 		
 		$this->start_controls_section(
-			'wb_about_subheading_style_section',
+			'wbea_about_subheading_style_section',
 			[
 				'label' => esc_html__( 'Sub Heading', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_about_subheading_show_btn' => 'yes'
+					'wbea_about_subheading_show_btn' => 'yes'
 				],
 			]
 		);	
 
 		$this->add_control(
-			'wb_about_subheading_sep_head',
+			'wbea_about_subheading_sep_head',
 			[
 				'label' => __('Bullet', 'webbricks-addons'),
 				'type' => \Elementor\Controls_Manager::HEADING,
@@ -440,7 +440,7 @@ class About extends Widget_Base {
 
 		// About Content Sub Heading Separator Style
 		$this->add_control(
-			'wb_about_subheading_sep_variotion',
+			'wbea_about_subheading_sep_variotion',
 			[
 				'label' => __( 'Style', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -458,28 +458,28 @@ class About extends Widget_Base {
 
 		// About Content Sub Heading Separator Round
 		$this->add_control(
-			'wb_about_subheading_sep_round',
+			'wbea_about_subheading_sep_round',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .section-title span:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-section-title span:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
-					'wb_about_subheading_sep_variotion' => 'custom', 
+					'wbea_about_subheading_sep_variotion' => 'custom', 
 				],
 			]
 		);
 
 		// About Content Sub Heading Separator Color
 		$this->add_control(
-			'wb_about_subheading_sep_color',
+			'wbea_about_subheading_sep_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .section-title span:before' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-section-title span:before' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -488,7 +488,7 @@ class About extends Widget_Base {
 		);
 
 		$this->add_control(
-			'wb_about_subheading_head',
+			'wbea_about_subheading_head',
 			[
 				'label' => __('Sub Heading', 'webbricks-addons'),
 				'type' => \Elementor\Controls_Manager::HEADING,
@@ -498,12 +498,12 @@ class About extends Widget_Base {
 
 		// About Content Sub Heading Color
 		$this->add_control(
-			'wb_about_subheading_color',
+			'wbea_about_subheading_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .section-title span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-section-title span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -515,8 +515,8 @@ class About extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_about_subheading_typography',
-				'selector' => '{{WRAPPER}} .section-title span',
+				'name' => 'wbea_about_subheading_typography',
+				'selector' => '{{WRAPPER}} .wbea-section-title span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -527,7 +527,7 @@ class About extends Widget_Base {
 		// end of the Style tab section
 
 		$this->start_controls_section(
-			'wb_about_heading_style_section',
+			'wbea_about_heading_style_section',
 			[
 				'label' => esc_html__( 'Heading', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -536,12 +536,12 @@ class About extends Widget_Base {
 
 		// About Content Title Color
 		$this->add_control(
-			'wb_about_title_color',
+			'wbea_about_title_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .section-title .section-heading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-section-title .wbea-section-heading' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -553,8 +553,8 @@ class About extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_about_title_typography',
-				'selector' => '{{WRAPPER}} .section-title .section-heading',
+				'name' => 'wbea_about_title_typography',
+				'selector' => '{{WRAPPER}} .wbea-section-title .wbea-section-heading',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				]
@@ -565,7 +565,7 @@ class About extends Widget_Base {
 		// end of the Style tab section
 
 		$this->start_controls_section(
-			'wb_about_desc_style_section',
+			'wbea_about_desc_style_section',
 			[
 				'label' => esc_html__( 'Description', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -574,12 +574,12 @@ class About extends Widget_Base {
 
 		// About Content Description Color
 		$this->add_control(
-			'wb_about_desc_color',
+			'wbea_about_desc_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .about-desc, {{WRAPPER}} .about-desc p, {{WRAPPER}} .about-desc ul, {{WRAPPER}} .about-desc ol' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-about-desc, {{WRAPPER}} .wbea-about-desc p, {{WRAPPER}} .wbea-about-desc ul, {{WRAPPER}} .wbea-about-desc ol' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -591,8 +591,8 @@ class About extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_about_desc_typography',
-				'selector' => '{{WRAPPER}} .about-desc, {{WRAPPER}} .about-desc p, {{WRAPPER}} .about-desc ul, {{WRAPPER}} .about-desc ol',
+				'name' => 'wbea_about_desc_typography',
+				'selector' => '{{WRAPPER}} .wbea-about-desc, {{WRAPPER}} .wbea-about-desc p, {{WRAPPER}} .wbea-about-desc ul, {{WRAPPER}} .wbea-about-desc ol',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				]
@@ -604,7 +604,7 @@ class About extends Widget_Base {
 
 		// Start of the Style Tab Section
 		$this->start_controls_section(
-			'wb_about_style_images',
+			'wbea_about_style_images',
 			[
 				'label' => esc_html__( 'Images', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -613,7 +613,7 @@ class About extends Widget_Base {
 
 		// About Featured Image Heading
 		$this->add_control(
-			'wb_about_featured_heading',
+			'wbea_about_featured_heading',
 			[
 				'label' => esc_html__( 'Featured', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -622,7 +622,7 @@ class About extends Widget_Base {
 
 		// About Featured Image Width
 		$this->add_control(
-			'wb_about_featured_image_width',
+			'wbea_about_featured_image_width',
 			[
 				'type' => Controls_Manager::SLIDER,
 				'label' => esc_html__( 'Width', 'webbricks-addons' ),
@@ -634,14 +634,14 @@ class About extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .about-img img:first-child' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-about-img img:first-child' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
 		// About Featured Image Height
 		$this->add_control(
-			'wb_about_featured_image_height',
+			'wbea_about_featured_image_height',
 			[
 				'type' => Controls_Manager::SLIDER,
 				'label' => esc_html__( 'Height', 'webbricks-addons' ),
@@ -653,14 +653,14 @@ class About extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .about-img img:first-child' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-about-img img:first-child' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
 		// About Separator Image Heading
 		$this->add_control(
-			'wb_about_sep_heading',
+			'wbea_about_sep_heading',
 			[
 				'label' => esc_html__( 'Pattern', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -670,7 +670,7 @@ class About extends Widget_Base {
 
 		// About Separator Image Width
 		$this->add_control(
-			'wb_about_sep_image_width',
+			'wbea_about_sep_image_width',
 			[
 				'type' => Controls_Manager::SLIDER,
 				'label' => esc_html__( 'Width', 'webbricks-addons' ),
@@ -682,14 +682,14 @@ class About extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .about-img img:last-child' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-about-img img:last-child' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
 		// About Separator Image Height
 		$this->add_control(
-			'wb_about_sep_image_height',
+			'wbea_about_sep_image_height',
 			[
 				'type' => Controls_Manager::SLIDER,
 				'label' => esc_html__( 'Height', 'webbricks-addons' ),
@@ -701,7 +701,7 @@ class About extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .about-img img:last-child' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-about-img img:last-child' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -710,19 +710,19 @@ class About extends Widget_Base {
 		// end of the Style tab section
 
 		$this->start_controls_section(
-			'wb_about_counters_style',
+			'wbea_about_counters_style',
 			[
 				'label' => esc_html__( 'Counters', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_about_counter_show_btn' => 'yes'
+					'wbea_about_counter_show_btn' => 'yes'
 				]
 			]
 		);
 
 		// About Counter Number Options
 		$this->add_control(
-			'wb_about_counter_number_options',
+			'wbea_about_counter_number_options',
 			[
 				'label' => esc_html__( 'Number', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -731,12 +731,12 @@ class About extends Widget_Base {
 
 		// About Counter Number Color
 		$this->add_control(
-			'wb_about_counter_number_color',
+			'wbea_about_counter_number_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-about-counter div, .single-about-counter span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-about-counter div, .single-about-counter span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -748,8 +748,8 @@ class About extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_about_counter_number_typography',
-				'selector' => '{{WRAPPER}} .single-about-counter div, .single-about-counter span',
+				'name' => 'wbea_about_counter_number_typography',
+				'selector' => '{{WRAPPER}} .wbea-single-about-counter div, .wbea-single-about-counter span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -758,7 +758,7 @@ class About extends Widget_Base {
 
 		// About Counter Title Options
 		$this->add_control(
-			'wb_about_counter_title_options',
+			'wbea_about_counter_title_options',
 			[
 				'label' => esc_html__( 'Title', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -768,12 +768,12 @@ class About extends Widget_Base {
 
 		// About Counter Title Color
 		$this->add_control(
-			'wb_about_counter_title_color',
+			'wbea_about_counter_title_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-about-counter .about-counter-title' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-about-counter .wbea-about-counter-title' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -785,8 +785,8 @@ class About extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_about_counter_title_typography',
-				'selector' => '{{WRAPPER}} .single-about-counter .about-counter-title',
+				'name' => 'wbea_about_counter_title_typography',
+				'selector' => '{{WRAPPER}} .wbea-single-about-counter .wbea-about-counter-title',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -795,7 +795,7 @@ class About extends Widget_Base {
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wb_about_counter_title_tag',
+			'wbea_about_counter_title_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -815,7 +815,7 @@ class About extends Widget_Base {
 
 		// About Counter Separator Options
 		$this->add_control(
-			'wb_about_counter_sep_options',
+			'wbea_about_counter_sep_options',
 			[
 				'label' => esc_html__( 'Separator', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -825,12 +825,12 @@ class About extends Widget_Base {
 
 		// About Counter Separator Color
 		$this->add_control(
-			'wb_about_counter_sep_color',
+			'wbea_about_counter_sep_color',
 			[
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single-about-counter' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-about-counter' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -842,7 +842,7 @@ class About extends Widget_Base {
 		// end of the Style tab section
 
 		$this->start_controls_section(
-			'wb_buttons_style',
+			'wbea_buttons_style',
 			[
 				'label' => esc_html__( 'Buttons', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -851,7 +851,7 @@ class About extends Widget_Base {
 
 		// About Button 1 Options
 		$this->add_control(
-			'wb_about_button1_options',
+			'wbea_about_button1_options',
 			[
 				'label' => esc_html__( 'Button 1', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -865,7 +865,7 @@ class About extends Widget_Base {
 
 		// About Button 1 Normal Tab
 		$this->start_controls_tab(
-			'wb_about_btn1_normal_tab',
+			'wbea_about_btn1_normal_tab',
 			[
 				'label' => esc_html__( 'Normal', 'webbricks-addons' ),
 			]
@@ -873,12 +873,12 @@ class About extends Widget_Base {
 
 		// About Button 1 Color
 		$this->add_control(
-			'wb_about_btn1_color',
+			'wbea_about_btn1_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -888,12 +888,12 @@ class About extends Widget_Base {
 
 		// About Button 1 Background
 		$this->add_control(
-			'wb_about_btn1_bg',
+			'wbea_about_btn1_bg',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -903,12 +903,12 @@ class About extends Widget_Base {
 
 		// About Button 1 Border
 		$this->add_control(
-			'wb_about_btn1_border',
+			'wbea_about_btn1_border',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -920,8 +920,8 @@ class About extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_about_btn1_typography',
-				'selector' => '{{WRAPPER}} .btn-bg',
+				'name' => 'wbea_about_btn1_typography',
+				'selector' => '{{WRAPPER}} .wbea-btn-bg',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -930,26 +930,26 @@ class About extends Widget_Base {
 
 		// About Button 1 Border Radius
 		$this->add_control(
-			'wb_about_btn1_border_radius',
+			'wbea_about_btn1_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-btn-bg' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		// About Button 1 Padding
 		$this->add_control(
-			'wb_about_btn1_padding',
+			'wbea_about_btn1_padding',
 			[
 				'label' => esc_html__( 'Padding', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-btn-bg' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -958,7 +958,7 @@ class About extends Widget_Base {
 
 		// About Button 1 Hover Tab
 		$this->start_controls_tab(
-			'wb_about_btn1_hover_tab',
+			'wbea_about_btn1_hover_tab',
 			[
 				'label' => esc_html__( 'Hover', 'webbricks-addons' ),
 			]
@@ -966,13 +966,13 @@ class About extends Widget_Base {
 
 		// About Button 1 Hover Color
 		$this->add_control(
-			'wb_about_btn1_hover_color',
+			'wbea_about_btn1_hover_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg:hover' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .btn-bg:hover svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg:hover svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -982,12 +982,12 @@ class About extends Widget_Base {
 
 		// About Button 1 Hover Background
 		$this->add_control(
-			'wb_about_btn1_hover_bg',
+			'wbea_about_btn1_hover_bg',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg:hover:before' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg:hover:before' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -997,12 +997,12 @@ class About extends Widget_Base {
 
 		// About Button 1 Hover Background
 		$this->add_control(
-			'wb_about_btn1_hover_border',
+			'wbea_about_btn1_hover_border',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-bg:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-bg:hover' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -1017,7 +1017,7 @@ class About extends Widget_Base {
 
 		// About Button 2 Options
 		$this->add_control(
-			'wb_about_button2_options',
+			'wbea_about_button2_options',
 			[
 				'label' => esc_html__( 'Button 2', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -1031,7 +1031,7 @@ class About extends Widget_Base {
 
 		// About Button 2 Normal Tab
 		$this->start_controls_tab(
-			'wb_about_btn2_normal_tab',
+			'wbea_about_btn2_normal_tab',
 			[
 				'label' => esc_html__( 'Normal', 'webbricks-addons' ),
 			]
@@ -1039,12 +1039,12 @@ class About extends Widget_Base {
 
 		// About Button 2 Color
 		$this->add_control(
-			'wb_about_btn2_color',
+			'wbea_about_btn2_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -1054,12 +1054,12 @@ class About extends Widget_Base {
 
 		// About Button 2 Border
 		$this->add_control(
-			'wb_about_btn2_border',
+			'wbea_about_btn2_border',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -1071,8 +1071,8 @@ class About extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_about_btn2_typography',
-				'selector' => '{{WRAPPER}} .btn-border',
+				'name' => 'wbea_about_btn2_typography',
+				'selector' => '{{WRAPPER}} .wbea-btn-border',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -1081,26 +1081,26 @@ class About extends Widget_Base {
 
 		// About Button 2 Border Radius
 		$this->add_control(
-			'wb_about_btn2_border_radius',
+			'wbea_about_btn2_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-btn-border' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		// About Button 2 Padding
 		$this->add_control(
-			'wb_about_btn2_padding',
+			'wbea_about_btn2_padding',
 			[
 				'label' => esc_html__( 'Padding', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-btn-border' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1109,7 +1109,7 @@ class About extends Widget_Base {
 
 		// About Button 2 Hover Tab
 		$this->start_controls_tab(
-			'wb_about_btn2_hover_tab',
+			'wbea_about_btn2_hover_tab',
 			[
 				'label' => esc_html__( 'Hover', 'webbricks-addons' ),
 			]
@@ -1117,13 +1117,13 @@ class About extends Widget_Base {
 
 		// About Button 2 Hover Color
 		$this->add_control(
-			'wb_about_btn2_hover_color',
+			'wbea_about_btn2_hover_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border:hover' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .btn-border:hover svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -1133,12 +1133,12 @@ class About extends Widget_Base {
 
 		// About Button 2 Hover Color
 		$this->add_control(
-			'wb_about_btn2_hover_border',
+			'wbea_about_btn2_hover_border',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -1148,12 +1148,12 @@ class About extends Widget_Base {
 
 		// About Button 2 Hover Background
 		$this->add_control(
-			'wb_about_btn2_hover_bg',
+			'wbea_about_btn2_hover_bg',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border:hover:before' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover:before' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -1181,22 +1181,22 @@ class About extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		
 		// Extract settings variables with fallbacks
-		$wb_about_subheading_show_btn = $settings['wb_about_subheading_show_btn'] ?? '';
-		$wb_about_title = $settings['wb_about_title'] ?? '';
-		$wb_about_title_tag = $settings['wb_about_title_tag'] ?? 'h2'; 
-		$wb_about_desc = $settings['wb_about_desc'] ?? '';
-		$wb_about_featured_img = !empty($settings['wb_about_featured_img']['url']) ? esc_url($settings['wb_about_featured_img']['url']) : '';    
-		$wb_about_bg_img = !empty($settings['wb_about_bg_img']['url']) ? esc_url($settings['wb_about_bg_img']['url']) : '';
-		$wb_about_counter = $settings['wb_about_counter'] ?? [];
-		$wb_about_counter_title_tag = $settings['wb_about_counter_title_tag'] ?? 'h3';
-		$wb_about_btn1_title = sanitize_text_field($settings['wb_about_btn1_title'] ?? '');
-		$wb_about_btn1_link = isset($settings['wb_about_btn1_link']['url']) ? esc_url($settings['wb_about_btn1_link']['url']) : '';
-		$wb_about_btn2_title = sanitize_text_field($settings['wb_about_btn2_title'] ?? '');
-		$wb_about_btn2_link = isset($settings['wb_about_btn2_link']['url']) ? esc_url($settings['wb_about_btn2_link']['url']) : '';
+		$wbea_about_subheading_show_btn = $settings['wbea_about_subheading_show_btn'] ?? '';
+		$wbea_about_title = $settings['wbea_about_title'] ?? '';
+		$wbea_about_title_tag = $settings['wbea_about_title_tag'] ?? 'h2'; 
+		$wbea_about_desc = $settings['wbea_about_desc'] ?? '';
+		$wbea_about_featured_img = !empty($settings['wbea_about_featured_img']['url']) ? esc_url($settings['wbea_about_featured_img']['url']) : '';    
+		$wbea_about_bg_img = !empty($settings['wbea_about_bg_img']['url']) ? esc_url($settings['wbea_about_bg_img']['url']) : '';
+		$wbea_about_counter = $settings['wbea_about_counter'] ?? [];
+		$wbea_about_counter_title_tag = $settings['wbea_about_counter_title_tag'] ?? 'h3';
+		$wbea_about_btn1_title = sanitize_text_field($settings['wbea_about_btn1_title'] ?? '');
+		$wbea_about_btn1_link = isset($settings['wbea_about_btn1_link']['url']) ? esc_url($settings['wbea_about_btn1_link']['url']) : '';
+		$wbea_about_btn2_title = sanitize_text_field($settings['wbea_about_btn2_title'] ?? '');
+		$wbea_about_btn2_link = isset($settings['wbea_about_btn2_link']['url']) ? esc_url($settings['wbea_about_btn2_link']['url']) : '';
 		
 		// Allow-list for heading tags
 		$allowed_heading_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'span'];
-		$wb_about_title_tag = in_array($wb_about_title_tag, $allowed_heading_tags, true) ? $wb_about_title_tag : 'h2';
+		$wbea_about_title_tag = in_array($wbea_about_title_tag, $allowed_heading_tags, true) ? $wbea_about_title_tag : 'h2';
 		
 		// Render HTML
 		?>
@@ -1205,53 +1205,53 @@ class About extends Widget_Base {
 			<div class="wb-grid-row align-end">
 				<div class="wb-grid-desktop-6 wb-grid-tablet-12 wb-grid-mobile-12">
 					<div class="section-title">
-						<?php if ($wb_about_subheading_show_btn === 'yes') : ?>
+						<?php if ($wbea_about_subheading_show_btn === 'yes') : ?>
 							<?php
-							$wb_about_subheading_sep_variotion = sanitize_html_class($settings['wb_about_subheading_sep_variotion'] ?? '');
-							$wb_about_subheading = sanitize_text_field($settings['wb_about_subheading'] ?? '');
+							$wbea_about_subheading_sep_variotion = sanitize_html_class($settings['wbea_about_subheading_sep_variotion'] ?? '');
+							$wbea_about_subheading = sanitize_text_field($settings['wbea_about_subheading'] ?? '');
 							?>
-							<span class="<?php echo esc_attr($wb_about_subheading_sep_variotion); ?> section-subheading"><?php echo esc_html($wb_about_subheading); ?></span>
+							<span class="<?php echo esc_attr($wbea_about_subheading_sep_variotion); ?> wbea-section-subheading"><?php echo esc_html($wbea_about_subheading); ?></span>
 						<?php endif; ?>
-						<<?php echo esc_attr($wb_about_title_tag); ?> class="section-heading"><?php echo esc_html($wb_about_title); ?></<?php echo esc_attr($wb_about_title_tag); ?>>
+						<<?php echo esc_attr($wbea_about_title_tag); ?> class="wbea-section-heading"><?php echo esc_html($wbea_about_title); ?></<?php echo esc_attr($wbea_about_title_tag); ?>>
 					</div> <!-- section-heading end here -->
 					<div class="about-img">
-						<?php if (!empty($wb_about_featured_img)) : ?>
-							<div class="about-featured-img" style="background-image:url('<?php echo esc_url($wb_about_featured_img); ?>')"></div>
+						<?php if (!empty($wbea_about_featured_img)) : ?>
+							<div class="wbea-about-featured-img" style="background-image:url('<?php echo esc_url($wbea_about_featured_img); ?>')"></div>
 						<?php endif; ?>
-						<?php if (!empty($wb_about_bg_img)) : ?>
-							<div class="about-featured-bg" style="background-image:url('<?php echo esc_url($wb_about_bg_img); ?>')"></div>
+						<?php if (!empty($wbea_about_bg_img)) : ?>
+							<div class="wbea-about-featured-bg" style="background-image:url('<?php echo esc_url($wbea_about_bg_img); ?>')"></div>
 						<?php endif; ?>
 					</div>
 				</div>
 				<div class="wb-grid-desktop-6 wb-grid-tablet-12 wb-grid-mobile-12">
 					<div class="about-desc">
-						<p><?php echo wp_kses_post($wb_about_desc); ?></p>
+						<p><?php echo wp_kses_post($wbea_about_desc); ?></p>
 					</div>
 					<div class="about-counter">
-						<?php if ($wb_about_counter) :
-							foreach ($wb_about_counter as $counter) :
-								$counter_number = sanitize_text_field($counter['wb_about_counter_number'] ?? '');
-								$counter_suffix = sanitize_text_field($counter['wb_about_counter_suffix'] ?? '');
-								$counter_title = sanitize_text_field($counter['wb_about_counter_title'] ?? '');
+						<?php if ($wbea_about_counter) :
+							foreach ($wbea_about_counter as $counter) :
+								$counter_number = sanitize_text_field($counter['wbea_about_counter_number'] ?? '');
+								$counter_suffix = sanitize_text_field($counter['wbea_about_counter_suffix'] ?? '');
+								$counter_title = sanitize_text_field($counter['wbea_about_counter_title'] ?? '');
 								?>
 								<div class="single-about-counter">
-									<div><span class="about-counter-js"><?php echo esc_attr($counter_number); ?></span> <?php echo esc_html($counter_suffix); ?></div>
-									<<?php echo esc_attr($wb_about_counter_title_tag); ?> class="about-counter-title"><?php echo esc_html($counter_title); ?></<?php echo esc_attr($wb_about_counter_title_tag); ?>>
+									<div><span class="wbea-about-counter-js"><?php echo esc_attr($counter_number); ?></span> <?php echo esc_html($counter_suffix); ?></div>
+									<<?php echo esc_attr($wbea_about_counter_title_tag); ?> class="wbea-about-counter-title"><?php echo esc_html($counter_title); ?></<?php echo esc_attr($wbea_about_counter_title_tag); ?>>
 								</div>
 						<?php endforeach;
 						endif; ?>
 					</div>
 					<div class="about-btn">
-						<?php if ($wb_about_btn1_link) : ?>
-							<a href="<?php echo esc_url($wb_about_btn1_link); ?>" class="btn-bg" target="_blank" rel="noopener noreferrer"><?php echo esc_html($wb_about_btn1_title); ?>
+						<?php if ($wbea_about_btn1_link) : ?>
+							<a href="<?php echo esc_url($wbea_about_btn1_link); ?>" class="wbea-btn-bg" target="_blank" rel="noopener noreferrer"><?php echo esc_html($wbea_about_btn1_title); ?>
 								<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
 								</svg>
 							</a>
 						<?php endif; ?>
 			
-						<?php if ($wb_about_btn2_link) : ?>
-							<a href="<?php echo esc_url($wb_about_btn2_link); ?>" class="btn-border" target="_blank" rel="noopener noreferrer"><?php echo esc_html($wb_about_btn2_title); ?>
+						<?php if ($wbea_about_btn2_link) : ?>
+							<a href="<?php echo esc_url($wbea_about_btn2_link); ?>" class="wbea-btn-border" target="_blank" rel="noopener noreferrer"><?php echo esc_html($wbea_about_btn2_title); ?>
 								<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
 								</svg>

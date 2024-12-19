@@ -103,7 +103,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
-			'wb_testimonial_image',
+			'wbea_testimonial_image',
 			[
 				'label' => esc_html__( 'Client Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
@@ -115,7 +115,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Client Name
 		$repeater->add_control(
-			'wb_testimonial_name',
+			'wbea_testimonial_name',
 			[
 				'label' => esc_html__( 'Client Name', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -126,7 +126,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Client Designation
 		$repeater->add_control(
-			'wb_testimonial_desg',
+			'wbea_testimonial_desg',
 			[
 				'label' => esc_html__( 'Client Designation', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -137,7 +137,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Client Speech
 		$repeater->add_control(
-			'wb_testimonial_speech',
+			'wbea_testimonial_speech',
 			[
 				'label' => esc_html__( 'Client Speech', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXTAREA,
@@ -147,7 +147,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Client Star
 		$repeater->add_control(
-			'wb_testimonial_rating',
+			'wbea_testimonial_rating',
 			[
 				'label' => esc_html__( 'Rating (Fraction)', 'webbricks-addons' ),
 				'type' => Controls_Manager::NUMBER,
@@ -160,57 +160,57 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial List
 		$this->add_control(
-			'wb_testimonials',
+			'wbea_testimonials',
 			[
 				'label' => esc_html__( 'Testimonials', 'webbricks-addons' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
-				'title_field' => '{{{ wb_testimonial_name }}}',
+				'title_field' => '{{{ wbea_testimonial_name }}}',
 				'separator' => 'before',
 				'default' => [
 					[
-						'wb_testimonial_image' => [
+						'wbea_testimonial_image' => [
 							'default' => [
 								'url' => plugins_url( 'assets/img/client-1.png', dirname(__FILE__, 2) ),
 							]
 						],
-						'wb_testimonial_name' => esc_html__( 'Esther Howard', 'webbricks-addons' ),
-						'wb_testimonial_desg' => esc_html__( 'Businessman', 'webbricks-addons' ),
-						'wb_testimonial_speech' => esc_html__( 'Its impressed me on multiple levels. Thank you for making it painless, pleasant and most of all hassle free! Id be lost without It.', 'webbricks-addons' ),
-						'wb_testimonial_rating' => esc_html__('5', 'webbricks-addons')
+						'wbea_testimonial_name' => esc_html__( 'Esther Howard', 'webbricks-addons' ),
+						'wbea_testimonial_desg' => esc_html__( 'Businessman', 'webbricks-addons' ),
+						'wbea_testimonial_speech' => esc_html__( 'Its impressed me on multiple levels. Thank you for making it painless, pleasant and most of all hassle free! Id be lost without It.', 'webbricks-addons' ),
+						'wbea_testimonial_rating' => esc_html__('5', 'webbricks-addons')
 					],
 					[
-						'wb_testimonial_image' => [
+						'wbea_testimonial_image' => [
 							'default' => [
 								'url' => plugins_url( 'assets/img/client-2.png', dirname(__FILE__, 2) ),
 							]
 						],
-						'wb_testimonial_name' => esc_html__( 'Maria Sauks', 'webbricks-addons' ),
-						'wb_testimonial_desg' => esc_html__( 'Web Developer', 'webbricks-addons' ),
-						'wb_testimonial_speech' => esc_html__( 'Its impressed me on multiple levels. Thank you for making it painless, pleasant and most of all hassle free! Id be lost without It.', 'webbricks-addons' ),
-						'wb_testimonial_rating' => esc_html__('5', 'webbricks-addons')
+						'wbea_testimonial_name' => esc_html__( 'Maria Sauks', 'webbricks-addons' ),
+						'wbea_testimonial_desg' => esc_html__( 'Web Developer', 'webbricks-addons' ),
+						'wbea_testimonial_speech' => esc_html__( 'Its impressed me on multiple levels. Thank you for making it painless, pleasant and most of all hassle free! Id be lost without It.', 'webbricks-addons' ),
+						'wbea_testimonial_rating' => esc_html__('5', 'webbricks-addons')
 					],
 					[
-						'wb_testimonial_image' => [
+						'wbea_testimonial_image' => [
 							'default' => [
 								'url' => plugins_url( 'assets/img/client-3.png', dirname(__FILE__, 2) ),
 							]
 						],
-						'wb_testimonial_name' => esc_html__( 'Sarah Heinsed', 'webbricks-addons' ),
-						'wb_testimonial_desg' => esc_html__( 'Blogger', 'webbricks-addons' ),
-						'wb_testimonial_speech' => esc_html__( 'Its impressed me on multiple levels. Thank you for making it painless, pleasant and most of all hassle free! Id be lost without It.', 'webbricks-addons' ),
-						'wb_testimonial_rating' => esc_html__('5', 'webbricks-addons')
+						'wbea_testimonial_name' => esc_html__( 'Sarah Heinsed', 'webbricks-addons' ),
+						'wbea_testimonial_desg' => esc_html__( 'Blogger', 'webbricks-addons' ),
+						'wbea_testimonial_speech' => esc_html__( 'Its impressed me on multiple levels. Thank you for making it painless, pleasant and most of all hassle free! Id be lost without It.', 'webbricks-addons' ),
+						'wbea_testimonial_rating' => esc_html__('5', 'webbricks-addons')
 					],
 					[
-						'wb_testimonial_image' => [
+						'wbea_testimonial_image' => [
 							'default' => [
 								'url' => plugins_url( 'assets/img/client-4.png', dirname(__FILE__, 2) ),
 							]
 						],
-						'wb_testimonial_name' => esc_html__( 'Mithc Hodge', 'webbricks-addons' ),
-						'wb_testimonial_desg' => esc_html__( 'Photographer', 'webbricks-addons' ),
-						'wb_testimonial_speech' => esc_html__( 'Its impressed me on multiple levels. Thank you for making it painless, pleasant and most of all hassle free! Id be lost without It.', 'webbricks-addons' ),
-						'wb_testimonial_rating' => esc_html__('5', 'webbricks-addons')
+						'wbea_testimonial_name' => esc_html__( 'Mithc Hodge', 'webbricks-addons' ),
+						'wbea_testimonial_desg' => esc_html__( 'Photographer', 'webbricks-addons' ),
+						'wbea_testimonial_speech' => esc_html__( 'Its impressed me on multiple levels. Thank you for making it painless, pleasant and most of all hassle free! Id be lost without It.', 'webbricks-addons' ),
+						'wbea_testimonial_rating' => esc_html__('5', 'webbricks-addons')
 					]
 				]
 			]
@@ -220,7 +220,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		 // start of the Content tab section
 		 $this->start_controls_section(
-			'wb_testimonials_settings',
+			'wbea_testimonials_settings',
 			[
 				'label' => esc_html__('Settings', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT
@@ -229,7 +229,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		 // Dots
 		$this->add_control(
-			'wb_testimonials_dots',
+			'wbea_testimonials_dots',
 			[
 				'label' => esc_html__( 'Dots', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -242,7 +242,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Loops
 		$this->add_control(
-			'wb_testimonials_loops',
+			'wbea_testimonials_loops',
 			[
 				'label' => esc_html__( 'Loops', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -255,7 +255,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Autoplay
 		$this->add_control(
-			'wb_testimonials_autoplay',
+			'wbea_testimonials_autoplay',
 			[
 				'label' => esc_html__( 'Autoplay', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -268,7 +268,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Pause
 		$this->add_control(
-			'wb_testimonials_pause',
+			'wbea_testimonials_pause',
 			[
 				'label' => esc_html__( 'Pause on hover', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -281,7 +281,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Autoplay Speed
 		$this->add_control(
-			'wb_testimonials_autoplay_speed',
+			'wbea_testimonials_autoplay_speed',
 			[
 				'label' => esc_html__( 'Speed', 'webbricks-addons' ),
 				'type' => Controls_Manager::SELECT,
@@ -303,7 +303,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Animation Speed
 		$this->add_control(
-			'wb_testimonials_autoplay_animation',
+			'wbea_testimonials_autoplay_animation',
 			[
 				'label' => esc_html__( 'Timeout', 'webbricks-addons' ),
 				'type' => Controls_Manager::SELECT,
@@ -328,7 +328,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_testimonials_pro_message',
+			'wbea_testimonials_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -336,7 +336,7 @@ class Testimonial_Carousel extends Widget_Base {
 		);
 
 		$this->add_control( 
-			'wb_testimonials_pro_message_notice', 
+			'wbea_testimonials_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -351,7 +351,7 @@ class Testimonial_Carousel extends Widget_Base {
 		
 		// Testimonial Image
 		$this->start_controls_section(
-			'wb_testimonial_image_style',
+			'wbea_testimonial_image_style',
 			[
 				'label' => esc_html__( 'Image', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -362,27 +362,27 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wb_testimonial_image_border',
-				'selector' => '{{WRAPPER}} .single-testimonial img',
+				'name' => 'wbea_testimonial_image_border',
+				'selector' => '{{WRAPPER}} .wbea-single-testimonial img',
 			]
 		);	
 
 		// Testimonial Image Round
 		$this->add_control(
-			'wb_testimonial_image_round',
+			'wbea_testimonial_image_round',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .single-testimonial img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-single-testimonial img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Testimonial Image Width
 		$this->add_control(
-			'wb_testimonial_image_width',
+			'wbea_testimonial_image_width',
 			[
 				'label' => esc_html__( 'Width', 'webbricks-addons' ),
 				'type' => Controls_Manager::SLIDER,
@@ -394,7 +394,7 @@ class Testimonial_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .single-testimonial img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-single-testimonial img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -415,12 +415,12 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Client Name Color
 		$this->add_control(
-			'wb_testimonial_name_color',
+			'wbea_testimonial_name_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .author-top .author-name' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-author-top .wbea-author-name' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -432,8 +432,8 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_testimonial_name_typography',
-				'selector' => '{{WRAPPER}} .author-top .author-name',
+				'name' => 'wbea_testimonial_name_typography',
+				'selector' => '{{WRAPPER}} .wbea-author-top .wbea-author-name',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -442,7 +442,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wb_testimonial_name_tag',
+			'wbea_testimonial_name_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -466,7 +466,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Designation
 		$this->start_controls_section(
-			'wb_testimonial_desg_style',
+			'wbea_testimonial_desg_style',
 			[
 				'label' => esc_html__( 'Desingnation', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -475,12 +475,12 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Client Designation Color
 		$this->add_control(
-			'wb_testimonial_desg_color',
+			'wbea_testimonial_desg_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .author-top .author-name span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-author-top .wbea-author-name span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -492,8 +492,8 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_testimonial_desg_typography',
-				'selector' => '{{WRAPPER}} .author-top .author-name span',
+				'name' => 'wbea_testimonial_desg_typography',
+				'selector' => '{{WRAPPER}} .wbea-author-top .wbea-author-name span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -505,7 +505,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Speech Style
 		$this->start_controls_section(
-			'wb_testimonial_speech_style',
+			'wbea_testimonial_speech_style',
 			[
 				'label' => esc_html__( 'Speech', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -514,12 +514,12 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Client Speech Color
 		$this->add_control(
-			'wb_testimonial_speech_color',
+			'wbea_testimonial_speech_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .author-content p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-author-content p' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -531,8 +531,8 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_testimonial_speech_typography',
-				'selector' => '{{WRAPPER}} .author-content p',
+				'name' => 'wbea_testimonial_speech_typography',
+				'selector' => '{{WRAPPER}} .wbea-author-content p',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				]
@@ -544,7 +544,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Ratings
 		$this->start_controls_section(
-			'wb_testimonial_ratings_style',
+			'wbea_testimonial_ratings_style',
 			[
 				'label' => esc_html__( 'Ratings', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -553,12 +553,12 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Client Rating Star Color
 		$this->add_control(
-			'wb_testimonial_rating_icon_color',
+			'wbea_testimonial_rating_icon_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .author-rating p i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-author-rating p i' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -568,12 +568,12 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Client Rating Title Color
 		$this->add_control(
-			'wb_testimonial_rating_color',
+			'wbea_testimonial_rating_color',
 			[
 				'label' => esc_html__( 'Rating Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .author-rating span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-author-rating span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -585,8 +585,8 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_testimonial_rating_typography',
-				'selector' => '{{WRAPPER}} .author-rating span',
+				'name' => 'wbea_testimonial_rating_typography',
+				'selector' => '{{WRAPPER}} .wbea-author-rating span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -597,7 +597,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Dots
 		$this->start_controls_section(
-			'wb_testimonial_dots_style',
+			'wbea_testimonial_dots_style',
 			[
 				'label' => esc_html__( 'Dots', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -606,12 +606,12 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Dots Color
 		$this->add_control(
-			'wb_testimonial_dots_color',
+			'wbea_testimonial_dots_color',
 			[
 				'label' => esc_html__( 'Inactive Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .testimonials .owl-dots button' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-testimonials .owl-dots button' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -621,12 +621,12 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Dots Active Color
 		$this->add_control(
-			'wb_testimonial_dots_active_color',
+			'wbea_testimonial_dots_active_color',
 			[
 				'label' => esc_html__( 'Active Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .testimonials .owl-dots button.active' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-testimonials .owl-dots button.active' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -638,7 +638,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testimonial Arrows
 		$this->start_controls_section(
-			'wb_testimonial_arrows_style',
+			'wbea_testimonial_arrows_style',
 			[
 				'label' => esc_html__( 'Arrows', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -646,12 +646,12 @@ class Testimonial_Carousel extends Widget_Base {
 		);
 
 		$this->start_controls_tabs(
-			'wb_testimonials_arrows_style_tabs'
+			'wbea_testimonials_arrows_style_tabs'
 		);
 
 		// Testtimonial Button Normal Tab
 		$this->start_controls_tab(
-			'wb_testimonials_arrows_normal_tab',
+			'wbea_testimonials_arrows_normal_tab',
 			[
 				'label' => esc_html__( 'Normal', 'webbricks-addons' ),
 			]
@@ -659,12 +659,12 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testtimonial Button Normal Icon Color
 		$this->add_control(
-			'wb_testimonials_arrows_color',
+			'wbea_testimonials_arrows_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .testimonial-arrow svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-testimonial-arrow svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -674,12 +674,12 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testtimonial Button Normal Border Color
 		$this->add_control(
-			'wb_testimonials_arrows_border_color',
+			'wbea_testimonials_arrows_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .testimonial-arrow' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-testimonial-arrow' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -689,13 +689,13 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testtimonial Button Normal Border Round
 		$this->add_control(
-			'wb_testimonials_arrows_border_round',
+			'wbea_testimonials_arrows_border_round',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .testimonial-arrow' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-testimonial-arrow' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -704,7 +704,7 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testtimonial Link Hover Tab
 		$this->start_controls_tab(
-			'wb_testimonials_arrows_hover_tab',
+			'wbea_testimonials_arrows_hover_tab',
 			[
 				'label' => esc_html__( 'Hover', 'webbricks-addons' ),
 			]
@@ -712,12 +712,12 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testtimonial Button Hover Color
 		$this->add_control(
-			'wb_testimonials_arrows_hover_icon_color',
+			'wbea_testimonials_arrows_hover_icon_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .testimonial-arrow:hover svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-testimonial-arrow:hover svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -727,12 +727,12 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testtimonial Button Hover Border Color
 		$this->add_control(
-			'wb_testimonials_arrows_hover_icon_border_color',
+			'wbea_testimonials_arrows_hover_icon_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .testimonial-arrow:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-testimonial-arrow:hover' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -742,12 +742,12 @@ class Testimonial_Carousel extends Widget_Base {
 
 		// Testtimonial Button Hover Background
 		$this->add_control(
-			'wb_testimonials_arrows_hover_color',
+			'wbea_testimonials_arrows_hover_color',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .testimonial-arrow:after' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-testimonial-arrow:after' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -775,50 +775,50 @@ class Testimonial_Carousel extends Widget_Base {
 		$settings = $this->get_settings_for_display();        
 	
 		// Sanitize and escape settings values before using them
-		$wb_testimonials = isset($settings['wb_testimonials']) ? $settings['wb_testimonials'] : [];
-		$wb_testimonials_dots = isset($settings['wb_testimonials_dots']) ? $settings['wb_testimonials_dots'] : '';
-		$wb_testimonials_loops = isset($settings['wb_testimonials_loops']) ? $settings['wb_testimonials_loops'] : '';
-		$wb_testimonials_autoplay = isset($settings['wb_testimonials_autoplay']) ? $settings['wb_testimonials_autoplay'] : '';
-		$wb_testimonials_pause = isset($settings['wb_testimonials_pause']) ? $settings['wb_testimonials_pause'] : '';
-		$wb_testimonials_autoplay_speed = isset($settings['wb_testimonials_autoplay_speed']) ? $settings['wb_testimonials_autoplay_speed'] : '';
-		$wb_testimonials_autoplay_animation = isset($settings['wb_testimonials_autoplay_animation']) ? $settings['wb_testimonials_autoplay_animation'] : '';
-		$wb_testimonial_name_tag = isset($settings['wb_testimonial_name_tag']) ? $settings['wb_testimonial_name_tag'] : 'h3';
+		$wbea_testimonials = isset($settings['wbea_testimonials']) ? $settings['wbea_testimonials'] : [];
+		$wbea_testimonials_dots = isset($settings['wbea_testimonials_dots']) ? $settings['wbea_testimonials_dots'] : '';
+		$wbea_testimonials_loops = isset($settings['wbea_testimonials_loops']) ? $settings['wbea_testimonials_loops'] : '';
+		$wbea_testimonials_autoplay = isset($settings['wbea_testimonials_autoplay']) ? $settings['wbea_testimonials_autoplay'] : '';
+		$wbea_testimonials_pause = isset($settings['wbea_testimonials_pause']) ? $settings['wbea_testimonials_pause'] : '';
+		$wbea_testimonials_autoplay_speed = isset($settings['wbea_testimonials_autoplay_speed']) ? $settings['wbea_testimonials_autoplay_speed'] : '';
+		$wbea_testimonials_autoplay_animation = isset($settings['wbea_testimonials_autoplay_animation']) ? $settings['wbea_testimonials_autoplay_animation'] : '';
+		$wbea_testimonial_name_tag = isset($settings['wbea_testimonial_name_tag']) ? $settings['wbea_testimonial_name_tag'] : 'h3';
 	
 		?>
 		<!-- Testimonials Start Here -->
 		<div class="testimonials owl-carousel" 
-			 testimonial-dots="<?php echo esc_attr($wb_testimonials_dots); ?>" 
-			 testimonial-loops="<?php echo esc_attr($wb_testimonials_loops); ?>" 
-			 testimonial-autoplay="<?php echo esc_attr($wb_testimonials_autoplay); ?>" 
-			 testimonial-pause="<?php echo esc_attr($wb_testimonials_pause); ?>" 
-			 testimonial-animation="<?php echo esc_attr($wb_testimonials_autoplay_animation); ?>" 
-			 testimonial-speed="<?php echo esc_attr($wb_testimonials_autoplay_speed); ?>">
+			 testimonial-dots="<?php echo esc_attr($wbea_testimonials_dots); ?>" 
+			 testimonial-loops="<?php echo esc_attr($wbea_testimonials_loops); ?>" 
+			 testimonial-autoplay="<?php echo esc_attr($wbea_testimonials_autoplay); ?>" 
+			 testimonial-pause="<?php echo esc_attr($wbea_testimonials_pause); ?>" 
+			 testimonial-animation="<?php echo esc_attr($wbea_testimonials_autoplay_animation); ?>" 
+			 testimonial-speed="<?php echo esc_attr($wbea_testimonials_autoplay_speed); ?>">
 	
 			<?php
 			// Loop through testimonials if available
-			if (!empty($wb_testimonials)) {
-				foreach ($wb_testimonials as $testimonial) {
+			if (!empty($wbea_testimonials)) {
+				foreach ($wbea_testimonials as $testimonial) {
 					// Sanitize each testimonial field
-					$testimonial_image_url = isset($testimonial['wb_testimonial_image']['url']) ? esc_url($testimonial['wb_testimonial_image']['url']) : '';
-					$testimonial_name = isset($testimonial['wb_testimonial_name']) ? esc_html($testimonial['wb_testimonial_name']) : '';
-					$testimonial_desg = isset($testimonial['wb_testimonial_desg']) ? esc_html($testimonial['wb_testimonial_desg']) : '';
-					$testimonial_speech = isset($testimonial['wb_testimonial_speech']) ? wp_kses_post($testimonial['wb_testimonial_speech']) : '';
-					$testimonial_rating = isset($testimonial['wb_testimonial_rating']) ? floatval($testimonial['wb_testimonial_rating']) : 0;
+					$testimonial_image_url = isset($testimonial['wbea_testimonial_image']['url']) ? esc_url($testimonial['wbea_testimonial_image']['url']) : '';
+					$testimonial_name = isset($testimonial['wbea_testimonial_name']) ? esc_html($testimonial['wbea_testimonial_name']) : '';
+					$testimonial_desg = isset($testimonial['wbea_testimonial_desg']) ? esc_html($testimonial['wbea_testimonial_desg']) : '';
+					$testimonial_speech = isset($testimonial['wbea_testimonial_speech']) ? wp_kses_post($testimonial['wbea_testimonial_speech']) : '';
+					$testimonial_rating = isset($testimonial['wbea_testimonial_rating']) ? floatval($testimonial['wbea_testimonial_rating']) : 0;
 					?>
 	
-					<div class="single-testimonial">
+					<div class="wbea-single-testimonial">
 						<?php if (!empty($testimonial_image_url)) : ?>
-							<div class="testimonial-image" style="background-image: url('<?php echo esc_url($testimonial_image_url); ?>');"></div>
+							<div class="wbea-testimonial-image" style="background-image: url('<?php echo esc_url($testimonial_image_url); ?>');"></div>
 						<?php endif; ?>
 	
-						<div class="author-info">
-							<div class="author-top">
-								<<?php echo esc_attr($wb_testimonial_name_tag); ?> class="author-name">
+						<div class="wbea-author-info">
+							<div class="wbea-author-top">
+								<<?php echo esc_attr($wbea_testimonial_name_tag); ?> class="wbea-author-name">
 									<?php echo esc_html($testimonial_name); ?> 
 									<span><?php echo esc_html($testimonial_desg); ?></span>
-								</<?php echo esc_attr($wb_testimonial_name_tag); ?>>
+								</<?php echo esc_attr($wbea_testimonial_name_tag); ?>>
 	
-								<div class="author-rating">
+								<div class="wbea-author-rating">
 									<p>
 										<?php
 										// Generate stars based on rating
@@ -841,7 +841,7 @@ class Testimonial_Carousel extends Widget_Base {
 								</div>
 							</div>
 	
-							<div class="author-content">
+							<div class="wbea-author-content">
 								<p><?php echo esc_html($testimonial_speech); ?></p>
 							</div>
 						</div>

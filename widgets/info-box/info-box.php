@@ -91,7 +91,7 @@ class Info_Box extends Widget_Base {
 		
 		// start of the Content tab section
 	   	$this->start_controls_section(
-	       'wb_info_box_figure_contents',
+	       'wbea_info_box_figure_contents',
 		    [
 		        'label' => esc_html__('Icon', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		   
@@ -100,7 +100,7 @@ class Info_Box extends Widget_Base {
 		
 		// Info Box Icon
 		$this->add_control(
-		    'wb_info_box_icon',
+		    'wbea_info_box_icon',
 			[
 				'label' => esc_html__( 'Icon', 'webbricks-addons' ),
 				'type' => Controls_Manager::ICONS,
@@ -115,7 +115,7 @@ class Info_Box extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_info_box_heading_contents',
+			'wbea_info_box_heading_contents',
 			[
 				'label' => esc_html__('Heading', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		   
@@ -124,7 +124,7 @@ class Info_Box extends Widget_Base {
 		
 		// Info Box Heading
 		$this->add_control(
-		    'wb_info_box_title',
+		    'wbea_info_box_title',
 			[
 			    'label' => esc_html__('Heading', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
@@ -136,7 +136,7 @@ class Info_Box extends Widget_Base {
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wb_info_box_title_tag',
+			'wbea_info_box_title_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -160,7 +160,7 @@ class Info_Box extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_info_box_desc_contents',
+			'wbea_info_box_desc_contents',
 			[
 				'label' => esc_html__('Description', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		   
@@ -169,7 +169,7 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Description
 		$this->add_control(
-			'wb_info_box_desc',
+			'wbea_info_box_desc',
 			[
 				'label' => esc_html__( 'Description', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXTAREA,
@@ -184,7 +184,7 @@ class Info_Box extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_info_box_btn_contents',
+			'wbea_info_box_btn_contents',
 			[
 				'label' => esc_html__('Button', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		   
@@ -193,7 +193,7 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Show Button
 		$this->add_control(
-			'wb_info_box_show_btn',
+			'wbea_info_box_show_btn',
 			[
 				'label' => esc_html__( 'Show Button', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -207,7 +207,7 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Button Title
 		$this->add_control(
-		    'wb_info_box_btn_title',
+		    'wbea_info_box_btn_title',
 			[
 			    'label' => esc_html__('Button Text', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
@@ -215,14 +215,14 @@ class Info_Box extends Widget_Base {
 				'default' => esc_html__('More', 'webbricks-addons'),
 				'separator' => 'before',
 				'condition' => [
-					'wb_info_box_show_btn' => 'yes'
+					'wbea_info_box_show_btn' => 'yes'
 				],
 			]
 		);
 
 		// Info Box Button Link
 		$this->add_control(
-		    'wb_info_box_btn_link',
+		    'wbea_info_box_btn_link',
 			[
 			    'label' => esc_html__( 'Button Link', 'webbricks-addons' ),
 				'type' => Controls_Manager::URL,
@@ -233,14 +233,14 @@ class Info_Box extends Widget_Base {
 					'custom_attributes' => '',
 				],
 				'condition' => [
-					'wb_info_box_show_btn' => 'yes'
+					'wbea_info_box_show_btn' => 'yes'
 				]
 			]
 		);
 
 		// Info Box Background
 		$this->add_control(
-			'wb_info_box_bg',
+			'wbea_info_box_bg',
 			[
 				'label' => esc_html__( 'Background Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
@@ -253,7 +253,7 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Alignment
 		$this->add_control(
-			'wb_info_box_alignment',
+			'wbea_info_box_alignment',
 			[
 				'type' => Controls_Manager::CHOOSE,
 				'label' => esc_html__( 'Alignment', 'webbricks-addons' ),
@@ -273,7 +273,7 @@ class Info_Box extends Widget_Base {
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .info-box' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .wbea-info-box' => 'text-align: {{VALUE}}',
 				],
 				'separator' => 'before'
 			],
@@ -284,7 +284,7 @@ class Info_Box extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_info_box_pro_message',
+			'wbea_info_box_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT	
@@ -292,7 +292,7 @@ class Info_Box extends Widget_Base {
 		);
 
 		$this->add_control( 
-			'wb_info_box_pro_message_notice', 
+			'wbea_info_box_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -309,7 +309,7 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Layout
 		$this->start_controls_section(
-			'wb_info_box_style',
+			'wbea_info_box_style',
 			[
 				'label' => esc_html__( 'Layout', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -318,12 +318,12 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Background
 		$this->add_control(
-			'wb_info_box_background',
+			'wbea_info_box_background',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .info-box' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-info-box' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -333,13 +333,13 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Layout Round
 		$this->add_control(
-			'wb_info_box_round',
+			'wbea_info_box_round',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .info-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-info-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -348,20 +348,20 @@ class Info_Box extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wb_price_border',
-				'selector' => '{{WRAPPER}} .info-box',
+				'name' => 'wbea_price_border',
+				'selector' => '{{WRAPPER}} .wbea-info-box',
 			]
 		);	
 
 		// Info Box Padding
 		$this->add_control(
-			'wb_info_box_padding',
+			'wbea_info_box_padding',
 			[
 				'label' => esc_html__( 'Padding', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem'],
 				'selectors' => [
-					'{{WRAPPER}} .info-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-info-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -370,7 +370,7 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Icon Style
 		$this->start_controls_section(
-			'wb_info_box_icon_style',
+			'wbea_info_box_icon_style',
 			[
 				'label' => esc_html__( 'Icon', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -379,12 +379,12 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Icon Color
 		$this->add_control(
-			'wb_info_box_icon_color',
+			'wbea_info_box_icon_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .info-box-icon i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-info-box-icon i' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -394,7 +394,7 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Icon Size
 		$this->add_control(
-			'wb_info_box_icon_size',
+			'wbea_info_box_icon_size',
 			[
 				'label' => esc_html__( 'Icon Size', 'webbricks-addons' ),
 				'type' => Controls_Manager::SLIDER,
@@ -411,7 +411,7 @@ class Info_Box extends Widget_Base {
 					'size' => 43,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .info-box-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-info-box-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -420,7 +420,7 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Content Style
 		$this->start_controls_section(
-			'wb_info_box_title_style',
+			'wbea_info_box_title_style',
 			[
 				'label' => esc_html__( 'Contents', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -429,12 +429,12 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Contents Background
 		$this->add_control(
-			'wb_info_box_contents_background',
+			'wbea_info_box_contents_background',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .info-box-content' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-info-box-content' => 'background-color: {{VALUE}}',
 				],
 				'default' => '#fff',
 			]
@@ -442,33 +442,33 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Content Border Round
 		$this->add_control(
-			'wb_info_box_content_border_radius',
+			'wbea_info_box_content_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .info-box-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-info-box-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Info Box Content Padding
 		$this->add_control(
-			'wb_info_box_content_padding',
+			'wbea_info_box_content_padding',
 			[
 				'label' => esc_html__( 'Padding', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .info-box-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-info-box-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Info Box Content Title Heading
 		$this->add_control(
-			'wb_info_box_title_head',
+			'wbea_info_box_title_head',
 			[
 				'label' => esc_html__( 'Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -478,12 +478,12 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Content Title Color
 		$this->add_control(
-			'wb_info_box_title_color',
+			'wbea_info_box_title_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .info-box-content .info-box-title' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-info-box-content .wbea-info-box-title' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -495,8 +495,8 @@ class Info_Box extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_info_box_title_typography',
-				'selector' => '{{WRAPPER}} .info-box-content .info-box-title',
+				'name' => 'wbea_info_box_title_typography',
+				'selector' => '{{WRAPPER}} .wbea-info-box-content .wbea-info-box-title',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -505,7 +505,7 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Content Descrption
 		$this->add_control(
-			'wb_info_box_desc_head',
+			'wbea_info_box_desc_head',
 			[
 				'label' => esc_html__( 'Description', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -515,12 +515,12 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Content Description Color
 		$this->add_control(
-			'wb_info_box_desc_color',
+			'wbea_info_box_desc_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .info-box-content p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-info-box-content p' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -532,8 +532,8 @@ class Info_Box extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_info_box_desc_typography',
-				'selector' => '{{WRAPPER}} .info-box-content p',
+				'name' => 'wbea_info_box_desc_typography',
+				'selector' => '{{WRAPPER}} .wbea-info-box-content p',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				]
@@ -544,23 +544,23 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Button Style
 		$this->start_controls_section(
-			'wb_info_box_button_style',
+			'wbea_info_box_button_style',
 			[
 				'label' => esc_html__( 'Button', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_info_box_show_btn' => 'yes'
+					'wbea_info_box_show_btn' => 'yes'
 				]
 			]
 		);
 
 		$this->start_controls_tabs(
-			'wb_info_box_style_tabs'
+			'wbea_info_box_style_tabs'
 		);
 
 		// Info Box Button Normal Tab
 		$this->start_controls_tab(
-			'wb_info_box_btn_normal_tab',
+			'wbea_info_box_btn_normal_tab',
 			[
 				'label' => esc_html__( 'Normal', 'webbricks-addons' ),
 			]
@@ -568,13 +568,13 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Button Color
 		$this->add_control(
-			'wb_info_box_btn_color',
+			'wbea_info_box_btn_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .btn-border svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -586,8 +586,8 @@ class Info_Box extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_info_box_btn_typography',
-				'selector' => '{{WRAPPER}} .btn-border',
+				'name' => 'wbea_info_box_btn_typography',
+				'selector' => '{{WRAPPER}} .wbea-btn-border',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				]
@@ -596,12 +596,12 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Button Border Color
 		$this->add_control(
-			'wb_info_box_btn_border_color',
+			'wbea_info_box_btn_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -611,26 +611,26 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Button Border Round
 		$this->add_control(
-			'wb_info_box_btn_border_radius',
+			'wbea_info_box_btn_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-btn-border' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Info Box Button Padding
 		$this->add_control(
-			'wb_info_box_btn_padding',
+			'wbea_info_box_btn_padding',
 			[
 				'label' => esc_html__( 'Padding', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem'],
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-btn-border' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -639,7 +639,7 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Hover Tab
 		$this->start_controls_tab(
-			'wb_button_btn_hover_tab',
+			'wbea_button_btn_hover_tab',
 			[
 				'label' => esc_html__( 'Hover', 'webbricks-addons' ),
 			]
@@ -647,13 +647,13 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Button Hover Color
 		$this->add_control(
-			'wb_info_box_btn_hover_color',
+			'wbea_info_box_btn_hover_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border:hover' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .btn-border:hover svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -663,12 +663,12 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Button Hover Background
 		$this->add_control(
-			'wb_info_box_btn_hover_bg',
+			'wbea_info_box_btn_hover_bg',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border:hover:before' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover:before' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -678,12 +678,12 @@ class Info_Box extends Widget_Base {
 
 		// Info Box Button Hover Border
 		$this->add_control(
-			'wb_info_box_btn_hover_border',
+			'wbea_info_box_btn_hover_border',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -712,35 +712,39 @@ class Info_Box extends Widget_Base {
 		$settings = $this->get_settings_for_display();  
 	
 		// Sanitize and retrieve settings
-		$wb_info_box_icon = !empty($settings['wb_info_box_icon']['value']) ? $settings['wb_info_box_icon']['value'] : ''; 
-		$wb_info_box_title = !empty($settings['wb_info_box_title']) ? sanitize_text_field($settings['wb_info_box_title']) : ''; 
-		$wb_info_box_title_tag = !empty($settings['wb_info_box_title_tag']) ? sanitize_text_field($settings['wb_info_box_title_tag']) : 'h3'; 
-		$wb_info_box_desc = !empty($settings['wb_info_box_desc']) ? wp_kses_post($settings['wb_info_box_desc']) : ''; 
-		$wb_info_box_show_btn = !empty($settings['wb_info_box_show_btn']) ? $settings['wb_info_box_show_btn'] : ''; 
-		$wb_info_box_bg = !empty($settings['wb_info_box_bg']['url']) ? esc_url($settings['wb_info_box_bg']['url']) : ''; 
+		$wbea_info_box_icon = !empty($settings['wbea_info_box_icon']['value']) ? $settings['wbea_info_box_icon']['value'] : ''; 
+		$wbea_info_box_title = !empty($settings['wbea_info_box_title']) ? sanitize_text_field($settings['wbea_info_box_title']) : ''; 
+		$wbea_info_box_title_tag = !empty($settings['wbea_info_box_title_tag']) ? sanitize_text_field($settings['wbea_info_box_title_tag']) : 'h3'; 
+		$wbea_info_box_desc = !empty($settings['wbea_info_box_desc']) ? wp_kses_post($settings['wbea_info_box_desc']) : ''; 
+		$wbea_info_box_show_btn = !empty($settings['wbea_info_box_show_btn']) ? $settings['wbea_info_box_show_btn'] : ''; 
+		$wbea_info_box_bg = !empty($settings['wbea_info_box_bg']['url']) ? esc_url($settings['wbea_info_box_bg']['url']) : ''; 
 	
 		// Start outputting the Info Box HTML
 		?>
-		<div class="info-box" style="background-image: url('<?php echo esc_url($wb_info_box_bg); ?>');">
-			<div class="info-box-icon">
-				<?php if (!empty($wb_info_box_icon)) : ?>
-					<i aria-hidden="true" class="<?php echo esc_attr($wb_info_box_icon); ?>"></i>
+		<div class="wbea-info-box" style="background-image: url('<?php echo esc_url($wbea_info_box_bg); ?>');">
+			<div class="wbea-info-box-icon">
+				<?php if (!empty($wbea_info_box_icon)) : ?>
+					<i aria-hidden="true" class="<?php echo esc_attr($wbea_info_box_icon); ?>"></i>
 				<?php endif; ?>
 			</div>
 			<div class="info-box-content">
-				<<?php echo esc_attr($wb_info_box_title_tag); ?> class="info-box-title">
-					<?php echo esc_html($wb_info_box_title); ?>
-				</<?php echo esc_attr($wb_info_box_title_tag); ?>>
-				<p><?php echo wp_kses_post($wb_info_box_desc); ?></p>
+				<<?php echo esc_attr($wbea_info_box_title_tag); ?> class="wbea-info-box-title">
+					<?php echo esc_html($wbea_info_box_title); ?>
+				</<?php echo esc_attr($wbea_info_box_title_tag); ?>>
+				<p><?php echo wp_kses_post($wbea_info_box_desc); ?></p>
 	
-				<?php if ('yes' === $wb_info_box_show_btn && !empty($settings['wb_info_box_btn_title']) && !empty($settings['wb_info_box_btn_link']['url'])) : ?>
+				<?php if ('yes' === $wbea_info_box_show_btn && !empty($settings['wbea_info_box_btn_title']) && !empty($settings['wbea_info_box_btn_link']['url'])) : ?>
 					<?php
 					// Sanitize and retrieve button title and link
-					$wb_info_box_btn_title = sanitize_text_field($settings['wb_info_box_btn_title']);
-					$wb_info_box_btn_link = esc_url($settings['wb_info_box_btn_link']['url']);
+					$wbea_info_box_btn_title = sanitize_text_field($settings['wbea_info_box_btn_title']);
+					$wbea_info_box_btn_link = esc_url($settings['wbea_info_box_btn_link']['url']);
+
+					// Check for target and nofollow options
+					$target = !empty($settings['wbea_info_box_btn_link']['is_external']) ? 'target="_blank"' : '';
+					$nofollow = !empty($settings['wbea_info_box_btn_link']['nofollow']) ? 'rel="nofollow"' : '';
 					?>
-					<a href="<?php echo esc_url($wb_info_box_btn_link); ?>" class="btn-border">
-						<?php echo esc_html($wb_info_box_btn_title); ?>
+					<a href="<?php echo esc_url($wbea_info_box_btn_link); ?>" class="wbea-btn-border" <?php echo $target . ' ' . $nofollow; ?>>
+						<?php echo esc_html($wbea_info_box_btn_title); ?>
 						<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
 						</svg>

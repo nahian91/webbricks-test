@@ -81,8 +81,8 @@ class Contact_Form_7 extends Widget_Base {
 	 * @access protected
 	 */
 	protected function register_controls() {
-		if ( ! function_exists( 'wb_get_contact_form7' ) ) {
-			function wb_get_contact_form7(){		  
+		if ( ! function_exists( 'wbea_get_contact_form7' ) ) {
+			function wbea_get_contact_form7(){		  
 			$args = array('post_type' => 'wpcf7_contact_form', 'posts_per_page' => -1);		  
 			$formlist=[];			  
 				if( $post = get_posts($args)){
@@ -99,7 +99,7 @@ class Contact_Form_7 extends Widget_Base {
 		
 	    // CF7 Settings 
         $this->start_controls_section(
-            'wb_cf7_content_settings',
+            'wbea_cf7_content_settings',
             [
                 'label'     => $this->is_cf7_activated() ? esc_html__( 'Settings', 'webbricks-addons' ) : esc_html__( 'Missing Notice', 'webbricks-addons' ),
                 'tab'       => Controls_Manager::TAB_CONTENT,
@@ -109,7 +109,7 @@ class Contact_Form_7 extends Widget_Base {
 		// CF7 Check Install
         if ( ! $this->is_cf7_activated() ) {
             $this->add_control(
-                'wb_cf7_missing_notice',
+                'wbea_cf7_missing_notice',
                 [
                     'type'  => Controls_Manager::RAW_HTML,
                     'raw'   => sprintf(
@@ -124,7 +124,7 @@ class Contact_Form_7 extends Widget_Base {
 
 			// CF7 Install Message
             $this->add_control(
-                'wb_cf7_install',
+                'wbea_cf7_install',
                 [
                     'type'  => Controls_Manager::RAW_HTML,
                     'raw'   => '<a href="' . esc_url( admin_url( 'plugin-install.php?s=Contact+Form+7&tab=search&type=term' ) ).'" target="_blank" rel="noopener">Click to install or activate Contact Form 7</a>',
@@ -136,12 +136,12 @@ class Contact_Form_7 extends Widget_Base {
 
 		// CF7 Select Form
 		$this->add_control(
-			'wb_cf7',
+			'wbea_cf7',
 			[
 				'label' => esc_html__( 'Select Contact Form', 'webbricks-addons' ),
 				'type' => Controls_Manager::SELECT2,
 				'multiple' => false,
-				'options' => wb_get_contact_form7(),
+				'options' => wbea_get_contact_form7(),
 			]
 		);
 
@@ -150,7 +150,7 @@ class Contact_Form_7 extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_cf7_pro_message',
+			'wbea_cf7_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -158,7 +158,7 @@ class Contact_Form_7 extends Widget_Base {
 		 );
 
 		 $this->add_control( 
-			'wb_cf7_pro_message_notice', 
+			'wbea_cf7_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -173,7 +173,7 @@ class Contact_Form_7 extends Widget_Base {
 
 		// start of the Contact Form Style tab section
 		$this->start_controls_section(
-			'wb_cf7_label_style',
+			'wbea_cf7_label_style',
 			[
 				'label' => __( 'Label', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -182,7 +182,7 @@ class Contact_Form_7 extends Widget_Base {
 
 		// CF7 Label Align
 		$this->add_responsive_control(
-			'wb_cf7_label_align',
+			'wbea_cf7_label_align',
 			[
 				'label' => __( 'Alignment', 'webbricks-addons' ),
 				'type' => Controls_Manager::CHOOSE,
@@ -202,7 +202,7 @@ class Contact_Form_7 extends Widget_Base {
 				],
 				'default' => 'left',
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form label' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .wbea-wpcf7-form label' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -212,8 +212,8 @@ class Contact_Form_7 extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'label' => __('Typography', 'webbricks-addons'),
-				'name' => 'wb_cf7_label_typography',
-				'selector' => '{{WRAPPER}} .wpcf7-form label, {{WRAPPER}} .wpcf7-form input::placeholder, {{WRAPPER}} .wpcf7-form textarea::placeholder',
+				'name' => 'wbea_cf7_label_typography',
+				'selector' => '{{WRAPPER}} .wbea-wpcf7-form label, {{WRAPPER}} .wbea-wpcf7-form input::placeholder, {{WRAPPER}} .wbea-wpcf7-form textarea::placeholder',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -222,12 +222,12 @@ class Contact_Form_7 extends Widget_Base {
 
 		// CF7 Label Color
 		$this->add_control(
-			'wb_cf7_label_color',
+			'wbea_cf7_label_color',
 			[
 				'label' => __( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wbea-wpcf7-form label' => 'color: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -237,12 +237,12 @@ class Contact_Form_7 extends Widget_Base {
 
 		// CF7 Label Placeholer Color
 		$this->add_control(
-			'wb_cf7_label_placeholder_color',
+			'wbea_cf7_label_placeholder_color',
 			[
 				'label' => __( 'Placeholder Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form ::placeholder' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wbea-wpcf7-form ::placeholder' => 'color: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -252,16 +252,16 @@ class Contact_Form_7 extends Widget_Base {
 
 		// CF7 Label Spacing
 		$this->add_control(
-			'wb_cf7_label_space',
+			'wbea_cf7_label_space',
 			[
 				'label' => __( 'Spacing', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7 input[type="text"], 
-					{{WRAPPER}} .wpcf7 input[type="email"], 
-					{{WRAPPER}} .wpcf7 textarea, 
-					{{WRAPPER}} .wpcf7 input[type="date"]' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-wpcf7 input[type="text"], 
+					{{WRAPPER}} .wbea-wpcf7 input[type="email"], 
+					{{WRAPPER}} .wbea-wpcf7 textarea, 
+					{{WRAPPER}} .wbea-wpcf7 input[type="date"]' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -270,7 +270,7 @@ class Contact_Form_7 extends Widget_Base {
 		
 		// CF7 Form Style
 		$this->start_controls_section(
-			'wb_cf7_form_style',
+			'wbea_cf7_form_style',
 			[
 				'label' => __( 'Form Style', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -284,14 +284,14 @@ class Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Input Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wb-cf7 .wpcf7 input[type="text"], 
-					{{WRAPPER}} .wb-cf7 .wpcf7 input[type="email"], 
-					{{WRAPPER}} .wpcf7 input[type="date"],
-					{{WRAPPER}} .wpcf7 input[type="tel"],
-					{{WRAPPER}} .wpcf7 input[type="url"],
-					{{WRAPPER}} .wpcf7 input[type="number"],
-					{{WRAPPER}} .wpcf7-form-control.wpcf7-select,
-					{{WRAPPER}} .wb-cf7 .wpcf7 textarea' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="text"], 
+					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="email"], 
+					{{WRAPPER}} .wbea-wpcf7 input[type="date"],
+					{{WRAPPER}} .wbea-wpcf7 input[type="tel"],
+					{{WRAPPER}} .wbea-wpcf7 input[type="url"],
+					{{WRAPPER}} .wbea-wpcf7 input[type="number"],
+					{{WRAPPER}} .wbea-wpcf7-form-control.wpcf7-select,
+					{{WRAPPER}} .wbea-wbea-cf7 .wbea-wpcf7 textarea' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -303,14 +303,14 @@ class Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Input Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wb-cf7 .wpcf7 input[type="text"], 
-					{{WRAPPER}} .wb-cf7 .wpcf7 input[type="email"], 
-					{{WRAPPER}} .wb-cf7 .wpcf7 input[type="date"],
-					{{WRAPPER}} .wpcf7 input[type="tel"],
-					{{WRAPPER}} .wpcf7 input[type="url"],
-					{{WRAPPER}} .wpcf7 input[type="number"],
-					{{WRAPPER}} .wpcf7-form-control.wpcf7-select,
-					{{WRAPPER}} .wb-cf7 .wpcf7 textarea' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="text"], 
+					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="email"], 
+					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="date"],
+					{{WRAPPER}} .wbea-wpcf7 input[type="tel"],
+					{{WRAPPER}} .wbea-wpcf7 input[type="url"],
+					{{WRAPPER}} .wbea-wpcf7 input[type="number"],
+					{{WRAPPER}} .wbea-wpcf7-form-control.wpcf7-select,
+					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 textarea' => 'background: {{VALUE}};',
 				],
 				'default' => '#fff',
 			]
@@ -323,7 +323,7 @@ class Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Input Focus', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7 input:focus, {{WRAPPER}} .wpcf7 textarea:focus' => 'border-color: {{VALUE}} !important;',
+					'{{WRAPPER}} .wbea-wpcf7 input:focus, {{WRAPPER}} .wpcf7 textarea:focus' => 'border-color: {{VALUE}} !important;',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -339,16 +339,16 @@ class Contact_Form_7 extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .wb-cf7 .wpcf7 input[type="text"], 
-					{{WRAPPER}} .wb-cf7 .wpcf7 input[type="email"], 
-					{{WRAPPER}} .wb-cf7 .wpcf7 input[type="date"],
-					{{WRAPPER}} .wb-cf7 .wpcf7 textarea, 
-					{{WRAPPER}} .wpcf7 input[type="tel"],
-					{{WRAPPER}} .wpcf7 input[type="url"],
-					{{WRAPPER}} .wpcf7 input[type="number"],
-					{{WRAPPER}} .wpcf7-form-control.wpcf7-select,
-					{{WRAPPER}} .wb-cf7 .wpcf7 input[type="submit"], 
-					{{WRAPPER}} .wb-cf7 .wpcf7 textarea' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="text"], 
+					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="email"], 
+					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="date"],
+					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 textarea, 
+					{{WRAPPER}} .wbea-wpcf7 input[type="tel"],
+					{{WRAPPER}} .wbea-wpcf7 input[type="url"],
+					{{WRAPPER}} .wbea-wpcf7 input[type="number"],
+					{{WRAPPER}} .wbea-wpcf7-form-control.wpcf7-select,
+					{{WRAPPER}} .wbea-wbea-cf7 .wbea-wpcf7 input[type="submit"], 
+					{{WRAPPER}} .wbea-wbea-cf7 .wbea-wpcf7 textarea' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator'=>'after'
 			]
@@ -372,15 +372,15 @@ class Contact_Form_7 extends Widget_Base {
 				],
 			],
 			'selectors' => [
-				'{{WRAPPER}} .wb-cf7 .wpcf7 input[type="text"], 
-				{{WRAPPER}} .wb-cf7 .wpcf7 input[type="email"],
-				{{WRAPPER}} .wb-cf7 .wpcf7 input[type="date"],
-				{{WRAPPER}} .wpcf7 input[type="tel"],
-				{{WRAPPER}} .wpcf7 input[type="url"],
-				{{WRAPPER}} .wpcf7 input[type="number"],
-				{{WRAPPER}} .wb-cf7 .wpcf7 textarea, 
-				{{WRAPPER}} .wb-cf7 .wpcf7-form, 
-				{{WRAPPER}} .wpcf7-form label' => 'width: {{SIZE}}{{UNIT}};',
+				'{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="text"], 
+				{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="email"],
+				{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="date"],
+				{{WRAPPER}} .wbea-wpcf7 input[type="tel"],
+				{{WRAPPER}} .wbea-wpcf7 input[type="url"],
+				{{WRAPPER}} .wbea-wpcf7 input[type="number"],
+				{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 textarea, 
+				{{WRAPPER}} .wbea-cf7 .wbea-wpcf7-form, 
+				{{WRAPPER}} .wbea-wpcf7-form label' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);  
@@ -403,12 +403,12 @@ class Contact_Form_7 extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wb-cf7 .wpcf7 input[type="text"], 
-					{{WRAPPER}} .wb-cf7 .wpcf7 input[type="date"],
-					{{WRAPPER}} .wpcf7 input[type="tel"],
-					{{WRAPPER}} .wpcf7 input[type="url"],
-					{{WRAPPER}} .wpcf7 input[type="number"],
-					{{WRAPPER}} .wb-cf7 .wpcf7 input[type="email"]' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="text"], 
+					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="date"],
+					{{WRAPPER}} .wbea-wpcf7 input[type="tel"],
+					{{WRAPPER}} .wbea-wpcf7 input[type="url"],
+					{{WRAPPER}} .wbea-wpcf7 input[type="number"],
+					{{WRAPPER}} .wbea-wbea-cf7 .wbea-wpcf7 input[type="email"]' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -435,7 +435,7 @@ class Contact_Form_7 extends Widget_Base {
 					'size' => 125,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wb-cf7 .wpcf7 textarea' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-wbea-cf7 .wbea-wpcf7 textarea' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -444,17 +444,17 @@ class Contact_Form_7 extends Widget_Base {
 		
 		// CF7 Button Style
 		$this->start_controls_section(
-			'wb_cf7_button_style',
+			'wbea_cf7_button_style',
 			[
 				'label' => __( 'Button', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		
-		$this->start_controls_tabs( 'wb_cf7_tabs_button_style' );
+		$this->start_controls_tabs( 'wbea_cf7_tabs_button_style' );
 
 		$this->start_controls_tab(
-			'wb_cf7_btn_normal',
+			'wbea_cf7_btn_normal',
 			[
 				'label' => __( 'Normal', 'webbricks-addons' ),
 			]
@@ -462,12 +462,12 @@ class Contact_Form_7 extends Widget_Base {
 
 		// CF7 Button Color
 		$this->add_control(
-			'wb_cf7_button_color',
+			'wbea_cf7_button_color',
 			[
 				'label' => __( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner' => 'color: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -477,12 +477,12 @@ class Contact_Form_7 extends Widget_Base {
 		
 		// CF7 Button Background
 		$this->add_control(
-			'wb_cf7_button_bg',
+			'wbea_cf7_button_bg',
 			[
 				'label' => __( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner' => 'background: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -495,8 +495,8 @@ class Contact_Form_7 extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'label' => __('Typography', 'webbricks-addons'),
-				'name' => 'wb_cf7_button_typography',
-				'selector' => '{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner',
+				'name' => 'wbea_cf7_button_typography',
+				'selector' => '{{WRAPPER}} .wbea-wpcf7-form-control.wpcf7-submit.has-spinner',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -505,13 +505,13 @@ class Contact_Form_7 extends Widget_Base {
 
 		// CF7 Button Border Radius
 		$this->add_control(
-			'wb_cf7_button_radius',
+			'wbea_cf7_button_radius',
 			[
 				'label' => __( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+					'{{WRAPPER}} .wbea-wpcf7-form-control.wpcf7-submit.has-spinner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 				],
 				
 			]
@@ -519,13 +519,13 @@ class Contact_Form_7 extends Widget_Base {
 
 		// CF7 Button Padding
 		$this->add_control(
-			'wb_cf7_button_padding',
+			'wbea_cf7_button_padding',
 			[
 				'label' => __( 'Padding', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px'],
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				
 			]
@@ -533,13 +533,13 @@ class Contact_Form_7 extends Widget_Base {
 
 		// CF7 Button Margin
 		$this->add_control(
-			'wb_cf7_button_margin',
+			'wbea_cf7_button_margin',
 			[
 				'label' => __( 'Margin', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				
 			]
@@ -547,12 +547,12 @@ class Contact_Form_7 extends Widget_Base {
 	
 		// CF7 Button Border
 		$this->add_control(
-			'wb_cf7_button_border',
+			'wbea_cf7_button_border',
 			[
 				'label' => __( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'border:1px solid {{VALUE}};',
+					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner' => 'border:1px solid {{VALUE}};',
 				],
 				'separator'=>'after'
 			]
@@ -560,7 +560,7 @@ class Contact_Form_7 extends Widget_Base {
 			
 		// CF7 Button Padding
 		$this->add_responsive_control(
-			'wb_cf7_button_width',
+			'wbea_cf7_button_width',
 			[
 				'label' => __( 'Width', 'webbricks-addons' ),
 				'type' => Controls_Manager::SLIDER,
@@ -576,7 +576,7 @@ class Contact_Form_7 extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);  
@@ -584,7 +584,7 @@ class Contact_Form_7 extends Widget_Base {
 
 		// CF7 Button Hover
 		$this->start_controls_tab(
-			'wb_cf7_btn_hover',
+			'wbea_cf7_btn_hover',
 			[
 				'label' => __( 'Hover', 'webbricks-addons' ),
 			]
@@ -592,12 +592,12 @@ class Contact_Form_7 extends Widget_Base {
 
 		// CF7 Button Hover Color
 		$this->add_control(
-			'wb_cf7_button_hover_color',
+			'wbea_cf7_button_hover_color',
 			[
 				'label' => __( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner:hover' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner:hover' => 'color: {{VALUE}} !important;',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -607,12 +607,12 @@ class Contact_Form_7 extends Widget_Base {
 
 		// CF7 Button Hover Border
 		$this->add_control(
-			'wb_cf7_button_hover_border',
+			'wbea_cf7_button_hover_border',
 			[
 				'label' => __( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner:hover' => 'border-color: {{VALUE}} !important;',
+					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner:hover' => 'border-color: {{VALUE}} !important;',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -622,12 +622,12 @@ class Contact_Form_7 extends Widget_Base {
 
 		// CF7 Button Hover Background
 		$this->add_control(
-			'wb_cf7_button_hover_bg',
+			'wbea_cf7_button_hover_bg',
 			[
 				'label' => __( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner:hover' => 'background-color: {{VALUE}} !important;',
+					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner:hover' => 'background-color: {{VALUE}} !important;',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -652,8 +652,8 @@ class Contact_Form_7 extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		
 		// Check if CF7 ID is provided.
-		if (!empty($settings['wb_cf7'])) {
-			$cf7_id = esc_attr($settings['wb_cf7']);
+		if (!empty($settings['wbea_cf7'])) {
+			$cf7_id = esc_attr($settings['wbea_cf7']);
 			?>
 			<div class="elementor-shortcode wb-cf7 wb-cf7-<?php echo esc_attr($cf7_id); ?>">
 				<?php echo do_shortcode('[contact-form-7 id="' . $cf7_id . '"]'); ?>

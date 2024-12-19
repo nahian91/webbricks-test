@@ -82,7 +82,7 @@ class Blogs extends Widget_Base {
 		return [ 'wb', 'blog', 'post' ];
 	}
 
-	public function get_grid_classes( $settings, $columns_field = 'wb_column_per_row' ) {        
+	public function get_grid_classes( $settings, $columns_field = 'wbea_column_per_row' ) {        
         $grid_classes = 'wb-grid-desktop-';
         $grid_classes .= $settings[$columns_field];
         // $grid_classes .= ' wb-grid-tablet-';
@@ -90,7 +90,7 @@ class Blogs extends Widget_Base {
         // $grid_classes .= ' wb-grid-mobile-';
         // $grid_classes .= $settings[$columns_field . '_mobile'];
 
-        return apply_filters( 'wb_grid_classes', $grid_classes, $settings, $columns_field );
+        return apply_filters( 'wbea_grid_classes', $grid_classes, $settings, $columns_field );
     }
 
 	/**
@@ -102,7 +102,7 @@ class Blogs extends Widget_Base {
 	protected function register_controls() {		
 		// start of the Content tab section
 	    $this->start_controls_section(
-	       'wb_blog_contents',
+	       'wbea_blog_contents',
 		    [
 		        'label' => esc_html__('Query', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		   
@@ -111,7 +111,7 @@ class Blogs extends Widget_Base {
 
 		// Blog Number
 		$this->add_control(
-			'wb_blog_number',
+			'wbea_blog_number',
 			[
 				'label' 		=> __('Number of Posts', 'webbricks-addons'),
 				'type' 			=> Controls_Manager::NUMBER,
@@ -121,7 +121,7 @@ class Blogs extends Widget_Base {
 
 		// Blog Column
 		$this->add_control( 
-            'wb_column_per_row', 
+            'wbea_column_per_row', 
             [
                 'label'              => esc_html__( 'Columns', 'webbricks-addons' ),
                 'type'               => Controls_Manager::SELECT,
@@ -141,7 +141,7 @@ class Blogs extends Widget_Base {
 
 		// Blog Order
 		$this->add_control(
-			'wb_blog_order',
+			'wbea_blog_order',
 			[
 				'label' 		=> __('Order', 'webbricks-addons'),
 				'type' 			=> Controls_Manager::SELECT,
@@ -156,7 +156,7 @@ class Blogs extends Widget_Base {
 
 		// Blog Orderby
 		$this->add_control(
-			'wb_blog_orderby',
+			'wbea_blog_orderby',
 			[
 				'label' 		=> __('Order By', 'webbricks-addons'),
 				'type' 			=> Controls_Manager::SELECT,
@@ -190,7 +190,7 @@ class Blogs extends Widget_Base {
 
 		// Blog Categories
 		$this->add_control(
-			'wb_blog_include_categories',
+			'wbea_blog_include_categories',
 			[
 				'label' => __( 'Category', 'webbricks-addons' ),
 				'type' => Controls_Manager::SELECT2,
@@ -202,7 +202,7 @@ class Blogs extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'wb_blog_option_section',
+			'wbea_blog_option_section',
 			 [
 				'label' => esc_html__('Meta Info', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT			
@@ -211,7 +211,7 @@ class Blogs extends Widget_Base {
 
 		// Blog Category Show
 		$this->add_control(
-			'wb_blog_cat_visibility',
+			'wbea_blog_cat_visibility',
 			[
 				'label' 		=> __('Show Category', 'webbricks-addons'),
 				'type' 			=> Controls_Manager::SWITCHER,
@@ -223,7 +223,7 @@ class Blogs extends Widget_Base {
 
 		// Blog Date Show
 		$this->add_control(
-			'wb_blog_date_visibility',
+			'wbea_blog_date_visibility',
 			[
 				'label' 		=> __('Show Date', 'webbricks-addons'),
 				'type' 			=> Controls_Manager::SWITCHER,
@@ -235,7 +235,7 @@ class Blogs extends Widget_Base {
 
 		// Blog Excerpt Show
 		$this->add_control(
-			'wb_blog_excerpt_visibility',
+			'wbea_blog_excerpt_visibility',
 			[
 				'label' 		=> __('Show Excerpt', 'webbricks-addons'),
 				'type' 			=> Controls_Manager::SWITCHER,
@@ -250,7 +250,7 @@ class Blogs extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_blog_pro_message',
+			'wbea_blog_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -258,7 +258,7 @@ class Blogs extends Widget_Base {
 		 );
 
 		 $this->add_control( 
-			'wb_blog_pro_message_notice', 
+			'wbea_blog_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -273,7 +273,7 @@ class Blogs extends Widget_Base {
 		
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_blog_layout_style',
+			'wbea_blog_layout_style',
 			[
 				'label' => esc_html__( 'Layout', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE
@@ -282,12 +282,12 @@ class Blogs extends Widget_Base {
 
 		// Blog Background
 		$this->add_control(
-			'wb_blog_bg_color',
+			'wbea_blog_bg_color',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .blog-content' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-blog-content' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -297,26 +297,26 @@ class Blogs extends Widget_Base {
 
 		// Blog Padding
 		$this->add_control(
-			'wb_blog_padding',
+			'wbea_blog_padding',
 			[
 				'label' => esc_html__( 'Padding', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem'],
 				'selectors' => [
-					'{{WRAPPER}} .blog-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-blog-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Blog Border Radius
 		$this->add_control(
-			'wb_blog_border_radius',
+			'wbea_blog_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem'],
 				'selectors' => [
-					'{{WRAPPER}} .blog-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-blog-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -325,7 +325,7 @@ class Blogs extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_blog_meta_style',
+			'wbea_blog_meta_style',
 			[
 				'label' => esc_html__( 'Meta', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -334,12 +334,12 @@ class Blogs extends Widget_Base {
 
 		// Meta Color
 		$this->add_control(
-			'wb_meta_color',
+			'wbea_meta_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .blog-meta, .blog-meta a' => 'color: {{VALUE}} !important',
+					'{{WRAPPER}} .wbea-blog-meta, .blog-meta a' => 'color: {{VALUE}} !important',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -351,8 +351,8 @@ class Blogs extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_blogmeta_typography',
-				'selector' => '{{WRAPPER}} .blog-meta, .blog-meta a',
+				'name' => 'wbea_blogmeta_typography',
+				'selector' => '{{WRAPPER}} .wbea-blog-meta, .wbea-blog-meta a',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -364,7 +364,7 @@ class Blogs extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_blog_title_style',
+			'wbea_blog_title_style',
 			[
 				'label' => esc_html__( 'Title', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -373,12 +373,12 @@ class Blogs extends Widget_Base {
 
 		// Title Color
 		$this->add_control(
-			'wb_title_color',
+			'wbea_title_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .blog-title .blog-post-title a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-blog-title .wbea-blog-post-title a' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -390,8 +390,8 @@ class Blogs extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_blog_title_typography',
-				'selector' => '{{WRAPPER}} .blog-title .blog-post-title a',
+				'name' => 'wbea_blog_title_typography',
+				'selector' => '{{WRAPPER}} .wbea-blog-title .wbea-blog-post-title a',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -400,7 +400,7 @@ class Blogs extends Widget_Base {
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wp_blog_title_tag',
+			'wbea_blog_title_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -424,24 +424,24 @@ class Blogs extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_blog_excerpt_style',
+			'wbea_blog_excerpt_style',
 			[
 				'label' => esc_html__( 'Excerpt', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_blog_excerpt_visibility' => 'yes', 
+					'wbea_blog_excerpt_visibility' => 'yes', 
 				],
 			]
 		);	
 
 		// Excerpt Color
 		$this->add_control(
-			'wb_excerpt_color',
+			'wbea_excerpt_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .blog-excerpt' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-blog-excerpt' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -454,7 +454,7 @@ class Blogs extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'excerpt_typography',
-				'selector' => '{{WRAPPER}} .blog-excerpt',
+				'selector' => '{{WRAPPER}} .wbea-blog-excerpt',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -466,7 +466,7 @@ class Blogs extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_blog_image_style',
+			'wbea_blog_image_style',
 			[
 				'label' => esc_html__( 'Image', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -475,7 +475,7 @@ class Blogs extends Widget_Base {
 
 		// Blog Image Width
 		$this->add_control(
-			'wb_blog_image_width',
+			'wbea_blog_image_width',
 			[
 				'type' => Controls_Manager::SLIDER,
 				'label' => esc_html__( 'Width', 'webbricks-addons' ),
@@ -487,14 +487,14 @@ class Blogs extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .blog-img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-blog-img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Blog Image Height
 		$this->add_control(
-			'wb_blog_image_image_height',
+			'wbea_blog_image_image_height',
 			[
 				'type' => Controls_Manager::SLIDER,
 				'label' => esc_html__( 'Height', 'webbricks-addons' ),
@@ -506,14 +506,14 @@ class Blogs extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .blog-img' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-blog-img' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Blog Image Display Size
 		$this->add_control(
-			'wb_blog_image_display',
+			'wbea_blog_image_display',
 			[
 				'label' 		=> __('Display Size', 'webbricks-addons'),
 				'type' 			=> Controls_Manager::SELECT,
@@ -528,13 +528,13 @@ class Blogs extends Widget_Base {
 
 		// Blog Image Radius
 		$this->add_control(
-			'wb_blog_image_radius',
+			'wbea_blog_image_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem'],
 				'selectors' => [
-					'{{WRAPPER}} .blog-img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-blog-img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -544,7 +544,7 @@ class Blogs extends Widget_Base {
 
 		// start of the Style tab section
 		$this->start_controls_section(
-			'wb_blog_button_style',
+			'wbea_blog_button_style',
 			[
 				'label' => esc_html__( 'Button', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -552,7 +552,7 @@ class Blogs extends Widget_Base {
 		);	
 
 		$this->start_controls_tabs(
-			'wb_blogs_button_style_tabs'
+			'wbea_blogs_button_style_tabs'
 		);
 
 		// Blog Button Normal Tab
@@ -565,12 +565,12 @@ class Blogs extends Widget_Base {
 
 		// Blog Button Color
 		$this->add_control(
-			'wb_blog_btn_color',
+			'wbea_blog_btn_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .icon-border svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-icon-border svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -580,12 +580,12 @@ class Blogs extends Widget_Base {
 
 		// Blog Button Background Color
 		$this->add_control(
-			'wb_blog_btn_bg_color',
+			'wbea_blog_btn_bg_color',
 			[
 				'label' => esc_html__( 'Background Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .icon-border' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-icon-border' => 'background-color: {{VALUE}}',
 				],
 				'default' => '#fff',
 			]
@@ -593,12 +593,12 @@ class Blogs extends Widget_Base {
 
 		// Blog Button Border Color
 		$this->add_control(
-			'wb_blog_btn_border_color',
+			'wbea_blog_btn_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .icon-border' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-icon-border' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -608,13 +608,13 @@ class Blogs extends Widget_Base {
 
 		// Blog Button Border Radius
 		$this->add_control(
-			'wb_blog_btn_border_radius',
+			'wbea_blog_btn_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem'],
 				'selectors' => [
-					'{{WRAPPER}} .icon-border' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-icon-border' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -623,7 +623,7 @@ class Blogs extends Widget_Base {
 
 		// Blog Button Hover Tab
 		$this->start_controls_tab(
-			'wb_blog_button_hover_tab',
+			'wbea_blog_button_hover_tab',
 			[
 				'label' => esc_html__( 'Hover', 'webbricks-addons' ),
 			]
@@ -631,12 +631,12 @@ class Blogs extends Widget_Base {
 
 		// Blog Button Hover Icon Color
 		$this->add_control(
-			'wb_blog_btn_bg_hover_color',
+			'wbea_blog_btn_bg_hover_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .icon-border:hover svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-icon-border:hover svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -646,12 +646,12 @@ class Blogs extends Widget_Base {
 
 		// Blog Button Hover Background Color
 		$this->add_control(
-			'wb_blog_btn_bg_hover_bg',
+			'wbea_blog_btn_bg_hover_bg',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .icon-border:hover:after' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-icon-border:hover:after' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -661,12 +661,12 @@ class Blogs extends Widget_Base {
 
 		// Blog Button Hover Border Color
 		$this->add_control(
-			'wb_blog_btn_bg_hover_border',
+			'wbea_blog_btn_bg_hover_border',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .icon-border:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-icon-border:hover' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -694,78 +694,77 @@ class Blogs extends Widget_Base {
 	protected function render() {
 		// Get input from widget settings
 		$settings = $this->get_settings_for_display();
-		$wp_blog_title_tag = $settings['wp_blog_title_tag'];
-		$wb_blog_number = isset($settings['wb_blog_number']) ? $settings['wb_blog_number'] : 5;
-		$wb_blog_order = isset($settings['wb_blog_order']) ? $settings['wb_blog_order'] : 'DESC';
-		$wb_blog_orderby = $settings['wb_blog_orderby'];
-		$wb_blog_include_categories = $settings['wb_blog_include_categories'];
-		$wb_blog_cat_visibility = isset($settings['wb_blog_cat_visibility']) && $settings['wb_blog_cat_visibility'] === 'yes';
-		$wb_blog_date_visibility = isset($settings['wb_blog_date_visibility']) && $settings['wb_blog_date_visibility'] === 'yes';
-		$wb_blog_excerpt_visibility = isset($settings['wb_blog_excerpt_visibility']) && $settings['wb_blog_excerpt_visibility'] === 'yes';
-		$wb_blog_image_display = $settings['wb_blog_image_display'];
+		$wbea_blog_title_tag = $settings['wbea_blog_title_tag'];
+		$wbea_blog_number = isset($settings['wbea_blog_number']) ? $settings['wbea_blog_number'] : 5;
+		$wbea_blog_order = isset($settings['wbea_blog_order']) ? $settings['wbea_blog_order'] : 'DESC';
+		$wbea_blog_orderby = $settings['wbea_blog_orderby'];
+		$wbea_blog_include_categories = $settings['wbea_blog_include_categories'];
+		$wbea_blog_cat_visibility = isset($settings['wbea_blog_cat_visibility']) && $settings['wbea_blog_cat_visibility'] === 'yes';
+		$wbea_blog_date_visibility = isset($settings['wbea_blog_date_visibility']) && $settings['wbea_blog_date_visibility'] === 'yes';
+		$wbea_blog_excerpt_visibility = isset($settings['wbea_blog_excerpt_visibility']) && $settings['wbea_blog_excerpt_visibility'] === 'yes';
+		$wbea_blog_image_display = $settings['wbea_blog_image_display'];
 	
 		// Validate blog title tag
 		$valid_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
-		if (!in_array($wp_blog_title_tag, $valid_tags)) {
-			$wp_blog_title_tag = 'h2'; // Default to h2 if invalid tag
+		if (!in_array($wbea_blog_title_tag, $valid_tags)) {
+			$wbea_blog_title_tag = 'h2'; // Default to h2 if invalid tag
 		}
 	
 		// Query the posts
 		$args = [
-			'posts_per_page' => $wb_blog_number,
+			'posts_per_page' => $wbea_blog_number,
 			'post_type' => 'post',
 			'post_status' => 'publish',
-			'order' => $wb_blog_order,
-			'orderby' => $wb_blog_orderby,
+			'order' => $wbea_blog_order,
+			'orderby' => $wbea_blog_orderby,
 			'ignore_sticky_posts' => 1,
 		];
 	
-		if (!empty($wb_blog_include_categories)) {
-			$args['cat'] = $wb_blog_include_categories;
+		if (!empty($wbea_blog_include_categories)) {
+			$args['cat'] = $wbea_blog_include_categories;
 		}
 	
 		$query = new \WP_Query($args);
 		?>
 		<!-- Blog Start Here -->
-		<section class="blog">
+		<section class="wbea-blog">
 			<div class="wb-grid-row">
 				<?php if ($query->have_posts()) : ?>
 					<?php while ($query->have_posts()) : $query->the_post(); ?>
 						<div class="<?php echo esc_attr($this->get_grid_classes($settings)); ?> wb-grid-tablet-6 wb-grid-mobile-12">
-							<div class="single-blog">
-								<div class="blog-content">
-									<div class="blog-meta">
+							<div class="wbea-single-blog">
+								<div class="wbea-blog-content">
+									<div class="wbea-blog-meta">
 										<?php
-										if ($wb_blog_cat_visibility) {
+										if ($wbea_blog_cat_visibility) {
 											the_category(', ');
 										}
-										if ($wb_blog_date_visibility) {
+										if ($wbea_blog_date_visibility) {
 											?>
-											<a class="blog-date" href="<?php echo esc_url(get_the_permalink()); ?>"><?php echo esc_html(get_the_date('j M, y')); ?></a>
+											<a class="wbea-blog-date" href="<?php echo esc_url(get_the_permalink()); ?>"><?php echo esc_html(get_the_date('j M, y')); ?></a>
 											<?php
 										}
 										?>
 									</div>
-									<div class="blog-title">
-										<<?php echo esc_attr($wp_blog_title_tag); ?> class="blog-post-title">
+									<div class="wbea-blog-title">
+										<<?php echo esc_attr($wbea_blog_title_tag); ?> class="wbea-blog-post-title">
 											<a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a>
-										</<?php echo esc_attr($wp_blog_title_tag); ?>>
+										</<?php echo esc_attr($wbea_blog_title_tag); ?>>
 									</div>
-									<?php if ($wb_blog_excerpt_visibility) : ?>
-										<div class="blog-excerpt">
-											<?php echo esc_html(wp_trim_words(get_the_excerpt(), 20, '...')); ?>
+									<?php if ($wbea_blog_excerpt_visibility) : ?>
+										<div class="wbea-blog-excerpt">
+											<?php echo esc_html(wbea_trim_words(get_the_excerpt(), 20, '...')); ?>
 										</div>
 									<?php endif; ?>
 								</div>
 								<?php
 								$thumbnail_url = get_the_post_thumbnail_url() ?: 'default-image.jpg';
 								?>
-								<div class="blog-img" style="background-image: url('<?php echo esc_url($thumbnail_url); ?>');">
-									<a href="<?php echo esc_url(get_the_permalink()); ?>" class="icon-border" aria-label="<?php the_title_attribute(); ?>">
+								<div class="wbea-blog-img" style="background-image: url('<?php echo esc_url($thumbnail_url); ?>');">
+									<a href="<?php echo esc_url(get_the_permalink()); ?>" class="wbea-icon-border" aria-label="<?php the_title_attribute(); ?>">
 									<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z" fill="#004851"/>
-</svg>
-
+										<path d="M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z" fill="#004851"/>
+										</svg>
 									</a>
 								</div>
 							</div>

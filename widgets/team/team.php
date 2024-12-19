@@ -92,7 +92,7 @@ class Team extends Widget_Base {
 		
 		// start of the Content tab section
 	   	$this->start_controls_section(
-	       'wb_team_contents',
+	       'wbea_team_contents',
 		    [
 		        'label' => esc_html__('Contents', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,		   
@@ -101,7 +101,7 @@ class Team extends Widget_Base {
 
 		// Team Image
 		$this->add_control(
-			'wb_team_image',
+			'wbea_team_image',
 			[
 				'label' => esc_html__( 'Choose Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
@@ -114,7 +114,7 @@ class Team extends Widget_Base {
 
 		// Team Name
 		$this->add_control(
-			'wb_team_name',
+			'wbea_team_name',
 			[
 				'label' => esc_html__( 'Name', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -126,7 +126,7 @@ class Team extends Widget_Base {
 
 		// Team Name Tag
 		$this->add_control(
-			'wb_team_name_tag',
+			'wbea_team_name_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -147,7 +147,7 @@ class Team extends Widget_Base {
 
 		// Team Designation
 		$this->add_control(
-			'wb_team_designation',
+			'wbea_team_designation',
 			[
 				'label' => esc_html__( 'Designation', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -162,7 +162,7 @@ class Team extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_team_socials_contents',
+			'wbea_team_socials_contents',
 			[
 				'label' => esc_html__('Socials', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,		   
@@ -171,7 +171,7 @@ class Team extends Widget_Base {
 
 		// Team Socials Show?
 		$this->add_control(
-			'wb_team_social_show',
+			'wbea_team_social_show',
 			[
 				'label' => esc_html__( 'Show Socials', 'webbricks-addons' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -187,7 +187,7 @@ class Team extends Widget_Base {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
-			'wb_team_social_name',
+			'wbea_team_social_name',
 			[
 				'label' => esc_html__( 'Social Name', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -199,7 +199,7 @@ class Team extends Widget_Base {
 
 		// Team Social Icon
 		$repeater->add_control(
-			'wb_team_social_icon',
+			'wbea_team_social_icon',
 			[
 				'label' => esc_html__( 'Team Social Icon', 'webbricks-addons' ),
 				'type' => Controls_Manager::ICONS,
@@ -212,7 +212,7 @@ class Team extends Widget_Base {
 
 		// Team Social Link
 		$repeater->add_control(
-			'wb_team_social_link', [
+			'wbea_team_social_link', [
 				'label' => esc_html__( 'Team Social Links', 'webbricks-addons' ),
 				'type' => Controls_Manager::URL,
 				'default' => [
@@ -226,38 +226,38 @@ class Team extends Widget_Base {
 
 		// Team Socials
 		$this->add_control(
-			'wb_team_socials',
+			'wbea_team_socials',
 			[
 				'label' => esc_html__( 'Team Socials List', 'webbricks-addons' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'wb_team_social_name' => esc_html__( 'Twitter', 'webbricks-addons' ),
-						'wb_team_social_link' => 'https://twitter.com/',
-						'wb_team_social_icon' => [
+						'wbea_team_social_name' => esc_html__( 'Twitter', 'webbricks-addons' ),
+						'wbea_team_social_link' => 'https://twitter.com/',
+						'wbea_team_social_icon' => [
 							'value' => 'fab fa-twitter-square',
 						],
 					],
 					[
-						'wb_team_social_name' => esc_html__( 'Instagram', 'webbricks-addons' ),
-						'wb_team_social_link' => 'https://www.instagram.com//',
-						'wb_team_social_icon' => [
+						'wbea_team_social_name' => esc_html__( 'Instagram', 'webbricks-addons' ),
+						'wbea_team_social_link' => 'https://www.instagram.com//',
+						'wbea_team_social_icon' => [
 							'value' => 'fab fa-instagram',
 						],
 					],
 					[
-						'wb_team_social_name' => esc_html__( 'Linekdin', 'webbricks-addons' ),
-						'wb_team_social_link' => 'https://www.linkedin.com/company/web-bricks-wp',
-						'wb_team_social_icon' => [
+						'wbea_team_social_name' => esc_html__( 'Linekdin', 'webbricks-addons' ),
+						'wbea_team_social_link' => 'https://www.linkedin.com/company/web-bricks-wp',
+						'wbea_team_social_icon' => [
 							'value' => 'fab fa-linkedin',
 						],
 					]
 				],
-				'title_field' => '{{{ wb_team_social_name }}}',
+				'title_field' => '{{{ wbea_team_social_name }}}',
 				'separator' => 'before',
 				'condition' => [
-					'wb_team_social_show' => 'yes'
+					'wbea_team_social_show' => 'yes'
 				],
 			]
 		);
@@ -267,7 +267,7 @@ class Team extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_team_pro_message',
+			'wbea_team_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -275,7 +275,7 @@ class Team extends Widget_Base {
 		 );
 
 		 $this->add_control( 
-			'wb_team_pro_message_notice', 
+			'wbea_team_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -290,7 +290,7 @@ class Team extends Widget_Base {
 
 		// Team Layout Style
 		$this->start_controls_section(
-			'wb_team_layout_style',
+			'wbea_team_layout_style',
 			[
 				'label' => esc_html__( 'Layout', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -299,14 +299,14 @@ class Team extends Widget_Base {
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wb_team_bg_pattern',
+			'wbea_team_bg_pattern',
 			[
 				'label' => __( 'Background Pattern', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'team-pattern-1' => __( 'Style 1', 'webbricks-addons' ),
-					'team-pattern-2' => __( 'Style 2', 'webbricks-addons' ),
-					'team-pattern-none' => __( 'None', 'webbricks-addons' ),
+					'wbea-team-pattern-1' => __( 'Style 1', 'webbricks-addons' ),
+					'wbea-team-pattern-2' => __( 'Style 2', 'webbricks-addons' ),
+					'wbea-team-pattern-none' => __( 'None', 'webbricks-addons' ),
 				],
 				'default' => 'team-pattern-1',
 			]
@@ -314,14 +314,14 @@ class Team extends Widget_Base {
 
 		// Team Background
 		$this->add_control(
-			'wb_team_background',
+			'wbea_team_background',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .team-bg' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-team-bg' => 'background-color: {{VALUE}}',
 				],
-				'default' => '#ffffff00',
+				'default' => '#ffffff00', 
 			]
 		);
 
@@ -329,14 +329,14 @@ class Team extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wb_team_border',
-				'selector' => '{{WRAPPER}} .team-content',
+				'name' => 'wbea_team_border',
+				'selector' => '{{WRAPPER}} .wbea-team-content',
 			]
 		);	
 
 		// Team Alignment
 		$this->add_control(
-			'wb_team_alignment',
+			'wbea_team_alignment',
 			[
 				'type' => Controls_Manager::CHOOSE,
 				'label' => esc_html__( 'Alignment', 'webbricks-addons' ),
@@ -356,7 +356,7 @@ class Team extends Widget_Base {
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .team' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .wbea-team' => 'text-align: {{VALUE}}',
 				],
 			],
 		);
@@ -365,7 +365,7 @@ class Team extends Widget_Base {
 
 		// Team Image Style
 		$this->start_controls_section(
-			'wb_team_image_style',
+			'wbea_team_image_style',
 			[
 				'label' => esc_html__( 'Image', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -374,7 +374,7 @@ class Team extends Widget_Base {
 
 		// Team Image Width
 		$this->add_control(
-			'wb_team_image_width',
+			'wbea_team_image_width',
 			[
 				'type' => Controls_Manager::SLIDER,
 				'label' => esc_html__( 'Width', 'webbricks-addons' ),
@@ -386,14 +386,14 @@ class Team extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .team-img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-team-img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Team Image Height
 		$this->add_control(
-			'wb_team_image_height',
+			'wbea_team_image_height',
 			[
 				'type' => Controls_Manager::SLIDER,
 				'label' => esc_html__( 'Height', 'webbricks-addons' ),
@@ -405,20 +405,20 @@ class Team extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .team-img' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-team-img' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
 		// Team Image Border
 		$this->add_control(
-			'wb_team_image_border_radius',
+			'wbea_team_image_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'webbricks-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .team-img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-team-img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -427,7 +427,7 @@ class Team extends Widget_Base {
 
 		// Team Name Style
 		$this->start_controls_section(
-			'wb_team_name_style',
+			'wbea_team_name_style',
 			[
 				'label' => esc_html__( 'Name', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -436,12 +436,12 @@ class Team extends Widget_Base {
 
 		// Team Name Color
 		$this->add_control(
-			'wb_team_name_color',
+			'wbea_team_name_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .team-name' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-team-name' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -453,8 +453,8 @@ class Team extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_team_name_typography',
-				'selector' => '{{WRAPPER}} .team-name',
+				'name' => 'wbea_team_name_typography',
+				'selector' => '{{WRAPPER}} .wbea-team-name',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -465,7 +465,7 @@ class Team extends Widget_Base {
 
 		// Team Designation Style
 		$this->start_controls_section(
-			'wb_team_desg_style',
+			'wbea_team_desg_style',
 			[
 				'label' => esc_html__( 'Designation', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -474,12 +474,12 @@ class Team extends Widget_Base {
 
 		// Team Designation Color
 		$this->add_control(
-			'wb_team_desg_color',
+			'wbea_team_desg_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .team-desg' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-team-desg' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -491,8 +491,8 @@ class Team extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_team_desg_typography',
-				'selector' => '{{WRAPPER}} .team-desg',
+				'name' => 'wbea_team_desg_typography',
+				'selector' => '{{WRAPPER}} .wbea-team-desg',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -503,23 +503,23 @@ class Team extends Widget_Base {
 
 		// Team Social
 		$this->start_controls_section(
-			'wb_team_social_section',
+			'wbea_team_social_section',
 			[
 				'label' => esc_html__( 'Social', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_team_social_show' => 'yes'
+					'wbea_team_social_show' => 'yes'
 				],
 			]
 		);
 
 		$this->start_controls_tabs(
-			'wb_team_social_icon_style_tabs'
+			'wbea_team_social_icon_style_tabs'
 		);
 
 		// Team Social Normal Tab
 		$this->start_controls_tab(
-			'wb_team_social_icon_normal_tab',
+			'wbea_team_social_icon_normal_tab',
 			[
 				'label' => esc_html__( 'Normal', 'webbricks-addons' ),
 			]
@@ -527,12 +527,12 @@ class Team extends Widget_Base {
 
 		// Team Social Icon Color
 		$this->add_control(
-			'wb_social_icon_color',
+			'wbea_social_icon_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .team-social a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-team-social a' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -542,7 +542,7 @@ class Team extends Widget_Base {
 
 		// Team Social Icon Size
 		$this->add_control(
-			'wb_social_icon_size',
+			'wbea_social_icon_size',
 			[
 				'label' => esc_html__( 'Icon Size', 'webbricks-addons' ),
 				'type' => Controls_Manager::SLIDER,
@@ -559,7 +559,7 @@ class Team extends Widget_Base {
 					'size' => 18,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .team-social a' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-team-social a' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -568,7 +568,7 @@ class Team extends Widget_Base {
 
 		// Team Social Hover Tab
 		$this->start_controls_tab(
-			'wb_team_social_icon_hover_tab',
+			'wbea_team_social_icon_hover_tab',
 			[
 				'label' => esc_html__( 'Hover', 'webbricks-addons' ),
 			]
@@ -576,12 +576,12 @@ class Team extends Widget_Base {
 
 		// Team Social Icon Hover Color
 		$this->add_control(
-			'wb_social_icon_hover_color',
+			'wbea_social_icon_hover_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .team-social a:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-team-social a:hover' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -611,13 +611,13 @@ class Team extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 	
 		// Raw variables from settings (sanitized/escaped at output)
-		$wb_team_image = $settings['wb_team_image']['url'] ?? '';
-		$wb_team_name = $settings['wb_team_name'] ?? '';
-		$wb_team_name_tag = $settings['wb_team_name_tag'] ?? 'h3';
-		$wb_team_designation = $settings['wb_team_designation'] ?? '';
-		$wb_team_social_show = $settings['wb_team_social_show'] ?? 'no';
-		$wb_team_socials = is_array($settings['wb_team_socials'] ?? null) ? $settings['wb_team_socials'] : [];
-		$wb_team_bg_pattern = $settings['wb_team_bg_pattern'] ?? 'team-pattern-1';
+		$wbea_team_image = $settings['wbea_team_image']['url'] ?? '';
+		$wbea_team_name = $settings['wbea_team_name'] ?? '';
+		$wbea_team_name_tag = $settings['wbea_team_name_tag'] ?? 'h3';
+		$wbea_team_designation = $settings['wbea_team_designation'] ?? '';
+		$wbea_team_social_show = $settings['wbea_team_social_show'] ?? 'no';
+		$wbea_team_socials = is_array($settings['wbea_team_socials'] ?? null) ? $settings['wbea_team_socials'] : [];
+		$wbea_team_bg_pattern = $settings['wbea_team_bg_pattern'] ?? 'team-pattern-1';
 	
 		// Allow-list for background patterns
 		$pattern_urls = [
@@ -625,35 +625,35 @@ class Team extends Widget_Base {
 			'team-pattern-2' => 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-2.svg',
 			'team-pattern-none' => '', // No pattern
 		];
-		$team_pattern_url = $pattern_urls[$wb_team_bg_pattern] ?? $pattern_urls['team-pattern-1'];
+		$team_pattern_url = $pattern_urls[$wbea_team_bg_pattern] ?? $pattern_urls['team-pattern-1'];
 	
 		// Allow-list for heading tags
 		$allowed_heading_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-		$wb_team_name_tag = in_array($wb_team_name_tag, $allowed_heading_tags, true) ? $wb_team_name_tag : 'h3';
+		$wbea_team_name_tag = in_array($wbea_team_name_tag, $allowed_heading_tags, true) ? $wbea_team_name_tag : 'h3';
 	
 		?>
 		<?php if ($team_pattern_url) : ?>
 		<style>
-			.team-bg {
+			.wbea-team-bg {
 				background-image: url('<?php echo esc_url($team_pattern_url); ?>');
 			}
 		</style>
 		<?php endif; ?>
 	
-		<div class="team">
-			<div class="team-img" style="background-image:url(<?php echo esc_url($wb_team_image); ?>)"></div>
-			<div class="team-bg">
-				<div class="team-content">
-					<<?php echo esc_attr($wb_team_name_tag); ?> class="team-name">
-						<?php echo esc_html($wb_team_name); ?>
-					</<?php echo esc_attr($wb_team_name_tag); ?>>
-					<p class="team-desg"><?php echo esc_html($wb_team_designation); ?></p>
+		<div class="wbea-team">
+			<div class="wbea-team-img" style="background-image:url(<?php echo esc_url($wbea_team_image); ?>)"></div>
+			<div class="wbea-team-bg">
+				<div class="wbea-team-content">
+					<<?php echo esc_attr($wbea_team_name_tag); ?> class="wbea-team-name">
+						<?php echo esc_html($wbea_team_name); ?>
+					</<?php echo esc_attr($wbea_team_name_tag); ?>>
+					<p class="wbea-team-desg"><?php echo esc_html($wbea_team_designation); ?></p>
 	
-					<?php if ($wb_team_social_show === 'yes' && !empty($wb_team_socials)) : ?>
-						<div class="team-social">
-							<?php foreach ($wb_team_socials as $social) : 
-								$social_link = $social['wb_team_social_link']['url'] ?? '#';
-								$social_icon = $social['wb_team_social_icon']['value'] ?? '';
+					<?php if ($wbea_team_social_show === 'yes' && !empty($wbea_team_socials)) : ?>
+						<div class="wbea-team-social">
+							<?php foreach ($wbea_team_socials as $social) : 
+								$social_link = $social['wbea_team_social_link']['url'] ?? '#';
+								$social_icon = $social['wbea_team_social_icon']['value'] ?? '';
 							?>
 								<a href="<?php echo esc_url($social_link); ?>" target="_blank" rel="noopener noreferrer">
 									<i class="<?php echo esc_attr($social_icon); ?>"></i>

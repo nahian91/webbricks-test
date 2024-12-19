@@ -91,7 +91,7 @@ class Slider extends Widget_Base {
 		
 	   	// start of the Content tab Slider
 	   	$this->start_controls_section(
-	       'wb_slider_contents',
+	       'wbea_slider_contents',
 		    [
 		        'label' => esc_html__('Content', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT,		   
@@ -100,7 +100,7 @@ class Slider extends Widget_Base {
 
 		// // Slider Style Variation
 		// $this->add_control(
-		// 	'wb_slider_variation',
+		// 	'wbea_slider_variation',
 		// 	[
 		// 		'label' => __('Slider Style', 'webbricks-addons'),
 		// 		'type' => Controls_Manager::SELECT,
@@ -116,7 +116,7 @@ class Slider extends Widget_Base {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
-			'wb_slider_image',
+			'wbea_slider_image',
 			[
 				'label' => esc_html__( 'Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
@@ -128,7 +128,7 @@ class Slider extends Widget_Base {
 
 		// Slider Sub Heading
 		$repeater->add_control(
-			'wb_slider_subtitle',
+			'wbea_slider_subtitle',
 			[
 				'label' => esc_html__( 'Sub Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -139,7 +139,7 @@ class Slider extends Widget_Base {
 
 		// Slider Heading
 		$repeater->add_control(
-			'wb_slider_title',
+			'wbea_slider_title',
 			[
 				'label' => esc_html__( 'Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
@@ -150,7 +150,7 @@ class Slider extends Widget_Base {
 
 		// Slider Description
 		$repeater->add_control(
-			'wb_slider_desc',
+			'wbea_slider_desc',
 			[
 				'label' => esc_html__( 'Description', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXTAREA,
@@ -161,7 +161,7 @@ class Slider extends Widget_Base {
 
 		// Slider Button Title
 		$repeater->add_control(
-		    'wb_slider_btn_title',
+		    'wbea_slider_btn_title',
 			[
 			    'label' => esc_html__('Button Text', 'webbricks-addons'),
 				'type' => Controls_Manager::TEXT,
@@ -173,7 +173,7 @@ class Slider extends Widget_Base {
 
 		// Slider Button Link
 		$repeater->add_control(
-		    'wb_slider_btn_link',
+		    'wbea_slider_btn_link',
 			[
 			    'label' => esc_html__( 'Button Link', 'webbricks-addons' ),
 				'type' => Controls_Manager::URL,
@@ -188,43 +188,43 @@ class Slider extends Widget_Base {
 
 		// Sliders List
 		$this->add_control(
-			'wb_sliders',
+			'wbea_sliders',
 			[
 				'label' => esc_html__( 'Sliders', 'webbricks-addons' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
-				'title_field' => '{{{ wb_slider_title }}}',
+				'title_field' => '{{{ wbea_slider_title }}}',
 				'separator' => 'before',
 				'default' => [
 					[
-						'wb_slider_image' => [
+						'wbea_slider_image' => [
 							'default' => [
 								'url' => plugins_url( 'assets/img/slider-1.png', dirname(__FILE__, 2) ),
 							]
 						],
-						'wb_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
-						'wb_slider_title' => esc_html__( 'Beautiful Beach', 'webbricks-addons' ),
-						'wb_slider_desc' => esc_html__( 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptate corrupti soluta quos nostrum, incidunt laborum doloremque esse expedita asperiores.', 'webbricks-addons' ),
+						'wbea_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
+						'wbea_slider_title' => esc_html__( 'Beautiful Beach', 'webbricks-addons' ),
+						'wbea_slider_desc' => esc_html__( 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptate corrupti soluta quos nostrum, incidunt laborum doloremque esse expedita asperiores.', 'webbricks-addons' ),
 					],
 					[
-						'wb_slider_image' => [
+						'wbea_slider_image' => [
 							'default' => [
 								'url' => plugins_url( 'assets/img/slide-2.png', dirname(__FILE__, 2) ),
 							]
 						],
-						'wb_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
-						'wb_slider_title' => esc_html__( 'Awesome Hill Tract', 'webbricks-addons' ),
-						'wb_slider_desc' => esc_html__( 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptate corrupti soluta quos nostrum, incidunt laborum doloremque esse expedita asperiores.', 'webbricks-addons' ),
+						'wbea_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
+						'wbea_slider_title' => esc_html__( 'Awesome Hill Tract', 'webbricks-addons' ),
+						'wbea_slider_desc' => esc_html__( 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptate corrupti soluta quos nostrum, incidunt laborum doloremque esse expedita asperiores.', 'webbricks-addons' ),
 					],
 					[
-						'wb_slider_image' => [
+						'wbea_slider_image' => [
 							'default' => [
 								'url' => plugins_url( 'assets/img/slide-3.png', dirname(__FILE__, 2) ),
 							]
 						],
-						'wb_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
-						'wb_slider_title' => esc_html__( 'Explore Seasons', 'webbricks-addons' ),
-						'wb_slider_desc' => esc_html__( 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptate corrupti soluta quos nostrum, incidunt laborum doloremque esse expedita asperiores.', 'webbricks-addons' ),
+						'wbea_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
+						'wbea_slider_title' => esc_html__( 'Explore Seasons', 'webbricks-addons' ),
+						'wbea_slider_desc' => esc_html__( 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptate corrupti soluta quos nostrum, incidunt laborum doloremque esse expedita asperiores.', 'webbricks-addons' ),
 					]
 				]
 			]
@@ -232,7 +232,7 @@ class Slider extends Widget_Base {
 
 		// Sliders Alignment
 		$this->add_control(
-			'wb_sliders_alignment',
+			'wbea_sliders_alignment',
 			[
 				'type' => Controls_Manager::CHOOSE,
 				'label' => esc_html__( 'Alignment', 'webbricks-addons' ),
@@ -252,7 +252,7 @@ class Slider extends Widget_Base {
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .slide-content' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .wbea-slide-content' => 'text-align: {{VALUE}}',
 				],
 				'separator' => 'before'
 			],
@@ -263,7 +263,7 @@ class Slider extends Widget_Base {
 
 		// start of the Content tab Slider
 		$this->start_controls_section(
-			'wb_slider_settings',
+			'wbea_slider_settings',
 			[
 				'label' => esc_html__('Settings', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT			
@@ -272,7 +272,7 @@ class Slider extends Widget_Base {
 
 		// Slider Arrow Show
 		$this->add_control(
-			'wb_slider_arrows',
+			'wbea_slider_arrows',
 			[
 				'label' 		=> __('Show Arrows', 'webbricks-addons'),
 				'type' 			=> Controls_Manager::SWITCHER,
@@ -285,7 +285,7 @@ class Slider extends Widget_Base {
 
 		// Slider Dots Show
 		$this->add_control(
-			'wb_slider_dots',
+			'wbea_slider_dots',
 			[
 				'label' 		=> __('Show Dots', 'webbricks-addons'),
 				'type' 			=> Controls_Manager::SWITCHER,
@@ -298,7 +298,7 @@ class Slider extends Widget_Base {
 
 		// Slider Loops
 		$this->add_control(
-			'wb_slider_loops',
+			'wbea_slider_loops',
 			[
 				'label' 		=> __('Loops', 'webbricks-addons'),
 				'type' 			=> Controls_Manager::SWITCHER,
@@ -310,7 +310,7 @@ class Slider extends Widget_Base {
 
 		// Slider Autoplay
 		$this->add_control(
-			'wb_slider_autoplay',
+			'wbea_slider_autoplay',
 			[
 				'label' 		=> __('Autoplay', 'webbricks-addons'),
 				'type' 			=> Controls_Manager::SWITCHER,
@@ -321,7 +321,7 @@ class Slider extends Widget_Base {
 		);
 
 		$this->add_control(
-			'wb_slider_autoplay_speed',
+			'wbea_slider_autoplay_speed',
 			[
 				'label' => esc_html__( 'Autoplay Speed', 'webbricks-addons' ),
 				'type' => Controls_Manager::SELECT,
@@ -335,13 +335,13 @@ class Slider extends Widget_Base {
 					'5000' => esc_html__( '5 Second', 'webbricks-addons' ),
 				],
 				'condition' => [
-					'wb_slider_autoplay' => 'yes'
+					'wbea_slider_autoplay' => 'yes'
 				],
 			]
 		);
 
 		$this->add_control(
-			'wb_slider_animation_speed',
+			'wbea_slider_animation_speed',
 			[
 				'label' => esc_html__( 'Animation Speed', 'webbricks-addons' ),
 				'type' => Controls_Manager::SELECT,
@@ -355,7 +355,7 @@ class Slider extends Widget_Base {
 					'500' => esc_html__( '5 Second', 'webbricks-addons' ),
 				],
 				'condition' => [
-					'wb_slider_autoplay' => 'yes'
+					'wbea_slider_autoplay' => 'yes'
 				],
 			]
 		);
@@ -365,7 +365,7 @@ class Slider extends Widget_Base {
 
 		// start of the Content tab section
 		$this->start_controls_section(
-			'wb_slider_pro_message',
+			'wbea_slider_pro_message',
 			[
 				'label' => esc_html__('Premium', 'webbricks-addons'),
 				'tab'   => Controls_Manager::TAB_CONTENT		
@@ -373,7 +373,7 @@ class Slider extends Widget_Base {
 		 );
 
 		 $this->add_control( 
-			'wb_slider_pro_message_notice', 
+			'wbea_slider_pro_message_notice', 
 			[
 				'type'      => Controls_Manager::RAW_HTML,
 				'raw'       => sprintf(
@@ -390,7 +390,7 @@ class Slider extends Widget_Base {
 
 		// Slider Contents Style
 		$this->start_controls_section(
-			'wb_slider_contents_style',
+			'wbea_slider_contents_style',
 			[
 				'label' => esc_html__( 'Contents', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -399,7 +399,7 @@ class Slider extends Widget_Base {
 
 		// Slider Sub Heading
 		$this->add_control(
-			'wb_slider_subtitle_heading',
+			'wbea_slider_subtitle_heading',
 			[
 				'label' => esc_html__( 'Sub Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -409,12 +409,12 @@ class Slider extends Widget_Base {
 
 		// Slider Sub Heading Color
 		$this->add_control(
-			'wb_slider_subtitle_color',
+			'wbea_slider_subtitle_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .slide-content span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-slide-content span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -426,8 +426,8 @@ class Slider extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_slider_subtitle_typography',
-				'selector' => '{{WRAPPER}} .slide-content span',
+				'name' => 'wbea_slider_subtitle_typography',
+				'selector' => '{{WRAPPER}} .wbea-slide-content span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -436,7 +436,7 @@ class Slider extends Widget_Base {
 
 		// Slider Heading
 		$this->add_control(
-			'wb_slider_title',
+			'wbea_slider_title',
 			[
 				'label' => esc_html__( 'Heading', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -446,12 +446,12 @@ class Slider extends Widget_Base {
 
 		// Slider Title Color
 		$this->add_control(
-			'wb_slider_title_color',
+			'wbea_slider_title_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .slide-content h2, {{WRAPPER}} .slide-content2 h2' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-slide-content h2, {{WRAPPER}} .wbea-slide-content2 h2' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -463,8 +463,8 @@ class Slider extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_slider_title_typography',
-				'selector' => '{{WRAPPER}} .slide-content h2, {{WRAPPER}} .slide-content2 h2',
+				'name' => 'wbea_slider_title_typography',
+				'selector' => '{{WRAPPER}} .wbea-slide-content h2, {{WRAPPER}} .wbea-slide-content2 h2', 
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -473,7 +473,7 @@ class Slider extends Widget_Base {
 
 		// Slider Description Heading
 		$this->add_control(
-			'wb_slider_desc_heading',
+			'wbea_slider_desc_heading',
 			[
 				'label' => esc_html__( 'Description', 'webbricks-addons' ),
 				'type' => Controls_Manager::HEADING,
@@ -483,12 +483,12 @@ class Slider extends Widget_Base {
 
 		// Slider Description Color
 		$this->add_control(
-			'wb_slider_desc_color',
+			'wbea_slider_desc_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .slide-content p, {{WRAPPER}} .slide-content2 p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-slide-content p, {{WRAPPER}} .wbea-slide-content2 p' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -500,8 +500,8 @@ class Slider extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_slider_desc_typography',
-				'selector' => '{{WRAPPER}} .slide-content p, {{WRAPPER}} .slide-content2 p',
+				'name' => 'wbea_slider_desc_typography',
+				'selector' => '{{WRAPPER}} .wbea-slide-content p, {{WRAPPER}} .wbea-slide-content2 p',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]
@@ -512,7 +512,7 @@ class Slider extends Widget_Base {
 
 		// Slider Button Style
 		$this->start_controls_section(
-			'wb_slider_button_style',
+			'wbea_slider_button_style',
 			[
 				'label' => esc_html__( 'Button', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -520,12 +520,12 @@ class Slider extends Widget_Base {
 		);
 
 		$this->start_controls_tabs(
-			'wb_slider_button_style_tabs'
+			'wbea_slider_button_style_tabs'
 		);
 
 		// Button Normal Tab
 		$this->start_controls_tab(
-			'wb_slider_button_normal_tab',
+			'wbea_slider_button_normal_tab',
 			[
 				'label' => esc_html__( 'Normal', 'webbricks-addons' ),
 			]
@@ -533,12 +533,12 @@ class Slider extends Widget_Base {
 
 		// Slider Button Color
 		$this->add_control(
-			'wb_slider_btn_color',
+			'wbea_slider_btn_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -548,12 +548,12 @@ class Slider extends Widget_Base {
 
 		// Slider Button Border Color
 		$this->add_control(
-			'wb_slider_btn_border_color',
+			'wbea_slider_btn_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -565,8 +565,8 @@ class Slider extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wb_slider_btn_typography',
-				'selector' => '{{WRAPPER}} .btn-border',
+				'name' => 'wbea_slider_btn_typography',
+				'selector' => '{{WRAPPER}} .wbea-btn-border', 
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				]
@@ -577,7 +577,7 @@ class Slider extends Widget_Base {
 
 		// Button Hover Tab
 		$this->start_controls_tab(
-			'wb_slider_button_hover_tab',
+			'wbea_slider_button_hover_tab',
 			[
 				'label' => esc_html__( 'Hover', 'webbricks-addons' ),
 			]
@@ -585,13 +585,13 @@ class Slider extends Widget_Base {
 
 		// Slider Button Hover Color
 		$this->add_control(
-			'wb_slider_btn_hover_color',
+			'wbea_slider_btn_hover_color',
 			[
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border:hover' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .btn-border:hover svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -601,12 +601,12 @@ class Slider extends Widget_Base {
 
 		// Slider Button Hover Background
 		$this->add_control(
-			'wb_slider_btn_hover_bg',
+			'wbea_slider_btn_hover_bg',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border:hover:before' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover:before' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -616,12 +616,12 @@ class Slider extends Widget_Base {
 
 		// Slider Button Hover Border
 		$this->add_control(
-			'wb_slider_btn_hover_border',
+			'wbea_slider_btn_hover_border',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn-border:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-btn-border:hover' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -637,24 +637,24 @@ class Slider extends Widget_Base {
 
 		// Slider Dots
 		$this->start_controls_section(
-			'wb_slider_dots_style',
+			'wbea_slider_dots_style',
 			[
 				'label' => esc_html__( 'Dots', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_slider_dots' => 'yes'
+					'wbea_slider_dots' => 'yes'
 				],
 			]
 		);
 
 		// Slider Dots Color
 		$this->add_control(
-			'wb_slider_dots_color',
+			'wbea_slider_dots_color',
 			[
 				'label' => esc_html__( 'Inactive Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .sliders .owl-dots button' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-sliders .owl-dots button' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -664,12 +664,12 @@ class Slider extends Widget_Base {
 
 		// Slider Dots Active Color
 		$this->add_control(
-			'wb_testimonial_dots_active_color',
+			'wbea_testimonial_dots_active_color',
 			[
 				'label' => esc_html__( 'Active Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .sliders .owl-dots button.active' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-sliders .owl-dots button.active' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -681,23 +681,23 @@ class Slider extends Widget_Base {
 
 		// Slider Arrows
 		$this->start_controls_section(
-			'wb_slider_arrows_style',
+			'wbea_slider_arrows_style',
 			[
 				'label' => esc_html__( 'Arrows', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'wb_slider_arrows' => 'yes'
+					'wbea_slider_arrows' => 'yes'
 				],
 			]
 		);
 
 		$this->start_controls_tabs(
-			'wb_slider_arrows_style_tabs'
+			'wbea_slider_arrows_style_tabs'
 		);
 
 		// Slider Arrows Normal Tab
 		$this->start_controls_tab(
-			'wb_slider_arrows_normal_tab',
+			'wbea_slider_arrows_normal_tab',
 			[
 				'label' => esc_html__( 'Normal', 'webbricks-addons' ),
 			]
@@ -705,12 +705,12 @@ class Slider extends Widget_Base {
 
 		// Slider Arrows Normal Icon Color
 		$this->add_control(
-			'wb_slider_arrows_color',
+			'wbea_slider_arrows_color',
 			[
 				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .sliders .carousel-arrow-border svg path' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .wbea-sliders .wbea-carousel-arrow-border svg path' => 'fill: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -720,12 +720,12 @@ class Slider extends Widget_Base {
 
 		// Slider Arrows Normal Border Color
 		$this->add_control(
-			'wb_slider_arrows_border_color',
+			'wbea_slider_arrows_border_color',
 			[
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .sliders .carousel-arrow-border' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-sliders .wbea-carousel-arrow-border' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -737,7 +737,7 @@ class Slider extends Widget_Base {
 
 		// Slider Arrows Hover Tab
 		$this->start_controls_tab(
-			'wb_testimonials_arrows_hover_tab',
+			'wbea_testimonials_arrows_hover_tab',
 			[
 				'label' => esc_html__( 'Hover', 'webbricks-addons' ),
 			]
@@ -745,12 +745,12 @@ class Slider extends Widget_Base {
 
 		// Slider Button Hover Background
 		$this->add_control(
-			'wb_slider_arrows_hover_color',
+			'wbea_slider_arrows_hover_color',
 			[
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .sliders .carousel-arrow-border:after' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-sliders .wbea-carousel-arrow-border:after' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -777,53 +777,57 @@ class Slider extends Widget_Base {
 		$settings = $this->get_settings_for_display();        
 		
 		// Sanitize and escape settings values before using them.
-		$wb_sliders = isset($settings['wb_sliders']) ? $settings['wb_sliders'] : [];
-		$wb_slider_arrows = isset($settings['wb_slider_arrows']) ? (bool) $settings['wb_slider_arrows'] : false;
-		$wb_slider_dots = isset($settings['wb_slider_dots']) ? (bool) $settings['wb_slider_dots'] : false;
-		$wb_slider_loops = isset($settings['wb_slider_loops']) ? (bool) $settings['wb_slider_loops'] : false;
-		$wb_slider_autoplay = isset($settings['wb_slider_autoplay']) ? (bool) $settings['wb_slider_autoplay'] : false;
-		$wb_slider_autoplay_speed = isset($settings['wb_slider_autoplay_speed']) ? intval($settings['wb_slider_autoplay_speed']) : 3000;
-		$wb_slider_animation_speed = isset($settings['wb_slider_animation_speed']) ? intval($settings['wb_slider_animation_speed']) : 500;
+		$wbea_sliders = isset($settings['wbea_sliders']) ? $settings['wbea_sliders'] : [];
+		$wbea_slider_arrows = isset($settings['wbea_slider_arrows']) ? (bool) $settings['wbea_slider_arrows'] : false;
+		$wbea_slider_dots = isset($settings['wbea_slider_dots']) ? (bool) $settings['wbea_slider_dots'] : false;
+		$wbea_slider_loops = isset($settings['wbea_slider_loops']) ? (bool) $settings['wbea_slider_loops'] : false;
+		$wbea_slider_autoplay = isset($settings['wbea_slider_autoplay']) ? (bool) $settings['wbea_slider_autoplay'] : false;
+		$wbea_slider_autoplay_speed = isset($settings['wbea_slider_autoplay_speed']) ? intval($settings['wbea_slider_autoplay_speed']) : 3000;
+		$wbea_slider_animation_speed = isset($settings['wbea_slider_animation_speed']) ? intval($settings['wbea_slider_animation_speed']) : 500;
 	
 		?>
 		<!-- Slider Start Here -->  
 		<div class="sliders owl-carousel" 
-			 data-slider-arrows="<?php echo esc_attr($wb_slider_arrows ? 'true' : 'false'); ?>" 
-			 data-slider-dots="<?php echo esc_attr($wb_slider_dots ? 'true' : 'false'); ?>" 
-			 data-slider-loop="<?php echo esc_attr($wb_slider_loops ? 'true' : 'false'); ?>" 
-			 data-slider-autoplay="<?php echo esc_attr($wb_slider_autoplay ? 'true' : 'false'); ?>" 
-			 data-slider-autoplaytimeout="<?php echo esc_attr($wb_slider_animation_speed); ?>" 
-			 data-slider-autoplayspeed="<?php echo esc_attr($wb_slider_autoplay_speed); ?>">
+			 data-slider-arrows="<?php echo esc_attr($wbea_slider_arrows ? 'true' : 'false'); ?>" 
+			 data-slider-dots="<?php echo esc_attr($wbea_slider_dots ? 'true' : 'false'); ?>" 
+			 data-slider-loop="<?php echo esc_attr($wbea_slider_loops ? 'true' : 'false'); ?>" 
+			 data-slider-autoplay="<?php echo esc_attr($wbea_slider_autoplay ? 'true' : 'false'); ?>" 
+			 data-slider-autoplaytimeout="<?php echo esc_attr($wbea_slider_animation_speed); ?>" 
+			 data-slider-autoplayspeed="<?php echo esc_attr($wbea_slider_autoplay_speed); ?>">
 		<?php 
-			if($wb_sliders) {
-				foreach($wb_sliders as $slide) {
+			if($wbea_sliders) {
+				foreach($wbea_sliders as $slide) {
 					// Ensure each field is sanitized/escaped properly
-					$wb_slider_image = isset($slide['wb_slider_image']['url']) ? esc_url($slide['wb_slider_image']['url']) : '';
-					$wb_slider_subtitle = isset($slide['wb_slider_subtitle']) ? esc_html($slide['wb_slider_subtitle']) : '';
-					$wb_slider_title = isset($slide['wb_slider_title']) ? esc_html($slide['wb_slider_title']) : '';
-					$wb_slider_desc = isset($slide['wb_slider_desc']) ? wp_kses_post($slide['wb_slider_desc']) : '';
-					$wb_slider_btn_title = isset($slide['wb_slider_btn_title']) ? esc_html($slide['wb_slider_btn_title']) : '';
-					$wb_slider_btn_link = isset($slide['wb_slider_btn_link']['url']) ? esc_url($slide['wb_slider_btn_link']['url']) : '';
+					$wbea_slider_image = isset($slide['wbea_slider_image']['url']) ? esc_url($slide['wbea_slider_image']['url']) : '';
+					$wbea_slider_subtitle = isset($slide['wbea_slider_subtitle']) ? esc_html($slide['wbea_slider_subtitle']) : '';
+					$wbea_slider_title = isset($slide['wbea_slider_title']) ? esc_html($slide['wbea_slider_title']) : '';
+					$wbea_slider_desc = isset($slide['wbea_slider_desc']) ? wp_kses_post($slide['wbea_slider_desc']) : '';
+					$wbea_slider_btn_title = isset($slide['wbea_slider_btn_title']) ? esc_html($slide['wbea_slider_btn_title']) : '';
+					$wbea_slider_btn_link = isset($slide['wbea_slider_btn_link']['url']) ? esc_url($slide['wbea_slider_btn_link']['url']) : '';
+
+					// Check if the link should open in a new tab or have a nofollow
+					$target = !empty($slide['wbea_slider_btn_link']['is_external']) ? 'target="_blank"' : '';
+					$nofollow = !empty($slide['wbea_slider_btn_link']['nofollow']) ? 'rel="nofollow"' : '';
 					?>
-					<div class="single-slide" style="background-image: url('<?php echo esc_url($wb_slider_image); ?>');">
-						<div class="slide-content">
+					<div class="wbea-single-slide" style="background-image: url('<?php echo esc_url($wbea_slider_image); ?>');">
+						<div class="wbea-slide-content">
 							<?php 
-								if($wb_slider_subtitle) {
-									echo '<span>' . esc_html($wb_slider_subtitle) . '</span>';
+								if($wbea_slider_subtitle) {
+									echo '<span>' . esc_html($wbea_slider_subtitle) . '</span>';
 								}
 							?>
-							<h2><?php echo esc_html($wb_slider_title); ?></h2>
+							<h2><?php echo esc_html($wbea_slider_title); ?></h2>
 							
 							<?php 
-								if($wb_slider_desc) {
-									echo '<p>' . wp_kses_post($wb_slider_desc) . '</p>';
+								if($wbea_slider_desc) {
+									echo '<p>' . wp_kses_post($wbea_slider_desc) . '</p>';
 								}
 								
-								if($wb_slider_btn_link) {
-									echo '<a href="' . esc_url($wb_slider_btn_link) . '" class="btn-border">';
-									echo esc_html($wb_slider_btn_title);
+								if($wbea_slider_btn_link) {
+									echo '<a href="' . esc_url($wbea_slider_btn_link) . '" class="wbea-btn-border" ' . $target . ' ' . $nofollow . '>';
+									echo esc_html($wbea_slider_btn_title);
 									echo '<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
+										<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
 										</svg>';
 									echo '</a>';
 								}

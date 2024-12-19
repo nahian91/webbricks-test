@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: Web Bricks Addons
+ * Plugin Name: Web Bricks Addons for Elementor: Elite-Designed Elementor & eCommerce Widgets
  * Plugin URI: https://getwebbricks.com/about-us
  * Description: Web Bricks is a powerful tool with 25+ free add-ons that makes it easy for anyone to create stunning and professional-looking websites, regardless of skill level.
  * Version: 1.1.11
