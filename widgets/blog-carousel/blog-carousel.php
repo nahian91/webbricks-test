@@ -9,7 +9,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Blog_Carousel extends Widget_Base {
+class WBEA_Blog_Carousel extends Widget_Base {
 
 	/**
 	 * Get widget name.

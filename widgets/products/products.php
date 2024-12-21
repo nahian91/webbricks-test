@@ -10,7 +10,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Products extends Widget_Base {
+class WBEA_Products extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -436,7 +436,7 @@ class Products extends Widget_Base {
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-price-bottom p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-bottom p span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -449,7 +449,7 @@ class Products extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'wp_product_meta_typography',
-				'selector' => '{{WRAPPER}} .wbea-price-bottom p',
+				'selector' => '{{WRAPPER}} .wbea-price-bottom p span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -473,7 +473,7 @@ class Products extends Widget_Base {
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-single-product span.sale' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-product span.wbea-sale' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -488,7 +488,7 @@ class Products extends Widget_Base {
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-single-product span.sale' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-product span.wbea-sale' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -501,7 +501,7 @@ class Products extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'wp_product_meta_sale_typography',
-				'selector' => '{{WRAPPER}} .wbea-single-product span.sale',
+				'selector' => '{{WRAPPER}} .wbea-single-product span.wbea-sale',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -523,7 +523,7 @@ class Products extends Widget_Base {
 					'unit' => 'px',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-single-product span.sale' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-single-product span.wbea-sale' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -699,10 +699,10 @@ class Products extends Widget_Base {
 					<div class="<?php echo esc_attr($this->get_grid_classes($settings)); ?> wb-grid-tablet-6 wb-grid-mobile-12">
 						<div class="wbea-single-product">
 							<?php if ($sale) : ?>
-								<span class="sale"><?php echo esc_html__('Sale', 'webbricks-addons'); ?></span>
+								<span class="wbea-sale"><?php echo esc_html__('Sale', 'webbricks-addons'); ?></span>
 							<?php endif; ?>
 							<div class="wbea-product-img" style="background-image:url('<?php echo esc_url($thumbnail_url); ?>')"></div>
-							<<?php echo esc_html($wp_product_title_tag); ?> class="product-title">
+							<<?php echo esc_html($wp_product_title_tag); ?> class="wbea-product-title">
 								<a href="<?php echo esc_url(get_permalink()); ?>"><?php echo esc_html(get_the_title()); ?></a>
 							</<?php echo esc_html($wp_product_title_tag); ?>>
 							<div class="wbea-price-bottom">

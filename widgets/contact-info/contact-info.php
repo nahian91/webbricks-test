@@ -10,7 +10,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Contact_Info extends Widget_Base {
+class WBEA_Contact_Info extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -820,7 +820,7 @@ class Contact_Info extends Widget_Base {
 	
 		?>
 		<!-- Contact Info Start Here -->          
-		<div class="contact-info">
+		<div class="wbea-contact-info">
 	
 			<?php if ($wbea_contact_info_show_heading === 'yes') : ?>
 				<<?php echo esc_attr($wbea_contact_info_heading_tag); ?> class="wbea-contact-info-heading">
@@ -867,7 +867,7 @@ class Contact_Info extends Widget_Base {
 						?>
 						<div class="wbea-single-contact-info-follows">
 							<i aria-hidden="true" class="<?php echo esc_attr($wbea_contact_info_socials_list_icon); ?>" style="color: <?php echo esc_attr($wbea_contact_info_socials_list_icon_color); ?>"></i>
-							<a href="<?php echo esc_url($wbea_contact_info_socials_list_link['url']); ?>" <?php echo $target . ' ' . $nofollow; ?>>
+							<a href="<?php echo esc_url($wbea_contact_info_socials_list_link['url']); ?>" <?php echo esc_attr($target); ?> <?php echo esc_attr($nofollow); ?>>
 								<?php echo esc_html($wbea_contact_info_socials_list_name); ?>
 							</a>
 						</div>

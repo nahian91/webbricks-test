@@ -11,7 +11,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Products_Category_Carousel extends Widget_Base {
+class WBEA_Products_Category_Carousel extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -772,7 +772,7 @@ class Products_Category_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'wbea_product_categories_count_typography',
-				'selector' => '{{WRAPPER}} .product-category-content span',
+				'selector' => '{{WRAPPER}} .wbea-product-category-content span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				]

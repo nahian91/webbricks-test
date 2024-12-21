@@ -10,7 +10,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Faqs extends Widget_Base {
+class WBEA_Faqs extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -310,7 +310,7 @@ class Faqs extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'wbea_faq_desc_typography',
-				'selector' => '{{WRAPPER}} .faq li, {{WRAPPER}} .faq li p, {{WRAPPER}} .wbea-faq li ul, {{WRAPPER}} .wbea-faq li ol',
+				'selector' => '{{WRAPPER}} .wbea-faq li, {{WRAPPER}} .wbea-faq li p, {{WRAPPER}} .wbea-faq li ul, {{WRAPPER}} .wbea-faq li ol',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				]
@@ -384,11 +384,12 @@ class Faqs extends Widget_Base {
 					// Sanitize and escape data at the point of output
 					$faq_title = isset($list['wbea_faq_title']) ? esc_html($list['wbea_faq_title']) : '';
 					$faq_content = isset($list['wbea_faq_content']) ? wp_kses_post($list['wbea_faq_content']) : ''; // Allow certain HTML in content
-	
 					?>
 					<li>
-						<h4><?php echo esc_html($faq_title); ?></h4> <!-- Title as a heading for better structure -->
-						<p><?php echo esc_html($faq_content); ?></p>
+						<!-- Wrap the FAQ title in a span for the JavaScript to work -->
+						<h4><span><?php echo esc_html($faq_title); ?></span></h4>
+						<!-- The content will be hidden by default, controlled by the JavaScript -->
+						<p style="display:none;"><?php echo esc_html($faq_content); ?></p>
 					</li>
 					<?php
 				}

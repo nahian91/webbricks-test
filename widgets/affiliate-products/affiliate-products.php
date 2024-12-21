@@ -11,7 +11,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Affiliate_Products extends Widget_Base {
+class WBEA_Affiliate_Products extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -350,7 +350,7 @@ class Affiliate_Products extends Widget_Base {
 				'label' => esc_html__( 'Choose Product Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/affiliate-1.webp',
+					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-1-web-bricks.webp',
 				],
 			]
 		);
@@ -378,32 +378,32 @@ class Affiliate_Products extends Widget_Base {
 				'default' => [
 					[
 						'wbea_affiliate_image' => [
-							'url' => plugins_url( 'assets/img/affiliate-1.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-1-web-bricks.webp',
 						],
 					],
 					[
 						'wbea_affiliate_image' => [
-							'url' => plugins_url( 'assets/img/affiliate-2.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-2-web-bricks.webp',
 						],
 					],
 					[
 						'wbea_affiliate_image' => [
-							'url' => plugins_url( 'assets/img/affiliate-3.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-3-web-bricks.webp',
 						],
 					],
 					[
 						'wbea_affiliate_image' => [
-							'url' => plugins_url( 'assets/img/affiliate-4.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-4-web-bricks.webp',
 						],
 					],
 					[
 						'wbea_affiliate_image' => [
-							'url' => plugins_url( 'assets/img/affiliate-5.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-5-web-bricks.webp',
 						],
 					],
 					[
 						'wbea_affiliate_image' => [
-							'url' => plugins_url( 'assets/img/affiliate-6.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-6-web-bricks.webp',
 						],
 					],
 
@@ -1064,7 +1064,7 @@ class Affiliate_Products extends Widget_Base {
 						$target = !empty($settings['wbea_affliate_btn_link']['is_external']) ? 'target="_blank"' : '';
 						$nofollow = !empty($settings['wbea_affliate_btn_link']['nofollow']) ? 'rel="nofollow"' : '';
 					?>
-					<a href="<?php echo esc_url($wbea_affliate_btn_link); ?>" class="btn-border wbea-affiliate-btn" <?php echo $target . ' ' . $nofollow; ?>>
+					<a href="<?php echo esc_url($wbea_affliate_btn_link); ?>" class="wbea-btn-border wbea-affiliate-btn" <?php echo esc_attr($target); ?> <?php echo esc_attr($nofollow); ?>>
 						<?php echo esc_html($wbea_affliate_btn_txt); ?>
 						<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z" fill="var(--e-global-color-accent)"></path>
@@ -1092,7 +1092,7 @@ class Affiliate_Products extends Widget_Base {
 										$target = !empty($settings['wbea_affiliate_link']['is_external']) ? 'target="_blank"' : '';
 										$nofollow = !empty($settings['wbea_affiliate_link']['nofollow']) ? 'rel="nofollow"' : '';
 									?>
-									<a href="<?php echo esc_url($list_link); ?>" class="wbea-icon-border" <?php echo $target . ' ' . $nofollow; ?>>
+									<a href="<?php echo esc_url($list_link); ?>" class="wbea-icon-border" <?php echo esc_attr($target); ?> <?php echo esc_attr($nofollow); ?>>
 										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M9 1.5C9 0.902344 9.49219 0.375 10.125 0.375H14.5898C14.7656 0.375 14.9062 0.410156 15.0469 0.480469C15.1523 0.515625 15.293 0.621094 15.3984 0.726562C15.6094 0.9375 15.7148 1.21875 15.75 1.5V6C15.75 6.63281 15.2227 7.125 14.625 7.125C13.9922 7.125 13.5 6.63281 13.5 6V4.24219L7.52344 10.1836C7.10156 10.6406 6.36328 10.6406 5.94141 10.1836C5.48438 9.76172 5.48438 9.02344 5.94141 8.60156L11.8828 2.625H10.125C9.49219 2.625 9 2.13281 9 1.5ZM0 3.75C0 2.51953 0.984375 1.5 2.25 1.5H5.625C6.22266 1.5 6.75 2.02734 6.75 2.625C6.75 3.25781 6.22266 3.75 5.625 3.75H2.25V13.875H12.375V10.5C12.375 9.90234 12.8672 9.375 13.5 9.375C14.0977 9.375 14.625 9.90234 14.625 10.5V13.875C14.625 15.1406 13.6055 16.125 12.375 16.125H2.25C0.984375 16.125 0 15.1406 0 13.875V3.75Z" fill="var(--e-global-color-primary)"></path>
 										</svg>

@@ -3,21 +3,21 @@ jQuery(window).on('elementor/frontend/init', function () {
 
     // About Widget Counter
     elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-about-widget.default', function ($scope, $) {
-        $scope.find('.about-counter-js').counterUp({
+        $scope.find('.wbea-about-counter-js').counterUp({
             delay: 10,
             time: 2000
         });
     });
 
     elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-blog-carousel-widget.default', function ($scope, $) {
-        var blog_carousel = $scope.find('.blog-carousel');
-        var blog_items = blog_carousel.attr('blog-items');
-        var blog_arrows = blog_carousel.attr('blog-arrows');
-        var blog_loops = blog_carousel.attr('blog-loops');
-        var blog_pause = blog_carousel.attr('blog-pause');
-        var blog_autoplay = blog_carousel.attr('blog-autoplay');
-        var blog_autoplay_speed = blog_carousel.attr('blog-autoplay-speed');
-        var blog_autoplay_animation = blog_carousel.attr('blog-autoplay-animation');
+        var blog_carousel = $scope.find('.wbea-blog-carousel');
+        var blog_items = blog_carousel.attr('wbea-blog-items');
+        var blog_arrows = blog_carousel.attr('wbea-blog-arrows');
+        var blog_loops = blog_carousel.attr('wbea-blog-loops');
+        var blog_pause = blog_carousel.attr('wbea-blog-pause');
+        var blog_autoplay = blog_carousel.attr('wbea-blog-autoplay');
+        var blog_autoplay_speed = blog_carousel.attr('wbea-blog-autoplay-speed');
+        var blog_autoplay_animation = blog_carousel.attr('wbea-blog-autoplay-animation');
     
         // Initialize Owl Carousel for Blog Carousel
         blog_carousel.owlCarousel({
@@ -31,8 +31,8 @@ jQuery(window).on('elementor/frontend/init', function () {
             autoplayHoverPause: blog_pause,
             items: blog_items,
             navText: [
-                "<div class='carousel-arrow-border'><svg width='17' height='14' viewBox='0 0 17 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M16.7148 7.25C16.7148 7.88281 16.2227 8.375 15.625 8.375H4.83203L8.52344 12.1016C8.98047 12.5234 8.98047 13.2617 8.52344 13.6836C8.3125 13.8945 8.03125 14 7.75 14C7.43359 14 7.15234 13.8945 6.94141 13.6836L1.31641 8.05859C0.859375 7.63672 0.859375 6.89844 1.31641 6.47656L6.94141 0.851562C7.36328 0.394531 8.10156 0.394531 8.52344 0.851562C8.98047 1.27344 8.98047 2.01172 8.52344 2.43359L4.83203 6.125H15.625C16.2227 6.125 16.7148 6.65234 16.7148 7.25Z' fill='#111'/></svg></div>",
-                "<div class='carousel-arrow-border'><svg width='16' height='14' viewBox='0 0 16 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z' fill='#111'/></svg></div>"
+                "<div class='wbea-carousel-arrow-border'><svg width='17' height='14' viewBox='0 0 17 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M16.7148 7.25C16.7148 7.88281 16.2227 8.375 15.625 8.375H4.83203L8.52344 12.1016C8.98047 12.5234 8.98047 13.2617 8.52344 13.6836C8.3125 13.8945 8.03125 14 7.75 14C7.43359 14 7.15234 13.8945 6.94141 13.6836L1.31641 8.05859C0.859375 7.63672 0.859375 6.89844 1.31641 6.47656L6.94141 0.851562C7.36328 0.394531 8.10156 0.394531 8.52344 0.851562C8.98047 1.27344 8.98047 2.01172 8.52344 2.43359L4.83203 6.125H15.625C16.2227 6.125 16.7148 6.65234 16.7148 7.25Z' fill='#111'/></svg></div>",
+                "<div class='wbea-carousel-arrow-border'><svg width='16' height='14' viewBox='0 0 16 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z' fill='#111'/></svg></div>"
             ], 
             responsive: {
                 0: {
@@ -73,47 +73,48 @@ jQuery(window).on('elementor/frontend/init', function () {
 
     // Counter Widget
     elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-counter-widget.default', function ($scope, $) {
-        $scope.find('.counter').counterUp({
+        $scope.find('.wbea-counter').counterUp({
             delay: 10,
             time: 2000
         });
     });
 
     // FAQ Widget
-    elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-faq-widget.default', function ($scope, $) {
-        // Initial setup for FAQ
-        $('.faq > li:eq(0) span').addClass('active').next().slideDown();
+elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-faq-widget.default', function ($scope, $) {
+    // Initial setup for FAQ
+    $('.wbea-faq > li:eq(0) span').addClass('active').next().slideDown();
 
-        // Handle click on FAQ items
-        $('.faq span').click(function (j) {
-            var dropDown = $(this).closest('li').find('p');
+    // Handle click on FAQ items
+    $('.wbea-faq span').click(function (j) {
+        var dropDown = $(this).closest('li').find('p');
 
-            // Close other FAQ items
-            $(this).closest('.faq').find('p').not(dropDown).slideUp();
+        // Close other FAQ items
+        $(this).closest('.wbea-faq').find('p').not(dropDown).slideUp();
 
-            if ($(this).hasClass('active')) {
-                $(this).removeClass('active');
-            } else {
-                // Toggle active class
-                $(this).closest('.faq').find('span.active').removeClass('active');
-                $(this).addClass('active');
-            }
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+        } else {
+            // Toggle active class
+            $(this).closest('.wbea-faq').find('span.active').removeClass('active');
+            $(this).addClass('active');
+        }
 
-            // Toggle dropdown
-            dropDown.stop(false, true).slideToggle();
-            j.preventDefault();
-        });
+        // Toggle dropdown
+        dropDown.stop(false, true).slideToggle();
+        j.preventDefault();
     });
+});
+
 
     // Testimonial Widget
     elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-testimonial-widget.default', function ($scope, $) {
-        var testimonial_widget = $scope.find('.testimonials');
-        var testimonial_dots = testimonial_widget.attr('testimonial-dots');
-        var testimonial_loops = testimonial_widget.attr('testimonial-loops');
-        var testimonial_autoplay = testimonial_widget.attr('testimonial-autoplay');
-        var testimonial_pause = testimonial_widget.attr('testimonial-pause');
-        var testimonial_autoplay_speed = testimonial_widget.attr('testimonial-autoplay-speed');
-        var testimonial_autoplay_animation = testimonial_widget.attr('testimonial-autoplay-animation');
+        var testimonial_widget = $scope.find('.wbea-testimonials');
+        var testimonial_dots = testimonial_widget.attr('wbea-testimonial-dots');
+        var testimonial_loops = testimonial_widget.attr('wbea-testimonial-loops');
+        var testimonial_autoplay = testimonial_widget.attr('wbea-testimonial-autoplay');
+        var testimonial_pause = testimonial_widget.attr('wbea-testimonial-pause');
+        var testimonial_autoplay_speed = testimonial_widget.attr('wbea-testimonial-autoplay-speed');
+        var testimonial_autoplay_animation = testimonial_widget.attr('wbea-testimonial-autoplay-animation');
 
         // Initialize Owl Carousel for Testimonial Widget
         testimonial_widget.owlCarousel({
@@ -126,8 +127,8 @@ jQuery(window).on('elementor/frontend/init', function () {
             loop: testimonial_loops,
             items: 1,
             navText: [
-                "<div class='testimonial-arrow testimonial-arrow-left'><svg width='17' height='14' viewBox='0 0 17 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M16.7148 7.25C16.7148 7.88281 16.2227 8.375 15.625 8.375H4.83203L8.52344 12.1016C8.98047 12.5234 8.98047 13.2617 8.52344 13.6836C8.3125 13.8945 8.03125 14 7.75 14C7.43359 14 7.15234 13.8945 6.94141 13.6836L1.31641 8.05859C0.859375 7.63672 0.859375 6.89844 1.31641 6.47656L6.94141 0.851562C7.36328 0.394531 8.10156 0.394531 8.52344 0.851562C8.98047 1.27344 8.98047 2.01172 8.52344 2.43359L4.83203 6.125H15.625C16.2227 6.125 16.7148 6.65234 16.7148 7.25Z' fill='#111'/></svg></div>",
-                "<div class='testimonial-arrow testimonial-arrow-right'><svg width='16' height='14' viewBox='0 0 16 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z' fill='#111'/></svg></div>"
+                "<div class='wbea-testimonial-arrow wbea-testimonial-arrow-left'><svg width='17' height='14' viewBox='0 0 17 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M16.7148 7.25C16.7148 7.88281 16.2227 8.375 15.625 8.375H4.83203L8.52344 12.1016C8.98047 12.5234 8.98047 13.2617 8.52344 13.6836C8.3125 13.8945 8.03125 14 7.75 14C7.43359 14 7.15234 13.8945 6.94141 13.6836L1.31641 8.05859C0.859375 7.63672 0.859375 6.89844 1.31641 6.47656L6.94141 0.851562C7.36328 0.394531 8.10156 0.394531 8.52344 0.851562C8.98047 1.27344 8.98047 2.01172 8.52344 2.43359L4.83203 6.125H15.625C16.2227 6.125 16.7148 6.65234 16.7148 7.25Z' fill='#111'/></svg></div>",
+                "<div class='wbea-testimonial-arrow wbea-testimonial-arrow-right'><svg width='16' height='14' viewBox='0 0 16 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z' fill='#111'/></svg></div>"
             ], 
             margin: 30,
             responsive: {
@@ -149,14 +150,14 @@ jQuery(window).on('elementor/frontend/init', function () {
 
     // Team Carousel Widget
     elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-team-carousel-widget.default', function ($scope, $) {
-        var team_carousel = $scope.find('.team-carousel');
-        var team_items = team_carousel.attr('team-items');
-        var team_arrows = team_carousel.attr('team-arrows');
-        var team_loops = team_carousel.attr('team-loops');
-        var team_pause = team_carousel.attr('team-pause');
-        var team_autoplay = team_carousel.attr('team-autoplay');
-        var team_autoplay_speed = team_carousel.attr('team-autoplay-speed');
-        var team_autoplay_animation = team_carousel.attr('team-autoplay-animation');
+        var team_carousel = $scope.find('.wbea-team-carousel');
+        var team_items = team_carousel.attr('wbea-team-items');
+        var team_arrows = team_carousel.attr('wbea-team-arrows');
+        var team_loops = team_carousel.attr('wbea-team-loops');
+        var team_pause = team_carousel.attr('wbea-team-pause');
+        var team_autoplay = team_carousel.attr('wbea-team-autoplay');
+        var team_autoplay_speed = team_carousel.attr('wbea-team-autoplay-speed');
+        var team_autoplay_animation = team_carousel.attr('wbea-team-autoplay-animation');
 
         // Initialize Owl Carousel for Team Carousel
         team_carousel.owlCarousel({
@@ -169,8 +170,8 @@ jQuery(window).on('elementor/frontend/init', function () {
             autoplayHoverPause: team_pause,
             loop: team_loops,
             navText: [
-                "<div class='carousel-arrow-border'><svg width='17' height='14' viewBox='0 0 17 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M16.7148 7.25C16.7148 7.88281 16.2227 8.375 15.625 8.375H4.83203L8.52344 12.1016C8.98047 12.5234 8.98047 13.2617 8.52344 13.6836C8.3125 13.8945 8.03125 14 7.75 14C7.43359 14 7.15234 13.8945 6.94141 13.6836L1.31641 8.05859C0.859375 7.63672 0.859375 6.89844 1.31641 6.47656L6.94141 0.851562C7.36328 0.394531 8.10156 0.394531 8.52344 0.851562C8.98047 1.27344 8.98047 2.01172 8.52344 2.43359L4.83203 6.125H15.625C16.2227 6.125 16.7148 6.65234 16.7148 7.25Z' fill='#111'/></svg></div>",
-                "<div class='carousel-arrow-border'><svg width='16' height='14' viewBox='0 0 16 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z' fill='#111'/></svg></div>"
+                "<div class='wbea-carousel-arrow-border'><svg width='17' height='14' viewBox='0 0 17 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M16.7148 7.25C16.7148 7.88281 16.2227 8.375 15.625 8.375H4.83203L8.52344 12.1016C8.98047 12.5234 8.98047 13.2617 8.52344 13.6836C8.3125 13.8945 8.03125 14 7.75 14C7.43359 14 7.15234 13.8945 6.94141 13.6836L1.31641 8.05859C0.859375 7.63672 0.859375 6.89844 1.31641 6.47656L6.94141 0.851562C7.36328 0.394531 8.10156 0.394531 8.52344 0.851562C8.98047 1.27344 8.98047 2.01172 8.52344 2.43359L4.83203 6.125H15.625C16.2227 6.125 16.7148 6.65234 16.7148 7.25Z' fill='#111'/></svg></div>",
+                "<div class='wbea-carousel-arrow-border'><svg width='16' height='14' viewBox='0 0 16 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z' fill='#111'/></svg></div>"
             ], 
             responsive: {
                 0: {
@@ -192,13 +193,13 @@ jQuery(window).on('elementor/frontend/init', function () {
 
     // Slider Widget
     elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-slider-widget.default', function ($scope, $) {
-        var slider_widget = $scope.find('.sliders');
-        var slider_arrows = slider_widget.attr('slider-arrows');
-        var slider_dots = slider_widget.attr('slider-dots');
-        var slider_loops = slider_widget.attr('slider-loop');
-        var slider_autoplay = slider_widget.attr('slider-autoplay');
-        var slider_autoplaytimeout = slider_widget.attr('slider-autoplaytimeout');
-        var slider_autoplayspeed = slider_widget.attr('slider-autoplayspeed');
+        var slider_widget = $scope.find('.wbea-sliders');
+        var slider_arrows = slider_widget.attr('wbea-slider-arrows');
+        var slider_dots = slider_widget.attr('wbea-slider-dots');
+        var slider_loops = slider_widget.attr('wbea-slider-loop');
+        var slider_autoplay = slider_widget.attr('wbea-slider-autoplay');
+        var slider_autoplaytimeout = slider_widget.attr('wbea-slider-autoplaytimeout');
+        var slider_autoplayspeed = slider_widget.attr('wbea-slider-autoplayspeed');
 
         // Initialize Owl Carousel for Slider Widget
         slider_widget.owlCarousel({
@@ -212,22 +213,22 @@ jQuery(window).on('elementor/frontend/init', function () {
             margin: 32,
             autoplayHoverPause: true,
             navText: [
-                "<div class='carousel-arrow-border'><svg width='17' height='14' viewBox='0 0 17 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M16.7148 7.25C16.7148 7.88281 16.2227 8.375 15.625 8.375H4.83203L8.52344 12.1016C8.98047 12.5234 8.98047 13.2617 8.52344 13.6836C8.3125 13.8945 8.03125 14 7.75 14C7.43359 14 7.15234 13.8945 6.94141 13.6836L1.31641 8.05859C0.859375 7.63672 0.859375 6.89844 1.31641 6.47656L6.94141 0.851562C7.36328 0.394531 8.10156 0.394531 8.52344 0.851562C8.98047 1.27344 8.98047 2.01172 8.52344 2.43359L4.83203 6.125H15.625C16.2227 6.125 16.7148 6.65234 16.7148 7.25Z' fill='#111'/></svg></div>",
-                "<div class='carousel-arrow-border'><svg width='16' height='14' viewBox='0 0 16 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z' fill='#111'/></svg></div>"
+                "<div class='wbea-carousel-arrow-border'><svg width='17' height='14' viewBox='0 0 17 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M16.7148 7.25C16.7148 7.88281 16.2227 8.375 15.625 8.375H4.83203L8.52344 12.1016C8.98047 12.5234 8.98047 13.2617 8.52344 13.6836C8.3125 13.8945 8.03125 14 7.75 14C7.43359 14 7.15234 13.8945 6.94141 13.6836L1.31641 8.05859C0.859375 7.63672 0.859375 6.89844 1.31641 6.47656L6.94141 0.851562C7.36328 0.394531 8.10156 0.394531 8.52344 0.851562C8.98047 1.27344 8.98047 2.01172 8.52344 2.43359L4.83203 6.125H15.625C16.2227 6.125 16.7148 6.65234 16.7148 7.25Z' fill='#111'/></svg></div>",
+                "<div class='wbea-carousel-arrow-border'><svg width='16' height='14' viewBox='0 0 16 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z' fill='#111'/></svg></div>"
             ], 
         });
     });
 
     // Services Widget
     elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-services-widget.default', function ($scope, $) {
-        var service_widget = $scope.find('.services');
-        var services_scroll = service_widget.attr('services-scroll');
-        var services_loop = service_widget.attr('services-loop');
-        var services_autoplay = service_widget.attr('services-autoplay');
-        var services_arrows = service_widget.attr('services-arrows');
-        var services_pause = service_widget.attr('services-pause');
-        var services_autoplay_speed = service_widget.attr('services-autoplay-speed');
-        var services_autoplay_animation = service_widget.attr('services-autoplay-animation');
+        var service_widget = $scope.find('.wbea-services');
+        var services_scroll = service_widget.attr('wbea-services-scroll');
+        var services_loop = service_widget.attr('wbea-services-loop');
+        var services_autoplay = service_widget.attr('wbea-services-autoplay');
+        var services_arrows = service_widget.attr('wbea-services-arrows');
+        var services_pause = service_widget.attr('wbea-services-pause');
+        var services_autoplay_speed = service_widget.attr('wbea-services-autoplay-speed');
+        var services_autoplay_animation = service_widget.attr('wbea-services-autoplay-animation');
 
         // Initialize Owl Carousel for Services Widget
         service_widget.owlCarousel({
@@ -240,8 +241,8 @@ jQuery(window).on('elementor/frontend/init', function () {
             autoHeight: true,
             autoplayTimeout: services_autoplay_animation,
             navText: [
-                "<div class='carousel-arrow-border'><svg width='17' height='14' viewBox='0 0 17 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M16.7148 7.25C16.7148 7.88281 16.2227 8.375 15.625 8.375H4.83203L8.52344 12.1016C8.98047 12.5234 8.98047 13.2617 8.52344 13.6836C8.3125 13.8945 8.03125 14 7.75 14C7.43359 14 7.15234 13.8945 6.94141 13.6836L1.31641 8.05859C0.859375 7.63672 0.859375 6.89844 1.31641 6.47656L6.94141 0.851562C7.36328 0.394531 8.10156 0.394531 8.52344 0.851562C8.98047 1.27344 8.98047 2.01172 8.52344 2.43359L4.83203 6.125H15.625C16.2227 6.125 16.7148 6.65234 16.7148 7.25Z' fill='#111'/></svg></div>",
-                "<div class='carousel-arrow-border'><svg width='16' height='14' viewBox='0 0 16 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z' fill='#111'/></svg></div>"
+                "<div class='wbea-carousel-arrow-border'><svg width='17' height='14' viewBox='0 0 17 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M16.7148 7.25C16.7148 7.88281 16.2227 8.375 15.625 8.375H4.83203L8.52344 12.1016C8.98047 12.5234 8.98047 13.2617 8.52344 13.6836C8.3125 13.8945 8.03125 14 7.75 14C7.43359 14 7.15234 13.8945 6.94141 13.6836L1.31641 8.05859C0.859375 7.63672 0.859375 6.89844 1.31641 6.47656L6.94141 0.851562C7.36328 0.394531 8.10156 0.394531 8.52344 0.851562C8.98047 1.27344 8.98047 2.01172 8.52344 2.43359L4.83203 6.125H15.625C16.2227 6.125 16.7148 6.65234 16.7148 7.25Z' fill='#111'/></svg></div>",
+                "<div class='wbea-carousel-arrow-border'><svg width='16' height='14' viewBox='0 0 16 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M15.3984 8.05859L9.77344 13.6836C9.5625 13.8945 9.28125 14 9 14C8.68359 14 8.40234 13.8945 8.19141 13.6836C7.73438 13.2617 7.73438 12.5234 8.19141 12.1016L11.8828 8.375H1.125C0.492188 8.375 0 7.88281 0 7.25C0 6.65234 0.492188 6.125 1.125 6.125H11.8828L8.19141 2.43359C7.73438 2.01172 7.73438 1.27344 8.19141 0.851562C8.61328 0.394531 9.35156 0.394531 9.77344 0.851562L15.3984 6.47656C15.8555 6.89844 15.8555 7.63672 15.3984 8.05859Z' fill='#111'/></svg></div>"
             ], 
             onInitialized: setOwlItemHeight,
             onChanged: setOwlItemHeight,
@@ -409,64 +410,59 @@ jQuery(window).on('elementor/frontend/init', function () {
                 $product.outerHeight(rowHeights[productTop]);
             });
         }
-    });
-    
+    });   
 
 
     // Filter Gallery Widget
-    elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-filter-gallery-widget.default', function ($scope, $) {
-        function equalizeImageHeights() {
-            var maxHeight = 0;
+elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-filter-gallery-widget.default', function ($scope, $) {
+    function equalizeImageHeights() {
+        var maxHeight = 0;
 
-            $(".grid-active .single-filter-gallery img").each(function() {
-                $(this).height('auto'); // Reset height to auto
-                var currentHeight = $(this).height();
-                maxHeight = currentHeight > maxHeight ? currentHeight : maxHeight;
-            });
-
-            $(".grid-active .single-filter-gallery img").height(maxHeight);
-        }
-
-        // Isotope Active
-        var grid = $(".grid-active").isotope({
-            itemSelector: ".grid-item",
-            percentPosition: true,
-            masonry: {
-                columnWidth: ".grid-item"
-            }
+        $(".wbea-grid-active .wbea-single-filter-gallery img").each(function() {
+            $(this).height('auto'); // Reset height to auto
+            var currentHeight = $(this).height();
+            maxHeight = currentHeight > maxHeight ? currentHeight : maxHeight;
         });
 
-        // Ensure images are loaded before initializing Isotope and calculating heights
-        $(".grid-item img").imagesLoaded(function () {
-            // Initialize Isotope
-            grid.isotope();
+        $(".wbea-grid-active .wbea-single-filter-gallery img").height(maxHeight);
+    }
 
-            // Equalize image heights after loading
+    // Initialize Isotope
+    var grid = $(".wbea-grid-active").isotope({
+        itemSelector: ".wbea-grid-item",
+        percentPosition: true,
+        masonry: {
+            columnWidth: ".wbea-grid-item"
+        }
+    });
+
+    // Ensure images are loaded before initializing Isotope and calculating heights
+    $(".wbea-grid-item img").imagesLoaded(function () {
+        grid.isotope(); // Re-layout after loading images
+        equalizeImageHeights(); // Equalize heights after images are loaded
+    });
+
+    // Filter Gallery Menu Click
+    $(".wbea-filter-gallery-menu").on("click", "button", function () {
+        var filterValue = $(this).attr("data-filter");
+        grid.isotope({ filter: filterValue });
+
+        // Equalize image heights after filtering
+        setTimeout(function() {
+            equalizeImageHeights();
+        }, 300); // Adjust the timeout as needed
+
+        // Isotope Menu Active
+        $(this).addClass("active").siblings().removeClass("active");
+    });
+
+    // Ensure images are loaded before recalculating heights after filtering
+    grid.on('arrangeComplete', function() {
+        $(".wbea-grid-item img").imagesLoaded(function () {
             equalizeImageHeights();
         });
-
-        // Filter Gallery Menu Click
-        $(".filter-gallery-menu").on("click", "button", function () {
-            var filterValue = $(this).attr("data-filter");
-            grid.isotope({
-                filter: filterValue
-            });
-
-            // Equalize image heights after filtering
-            setTimeout(function() {
-                equalizeImageHeights();
-            }, 300); // Adjust the timeout as needed
-
-            // Isotope Menu Active
-            $(this).addClass("active").siblings().removeClass("active");
-        });
-
-        // Ensure images are loaded before calculating heights after filtering
-        grid.on('arrangeComplete', function() {
-            $(".grid-item img").imagesLoaded(function () {
-                equalizeImageHeights();
-            });
-        });
     });
+});
+
 
 });

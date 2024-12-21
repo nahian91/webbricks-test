@@ -11,7 +11,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Blogs extends Widget_Base {
+class WBEA_Blogs extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -751,11 +751,14 @@ class Blogs extends Widget_Base {
 											<a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a>
 										</<?php echo esc_attr($wbea_blog_title_tag); ?>>
 									</div>
-									<?php if ($wbea_blog_excerpt_visibility) : ?>
+									<?php if (!empty	($wbea_blog_excerpt_visibility)) : ?>
 										<div class="wbea-blog-excerpt">
-											<?php echo esc_html(wbea_trim_words(get_the_excerpt(), 20, '...')); ?>
+											<?php 
+											echo esc_html(wp_trim_words(get_the_excerpt(), 20, '...')); 
+											?>
 										</div>
 									<?php endif; ?>
+
 								</div>
 								<?php
 								$thumbnail_url = get_the_post_thumbnail_url() ?: 'default-image.jpg';

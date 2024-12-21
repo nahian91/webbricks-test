@@ -11,7 +11,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Team extends Widget_Base {
+class WBEA_Team extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -106,7 +106,7 @@ class Team extends Widget_Base {
 				'label' => esc_html__( 'Choose Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => plugins_url( 'assets/img/team-1.png', dirname(__FILE__, 2) ),
+					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-1-web-bricks.webp',
 				],
 				'separator' => 'before',
 			]
@@ -621,10 +621,11 @@ class Team extends Widget_Base {
 	
 		// Allow-list for background patterns
 		$pattern_urls = [
-			'team-pattern-1' => 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-1.svg',
-			'team-pattern-2' => 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-2.svg',
+			'team-pattern-1' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
+			'team-pattern-2' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
 			'team-pattern-none' => '', // No pattern
 		];
+
 		$team_pattern_url = $pattern_urls[$wbea_team_bg_pattern] ?? $pattern_urls['team-pattern-1'];
 	
 		// Allow-list for heading tags

@@ -11,7 +11,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Team_Carousel extends Widget_Base {
+class WBEA_Team_Carousel extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -279,7 +279,7 @@ class Team_Carousel extends Widget_Base {
 				'label' => esc_html__( 'Choose Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => plugins_url( 'assets/img/team-1.png', dirname(__FILE__, 2) ),
+					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-1-web-bricks.webp',
 				],
 				'separator' => 'before',
 			]
@@ -291,7 +291,7 @@ class Team_Carousel extends Widget_Base {
 				'label' => esc_html__( 'Background Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => WBEA_ASSETS_URL . 'img/team-preview.png',
+					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
 				],
 				'separator' => 'before',
 			]
@@ -384,10 +384,10 @@ class Team_Carousel extends Widget_Base {
 				'default' => [
 				[
 					'wbea_team_carousel_image' => [
-						'url' => plugins_url( 'assets/img/team-1.png', dirname(__FILE__, 2) ),
+						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-1-web-bricks.webp',
 					],
 					'wbea_team_carousel_bg' => [
-						'url' => WBEA_ASSETS_URL . 'img/team-preview.png',
+						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
 					],
 					'wbea_team_carousel_name' => esc_html__( 'Novák Réka', 'webbricks-addons' ),
 					'wbea_team_carousel_designation' => esc_html__( 'Senior Developer', 'webbricks-addons'),
@@ -398,10 +398,10 @@ class Team_Carousel extends Widget_Base {
 				],
 				[
 					'wbea_team_carousel_image' => [
-						'url' => plugins_url( 'assets/img/team-2.png', dirname(__FILE__, 2) ),
+						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-2-web-bricks.webp',
 					],
 					'wbea_team_carousel_bg' => [
-						'url' => WBEA_ASSETS_URL . 'img/team-preview.png',
+						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
 					],
 					'wbea_team_carousel_name' => esc_html__( 'Pintér Beatrix', 'webbricks-addons' ),
 					'wbea_team_carousel_designation' => esc_html__( 'Senior UX Designer', 'webbricks-addons'),
@@ -412,7 +412,7 @@ class Team_Carousel extends Widget_Base {
 				],
 				[
 					'wbea_team_carousel_image' => [
-						'url' => plugins_url( 'assets/img/team-3.png', dirname(__FILE__, 2) ),
+						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
 					],
 					'wbea_team_carousel_bg' => [
 						'url' => WBEA_ASSETS_URL . 'img/team-preview.png',
@@ -426,10 +426,10 @@ class Team_Carousel extends Widget_Base {
 				],
 				[
 					'wbea_team_carousel_image' => [
-						'url' => plugins_url( 'assets/img/team-1.png', dirname(__FILE__, 2) ),
+						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-3-web-bricks.webp',
 					],
 					'wbea_team_carousel_bg' => [
-						'url' => WBEA_ASSETS_URL . 'img/team-preview.png',
+						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
 					],
 					'wbea_team_carousel_name' => esc_html__( 'Szekeres Dalma', 'webbricks-addons' ),
 					'wbea_team_carousel_designation' => esc_html__( 'Admin Manager', 'webbricks-addons'),
@@ -440,10 +440,10 @@ class Team_Carousel extends Widget_Base {
 				],
 				[
 					'wbea_team_carousel_image' => [
-						'url' => plugins_url( 'assets/img/team-2.png', dirname(__FILE__, 2) ),
+						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-1-web-bricks.webp',
 					],
 					'wbea_team_carousel_bg' => [
-						'url' => WBEA_ASSETS_URL . 'img/team-preview.png',
+						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
 					],
 					'wbea_team_carousel_name' => esc_html__( 'John Doe', 'webbricks-addons' ),
 					'wbea_team_carousel_designation' => esc_html__( 'SEO Expert', 'webbricks-addons'),

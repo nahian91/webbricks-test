@@ -10,7 +10,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Brand extends Widget_Base {
+class WBEA_Brand extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -273,7 +273,7 @@ class Brand extends Widget_Base {
 				'label' => esc_html__( 'Choose Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => plugins_url( 'assets/img/logo-1.png', dirname(__FILE__, 2) ),
+					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-1-web-bricks.webp',
 				]
 			]
 		);
@@ -304,7 +304,7 @@ class Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/logo-1.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-1-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -316,7 +316,7 @@ class Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/logo-2.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-2-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -328,7 +328,7 @@ class Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/logo-3.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-3-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -340,7 +340,7 @@ class Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/logo-4.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-4-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -352,7 +352,7 @@ class Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/logo-5.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-5-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -364,7 +364,7 @@ class Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/logo-6.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-6-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -376,7 +376,7 @@ class Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/logo-7.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-7-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -388,7 +388,7 @@ class Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/logo-9.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-9-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -400,7 +400,7 @@ class Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/logo-8.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-8-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -861,7 +861,7 @@ class Brand extends Widget_Base {
 		$wbea_brand = isset($settings['wbea_brand']) ? $settings['wbea_brand'] : [];
 		?>
 		<!-- Brand Start Here -->
-		<section class="brand">
+		<section class="wbea-brand">
 			<div class="wb-grid-row align-center">
 				<div class="wb-grid-desktop-5 wb-grid-tablet-12 wb-grid-mobile-12">
 					<div class="wbea-section-title">

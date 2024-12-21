@@ -65,189 +65,189 @@ class Webbricks_Addons_Manager
         return [
             'section-heading'  => [
                 'title'  => __( 'Section Heading', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Section_Heading',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Section_Heading',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'hero'  => [
                 'title'  => __( 'Hero', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\hero',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Hero',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'about'  => [
                 'title'  => __( 'About', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\About',
+                'class'  => '\WebbricksAddons\Elements\WBEA_About',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'services'  => [
                 'title'  => __( 'Services', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Services',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Services',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'brand'  => [
                 'title'  => __( 'Brand', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Brand',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Brand',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'counter'  => [
                 'title'  => __( 'Counter', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Counter',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Counter',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'blogs'  => [
                 'title'  => __( 'Blogs', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Blogs',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Blogs',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'faqs'  => [
                 'title'  => __( 'FAQs', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Faqs',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Faqs',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'team'  => [
                 'title'  => __( 'Team', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Team',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Team',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'price'  => [
                 'title'  => __( 'Price', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Price',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Price',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'affiliate-products'  => [
                 'title'  => __( 'Affiliate Products', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Affiliate_Products',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Affiliate_Products',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'testimonials'  => [
                 'title'  => __( 'Testimonials Carousel', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Testimonial_Carousel',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Testimonial_Carousel',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'cta'  => [
                 'title'  => __( 'CTA', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\CTA',
+                'class'  => '\WebbricksAddons\Elements\WBEA_CTA',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'info-box'  => [
                 'title'  => __( 'Info Box', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Info_Box',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Info_Box',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'slider'  => [
                 'title'  => __( 'Slider', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Slider',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Slider',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'team-carousel'  => [
                 'title'  => __( 'Team Carousel', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Team_Carousel',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Team_Carousel',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'blog-carousel'  => [
                 'title'  => __( 'Blog Carousel', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Blog_Carousel',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Blog_Carousel',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'filter-gallery'  => [
                 'title'  => __( 'Filter Gallery', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Filter_Gallery',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Filter_Gallery',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'products'  => [
                 'title'  => __( 'Products', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Products',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Products',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'products-carousel'  => [
                 'title'  => __( 'Products Carousel', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Products_Carousel',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Products_Carousel',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'products-category'  => [
                 'title'  => __( 'Products Category', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Products_Category',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Products_Category',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'products-category-carousel'  => [
                 'title'  => __( 'Products Category Carousel', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Products_Category_Carousel',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Products_Category_Carousel',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'creative-buttons'  => [
                 'title'  => __( 'Creative Buttons', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Creative_Buttons',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Creative_Buttons',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'contact-form-7'  => [
                 'title'  => __( 'Contact Form 7', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Contact_Form_7',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Contact_Form_7',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'contact-info'  => [
                 'title'  => __( 'Contact Info', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Contact_Info',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Contact_Info',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'business-hours'  => [
                 'title'  => __( 'Business Hours', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Business_Hours',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Business_Hours',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'countdown'  => [
                 'title'  => __( 'Countdown Timer', 'webbricks-addons' ),
-                'class'  => '\WebbricksAddons\Elements\Countdown',
+                'class'  => '\WebbricksAddons\Elements\WBEA_Countdown',
                 'demo_link' => '#',
                 'tags'   => 'free',
                 'is_pro' => false

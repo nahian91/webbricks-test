@@ -10,7 +10,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Slider extends Widget_Base {
+class WBEA_Slider extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -121,7 +121,7 @@ class Slider extends Widget_Base {
 				'label' => esc_html__( 'Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => plugins_url( 'assets/img/slide-1.png', dirname(__FILE__, 2) ),
+					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/slide-1-web-bricks.webp',
 				]
 			]
 		);
@@ -199,7 +199,7 @@ class Slider extends Widget_Base {
 					[
 						'wbea_slider_image' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/slider-1.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/slide-1-web-bricks.webp',
 							]
 						],
 						'wbea_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
@@ -209,7 +209,7 @@ class Slider extends Widget_Base {
 					[
 						'wbea_slider_image' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/slide-2.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/slide-2-web-bricks.webp',
 							]
 						],
 						'wbea_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
@@ -219,7 +219,7 @@ class Slider extends Widget_Base {
 					[
 						'wbea_slider_image' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/slide-3.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/slide-3-web-bricks.webp',
 							]
 						],
 						'wbea_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
@@ -787,13 +787,13 @@ class Slider extends Widget_Base {
 	
 		?>
 		<!-- Slider Start Here -->  
-		<div class="sliders owl-carousel" 
-			 data-slider-arrows="<?php echo esc_attr($wbea_slider_arrows ? 'true' : 'false'); ?>" 
-			 data-slider-dots="<?php echo esc_attr($wbea_slider_dots ? 'true' : 'false'); ?>" 
-			 data-slider-loop="<?php echo esc_attr($wbea_slider_loops ? 'true' : 'false'); ?>" 
-			 data-slider-autoplay="<?php echo esc_attr($wbea_slider_autoplay ? 'true' : 'false'); ?>" 
-			 data-slider-autoplaytimeout="<?php echo esc_attr($wbea_slider_animation_speed); ?>" 
-			 data-slider-autoplayspeed="<?php echo esc_attr($wbea_slider_autoplay_speed); ?>">
+		<div class="wbea-sliders owl-carousel" 
+		wbea-slider-arrows="<?php echo esc_attr($wbea_slider_arrows ? 'true' : 'false'); ?>" 
+		wbea-slider-dots="<?php echo esc_attr($wbea_slider_dots ? 'true' : 'false'); ?>" 
+		wbea-slider-loop="<?php echo esc_attr($wbea_slider_loops ? 'true' : 'false'); ?>" 
+		wbea-slider-autoplay="<?php echo esc_attr($wbea_slider_autoplay ? 'true' : 'false'); ?>" 
+		wbea-slider-autoplaytimeout="<?php echo esc_attr($wbea_slider_animation_speed); ?>" 
+		wbea-slider-autoplayspeed="<?php echo esc_attr($wbea_slider_autoplay_speed); ?>">
 		<?php 
 			if($wbea_sliders) {
 				foreach($wbea_sliders as $slide) {
@@ -824,7 +824,7 @@ class Slider extends Widget_Base {
 								}
 								
 								if($wbea_slider_btn_link) {
-									echo '<a href="' . esc_url($wbea_slider_btn_link) . '" class="wbea-btn-border" ' . $target . ' ' . $nofollow . '>';
+									echo '<a href="' . esc_url($wbea_slider_btn_link) . '" class="wbea-btn-border" ' . esc_attr($target) . ' ' . esc_attr($nofollow) . '>';
 									echo esc_html($wbea_slider_btn_title);
 									echo '<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>

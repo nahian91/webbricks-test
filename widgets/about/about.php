@@ -10,7 +10,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class About extends Widget_Base {
+class WBEA_About extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -209,7 +209,7 @@ class About extends Widget_Base {
 				'label' => esc_html__( 'Choose Featured Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => plugins_url( 'assets/img/about.png', dirname(__FILE__, 2) ),
+					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/About-web-bricks.webp',
 				]
 			]
 		);
@@ -221,7 +221,7 @@ class About extends Widget_Base {
 				'label' => esc_html__( 'Background Pattern', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => plugins_url( 'assets/img/about-bg.png', dirname(__FILE__, 2) ),
+					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/about-pattern-5-web-bricks.webp',
 				]
 			]
 		);
@@ -1201,10 +1201,10 @@ class About extends Widget_Base {
 		// Render HTML
 		?>
 		<!-- About Start Here -->
-		<section class="about">
+		<section class="wbea-about">
 			<div class="wb-grid-row align-end">
 				<div class="wb-grid-desktop-6 wb-grid-tablet-12 wb-grid-mobile-12">
-					<div class="section-title">
+					<div class="wbea-section-title">
 						<?php if ($wbea_about_subheading_show_btn === 'yes') : ?>
 							<?php
 							$wbea_about_subheading_sep_variotion = sanitize_html_class($settings['wbea_about_subheading_sep_variotion'] ?? '');
@@ -1224,24 +1224,24 @@ class About extends Widget_Base {
 					</div>
 				</div>
 				<div class="wb-grid-desktop-6 wb-grid-tablet-12 wb-grid-mobile-12">
-					<div class="about-desc">
+					<div class="wbea-about-desc">
 						<p><?php echo wp_kses_post($wbea_about_desc); ?></p>
 					</div>
-					<div class="about-counter">
+					<div class="wbea-about-counter">
 						<?php if ($wbea_about_counter) :
 							foreach ($wbea_about_counter as $counter) :
 								$counter_number = sanitize_text_field($counter['wbea_about_counter_number'] ?? '');
 								$counter_suffix = sanitize_text_field($counter['wbea_about_counter_suffix'] ?? '');
 								$counter_title = sanitize_text_field($counter['wbea_about_counter_title'] ?? '');
 								?>
-								<div class="single-about-counter">
+								<div class="wbea-single-about-counter">
 									<div><span class="wbea-about-counter-js"><?php echo esc_attr($counter_number); ?></span> <?php echo esc_html($counter_suffix); ?></div>
 									<<?php echo esc_attr($wbea_about_counter_title_tag); ?> class="wbea-about-counter-title"><?php echo esc_html($counter_title); ?></<?php echo esc_attr($wbea_about_counter_title_tag); ?>>
 								</div>
 						<?php endforeach;
 						endif; ?>
 					</div>
-					<div class="about-btn">
+					<div class="wbea-about-btn">
 						<?php if ($wbea_about_btn1_link) : ?>
 							<a href="<?php echo esc_url($wbea_about_btn1_link); ?>" class="wbea-btn-bg" target="_blank" rel="noopener noreferrer"><?php echo esc_html($wbea_about_btn1_title); ?>
 								<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">

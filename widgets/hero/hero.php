@@ -10,7 +10,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Hero extends Widget_Base {
+class WBEA_Hero extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -281,8 +281,8 @@ class Hero extends Widget_Base {
 				'label' => esc_html__( 'Choose Featured Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => plugins_url( 'assets/img/hero.png', dirname(__FILE__, 2) ),
-				]
+					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Hero-web-bricks.webp',
+				],
 			]
 		);
 
@@ -971,16 +971,16 @@ class Hero extends Widget_Base {
 		$hero_pattern_url = '';
 		switch ($wbea_hero_content_bg_pattern) {
 			case 'hero-pattern-1':
-				$hero_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/hero-pattern.svg';
+				$hero_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/hero-pattern-8-web-bricks.webp';
 				break;
 			case 'hero-pattern-2':
-				$hero_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/hero-pattern-2.svg';
+				$hero_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/hero-pattern-8-web-bricks.webp';
 				break;
 			case 'hero-pattern-3':
-				$hero_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/hero-pattern-3.svg';
+				$hero_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/hero-pattern-8-web-bricks.webp';
 				break;
 			default:
-				$hero_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/hero-pattern.svg';
+				$hero_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/hero-pattern-8-web-bricks.webp';
 				break;
 		}
 	
@@ -1002,7 +1002,7 @@ class Hero extends Widget_Base {
 		<?php } ?>
 	
 		<!-- Hero Start Here -->
-		<section class="hero">
+		<section class="wbea-hero">
 			<div class="wb-grid-row align-center mob-flex-column">
 				<!-- Hero Content Section -->
 				<div class="wb-grid-desktop-5 wb-grid-tablet-6 wb-grid-mobile-12">

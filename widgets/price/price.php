@@ -11,7 +11,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Price extends Widget_Base {
+class WBEA_Price extends Widget_Base {
 
 	/**
 	 * Get widget name.   
@@ -852,16 +852,16 @@ class Price extends Widget_Base {
 		$price_pattern_url = '';
 		switch ($wbea_price_bg_pattern) {
 			case 'price-pattern-1':
-				$price_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/price-pattern.svg';
+				$price_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-1-web-bricks.webp';
 				break;
 			case 'price-pattern-2':
-				$price_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/price-pattern-2.svg';
+				$price_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-2-web-bricks.webp';
 				break;
 			case 'price-pattern-3':
-				$price_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/price-pattern-b.svg';
+				$price_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-3-web-bricks.webp';
 				break;
 			default:
-				$price_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/price-pattern.svg';
+				$price_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-1-web-bricks.webp';
 				break;
 		}
 		?>

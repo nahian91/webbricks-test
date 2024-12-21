@@ -11,7 +11,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Filter_Gallery extends Widget_Base {
+class WBEA_Filter_Gallery extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -201,7 +201,7 @@ class Filter_Gallery extends Widget_Base {
 				'label' => esc_html__( 'Choose Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://getwebbricks.com/wp-content/uploads/2024/01/Gallery-1.webp',
+					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-1-web-bricks.webp',
 				],
 				'separator' => 'before',
 			]
@@ -227,55 +227,55 @@ class Filter_Gallery extends Widget_Base {
 				'default' => [
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => plugins_url( 'assets/img/gallery-1.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-1-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'landscape, stars, parks',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => plugins_url( 'assets/img/gallery-2.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-2-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'cars',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => plugins_url( 'assets/img/gallery-3.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-3-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'mountain, parks',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => plugins_url( 'assets/img/gallery-4.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-4-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'seabeach, landscape, cars',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => plugins_url( 'assets/img/gallery-5.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-5-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'parks',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => plugins_url( 'assets/img/gallery-6.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-6-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'roadtrips, landscape, mountain',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => plugins_url( 'assets/img/gallery-7.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-7-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'stars',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => plugins_url( 'assets/img/gallery-8.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-8-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'stars, cars, parks',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => plugins_url( 'assets/img/gallery-9.png', dirname(__FILE__, 2) ),
+							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-9-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'roadtrips, cars, parks',
 					]
@@ -533,7 +533,7 @@ class Filter_Gallery extends Widget_Base {
 				?>
 				<div class="<?php echo esc_attr($this->get_grid_classes($settings)); ?> wb-grid-tablet-6 wb-grid-mobile-12 grid-item <?php echo esc_attr(trim($category_classes)); ?>">
 					<div class="wbea-single-filter-gallery">
-						<div class="filter-img" style="background-image:url('<?php echo esc_url($filter_image); ?>')"></div>
+						<div class="wbea-filter-img" style="background-image:url('<?php echo esc_url($filter_image); ?>')"></div>
 						<div class="wbea-image-overlay">
 							<a href="<?php echo esc_url($filter_image); ?>" class="elementor-lightbox">
 								<div class="wbea-filter-img-overlay" style="background-image:url('<?php echo esc_url(WBEA_ASSETS_URL . 'img/icon-zoom.svg'); ?>')"></div>
@@ -545,6 +545,7 @@ class Filter_Gallery extends Widget_Base {
 		</div>
 		<!-- Filter Gallery End -->
 		<?php
-	}	
+	}
+	
 }
 	

@@ -11,7 +11,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Products_Category extends Widget_Base {
+class WBEA_Products_Category extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -190,7 +190,7 @@ class Products_Category extends Widget_Base {
 				],
 				'default' => 'left',
 				'selectors' => [
-					'{{WRAPPER}} .product-category-content' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .wbea-product-category-content' => 'text-align: {{VALUE}}',
 				],
 				'separator' => 'before'
 			],
@@ -332,7 +332,7 @@ class Products_Category extends Widget_Base {
 					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-product-category-content .product-category-title a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-product-category-content .wbea-product-category-title a' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -342,7 +342,7 @@ class Products_Category extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'wbea_product_categories_heading_typography',
-				'selector' => '{{WRAPPER}} .wbea-product-category-content .product-category-title a',
+				'selector' => '{{WRAPPER}} .wbea-product-category-content .wbea-product-category-title a',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				]

@@ -11,7 +11,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Testimonial_Carousel extends Widget_Base {
+class WBEA_Testimonial_Carousel extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -108,7 +108,7 @@ class Testimonial_Carousel extends Widget_Base {
 				'label' => esc_html__( 'Client Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => plugins_url( 'assets/img/client-1.png', dirname(__FILE__, 2) ),
+					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/client-1-web-bricks.webp',
 				]
 			]
 		);
@@ -171,7 +171,7 @@ class Testimonial_Carousel extends Widget_Base {
 					[
 						'wbea_testimonial_image' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/client-1.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/client-1-web-bricks.webp',
 							]
 						],
 						'wbea_testimonial_name' => esc_html__( 'Esther Howard', 'webbricks-addons' ),
@@ -182,7 +182,7 @@ class Testimonial_Carousel extends Widget_Base {
 					[
 						'wbea_testimonial_image' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/client-2.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/client-2-web-bricks.webp',
 							]
 						],
 						'wbea_testimonial_name' => esc_html__( 'Maria Sauks', 'webbricks-addons' ),
@@ -193,7 +193,7 @@ class Testimonial_Carousel extends Widget_Base {
 					[
 						'wbea_testimonial_image' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/client-3.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/client-3-web-bricks.webp',
 							]
 						],
 						'wbea_testimonial_name' => esc_html__( 'Sarah Heinsed', 'webbricks-addons' ),
@@ -204,7 +204,7 @@ class Testimonial_Carousel extends Widget_Base {
 					[
 						'wbea_testimonial_image' => [
 							'default' => [
-								'url' => plugins_url( 'assets/img/client-4.png', dirname(__FILE__, 2) ),
+								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/client-4-web-bricks.webp',
 							]
 						],
 						'wbea_testimonial_name' => esc_html__( 'Mithc Hodge', 'webbricks-addons' ),
@@ -786,13 +786,13 @@ class Testimonial_Carousel extends Widget_Base {
 	
 		?>
 		<!-- Testimonials Start Here -->
-		<div class="testimonials owl-carousel" 
-			 testimonial-dots="<?php echo esc_attr($wbea_testimonials_dots); ?>" 
-			 testimonial-loops="<?php echo esc_attr($wbea_testimonials_loops); ?>" 
-			 testimonial-autoplay="<?php echo esc_attr($wbea_testimonials_autoplay); ?>" 
-			 testimonial-pause="<?php echo esc_attr($wbea_testimonials_pause); ?>" 
-			 testimonial-animation="<?php echo esc_attr($wbea_testimonials_autoplay_animation); ?>" 
-			 testimonial-speed="<?php echo esc_attr($wbea_testimonials_autoplay_speed); ?>">
+		<div class="wbea-testimonials owl-carousel" 
+			wbea-testimonial-dots="<?php echo esc_attr($wbea_testimonials_dots); ?>" 
+			wbea-testimonial-loops="<?php echo esc_attr($wbea_testimonials_loops); ?>" 
+			wbea-testimonial-autoplay="<?php echo esc_attr($wbea_testimonials_autoplay); ?>" 
+			wbea-testimonial-pause="<?php echo esc_attr($wbea_testimonials_pause); ?>" 
+			wbea-testimonial-animation="<?php echo esc_attr($wbea_testimonials_autoplay_animation); ?>" 
+			wbea-testimonial-speed="<?php echo esc_attr($wbea_testimonials_autoplay_speed); ?>">
 	
 			<?php
 			// Loop through testimonials if available

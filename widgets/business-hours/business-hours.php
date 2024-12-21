@@ -10,7 +10,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Business_Hours extends Widget_Base {
+class WBEA_Business_Hours extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -524,7 +524,7 @@ class Business_Hours extends Widget_Base {
 		
 		?>
 		<!-- Business Hours Start Here -->          
-		<div class="business-hours">
+		<div class="wbea-business-hours">
 			<?php if ($wbea_business_hours_heading_show_btn === 'yes') : ?>
 				<?php
 				// Sanitize the heading text and tag for output.

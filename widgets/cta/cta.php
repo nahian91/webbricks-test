@@ -9,7 +9,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class CTA extends Widget_Base {
+class WBEA_CTA extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -315,27 +315,27 @@ class CTA extends Widget_Base {
 		$wbea_cta_pattern_url = '';
 		switch ($wbea_cta_bg_pattern) {
 			case 'wbea-cta-pattern-1':
-				$wbea_cta_pattern_url = WBEA_ASSETS_URL . 'img/cta-1.png';
+				$wbea_cta_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/CTA-light-web-bricks.webp';
 				break;
 			case 'wbea-cta-pattern-2':
-				$wbea_cta_pattern_url = WBEA_ASSETS_URL . 'img/cta-2.png';
+				$wbea_cta_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/CTA-light-web-bricks.webp';
 				break;
 			default:
-				$wbea_cta_pattern_url = WBEA_ASSETS_URL . 'img/cta-3.png';
+				$wbea_cta_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/CTA-light-web-bricks.webp';
 				break;
 		}
 		?>		
 	
 		<?php if ($wbea_cta_pattern_url && $wbea_cta_bg_pattern !== 'wbea-cta-pattern-none') : ?>
 			<style>
-				.cta {
+				.wbea-cta {
 					background-image: url('<?php echo esc_url($wbea_cta_pattern_url); ?>');
 				}
 			</style>
 		<?php endif; ?>
 	
 		<!-- CTA Start Here -->
-		<div class="cta">
+		<div class="wbea-cta">
 			<<?php echo esc_attr($wbea_cta_title_tag); ?> class="wbea-cta-title"><?php echo esc_html($wbea_cta_title); ?></<?php echo esc_attr($wbea_cta_title_tag); ?>>
 			
 			<?php

@@ -10,7 +10,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Products_Carousel extends Widget_Base {
+class WBEA_Products_Carousel extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -731,8 +731,8 @@ class Products_Carousel extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wbea_product_border',
-				'selector' => '{{WRAPPER}} .product-img',
+				'name' => 'wbea_product_image_border',
+				'selector' => '{{WRAPPER}} .wbea-product-img',
 			]
 		);	
 
@@ -859,7 +859,7 @@ class Products_Carousel extends Widget_Base {
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-price-bottom p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-price-bottom p span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -872,7 +872,7 @@ class Products_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'wp_products_carousel_meta_typography',
-				'selector' => '{{WRAPPER}} .wbea-price-bottom p',
+				'selector' => '{{WRAPPER}} .wbea-price-bottom p span',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -896,7 +896,7 @@ class Products_Carousel extends Widget_Base {
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-single-product span.sale' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-product span.wbea-sale' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -911,7 +911,7 @@ class Products_Carousel extends Widget_Base {
 				'label' => esc_html__( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-single-product span.sale' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-product span.wbea-sale' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -924,7 +924,7 @@ class Products_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'wp_products_carousel_meta_sale_typography',
-				'selector' => '{{WRAPPER}} .wbea-single-product span.sale',
+				'selector' => '{{WRAPPER}} .wbea-single-product span.wbea-sale',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -946,7 +946,7 @@ class Products_Carousel extends Widget_Base {
 					'unit' => 'px',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-single-product span.sale' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-single-product span.wbea-sale' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1310,11 +1310,11 @@ class Products_Carousel extends Widget_Base {
 							// Display Sale label if the product is on sale
 							if($sale) {
 						?>
-							<span class="sale"><?php echo esc_html('Sale', 'webbricks-addons'); ?></span>
+							<span class="wbea-sale"><?php echo esc_html('Sale', 'webbricks-addons'); ?></span>
 						<?php } ?>
 						<div class="wbea-product-img" style="background-image:url('<?php echo esc_url(get_the_post_thumbnail_url());?>')"></div>
 						<h4><a href="<?php echo esc_url(get_the_permalink());?>"><?php the_title();?></a></h4>
-						<div class="price-bottom">
+						<div class="wbea-price-bottom">
 							<p><?php echo wp_kses_post(wc_price($product->get_price())); ?></p>
 							<a href="<?php echo esc_url($product->add_to_cart_url());?>" class="wbea-icon-border">
 							<svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">

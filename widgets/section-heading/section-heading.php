@@ -9,7 +9,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Section_Heading extends Widget_Base {
+class WBEA_Section_Heading extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -438,7 +438,7 @@ class Section_Heading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'wbea_section_subheading_typography',
-				'selector' => '{{WRAPPER}} .wbea-section-title span.section-subheading',
+				'selector' => '{{WRAPPER}} .wbea-section-title span.wbea-section-subheading',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -705,7 +705,7 @@ class Section_Heading extends Widget_Base {
 		// Extract settings or provide defaults.
 		$wbea_section_subheading_show_btn = $settings['wbea_section_subheading_show_btn'] ?? '';
 		$wbea_section_heading = $settings['wbea_section_heading'] ?? '';
-		$wbea_section_heading_tag = $settings['wbea_section_heading_tag'] ?? 'h2'; // Default to h2
+		$wbea_section_heading_tag = $settings['wbea_section_heading_tag'] ?? 'h2';
 		$wbea_section_desc_show_btn = $settings['wbea_section_desc_show_btn'] ?? '';
 		$wbea_section_heading_show_btn = $settings['wbea_section_heading_show_btn'] ?? '';
 	
@@ -715,7 +715,7 @@ class Section_Heading extends Widget_Base {
 	
 		?>
 		<!-- Section Title Start Here -->
-		<div class="section-title">
+		<div class="wbea-section-title">
 			<?php if ($wbea_section_subheading_show_btn === 'yes') : 
 				$wbea_section_subheading = $settings['wbea_section_subheading'] ?? '';
 				$wbea_section_heading_separator_variation = $settings['wbea_section_heading_separator_variation'] ?? '';
@@ -743,7 +743,7 @@ class Section_Heading extends Widget_Base {
 				$target = !empty($settings['wbea_section_heading_btn_link']['is_external']) ? 'target="_blank"' : '';
 				$nofollow = !empty($settings['wbea_section_heading_btn_link']['nofollow']) ? 'rel="nofollow"' : '';
 				?>
-				<a href="<?php echo esc_url($wbea_section_heading_btn_link); ?>" class="wbea-btn-border" <?php echo $target . ' ' . $nofollow; ?>>
+				<a href="<?php echo esc_url($wbea_section_heading_btn_link); ?>" class="wbea-btn-border" <?php echo esc_attr($target); ?> <?php echo esc_attr($nofollow); ?>>
 					<?php echo esc_html($wbea_section_heading_btn_title); ?>
 					<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>

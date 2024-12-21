@@ -11,7 +11,7 @@ use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use \Elementor\Widget_Base;
 
-class Services extends Widget_Base {
+class WBEA_Services extends Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -123,6 +123,7 @@ class Services extends Widget_Base {
 					'style-1' => __( 'Style 1', 'webbricks-addons' ),
 					'style-2' => __( 'Style 2', 'webbricks-addons' ),
 					'style-3' => __( 'Style 3', 'webbricks-addons' ),
+					'style-4' => __( 'Style 4', 'webbricks-addons' ),
 				],
 				'default' => 'style-1',
 			]
@@ -1162,16 +1163,19 @@ class Services extends Widget_Base {
 		$service_pattern_url = '';
 		switch ($wbea_services_bg_pattern) {
 			case 'style-1':
-				$service_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/service-pattern-1.svg';
+				$service_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-1-web-bricks.webp';
 				break;
 			case 'style-2':
-				$service_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/service-pattern-2.svg';
+				$service_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-2-web-bricks.webp';
 				break;
 			case 'style-3':
-				$service_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/service-pattern-3.svg';
+				$service_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-3-web-bricks.webp';
+				break;
+			case 'style-4':
+				$service_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-4-web-bricks.webp';
 				break;
 			default:
-				$service_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/service-pattern-1.svg'; // Default pattern
+				$service_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-1-web-bricks.webp'; // Default pattern
 				break;
 		}
 	?>
@@ -1197,14 +1201,14 @@ class Services extends Widget_Base {
 		</div>
 	<?php } ?>
 	
-	<div class="wbea-services owl-carousel <?php echo esc_attr($wbea_services_arrows === 'yes' ? 'wbea-carousel-top-arrows' : ''); ?> <?php echo esc_attr($wbea_services_section_heading_show === 'yes' ? 'heading-top' : ''); ?>" 
-		services-scroll="<?php echo esc_attr($wbea_services_number); ?>" 
-		services-loop="<?php echo esc_attr($wbea_services_loop); ?>" 
-		services-autoplay="<?php echo esc_attr($wbea_services_autoplay); ?>" 
-		services-pause="<?php echo esc_attr($wbea_services_pause); ?>" 
-		services-arrows="<?php echo esc_attr($wbea_services_arrows); ?>" 
-		services-animation="<?php echo esc_attr($wbea_services_autoplay_animation); ?>" 
-		services-speed="<?php echo esc_attr($wbea_services_autoplay_speed); ?>">
+	<div class="wbea-services owl-carousel <?php echo esc_attr($wbea_services_arrows === 'yes' ? 'wbea-carousel-top-arrows' : ''); ?> <?php echo esc_attr($wbea_services_section_heading_show === 'yes' ? 'wbea-heading-top' : ''); ?>" 
+		wbea-services-scroll="<?php echo esc_attr($wbea_services_number); ?>" 
+		wbea-services-loop="<?php echo esc_attr($wbea_services_loop); ?>" 
+		wbea-services-autoplay="<?php echo esc_attr($wbea_services_autoplay); ?>" 
+		wbea-services-pause="<?php echo esc_attr($wbea_services_pause); ?>" 
+		wbea-services-arrows="<?php echo esc_attr($wbea_services_arrows); ?>" 
+		wbea-services-animation="<?php echo esc_attr($wbea_services_autoplay_animation); ?>" 
+		wbea-services-speed="<?php echo esc_attr($wbea_services_autoplay_speed); ?>">
 	
 		<?php foreach ($wbea_services as $service) { 
 			$service_icon = isset($service['wbea_service_icon']['value']) ? esc_attr($service['wbea_service_icon']['value']) : ''; // Escape icon class
