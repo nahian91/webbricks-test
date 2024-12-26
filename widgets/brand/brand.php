@@ -882,7 +882,11 @@ class WBEA_Brand extends Widget_Base {
 					<div class="wbea-brand-title">
 						<p><?php echo wp_kses_post($wbea_brand_desc); ?></p>
 						<?php if (!empty($wbea_brand_btn_link)) : ?>
-							<a href="<?php echo esc_url($wbea_brand_btn_link); ?>" class="wbea-btn-border" target="_blank">
+							<?php
+								$btn_target = (isset($settings['wbea_brand_btn_link']['is_external']) && $settings['wbea_brand_btn_link']['is_external']) ? ' target="_blank"' : '';
+								$btn_nofollow = (isset($settings['wbea_brand_btn_link']['nofollow']) && $settings['wbea_brand_btn_link']['nofollow']) ? ' rel="nofollow"' : '';
+							?>
+							<a href="<?php echo esc_url($wbea_brand_btn_link); ?>" class="wbea-btn-border" <?php echo esc_attr($btn_target) . esc_attr($btn_nofollow); ?>>
 								<?php echo esc_html($wbea_brand_btn_title); ?>
 								<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
@@ -901,7 +905,7 @@ class WBEA_Brand extends Widget_Base {
 								if ($brand_img && $brand_logo_link) {
 						?>
 								<div class="wb-grid-desktop-4 wb-grid-tablet-4 wb-grid-mobile-12">
-									<a href="<?php echo esc_url($brand_logo_link); ?>">
+									<a href="<?php echo esc_url($brand_logo_link); ?>" target="_blank">
 										<div class="wbea-brand-logo-img" style="background-image:url('<?php echo esc_url($brand_img); ?>')"></div>
 									</a>
 								</div>

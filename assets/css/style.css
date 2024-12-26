@@ -783,15 +783,15 @@ p, span, div{
 }
 
 /* 14. Filter Gallery */
-.wbea-filter-gallery {
+.filter-gallery {
 	margin-bottom: 100px;
 }
-.wbea-filter-gallery-menu {
+.filter-gallery-menu {
   text-align: center;
   border-bottom: 1px solid var(--e-global-color-primary);
   padding-bottom: 10px;
 }
-.wbea-filter-gallery-menu button {
+.filter-gallery-menu button {
   font-size: 1.5rem;
   line-height: 2.1rem;
 	border: 0;
@@ -801,15 +801,15 @@ p, span, div{
 	background-color: transparent;
 	cursor: pointer;
 }
-.wbea-filter-gallery-menu button.active {
+.filter-gallery-menu button.active {
   color: var(--e-global-color-secondary);
   position: relative;
 }
-.wbea-filter-gallery-menu button:hover {
+.filter-gallery-menu button:hover {
   color: var(--e-global-color-secondary);
   background-color: transparent;
 }
-.wbea-filter-gallery-menu button.active:before {
+.filter-gallery-menu button.active:before {
   content: "";
   position: absolute;
   background-color: var(--e-global-color-primary);
@@ -818,7 +818,7 @@ p, span, div{
   bottom: -12px;
   width: 100%;
 }
-.wbea-filter-gallery-menu button:focus {
+.filter-gallery-menu button:focus {
   background-color: transparent;
 }
 
@@ -1853,13 +1853,13 @@ p, span, div{
 .wbea-single-filter-gallery {
   position: relative;
 }
-.wbea-filter-img {
+.filter-img {
   padding-top: 100%;
   background-position: center;
   background-size: cover;
 }
 
-.wbea-filter-img-overlay {
+.filter-img-overlay {
   background-size: cover;
   background-position: center;
   width: 50px;

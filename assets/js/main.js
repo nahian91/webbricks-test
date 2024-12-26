@@ -418,32 +418,32 @@ elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-filter-galle
     function equalizeImageHeights() {
         var maxHeight = 0;
 
-        $(".wbea-grid-active .wbea-single-filter-gallery img").each(function() {
+        $(".grid-active .single-filter-gallery img").each(function() {
             $(this).height('auto'); // Reset height to auto
             var currentHeight = $(this).height();
             maxHeight = currentHeight > maxHeight ? currentHeight : maxHeight;
         });
 
-        $(".wbea-grid-active .wbea-single-filter-gallery img").height(maxHeight);
+        $(".grid-active .single-filter-gallery img").height(maxHeight);
     }
 
     // Initialize Isotope
-    var grid = $(".wbea-grid-active").isotope({
-        itemSelector: ".wbea-grid-item",
+    var grid = $(".grid-active").isotope({
+        itemSelector: ".grid-item",
         percentPosition: true,
         masonry: {
-            columnWidth: ".wbea-grid-item"
+            columnWidth: ".grid-item"
         }
     });
 
     // Ensure images are loaded before initializing Isotope and calculating heights
-    $(".wbea-grid-item img").imagesLoaded(function () {
+    $(".grid-item img").imagesLoaded(function () {
         grid.isotope(); // Re-layout after loading images
         equalizeImageHeights(); // Equalize heights after images are loaded
     });
 
     // Filter Gallery Menu Click
-    $(".wbea-filter-gallery-menu").on("click", "button", function () {
+    $(".filter-gallery-menu").on("click", "button", function () {
         var filterValue = $(this).attr("data-filter");
         grid.isotope({ filter: filterValue });
 
@@ -458,7 +458,7 @@ elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-filter-galle
 
     // Ensure images are loaded before recalculating heights after filtering
     grid.on('arrangeComplete', function() {
-        $(".wbea-grid-item img").imagesLoaded(function () {
+        $(".grid-item img").imagesLoaded(function () {
             equalizeImageHeights();
         });
     });

@@ -1215,6 +1215,8 @@ class WBEA_Services extends Widget_Base {
 			$service_title = isset($service['wbea_service_title']) ? esc_html($service['wbea_service_title']) : ''; // Escape title
 			$service_desc = isset($service['wbea_service_desc']) ? wp_kses_post($service['wbea_service_desc']) : ''; // Allow limited HTML in description
 			$service_url = isset($service['wbea_service_link']['url']) ? esc_url($service['wbea_service_link']['url']) : ''; // Escape URL
+			$btn_target = (isset($service['wbea_service_link']['is_external']) && $service['wbea_service_link']['is_external']) ? ' target="_blank"' : '';
+    		$btn_nofollow = (isset($service['wbea_service_link']['nofollow']) && $service['wbea_service_link']['nofollow']) ? ' rel="nofollow"' : '';
 		?>
 			<div class="wbea-single-service">
 				<div class="wbea-service-content">
@@ -1224,7 +1226,7 @@ class WBEA_Services extends Widget_Base {
 				</div>
 				<div class="wbea-service-bottom" style="background-image: url('<?php echo esc_url($service_pattern_url); ?>');">
 					<?php if (!empty($service_url)) { ?>
-						<a href="<?php echo esc_url($service_url); ?>" class="wbea-icon-border" target="_blank">
+						<a href="<?php echo esc_url($service_url); ?>" class="wbea-icon-border" <?php echo esc_attr($btn_target) . esc_attr($btn_nofollow); ?>>
 							<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M9 1.5C9 0.902344 9.49219 0.375 10.125 0.375H14.5898C14.7656 0.375 14.9062 0.410156 15.0469 0.480469C15.1523 0.515625 15.293 0.621094 15.3984 0.726562C15.6094 0.9375 15.7148 1.21875 15.75 1.5V6C15.75 6.63281 15.2227 7.125 14.625 7.125C13.9922 7.125 13.5 6.63281 13.5 6V4.24219L7.52344 10.1836C7.10156 10.6406 6.36328 10.6406 5.94141 10.1836C5.48438 9.76172 5.48438 9.02344 5.94141 8.60156L11.8828 2.625H10.125C9.49219 2.625 9 2.13281 9 1.5ZM0 3.75C0 2.51953 0.984375 1.5 2.25 1.5H5.625C6.22266 1.5 6.75 2.02734 6.75 2.625C6.75 3.25781 6.22266 3.75 5.625 3.75H2.25V13.875H12.375V10.5C12.375 9.90234 12.8672 9.375 13.5 9.375C14.0977 9.375 14.625 9.90234 14.625 10.5V13.875C14.625 15.1406 13.6055 16.125 12.375 16.125H2.25C0.984375 16.125 0 15.1406 0 13.875V3.75Z" fill="currentColor"/>
 							</svg>

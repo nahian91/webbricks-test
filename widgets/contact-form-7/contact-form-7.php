@@ -202,7 +202,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				],
 				'default' => 'left',
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7-form label' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .wpcf7-form label' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -213,7 +213,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 			[
 				'label' => __('Typography', 'webbricks-addons'),
 				'name' => 'wbea_cf7_label_typography',
-				'selector' => '{{WRAPPER}} .wbea-wpcf7-form label, {{WRAPPER}} .wbea-wpcf7-form input::placeholder, {{WRAPPER}} .wbea-wpcf7-form textarea::placeholder',
+				'selector' => '{{WRAPPER}} .wpcf7-form label, {{WRAPPER}} .wpcf7-form input::placeholder, {{WRAPPER}} .wpcf7-form textarea::placeholder',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -227,7 +227,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7-form label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wpcf7-form label' => 'color: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -242,7 +242,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Placeholder Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7-form ::placeholder' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wpcf7-form ::placeholder' => 'color: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -258,10 +258,10 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7 input[type="text"], 
-					{{WRAPPER}} .wbea-wpcf7 input[type="email"], 
-					{{WRAPPER}} .wbea-wpcf7 textarea, 
-					{{WRAPPER}} .wbea-wpcf7 input[type="date"]' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wpcf7 input[type="text"], 
+					{{WRAPPER}} .wpcf7 input[type="email"], 
+					{{WRAPPER}} .wpcf7 textarea, 
+					{{WRAPPER}} .wpcf7 input[type="date"]' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -284,14 +284,14 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Input Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="text"], 
-					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="email"], 
-					{{WRAPPER}} .wbea-wpcf7 input[type="date"],
-					{{WRAPPER}} .wbea-wpcf7 input[type="tel"],
-					{{WRAPPER}} .wbea-wpcf7 input[type="url"],
-					{{WRAPPER}} .wbea-wpcf7 input[type="number"],
-					{{WRAPPER}} .wbea-wpcf7-form-control.wpcf7-select,
-					{{WRAPPER}} .wbea-wbea-cf7 .wbea-wpcf7 textarea' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .cf7 .wpcf7 input[type="text"], 
+					{{WRAPPER}} .cf7 .wpcf7 input[type="email"], 
+					{{WRAPPER}} .wpcf7 input[type="date"],
+					{{WRAPPER}} .wpcf7 input[type="tel"],
+					{{WRAPPER}} .wpcf7 input[type="url"],
+					{{WRAPPER}} .wpcf7 input[type="number"],
+					{{WRAPPER}} .wpcf7-form-control.wpcf7-select,
+					{{WRAPPER}} .wbea-cf7 .wpcf7 textarea' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -303,14 +303,14 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Input Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="text"], 
-					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="email"], 
-					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="date"],
-					{{WRAPPER}} .wbea-wpcf7 input[type="tel"],
-					{{WRAPPER}} .wbea-wpcf7 input[type="url"],
-					{{WRAPPER}} .wbea-wpcf7 input[type="number"],
-					{{WRAPPER}} .wbea-wpcf7-form-control.wpcf7-select,
-					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 textarea' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .cf7 .wpcf7 input[type="text"], 
+					{{WRAPPER}} .cf7 .wpcf7 input[type="email"], 
+					{{WRAPPER}} .cf7 .wpcf7 input[type="date"],
+					{{WRAPPER}} .wpcf7 input[type="tel"],
+					{{WRAPPER}} .wpcf7 input[type="url"],
+					{{WRAPPER}} .wpcf7 input[type="number"],
+					{{WRAPPER}} .wpcf7-form-control.wpcf7-select,
+					{{WRAPPER}} .cf7 .wpcf7 textarea' => 'background: {{VALUE}};',
 				],
 				'default' => '#fff',
 			]
@@ -323,7 +323,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Input Focus', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7 input:focus, {{WRAPPER}} .wpcf7 textarea:focus' => 'border-color: {{VALUE}} !important;',
+					'{{WRAPPER}} .wpcf7 input:focus, {{WRAPPER}} .wpcf7 textarea:focus' => 'border-color: {{VALUE}} !important;',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -339,16 +339,16 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="text"], 
-					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="email"], 
-					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="date"],
-					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 textarea, 
-					{{WRAPPER}} .wbea-wpcf7 input[type="tel"],
-					{{WRAPPER}} .wbea-wpcf7 input[type="url"],
-					{{WRAPPER}} .wbea-wpcf7 input[type="number"],
-					{{WRAPPER}} .wbea-wpcf7-form-control.wpcf7-select,
-					{{WRAPPER}} .wbea-wbea-cf7 .wbea-wpcf7 input[type="submit"], 
-					{{WRAPPER}} .wbea-wbea-cf7 .wbea-wpcf7 textarea' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .cf7 .wpcf7 input[type="text"], 
+					{{WRAPPER}} .cf7 .wpcf7 input[type="email"], 
+					{{WRAPPER}} .cf7 .wpcf7 input[type="date"],
+					{{WRAPPER}} .cf7 .wpcf7 textarea, 
+					{{WRAPPER}} .wpcf7 input[type="tel"],
+					{{WRAPPER}} .wpcf7 input[type="url"],
+					{{WRAPPER}} .wpcf7 input[type="number"],
+					{{WRAPPER}} .wpcf7-form-control.wpcf7-select,
+					{{WRAPPER}} .wbea-cf7 .wpcf7 input[type="submit"], 
+					{{WRAPPER}} .wbea-cf7 .wpcf7 textarea' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator'=>'after'
 			]
@@ -372,15 +372,15 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				],
 			],
 			'selectors' => [
-				'{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="text"], 
-				{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="email"],
-				{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="date"],
-				{{WRAPPER}} .wbea-wpcf7 input[type="tel"],
-				{{WRAPPER}} .wbea-wpcf7 input[type="url"],
-				{{WRAPPER}} .wbea-wpcf7 input[type="number"],
-				{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 textarea, 
-				{{WRAPPER}} .wbea-cf7 .wbea-wpcf7-form, 
-				{{WRAPPER}} .wbea-wpcf7-form label' => 'width: {{SIZE}}{{UNIT}};',
+				'{{WRAPPER}} .cf7 .wpcf7 input[type="text"], 
+				{{WRAPPER}} .cf7 .wpcf7 input[type="email"],
+				{{WRAPPER}} .cf7 .wpcf7 input[type="date"],
+				{{WRAPPER}} .wpcf7 input[type="tel"],
+				{{WRAPPER}} .wpcf7 input[type="url"],
+				{{WRAPPER}} .wpcf7 input[type="number"],
+				{{WRAPPER}} .cf7 .wpcf7 textarea, 
+				{{WRAPPER}} .cf7 .wpcf7-form, 
+				{{WRAPPER}} .wpcf7-form label' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);  
@@ -403,12 +403,12 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="text"], 
-					{{WRAPPER}} .wbea-cf7 .wbea-wpcf7 input[type="date"],
-					{{WRAPPER}} .wbea-wpcf7 input[type="tel"],
-					{{WRAPPER}} .wbea-wpcf7 input[type="url"],
-					{{WRAPPER}} .wbea-wpcf7 input[type="number"],
-					{{WRAPPER}} .wbea-wbea-cf7 .wbea-wpcf7 input[type="email"]' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .cf7 .wpcf7 input[type="text"], 
+					{{WRAPPER}} .cf7 .wpcf7 input[type="date"],
+					{{WRAPPER}} .wpcf7 input[type="tel"],
+					{{WRAPPER}} .wpcf7 input[type="url"],
+					{{WRAPPER}} .wpcf7 input[type="number"],
+					{{WRAPPER}} .wbea-cf7 .wpcf7 input[type="email"]' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -435,7 +435,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 					'size' => 125,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wbea-cf7 .wbea-wpcf7 textarea' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-cf7 .wpcf7 textarea' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -467,7 +467,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'color: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -482,7 +482,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'background: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -496,7 +496,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 			[
 				'label' => __('Typography', 'webbricks-addons'),
 				'name' => 'wbea_cf7_button_typography',
-				'selector' => '{{WRAPPER}} .wbea-wpcf7-form-control.wpcf7-submit.has-spinner',
+				'selector' => '{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -511,7 +511,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7-form-control.wpcf7-submit.has-spinner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 				],
 				
 			]
@@ -525,7 +525,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px'],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				
 			]
@@ -539,7 +539,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				
 			]
@@ -552,7 +552,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner' => 'border:1px solid {{VALUE}};',
+					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'border:1px solid {{VALUE}};',
 				],
 				'separator'=>'after'
 			]
@@ -576,7 +576,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);  
@@ -597,7 +597,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner:hover' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner:hover' => 'color: {{VALUE}} !important;',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_TEXT,
@@ -612,7 +612,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner:hover' => 'border-color: {{VALUE}} !important;',
+					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner:hover' => 'border-color: {{VALUE}} !important;',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -627,7 +627,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-wpcf7-form-control.wbea-wpcf7-submit.has-spinner:hover' => 'background-color: {{VALUE}} !important;',
+					'{{WRAPPER}} .wpcf7-form-control.wpcf7-submit.has-spinner:hover' => 'background-color: {{VALUE}} !important;',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
