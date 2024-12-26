@@ -634,7 +634,7 @@ class WBEA_About extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-about-img img:first-child' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-about-featured-img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -653,7 +653,7 @@ class WBEA_About extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-about-img img:first-child' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-about-featured-img' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -682,7 +682,7 @@ class WBEA_About extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-about-img img:last-child' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-about-featured-bg' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -701,7 +701,7 @@ class WBEA_About extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-about-img img:last-child' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-about-featured-bg' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1214,7 +1214,7 @@ class WBEA_About extends Widget_Base {
 						<?php endif; ?>
 						<<?php echo esc_attr($wbea_about_title_tag); ?> class="wbea-section-heading"><?php echo esc_html($wbea_about_title); ?></<?php echo esc_attr($wbea_about_title_tag); ?>>
 					</div> <!-- section-heading end here -->
-					<div class="about-img">
+					<div class="wbea-about-img">
 						<?php if (!empty($wbea_about_featured_img)) : ?>
 							<div class="wbea-about-featured-img" style="background-image:url('<?php echo esc_url($wbea_about_featured_img); ?>')"></div>
 						<?php endif; ?>
@@ -1243,7 +1243,12 @@ class WBEA_About extends Widget_Base {
 					</div>
 					<div class="wbea-about-btn">
 						<?php if ($wbea_about_btn1_link) : ?>
-							<a href="<?php echo esc_url($wbea_about_btn1_link); ?>" class="wbea-btn-bg" target="_blank" rel="noopener noreferrer"><?php echo esc_html($wbea_about_btn1_title); ?>
+							<?php 
+								// Set target and rel attributes for button 1
+								$about_btn1_target = (isset($settings['wbea_about_btn1_link']['is_external']) && $settings['wbea_about_btn1_link']['is_external']) ? ' target="_blank"' : '';
+								$about_btn1_nofollow = (isset($settings['wbea_about_btn1_link']['nofollow']) && $settings['wbea_about_btn1_link']['nofollow']) ? ' rel="nofollow"' : '';
+							?>
+							<a href="<?php echo esc_url($wbea_about_btn1_link); ?>" class="wbea-btn-bg" <?php echo esc_attr($about_btn1_target) . esc_attr($about_btn1_nofollow); ?>><?php echo esc_html($wbea_about_btn1_title); ?>
 								<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
 								</svg>
@@ -1251,7 +1256,12 @@ class WBEA_About extends Widget_Base {
 						<?php endif; ?>
 			
 						<?php if ($wbea_about_btn2_link) : ?>
-							<a href="<?php echo esc_url($wbea_about_btn2_link); ?>" class="wbea-btn-border" target="_blank" rel="noopener noreferrer"><?php echo esc_html($wbea_about_btn2_title); ?>
+							<?php 
+								// Set target and rel attributes for button 1
+								$about_btn2_target = (isset($settings['wbea_about_btn2_link']['is_external']) && $settings['wbea_about_btn2_link']['is_external']) ? ' target="_blank"' : '';
+								$about_btn2_nofollow = (isset($settings['wbea_about_btn2_link']['nofollow']) && $settings['wbea_about_btn2_link']['nofollow']) ? ' rel="nofollow"' : '';
+							?>
+							<a href="<?php echo esc_url($wbea_about_btn2_link); ?>" class="wbea-btn-border" <?php echo esc_attr($about_btn2_target) . esc_attr($about_btn2_nofollow); ?>><?php echo esc_html($wbea_about_btn2_title); ?>
 								<svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M17.6484 7.05859L13.1484 11.5586C12.7266 12.0156 11.9883 12.0156 11.5664 11.5586C11.1094 11.1367 11.1094 10.3984 11.5664 9.97656L14.1328 7.375H1.125C0.492188 7.375 0 6.88281 0 6.25C0 5.58203 0.492188 5.125 1.125 5.125H14.1328L11.5664 2.55859C11.1094 2.13672 11.1094 1.39844 11.5664 0.976562C11.9883 0.519531 12.7266 0.519531 13.1484 0.976562L17.6484 5.47656C18.1055 5.89844 18.1055 6.63672 17.6484 7.05859Z" fill="var(--e-global-color-accent)"/>
 								</svg>

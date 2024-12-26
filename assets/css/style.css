@@ -285,7 +285,7 @@ p, span, div{
   margin-top: 10px;
   margin-right: 32px;
 }
-.about-img {
+.wbea-about-img {
   position: relative;
   margin-top: 65px;
 }
@@ -1844,11 +1844,20 @@ p, span, div{
 	background-size: cover;
 	background-position: center;
 }
-
+.wbea-about-featured-bg {
+	position: absolute;
+	right: 0;
+	top: -65px;
+	height: 230px;
+	width: 230px;
+	z-index: -1;
+}
 .wbea-about-featured-img {
-  padding-top: 75%;
-  background-size: cover;
-  background-position: center;
+	padding-top: 75%;
+	background-size: cover;
+	background-position: center;
+	max-width: 80%;
+	border-radius: 12px;
 }
 .wbea-single-filter-gallery {
   position: relative;
