@@ -403,7 +403,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .cf7 .wpcf7 input[type="text"], 
+					'{{WRAPPER}} .wpcf7-form-control .wpcf7 input[type="text"], 
 					{{WRAPPER}} .cf7 .wpcf7 input[type="date"],
 					{{WRAPPER}} .wpcf7 input[type="tel"],
 					{{WRAPPER}} .wpcf7 input[type="url"],
@@ -655,7 +655,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 		if (!empty($settings['wbea_cf7'])) {
 			$cf7_id = esc_attr($settings['wbea_cf7']);
 			?>
-			<div class="elementor-shortcode wb-cf7 wb-cf7-<?php echo esc_attr($cf7_id); ?>">
+			<div class="elementor-shortcode wbea wb-cf7 wb-cf7-<?php echo esc_attr($cf7_id); ?>">
 				<?php echo do_shortcode('[contact-form-7 id="' . $cf7_id . '"]'); ?>
 			</div>
 			<?php
