@@ -355,7 +355,7 @@ class WBEA_Counter extends Widget_Base {
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-counter-content .counter-title' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-counter-content .wbea-counter-title' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,

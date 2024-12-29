@@ -363,7 +363,7 @@ class WBEA_Testimonial_Carousel extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'wbea_testimonial_image_border',
-				'selector' => '{{WRAPPER}} .wbea-single-testimonial img',
+				'selector' => '{{WRAPPER}} .wbea-testimonial-image',
 			]
 		);	
 
@@ -375,7 +375,7 @@ class WBEA_Testimonial_Carousel extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-single-testimonial img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-testimonial-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -394,12 +394,10 @@ class WBEA_Testimonial_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-single-testimonial img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-testimonial-image' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
-		);
-
-		
+		);		
 
 		$this->end_controls_section();
 		// end of the Content tab section

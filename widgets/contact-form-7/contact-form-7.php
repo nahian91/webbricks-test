@@ -202,7 +202,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				],
 				'default' => 'left',
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form label' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .wbea.wb-cf7 label' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -213,7 +213,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 			[
 				'label' => __('Typography', 'webbricks-addons'),
 				'name' => 'wbea_cf7_label_typography',
-				'selector' => '{{WRAPPER}} .wpcf7-form label, {{WRAPPER}} .wpcf7-form input::placeholder, {{WRAPPER}} .wpcf7-form textarea::placeholder',
+				'selector' => '{{WRAPPER}} .wbea.wb-cf7 label, {{WRAPPER}} .wbea.wb-cf7 input::placeholder, {{WRAPPER}} .wbea.wb-cf7 textarea::placeholder',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -227,7 +227,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wbea.wb-cf7 label' => 'color: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -242,7 +242,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Placeholder Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form ::placeholder' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wbea.wb-cf7::placeholder' => 'color: {{VALUE}};',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -258,10 +258,10 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7 input[type="text"], 
-					{{WRAPPER}} .wpcf7 input[type="email"], 
-					{{WRAPPER}} .wpcf7 textarea, 
-					{{WRAPPER}} .wpcf7 input[type="date"]' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea.wb-cf7 input[type="text"], 
+					{{WRAPPER}} .wbea.wb-cf7 input[type="email"], 
+					{{WRAPPER}} .wbea.wb-cf7 textarea, 
+					{{WRAPPER}} .wbea.wb-cf7 input[type="date"]' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);

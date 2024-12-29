@@ -332,7 +332,7 @@ class WBEA_Filter_Gallery extends Widget_Base {
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .filter-gallery-menu button' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-filter-gallery-menu button' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -347,7 +347,7 @@ class WBEA_Filter_Gallery extends Widget_Base {
 				'label' => esc_html__( 'Active Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .filter-gallery-menu button.active' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-filter-gallery-menu button.active' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -362,7 +362,7 @@ class WBEA_Filter_Gallery extends Widget_Base {
 				'label' => esc_html__( 'Active Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .filter-gallery-menu button.active::before' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-filter-gallery-menu button.active::before' => 'background-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -377,7 +377,7 @@ class WBEA_Filter_Gallery extends Widget_Base {
 				'label' => esc_html__( 'Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .filter-gallery-menu' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-filter-gallery-menu' => 'border-color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -390,7 +390,7 @@ class WBEA_Filter_Gallery extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'wbea_filter_gallery_controls_typography',
-				'selector' => '{{WRAPPER}} .filter-gallery-menu button',
+				'selector' => '{{WRAPPER}} .wbea-filter-gallery-menu button',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -422,7 +422,7 @@ class WBEA_Filter_Gallery extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .single-filter-gallery img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-filter-img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -441,7 +441,7 @@ class WBEA_Filter_Gallery extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .single-filter-gallery img' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-filter-img' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -451,7 +451,7 @@ class WBEA_Filter_Gallery extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'wbea_filter_gallery_image_border',
-				'selector' => '{{WRAPPER}} .single-filter-gallery img',
+				'selector' => '{{WRAPPER}} .wbea-filter-img',
 			]
 		);	
 
@@ -463,7 +463,7 @@ class WBEA_Filter_Gallery extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .single-filter-gallery img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wbea-filter-img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -490,10 +490,10 @@ class WBEA_Filter_Gallery extends Widget_Base {
 	
 		if ($wbea_filter_gallery_menu_show === 'yes') : ?>
 			<!-- Filter Gallery Start -->
-			<div class="filter-gallery">
-				<div class="grid grid-active">
+			<div class="wbea-filter-gallery">
+				<div class="grid wbea-grid-active">
 					<div class="col-12">
-						<div class="filter-gallery-menu">
+						<div class="wbea-filter-gallery-menu">
 							<button class="active" data-filter="*"><?php esc_html_e('ALL', 'webbricks-addons'); ?></button>
 							<?php
 							$unique_categories = [];
@@ -518,7 +518,7 @@ class WBEA_Filter_Gallery extends Widget_Base {
 			</div>
 		<?php endif; ?>
 	
-		<div class="wb-grid-row grid-active">
+		<div class="wb-grid-row wbea-grid-active">
 			<?php
 			foreach ($wbea_filter_gallerys as $image) {
 				$filter_image = $image['wbea_filter_gallery_image']['url'] ?? '';
@@ -531,12 +531,12 @@ class WBEA_Filter_Gallery extends Widget_Base {
 					$category_classes .= esc_attr($processed_cat) . ' ';
 				}
 				?>
-				<div class="<?php echo esc_attr($this->get_grid_classes($settings)); ?> wb-grid-tablet-6 wb-grid-mobile-12 grid-item <?php echo esc_attr(trim($category_classes)); ?>">
-					<div class="single-filter-gallery">
-						<div class="filter-img" style="background-image:url('<?php echo esc_url($filter_image); ?>')"></div>
-						<div class="image-overlay">
+				<div class="<?php echo esc_attr($this->get_grid_classes($settings)); ?> wb-grid-tablet-6 wb-grid-mobile-12 wbea-grid-item <?php echo esc_attr(trim($category_classes)); ?>">
+					<div class="wbea-single-filter-gallery">
+						<div class="wbea-filter-img" style="background-image:url('<?php echo esc_url($filter_image); ?>')"></div>
+						<div class="wbea-image-overlay">
 							<a href="<?php echo esc_url($filter_image); ?>" class="elementor-lightbox">
-								<div class="filter-img-overlay" style="background-image:url('<?php echo esc_url(WBEA_ASSETS_URL . 'img/icon-zoom.svg'); ?>')"></div>
+								<div class="wbea-filter-img-overlay" style="background-image:url('<?php echo esc_url(WBEA_ASSETS_URL . 'img/icon-zoom.svg'); ?>')"></div>
 							</a>
 						</div>
 					</div>

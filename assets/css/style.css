@@ -783,15 +783,15 @@ p, span, div{
 }
 
 /* 14. Filter Gallery */
-.filter-gallery {
+.wbea-filter-gallery {
 	margin-bottom: 100px;
 }
-.filter-gallery-menu {
+.wbea-filter-gallery-menu {
   text-align: center;
   border-bottom: 1px solid var(--e-global-color-primary);
   padding-bottom: 10px;
 }
-.filter-gallery-menu button {
+.wbea-filter-gallery-menu button {
   font-size: 1.5rem;
   line-height: 2.1rem;
 	border: 0;
@@ -801,15 +801,15 @@ p, span, div{
 	background-color: transparent;
 	cursor: pointer;
 }
-.filter-gallery-menu button.active {
+.wbea-filter-gallery-menu button.active {
   color: var(--e-global-color-secondary);
   position: relative;
 }
-.filter-gallery-menu button:hover {
+.wbea-filter-gallery-menu button:hover {
   color: var(--e-global-color-secondary);
   background-color: transparent;
 }
-.filter-gallery-menu button.active:before {
+.wbea-filter-gallery-menu button.active:before {
   content: "";
   position: absolute;
   background-color: var(--e-global-color-primary);
@@ -818,7 +818,7 @@ p, span, div{
   bottom: -12px;
   width: 100%;
 }
-.filter-gallery-menu button:focus {
+.wbea-filter-gallery-menu button:focus {
   background-color: transparent;
 }
 
@@ -1562,7 +1562,6 @@ p, span, div{
   align-items: center;
 }
 .wbea-testimonials .wbea-testimonial-image {
-  flex: 0 0 180px;
   height: 180px;
   width: 180px;
   background-size: cover;
@@ -1862,13 +1861,13 @@ p, span, div{
 .wbea-single-filter-gallery {
   position: relative;
 }
-.filter-img {
+.wbea-filter-img {
   padding-top: 100%;
   background-position: center;
   background-size: cover;
 }
 
-.filter-img-overlay {
+.wbea-filter-img-overlay {
   background-size: cover;
   background-position: center;
   width: 50px;

@@ -727,7 +727,7 @@ class WBEA_Info_Box extends Widget_Base {
 					<i aria-hidden="true" class="<?php echo esc_attr($wbea_info_box_icon); ?>"></i>
 				<?php endif; ?>
 			</div>
-			<div class="info-box-content">
+			<div class="wbea-info-box-content">
 				<<?php echo esc_attr($wbea_info_box_title_tag); ?> class="wbea-info-box-title">
 					<?php echo esc_html($wbea_info_box_title); ?>
 				</<?php echo esc_attr($wbea_info_box_title_tag); ?>>
