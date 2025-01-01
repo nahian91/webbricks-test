@@ -1563,7 +1563,7 @@ p, span, div{
 }
 .wbea-testimonials .wbea-testimonial-image {
   height: 180px;
-  width: 180px;
+  width: 360px;
   background-size: cover;
   background-position: center;
   margin-right: 24px;

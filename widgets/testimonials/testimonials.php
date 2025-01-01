@@ -399,6 +399,25 @@ class WBEA_Testimonial_Carousel extends Widget_Base {
 			]
 		);		
 
+		// Testimonial Image Height
+		$this->add_control(
+			'wbea_testimonial_image_height',
+			[
+				'label' => esc_html__( 'Height', 'webbricks-addons' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'rem' ],
+				'range' => [
+					'px' => [
+						'min' => 1,
+						'max' => 1200,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .wbea-testimonial-image' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);		
+
 		$this->end_controls_section();
 		// end of the Content tab section
 
