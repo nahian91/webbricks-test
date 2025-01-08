@@ -318,7 +318,7 @@ class WBEA_CTA extends Widget_Base {
 				$wbea_cta_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/CTA-light-web-bricks.webp';
 				break;
 			case 'wbea-cta-pattern-2':
-				$wbea_cta_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/CTA-light-web-bricks.webp';
+				$wbea_cta_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2025/01/CTA-dark-web-bricks.webp';
 				break;
 			default:
 				$wbea_cta_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/CTA-light-web-bricks.webp';

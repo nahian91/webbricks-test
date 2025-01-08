@@ -550,7 +550,7 @@ class WBEA_Business_Hours extends Widget_Base {
 						// Validate if the 'open' or 'close' value is valid.
 						$business_open_close_select = in_array($business_open_close_select, ['Open', 'Close'], true) ? $business_open_close_select : '';
 						?>
-						<li class="<?php echo esc_attr($business_open_close_select === 'Close' ? 'close' : ''); ?>">
+						<li class="<?php echo esc_attr($business_open_close_select === 'Open' ? 'open' : 'close'); ?>">
 							<span><?php echo esc_html($business_day); ?></span>
 							<p>
 								<span><?php echo esc_html($business_duration); ?></span>

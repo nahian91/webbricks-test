@@ -284,8 +284,8 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Input Border Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .cf7 .wpcf7 input[type="text"], 
-					{{WRAPPER}} .cf7 .wpcf7 input[type="email"], 
+					'{{WRAPPER}} .wpcf7 input[type="text"], 
+					{{WRAPPER}} .wpcf7 input[type="email"], 
 					{{WRAPPER}} .wpcf7 input[type="date"],
 					{{WRAPPER}} .wpcf7 input[type="tel"],
 					{{WRAPPER}} .wpcf7 input[type="url"],
@@ -303,14 +303,14 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'label' => __( 'Input Background', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .cf7 .wpcf7 input[type="text"], 
-					{{WRAPPER}} .cf7 .wpcf7 input[type="email"], 
-					{{WRAPPER}} .cf7 .wpcf7 input[type="date"],
+					'{{WRAPPER}} .wpcf7 input[type="text"], 
+					{{WRAPPER}} .wpcf7 input[type="email"], 
+					{{WRAPPER}} .wpcf7 input[type="date"],
 					{{WRAPPER}} .wpcf7 input[type="tel"],
 					{{WRAPPER}} .wpcf7 input[type="url"],
 					{{WRAPPER}} .wpcf7 input[type="number"],
 					{{WRAPPER}} .wpcf7-form-control.wpcf7-select,
-					{{WRAPPER}} .cf7 .wpcf7 textarea' => 'background: {{VALUE}};',
+					{{WRAPPER}} .wpcf7 textarea' => 'background: {{VALUE}};',
 				],
 				'default' => '#fff',
 			]
@@ -339,10 +339,10 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .cf7 .wpcf7 input[type="text"], 
-					{{WRAPPER}} .cf7 .wpcf7 input[type="email"], 
-					{{WRAPPER}} .cf7 .wpcf7 input[type="date"],
-					{{WRAPPER}} .cf7 .wpcf7 textarea, 
+					'{{WRAPPER}} .wpcf7 input[type="text"], 
+					{{WRAPPER}} .wpcf7 input[type="email"], 
+					{{WRAPPER}} .wpcf7 input[type="date"],
+					{{WRAPPER}} .wpcf7 textarea, 
 					{{WRAPPER}} .wpcf7 input[type="tel"],
 					{{WRAPPER}} .wpcf7 input[type="url"],
 					{{WRAPPER}} .wpcf7 input[type="number"],
@@ -372,46 +372,18 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				],
 			],
 			'selectors' => [
-				'{{WRAPPER}} .cf7 .wpcf7 input[type="text"], 
-				{{WRAPPER}} .cf7 .wpcf7 input[type="email"],
-				{{WRAPPER}} .cf7 .wpcf7 input[type="date"],
+				'{{WRAPPER}} .wpcf7 input[type="text"], 
+				{{WRAPPER}} .wpcf7 input[type="email"],
+				{{WRAPPER}} .wpcf7 input[type="date"],
 				{{WRAPPER}} .wpcf7 input[type="tel"],
 				{{WRAPPER}} .wpcf7 input[type="url"],
 				{{WRAPPER}} .wpcf7 input[type="number"],
-				{{WRAPPER}} .cf7 .wpcf7 textarea, 
-				{{WRAPPER}} .cf7 .wpcf7-form, 
+				{{WRAPPER}} .wpcf7 textarea, 
+				{{WRAPPER}} .wpcf7-form, 
 				{{WRAPPER}} .wpcf7-form label' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);  
-
-		// CF7 Input Height
-		$this->add_responsive_control(
-				'cf7_input_height',
-				[
-					'label' => __( 'Input Height', 'webbricks-addons' ),
-					'type' => Controls_Manager::SLIDER,
-					'size_units' => [ 'px', 'em' ],
-					'range' => [
-					'px' => [
-						'min' => 30,
-						'max' => 100,
-					],
-					'em' => [
-						'min' => 1,
-						'max' => 40,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form-control .wpcf7 input[type="text"], 
-					{{WRAPPER}} .cf7 .wpcf7 input[type="date"],
-					{{WRAPPER}} .wpcf7 input[type="tel"],
-					{{WRAPPER}} .wpcf7 input[type="url"],
-					{{WRAPPER}} .wpcf7 input[type="number"],
-					{{WRAPPER}} .wbea-cf7 .wpcf7 input[type="email"]' => 'height: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
 		
 		// CF7 Textarea Height
 		$this->add_responsive_control(
@@ -435,7 +407,7 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 					'size' => 125,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-cf7 .wpcf7 textarea' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wpcf7 textarea' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);

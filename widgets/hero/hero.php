@@ -285,18 +285,6 @@ class WBEA_Hero extends Widget_Base {
 				],
 			]
 		);
-
-		// Hero Background Image
-		$this->add_control(
-			'wbea_hero_bg_img',
-			[
-				'label' => esc_html__( 'Choose Background Image', 'webbricks-addons' ),
-				'type' => Controls_Manager::MEDIA,
-				'default' => [
-					'url' => plugins_url( 'assets/img/hero-bg.png', dirname(__FILE__, 2) ),
-				]
-			]
-		);
 		 
 		$this->end_controls_section();
 		// end of the Content tab section

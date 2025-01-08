@@ -171,6 +171,29 @@ class WBEA_Services extends Widget_Base {
 			]
 		);
 
+		// Services Section Heading Tag
+		$this->add_control(
+			'wbea_services_section_subheading_tag',
+			[
+				'label' => __( 'Html Tag', 'webbricks-addons' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'webbricks-addons' ),
+					'h2' => __( 'H2', 'webbricks-addons' ),
+					'h3' => __( 'H3', 'webbricks-addons' ),
+					'h4' => __( 'H4', 'webbricks-addons' ),
+					'h5' => __( 'H5', 'webbricks-addons' ),
+					'h6' => __( 'H6', 'webbricks-addons' ),
+					'p' => __( 'P', 'webbricks-addons' ),
+					'span' => __( 'Span', 'webbricks-addons' ),
+				],
+				'default' => 'span',
+				'condition' => [
+					'wbea_services_section_subheading_show' => 'yes'
+				],
+			]
+		);
+
 		$this->end_controls_section();
 
 		// Services Section Heading Box

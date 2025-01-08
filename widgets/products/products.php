@@ -330,25 +330,7 @@ class WBEA_Products extends Widget_Base {
 				],
 			]
 		);
-
-		// Products Image Height
-		$this->add_control(
-			'wbea_products_image_height',
-			[
-				'label' => esc_html__( 'Height', 'webbricks-addons' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'rem' ],
-				'range' => [
-					'px' => [
-						'min' => 1,
-						'max' => 1200,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .wbea-product-img' => 'height: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
+		
 		$this->end_controls_section();
 
 		// Products Title
