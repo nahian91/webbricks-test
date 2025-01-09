@@ -339,7 +339,7 @@ class WBEA_Blogs extends Widget_Base {
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-blog-meta, .blog-meta a' => 'color: {{VALUE}} !important',
+					'{{WRAPPER}} .wbea-blog-meta, .wbea-blog-meta a' => 'color: {{VALUE}} !important',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,

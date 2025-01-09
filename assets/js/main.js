@@ -67,9 +67,7 @@ jQuery(window).on('elementor/frontend/init', function () {
             // Set the maximum height to all items
             blog_carousel.find('.owl-item').css('height', maxHeight + 'px');
         }
-    });
-    
-    
+    });  
 
     // Counter Widget
     elementorFrontend.hooks.addAction('frontend/element_ready/webbricks-counter-widget.default', function ($scope, $) {

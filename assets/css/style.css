@@ -114,7 +114,7 @@ p, span, div{
   position: absolute;
   right: 16px;
   bottom: 20px;
-  padding: 10px;
+  padding: 15px;
   display: inline-block;
   border-radius: 12px;
   border: 2px solid var( --e-global-color-primary );

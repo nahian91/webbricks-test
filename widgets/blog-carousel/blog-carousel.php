@@ -1349,7 +1349,7 @@ class WBEA_Blog_Carousel extends Widget_Base {
 			$wbea_blog_carousel_heading_show === 'yes' ? 'heading-top' : '',
 		];
 		?>
-		<div class="wbea-blog-carousel owl-carousel <?php echo esc_attr(implode(' ', $carousel_classes)); ?>"
+		<div class="wbea-blog-carousel wbea-carousel-top-arrows owl-carousel <?php echo esc_attr(implode(' ', $carousel_classes)); ?>"
 			wbea-blog-items="<?php echo esc_attr($wbea_blog_carousel_slide_number); ?>" 
 			wbea-blog-arrows="<?php echo esc_attr($wbea_blog_carousel_arrows); ?>" 
 			wbea-blog-loops="<?php echo esc_attr($wbea_blog_carousel_loop); ?>" 
