@@ -431,3 +431,18 @@ button.wbea-btn:focus {
     margin: 50px auto 0;
     border: 1px solid #ddd;
 }
+.wbea-dashboard-tabs-box #getpro {
+  width: 500px;
+  height: 280px;
+  background-size: cover;
+  background-position: ;
+  background-position: center;
+  margin: 50px auto;
+}
+.wbea-dashboard-tabs-box #templates {
+  width: 460px;
+  height: 112px;
+  background-size: cover;
+  background-position: center;
+  margin: 50px auto;
+}

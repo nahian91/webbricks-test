@@ -293,6 +293,17 @@ class WBEA_Services extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_CONTENT		
 			]
 		);
+
+		$this->add_control(
+			'wbea_custom_panel_notice',
+			[
+				'type' => \Elementor\Controls_Manager::NOTICE,
+				'notice_type' => 'warning',
+				'dismissible' => true,
+				'heading' => esc_html__( 'Notice', 'webbricks-addons' ),
+				'content' => esc_html__( 'Please enable the AwesomeFont option from Elementor settings. Learn more.', 'webbricks-addons' ),
+			]
+		);
 		 
 		// Services
 		$repeater = new Repeater();
@@ -1206,6 +1217,7 @@ class WBEA_Services extends Widget_Base {
 	<?php if ($wbea_services_section_heading_show === 'yes') { 
 		$wbea_services_section_subheading_show = isset($settings['wbea_services_section_subheading_show']) ? $settings['wbea_services_section_subheading_show'] : '';
 		$wbea_services_section_subheading = isset($settings['wbea_services_section_subheading']) ? $settings['wbea_services_section_subheading'] : '';
+		$wbea_services_section_subheading_tag = isset($settings['wbea_services_section_subheading_tag']) ? $settings['wbea_services_section_subheading_tag'] : 'span';
 		$wbea_section_heading_separator_variation = isset($settings['wbea_section_heading_separator_variation']) ? $settings['wbea_section_heading_separator_variation'] : '';
 		$wbea_services_section_heading = isset($settings['wbea_services_section_heading']) ? $settings['wbea_services_section_heading'] : '';
 		$wbea_services_section_heading_tag = isset($settings['wbea_services_section_heading_tag']) ? $settings['wbea_services_section_heading_tag'] : 'h2';
@@ -1214,7 +1226,7 @@ class WBEA_Services extends Widget_Base {
 	?>
 		<div class="wbea-section-title wbea-service-title">
 			<?php if ($wbea_services_section_subheading_show === 'yes') { ?>
-				<span class="<?php echo esc_attr($wbea_section_heading_separator_variation); ?> wbea-section-subheading"><?php echo esc_html($wbea_services_section_subheading); ?></span>
+				<<?php echo esc_attr($wbea_services_section_subheading_tag); ?> class="<?php echo esc_attr($wbea_section_heading_separator_variation); ?> wbea-section-subheading"><?php echo esc_html($wbea_services_section_subheading); ?></<?php echo esc_attr($wbea_services_section_subheading_tag); ?>>
 			<?php } ?>
 			<<?php echo esc_attr($wbea_services_section_heading_tag); ?> class="wbea-section-heading"><?php echo esc_html($wbea_services_section_heading); ?></<?php echo esc_attr($wbea_services_section_heading_tag); ?>>
 			

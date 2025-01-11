@@ -328,32 +328,32 @@ class WBEA_Faqs extends Widget_Base {
 			]
 		);
 
+		// FAQ Icon Active Color
+		$this->add_control(
+			'wbea_faq_icon_active_color',
+			[
+				'label' => esc_html__( 'Open State', 'webbricks-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'global' => [
+					'default' => Global_Colors::COLOR_TEXT,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .wbea-faq span.active::after' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
 		// FAQ Icon Color
 		$this->add_control(
 			'wbea_faq_icon_color',
 			[
-				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
+				'label' => esc_html__( 'Close State', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .wbea-faq span:after' => 'color: {{VALUE}}',
-				],
-			]
-		);
-
-		// FAQ Icon Active Color
-		$this->add_control(
-			'wbea_faq_icon_active_color',
-			[
-				'label' => esc_html__( 'Active Color', 'webbricks-addons' ),
-				'type' => Controls_Manager::COLOR,
-				'global' => [
-					'default' => Global_Colors::COLOR_TEXT,
-				],
-				'selectors' => [
-					'{{WRAPPER}} span.active::after' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -389,7 +389,7 @@ class WBEA_Faqs extends Widget_Base {
 						<!-- Wrap the FAQ title in a span for the JavaScript to work -->
 						<h4><span><?php echo esc_html($faq_title); ?></span></h4>
 						<!-- The content will be hidden by default, controlled by the JavaScript -->
-						<p style="display:none;"><?php echo esc_html($faq_content); ?></p>
+						<p><?php echo wp_kses_post($faq_content); ?></p>
 					</li>
 					<?php
 				}

@@ -176,7 +176,7 @@ p, span, div{
 }
 
 /* 3. Section Title */
-.wbea-section-title span.wbea-section-subheading {
+.wbea-section-title .wbea-section-subheading {
   color: var( --e-global-color-text );
 	font-family: var( --e-global-typography-text-font-family ), Sans-serif;
 	font-weight: var( --e-global-typography-text-font-weight );
@@ -185,7 +185,7 @@ p, span, div{
   padding-left: 32px;
   display: inline-block;
 }
-.wbea-section-title span.wbea-section-subheading:before {
+.wbea-section-title .wbea-section-subheading:before {
   position: absolute;
   content: "";
   width: 16px;
@@ -195,22 +195,22 @@ p, span, div{
   transform: translateY(-50%);
   background-color: var(--e-global-color-accent);
 }
-.wbea-section-title span.wbea-section-subheading.default:before {
+.wbea-section-title .wbea-section-subheading.default:before {
   border-radius: 4px;
 }
-.wbea-section-title span.wbea-section-subheading.round:before {
+.wbea-section-title .wbea-section-subheading.round:before {
   border-radius: 50% 50% 0 50%;
 }
-.wbea-section-title span.wbea-section-subheading.square:before {
+.wbea-section-title .wbea-section-subheading.square:before {
   border-radius: 0;
 }
-.wbea-section-title span.wbea-section-subheading.circle:before {
+.wbea-section-title .wbea-section-subheading.circle:before {
   border-radius: 50%;
 }
-.wbea-section-title span.wbea-section-subheading.none:before {
+.wbea-section-title .wbea-section-subheading.none:before {
   display: none;
 }
-.wbea-section-title span.wbea-section-subheading.none {
+.wbea-section-title .wbea-section-subheading.none {
   padding-left: 0;
 }
 .wbea-section-title .wbea-section-heading{
@@ -1712,6 +1712,9 @@ p, span, div{
   display: none;
   color: var(--e-global-color-text);
 }
+.wbea-faq li:first-child p {
+	display: block;
+}
 .wbea-faq li, .wbea-faq li p, .wbea-faq li ul, .wbea-faq li ol{
   font-size: 1.125rem;
   line-height: 1.6875rem;
@@ -1832,11 +1835,11 @@ p, span, div{
 	padding-top: 100%;
 }
 .wbea-brand-logo-img {
-	background-size: contain;
+	background-size: auto;
 	background-position: center;
 	background-repeat: no-repeat;
 	width: 100%;
-	min-height: 30px;
+	min-height: 75px;
 }
 .wbea-affiliate-img-bg {
 	padding-top: 100%;

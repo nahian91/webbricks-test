@@ -218,7 +218,7 @@ class WBEA_About extends Widget_Base {
 		$this->add_control(
 			'wbea_about_bg_img',
 			[
-				'label' => esc_html__( 'Background Pattern', 'webbricks-addons' ),
+				'label' => esc_html__( 'Secondary Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/about-pattern-5-web-bricks.webp',
@@ -1202,7 +1202,7 @@ class WBEA_About extends Widget_Base {
 		?>
 		<!-- About Start Here -->
 		<section class="wbea-about">
-			<div class="wb-grid-row align-end">
+			<div class="wb-grid-row">
 				<div class="wb-grid-desktop-6 wb-grid-tablet-12 wb-grid-mobile-12">
 					<div class="wbea-section-title">
 						<?php if ($wbea_about_subheading_show_btn === 'yes') : ?>

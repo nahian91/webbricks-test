@@ -304,13 +304,14 @@ class WBEA_Team extends Widget_Base {
 				'label' => __( 'Background Pattern', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'wbea-team-pattern-1' => __( 'Style 1', 'webbricks-addons' ),
-					'wbea-team-pattern-2' => __( 'Style 2', 'webbricks-addons' ),
-					'wbea-team-pattern-none' => __( 'None', 'webbricks-addons' ),
+					'style-1' => __( 'Style 1', 'webbricks-addons' ),
+					'style-2' => __( 'Style 2', 'webbricks-addons' ),
+					'none' => __( 'None', 'webbricks-addons' ),
 				],
-				'default' => 'team-pattern-1',
+				'default' => 'style-1',
 			]
 		);
+
 
 		// Team Background
 		$this->add_control(
@@ -617,33 +618,38 @@ class WBEA_Team extends Widget_Base {
 		$wbea_team_designation = $settings['wbea_team_designation'] ?? '';
 		$wbea_team_social_show = $settings['wbea_team_social_show'] ?? 'no';
 		$wbea_team_socials = is_array($settings['wbea_team_socials'] ?? null) ? $settings['wbea_team_socials'] : [];
-		$wbea_team_bg_pattern = $settings['wbea_team_bg_pattern'] ?? 'team-pattern-1';
-	
-		// Allow-list for background patterns
-		$pattern_urls = [
-			'team-pattern-1' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
-			'team-pattern-2' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
-			'team-pattern-none' => '', // No pattern
-		];
+		$wbea_team_bg_pattern = isset($settings['wbea_team_bg_pattern']) ? $settings['wbea_team_bg_pattern'] : '';
 
-		$team_pattern_url = $pattern_urls[$wbea_team_bg_pattern] ?? $pattern_urls['team-pattern-1'];
+		// Background pattern URLs
+		$team_pattern_url = '';
+		switch ($wbea_team_bg_pattern) {
+			case 'style-1':
+				$team_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp';
+				break;
+			case 'style-2':
+				$team_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-2-web-bricks.webp';
+				break;
+			case 'none':
+				$team_pattern_url = '';
+				break;
+			default:
+				$team_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp'; // Default pattern
+				break;
+		}
 	
 		// Allow-list for heading tags
 		$allowed_heading_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 		$wbea_team_name_tag = in_array($wbea_team_name_tag, $allowed_heading_tags, true) ? $wbea_team_name_tag : 'h3';
-	
 		?>
-		<?php if ($team_pattern_url) : ?>
-		<style>
-			.wbea-team-bg {
-				background-image: url('<?php echo esc_url($team_pattern_url); ?>');
-			}
-		</style>
-		<?php endif; ?>
 	
 		<div class="wbea-team">
 			<div class="wbea-team-img" style="background-image:url(<?php echo esc_url($wbea_team_image); ?>)"></div>
-			<div class="wbea-team-bg">
+			<div 
+				class="wbea-team-bg" 
+				<?php if (!empty($team_pattern_url)) : ?>
+					style="background-image: url('<?php echo esc_url($team_pattern_url); ?>');"
+				<?php endif; ?>
+			>
 				<div class="wbea-team-content">
 					<<?php echo esc_attr($wbea_team_name_tag); ?> class="wbea-team-name">
 						<?php echo esc_html($wbea_team_name); ?>
@@ -666,5 +672,5 @@ class WBEA_Team extends Widget_Base {
 			</div>
 		</div>
 		<?php
-	}	
+	}
 }

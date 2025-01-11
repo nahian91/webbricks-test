@@ -97,6 +97,20 @@ class WBEA_Hero extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_CONTENT,			
 			]
 		);
+
+		// Hero Sub Heading Show?
+		$this->add_control(
+			'wbea_hero_subheading_show_btn',
+			[
+				'label' => esc_html__( 'Show Sub Heading', 'webbricks-addons' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Show', 'webbricks-addons' ),
+				'label_off' => esc_html__( 'Hide', 'webbricks-addons' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+				'separator' => 'before'
+			]
+		);
 		 
 		// Hero Sub Heading
 		$this->add_control(
@@ -106,6 +120,9 @@ class WBEA_Hero extends Widget_Base {
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => esc_html__('MAKE A CHANGE', 'webbricks-addons'),
+				'condition' => [
+					'wbea_hero_subheading_show_btn' => 'yes'
+				],
 			]
 		);		
 
@@ -127,6 +144,9 @@ class WBEA_Hero extends Widget_Base {
 					'div' => __( 'Div', 'webbricks-addons' ),
 				],
 				'default' => 'span',
+				'condition' => [
+					'wbea_hero_subheading_show_btn' => 'yes'
+				],
 			]
 		);
 
@@ -420,6 +440,9 @@ class WBEA_Hero extends Widget_Base {
 			[
 				'label' => esc_html__( 'Sub Heading', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'wbea_hero_subheading_show_btn' => 'yes'
+				],
 			]
 		);
 
@@ -435,6 +458,9 @@ class WBEA_Hero extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .wbea-hero-content .wbea-hero-subheading' => 'color: {{VALUE}}',
 				],
+				'condition' => [
+					'wbea_hero_subheading_show_btn' => 'yes'
+				],
 			]
 		);
 
@@ -446,7 +472,10 @@ class WBEA_Hero extends Widget_Base {
 				'selector' => '{{WRAPPER}} .wbea-hero-content .wbea-hero-subheading',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
-				]
+				],
+				'condition' => [
+					'wbea_hero_subheading_show_btn' => 'yes'
+				],
 			]
 		);
 
@@ -937,7 +966,8 @@ class WBEA_Hero extends Widget_Base {
 	 */
 	protected function render() {
 		// Get input from the widget settings.
-		$settings = $this->get_settings_for_display();      
+		$settings = $this->get_settings_for_display();  
+		$wbea_hero_subheading_show_btn = $settings['wbea_hero_subheading_show_btn'] ?? '';    
 		$wbea_hero_subheading = isset($settings['wbea_hero_subheading']) ? $settings['wbea_hero_subheading'] : '';
 		$wbea_hero_subheading_tag = $settings['wbea_hero_subheading_tag'];
 		$wbea_hero_heading = isset($settings['wbea_hero_heading']) ? $settings['wbea_hero_heading'] : '';
@@ -994,8 +1024,10 @@ class WBEA_Hero extends Widget_Base {
 			<div class="wb-grid-row align-center mob-flex-column">
 				<!-- Hero Content Section -->
 				<div class="wb-grid-desktop-5 wb-grid-tablet-6 wb-grid-mobile-12">
-					<div class="wbea-hero-content">
-						<<?php echo esc_attr($wbea_hero_subheading_tag); ?> class="wbea-hero-subheading"><?php echo esc_html($wbea_hero_subheading); ?></<?php echo esc_attr($wbea_hero_subheading_tag); ?>>
+					<div class="wbea-hero-content">	
+						<?php if ($wbea_hero_subheading_show_btn === 'yes') : ?>
+							<<?php echo esc_attr($wbea_hero_subheading_tag); ?> class="wbea-hero-subheading"><?php echo esc_html($wbea_hero_subheading); ?></<?php echo esc_attr($wbea_hero_subheading_tag); ?>>
+						<?php endif; ?>	
 						<<?php echo esc_attr($wbea_hero_heading_tag); ?> class="wbea-hero-heading"><?php echo esc_html($wbea_hero_heading); ?></<?php echo esc_attr($wbea_hero_heading_tag); ?>>
 						<p><?php echo wp_kses_post($wbea_hero_desc); ?> </p>
 						<div class="wbea-hero-btn">

@@ -113,17 +113,18 @@ class WBEA_Team_Carousel extends Widget_Base {
 			]
 		);
 
+		// Section Heading Separator Style
 		$this->add_control(
 			'wbea_team_carousel_bg_pattern',
 			[
 				'label' => __( 'Background Pattern', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'team-pattern-1' => __( 'Style 1', 'webbricks-addons' ),
-					'team-pattern-2' => __( 'Style 2', 'webbricks-addons' ),
-					'team-pattern-none' => __( 'None', 'webbricks-addons' ),
+					'style-1' => __( 'Style 1', 'webbricks-addons' ),
+					'style-2' => __( 'Style 2', 'webbricks-addons' ),
+					'none' => __( 'None', 'webbricks-addons' ),
 				],
-				'default' => 'team-pattern-1',
+				'default' => 'style-1',
 			]
 		);
 
@@ -412,20 +413,6 @@ class WBEA_Team_Carousel extends Widget_Base {
 				],
 				[
 					'wbea_team_carousel_image' => [
-						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
-					],
-					'wbea_team_carousel_bg' => [
-						'url' => WBEA_ASSETS_URL . 'img/team-preview.png',
-					],
-					'wbea_team_carousel_name' => esc_html__( 'Halász Emese', 'webbricks-addons' ),
-					'wbea_team_carousel_designation' => esc_html__( 'Inside Sales Head', 'webbricks-addons'),
-					'wbea_team_carousel_fb_url' => 'https://www.facebook.com/webBricksWP',
-					'wbea_team_carousel_tw_url' => 'https://twitter.com/webbricks_',
-					'wbea_team_carousel_ln_url' => 'https://www.linkedin.com/company/web-bricks-wp/',
-					'wbea_team_carousel_insta_url' => 'https://www.instagram.com/webbricks_/',
-				],
-				[
-					'wbea_team_carousel_image' => [
 						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-3-web-bricks.webp',
 					],
 					'wbea_team_carousel_bg' => [
@@ -440,7 +427,7 @@ class WBEA_Team_Carousel extends Widget_Base {
 				],
 				[
 					'wbea_team_carousel_image' => [
-						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-1-web-bricks.webp',
+						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-3-web-bricks.webp',
 					],
 					'wbea_team_carousel_bg' => [
 						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
@@ -475,7 +462,7 @@ class WBEA_Team_Carousel extends Widget_Base {
 			[
 				'label' 		=> __('Number of Teams', 'webbricks-addons'),
 				'type' 			=> Controls_Manager::NUMBER,
-				'default' 		=> '4',
+				'default' 		=> '3',
 			]
 		);
 
@@ -1183,22 +1170,22 @@ class WBEA_Team_Carousel extends Widget_Base {
 		$wbea_team_carousels_autoplay = isset($settings['wbea_team_carousel_autoplay']) ? $settings['wbea_team_carousel_autoplay'] : 'no';
 		$wbea_team_carousels_autoplay_speed = isset($settings['wbea_team_carousel_autoplay_speed']) ? $settings['wbea_team_carousel_autoplay_speed'] : 5000;
 		$wbea_team_carousels_autoplay_animation = isset($settings['wbea_team_carousel_autoplay_animation']) ? $settings['wbea_team_carousel_autoplay_animation'] : '';
-		$wbea_team_carousel_bg_pattern = isset($settings['wbea_team_carousel_bg_pattern']) ? $settings['wbea_team_carousel_bg_pattern'] : 'team-pattern-none';
+		$wbea_team_carousel_bg_pattern = isset($settings['wbea_team_carousel_bg_pattern']) ? $settings['wbea_team_carousel_bg_pattern'] : '';
 	
-		// Set default background pattern URL based on selection.
+		// Background pattern URLs
 		$team_pattern_url = '';
 		switch ($wbea_team_carousel_bg_pattern) {
-			case 'wbea-team-pattern-1':
-				$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-2.svg';
+			case 'style-1':
+				$team_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp';
 				break;
-			case 'wbea-team-pattern-2':
-				$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-1.svg';
+			case 'style-2':
+				$team_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-2-web-bricks.webp';
 				break;
-			case 'wbea-team-pattern-none':
-				$team_pattern_url = ''; // No background
+			case 'none':
+				$team_pattern_url = '';
 				break;
 			default:
-				$team_pattern_url = 'https://cdn.getwebbricks.com/wp-content/uploads/2024/03/team-pattern-3.svg';
+				$team_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp'; // Default pattern
 				break;
 		}
 	
@@ -1240,13 +1227,13 @@ class WBEA_Team_Carousel extends Widget_Base {
 		if (!empty($wbea_team_carousels)) {
 			?>
 			<div class="wbea-team-carousel owl-carousel <?php echo esc_attr($wbea_team_carousels_arrows === 'yes' ? 'wbea-carousel-top-arrows' : ''); ?> <?php echo esc_attr($wbea_teams_section_heading_show === 'yes' ? 'wbea-heading-top' : ''); ?>" 
-				team-items="<?php echo esc_attr($wbea_team_carousels_items); ?>" 
-				team-arrows="<?php echo esc_attr($wbea_team_carousels_arrows); ?>" 
-				team-loops="<?php echo esc_attr($wbea_team_carousels_loops); ?>" 
-				team-pause="<?php echo esc_attr($wbea_team_carousels_pause); ?>" 
-				team-autoplay="<?php echo esc_attr($wbea_team_carousels_autoplay); ?>" 
-				team-autoplay-speed="<?php echo esc_attr($wbea_team_carousels_autoplay_speed); ?>" 
-				team-autoplay-animation="<?php echo esc_attr($wbea_team_carousels_autoplay_animation); ?>">
+				wbea-team-items="<?php echo esc_attr($wbea_team_carousels_items); ?>" 
+				wbea-team-arrows="<?php echo esc_attr($wbea_team_carousels_arrows); ?>" 
+				wbea-team-loops="<?php echo esc_attr($wbea_team_carousels_loops); ?>" 
+				wbea-team-pause="<?php echo esc_attr($wbea_team_carousels_pause); ?>" 
+				wbea-team-autoplay="<?php echo esc_attr($wbea_team_carousels_autoplay); ?>" 
+				wbea-team-autoplay-speed="<?php echo esc_attr($wbea_team_carousels_autoplay_speed); ?>" 
+				wbea-team-autoplay-animation="<?php echo esc_attr($wbea_team_carousels_autoplay_animation); ?>">
 				
 				<?php
 				foreach ($wbea_team_carousels as $team) {

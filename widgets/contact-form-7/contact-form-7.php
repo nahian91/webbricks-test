@@ -259,8 +259,8 @@ class WBEA_Contact_Form_7 extends Widget_Base {
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
 					'{{WRAPPER}} .wbea.wb-cf7 input[type="text"], 
-					{{WRAPPER}} .wbea.wb-cf7 input[type="email"], 
-					{{WRAPPER}} .wbea.wb-cf7 textarea, 
+					{{WRAPPER}} .wbea.wb-cf7 input[type="email"], {{WRAPPER}} .wbea.wb-cf7 input[type="tel"], 
+					{{WRAPPER}} .wbea.wb-cf7 textarea, {{WRAPPER}} .wbea.wb-cf7 select,
 					{{WRAPPER}} .wbea.wb-cf7 input[type="date"]' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]

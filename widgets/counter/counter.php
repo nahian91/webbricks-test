@@ -98,6 +98,17 @@ class WBEA_Counter extends Widget_Base {
 		    ]
 	    );
 
+		$this->add_control(
+			'wbea_custom_panel_notice',
+			[
+				'type' => \Elementor\Controls_Manager::NOTICE,
+				'notice_type' => 'warning',
+				'dismissible' => true,
+				'heading' => esc_html__( 'Notice', 'webbricks-addons' ),
+				'content' => esc_html__( 'Please enable the AwesomeFont option from Elementor settings. Learn more.', 'webbricks-addons' ),
+			]
+		);
+
 		// Counter Icon
 		$this->add_control(
 			'wbea_counter_icon',
