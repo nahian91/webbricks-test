@@ -1048,6 +1048,7 @@ p, span, div{
 .wbea-single-product span.wbea-sale {
   position: absolute;
   right: 0;
+  top: 0;
   background-color: var(--e-global-color-primary);
   color: #fff;
   padding: 5px 15px;
