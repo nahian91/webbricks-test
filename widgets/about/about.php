@@ -736,7 +736,7 @@ class WBEA_About extends Widget_Base {
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-single-about-counter div, .single-about-counter span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-single-about-counter div, .wbea-single-about-counter span' => 'color: {{VALUE}}',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,

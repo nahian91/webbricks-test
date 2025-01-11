@@ -568,7 +568,7 @@ class WBEA_Affiliate_Products extends Widget_Base {
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wbea-section-title .section-heading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-section-title .wbea-section-heading' => 'color: {{VALUE}}',
 				],
 			]
 		);

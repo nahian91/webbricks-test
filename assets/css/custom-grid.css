@@ -4,18 +4,18 @@
     flex-wrap: wrap;
 }
 
-.single-blog {
+.wbea-single-blog {
     display: flex;
     flex-direction: column;
     height: 100%; /* Ensure the column takes up 100% height */
 }
 
-.blog-content {
+.wbea-blog-content {
     flex-grow: 1; /* Allow the content to take up remaining space */
 }
 
 /* Add the following style to ensure equal height for columns */
-.wb-grid-row > div[class^="wb-grid-desktop-"] .single-blog  {
+.wb-grid-row > div[class^="wb-grid-desktop-"] .wbea-single-blog  {
     flex: 1;
 }
 .wb-grid-row.align-center {
