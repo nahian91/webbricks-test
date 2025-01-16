@@ -1197,19 +1197,19 @@ class WBEA_Services extends Widget_Base {
 		$service_pattern_url = '';
 		switch ($wbea_services_bg_pattern) {
 			case 'style-1':
-				$service_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-1-web-bricks.webp';
+				$service_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/service-pattern-1-web-bricks.webp';
 				break;
 			case 'style-2':
-				$service_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-2-web-bricks.webp';
+				$service_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/service-pattern-2-web-bricks.webp';
 				break;
 			case 'style-3':
-				$service_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-3-web-bricks.webp';
+				$service_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/service-pattern-3-web-bricks.webp';
 				break;
 			case 'style-4':
-				$service_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-4-web-bricks.webp';
+				$service_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/service-pattern-4-web-bricks.webp';
 				break;
 			default:
-				$service_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-1-web-bricks.webp'; // Default pattern
+				$service_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/service-pattern-1-web-bricks.webp'; // Default pattern
 				break;
 		}
 	?>
@@ -1257,7 +1257,7 @@ class WBEA_Services extends Widget_Base {
 				<div class="wbea-service-content">
 					<i class="<?php echo esc_attr($service_icon); ?>"></i>
 					<h3><?php echo esc_html($service_title); ?></h3>
-					<p><?php echo esc_html($service_desc); ?></p>
+					<p><?php echo wp_kses_post($service_desc); ?></p>
 				</div>
 				<div class="wbea-service-bottom" style="background-image: url('<?php echo esc_url($service_pattern_url); ?>');">
 					<?php if (!empty($service_url)) { ?>

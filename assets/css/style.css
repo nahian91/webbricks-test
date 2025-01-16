@@ -1144,7 +1144,6 @@ p, span, div{
   border-radius: 12px;
   right: 24px;
   top: 24px;
-  padding: 8px 8px 3px;
   border: 2px solid var(--e-global-color-primary);
   z-index: 2;
   overflow: hidden;
@@ -1228,10 +1227,13 @@ p, span, div{
   border-radius: 12px;
   right: 24px;
   top: 24px;
-  padding: 8px 8px 3px;
   border: 2px solid var(--e-global-color-primary);
   z-index: 2;
   overflow: hidden;
+}
+.wbea-product-category-icon a{
+  display: block;
+  padding: 8px 8px 3px;
 }
 .wbea-product-category-icon:after {
   position: absolute;

@@ -201,7 +201,7 @@ class WBEA_Filter_Gallery extends Widget_Base {
 				'label' => esc_html__( 'Choose Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-1-web-bricks.webp',
+					'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Gallery-1-web-bricks.webp',
 				],
 				'separator' => 'before',
 			]
@@ -227,55 +227,55 @@ class WBEA_Filter_Gallery extends Widget_Base {
 				'default' => [
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-1-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Gallery-1-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'landscape, stars, parks',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-2-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Gallery-2-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'cars',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-3-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Gallery-3-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'mountain, parks',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-4-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Gallery-4-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'seabeach, landscape, cars',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-5-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Gallery-5-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'parks',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-6-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Gallery-6-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'roadtrips, landscape, mountain',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-7-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Gallery-7-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'stars',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-8-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Gallery-8-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'stars, cars, parks',
 					],
 					[
 						'wbea_filter_gallery_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Gallery-9-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Gallery-9-web-bricks.webp',
 						],
 						'wbea_filter_gallery_cat' => 'roadtrips, cars, parks',
 					]

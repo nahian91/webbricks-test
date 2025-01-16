@@ -514,7 +514,9 @@ class WBEA_Price extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .wbea-price-heading span' => 'color: {{VALUE}}',
 				],
-				'global' => '#fff'
+				'global' => [
+					'default' => Global_Colors::COLOR_TEXT,
+				]
 			]
 		);
 
@@ -852,16 +854,16 @@ class WBEA_Price extends Widget_Base {
 		$price_pattern_url = '';
 		switch ($wbea_price_bg_pattern) {
 			case 'price-pattern-1':
-				$price_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-1-web-bricks.webp';
+				$price_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/service-pattern-1-web-bricks.webp';
 				break;
 			case 'price-pattern-2':
-				$price_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-2-web-bricks.webp';
+				$price_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/service-pattern-2-web-bricks.webp';
 				break;
 			case 'price-pattern-3':
-				$price_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-3-web-bricks.webp';
+				$price_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/service-pattern-3-web-bricks.webp';
 				break;
 			default:
-				$price_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-1-web-bricks.webp';
+				$price_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/service-pattern-1-web-bricks.webp';
 				break;
 		}
 		?>

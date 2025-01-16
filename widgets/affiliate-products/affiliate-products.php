@@ -350,7 +350,7 @@ class WBEA_Affiliate_Products extends Widget_Base {
 				'label' => esc_html__( 'Choose Product Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-1-web-bricks.webp',
+					'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Affiliate-1-web-bricks.webp',
 				],
 			]
 		);
@@ -378,32 +378,32 @@ class WBEA_Affiliate_Products extends Widget_Base {
 				'default' => [
 					[
 						'wbea_affiliate_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-1-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Affiliate-1-web-bricks.webp',
 						],
 					],
 					[
 						'wbea_affiliate_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-2-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Affiliate-2-web-bricks.webp',
 						],
 					],
 					[
 						'wbea_affiliate_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-3-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Affiliate-3-web-bricks.webp',
 						],
 					],
 					[
 						'wbea_affiliate_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-4-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Affiliate-4-web-bricks.webp',
 						],
 					],
 					[
 						'wbea_affiliate_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-5-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Affiliate-5-web-bricks.webp',
 						],
 					],
 					[
 						'wbea_affiliate_image' => [
-							'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Affiliate-6-web-bricks.webp',
+							'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Affiliate-6-web-bricks.webp',
 						],
 					],
 
@@ -1051,7 +1051,7 @@ class WBEA_Affiliate_Products extends Widget_Base {
                 </<?php echo esc_attr($wbea_affiliate_heading_tag); ?>>
 
                 <?php if ($wbea_affiliate_desc_show_btn === 'yes') : ?>
-                    <p><?php echo esc_html($wbea_affiliate_desc); ?></p>
+                    <p><?php echo wp_kses_post($wbea_affiliate_desc); ?></p>
                 <?php endif; ?>
             </div>
         <?php endif; ?>

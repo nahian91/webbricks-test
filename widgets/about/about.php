@@ -209,7 +209,7 @@ class WBEA_About extends Widget_Base {
 				'label' => esc_html__( 'Choose Featured Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/About-web-bricks.webp',
+					'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/About-web-bricks.webp',
 				]
 			]
 		);
@@ -221,7 +221,7 @@ class WBEA_About extends Widget_Base {
 				'label' => esc_html__( 'Secondary Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/about-pattern-5-web-bricks.webp',
+					'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/about-pattern-5-web-bricks.webp',
 				]
 			]
 		);

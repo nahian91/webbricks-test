@@ -106,7 +106,7 @@ class WBEA_Team extends Widget_Base {
 				'label' => esc_html__( 'Choose Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-1-web-bricks.webp',
+					'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-1-web-bricks.webp',
 				],
 				'separator' => 'before',
 			]
@@ -309,20 +309,6 @@ class WBEA_Team extends Widget_Base {
 					'none' => __( 'None', 'webbricks-addons' ),
 				],
 				'default' => 'style-1',
-			]
-		);
-
-
-		// Team Background
-		$this->add_control(
-			'wbea_team_background',
-			[
-				'label' => esc_html__( 'Background', 'webbricks-addons' ),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .wbea-team-bg' => 'background-color: {{VALUE}}',
-				],
-				'default' => '#ffffff00', 
 			]
 		);
 
@@ -624,16 +610,16 @@ class WBEA_Team extends Widget_Base {
 		$team_pattern_url = '';
 		switch ($wbea_team_bg_pattern) {
 			case 'style-1':
-				$team_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp';
+				$team_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-pattern-7-1-web-bricks.webp';
 				break;
 			case 'style-2':
-				$team_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-2-web-bricks.webp';
+				$team_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/service-pattern-2-web-bricks.webp';
 				break;
 			case 'none':
 				$team_pattern_url = '';
 				break;
 			default:
-				$team_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp'; // Default pattern
+				$team_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-pattern-7-1-web-bricks.webp'; // Default pattern
 				break;
 		}
 	

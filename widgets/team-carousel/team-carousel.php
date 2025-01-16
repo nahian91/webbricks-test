@@ -280,7 +280,7 @@ class WBEA_Team_Carousel extends Widget_Base {
 				'label' => esc_html__( 'Choose Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-1-web-bricks.webp',
+					'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-1-web-bricks.webp',
 				],
 				'separator' => 'before',
 			]
@@ -292,7 +292,7 @@ class WBEA_Team_Carousel extends Widget_Base {
 				'label' => esc_html__( 'Background Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
+					'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-pattern-7-1-web-bricks.webp',
 				],
 				'separator' => 'before',
 			]
@@ -385,10 +385,10 @@ class WBEA_Team_Carousel extends Widget_Base {
 				'default' => [
 				[
 					'wbea_team_carousel_image' => [
-						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-1-web-bricks.webp',
+						'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-1-web-bricks.webp',
 					],
 					'wbea_team_carousel_bg' => [
-						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
+						'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-pattern-7-1-web-bricks.webp',
 					],
 					'wbea_team_carousel_name' => esc_html__( 'Novák Réka', 'webbricks-addons' ),
 					'wbea_team_carousel_designation' => esc_html__( 'Senior Developer', 'webbricks-addons'),
@@ -399,10 +399,10 @@ class WBEA_Team_Carousel extends Widget_Base {
 				],
 				[
 					'wbea_team_carousel_image' => [
-						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-2-web-bricks.webp',
+						'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-2-web-bricks.webp',
 					],
 					'wbea_team_carousel_bg' => [
-						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
+						'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-pattern-7-1-web-bricks.webp',
 					],
 					'wbea_team_carousel_name' => esc_html__( 'Pintér Beatrix', 'webbricks-addons' ),
 					'wbea_team_carousel_designation' => esc_html__( 'Senior UX Designer', 'webbricks-addons'),
@@ -413,10 +413,10 @@ class WBEA_Team_Carousel extends Widget_Base {
 				],
 				[
 					'wbea_team_carousel_image' => [
-						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-3-web-bricks.webp',
+						'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-3-web-bricks.webp',
 					],
 					'wbea_team_carousel_bg' => [
-						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
+						'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-pattern-7-1-web-bricks.webp',
 					],
 					'wbea_team_carousel_name' => esc_html__( 'Szekeres Dalma', 'webbricks-addons' ),
 					'wbea_team_carousel_designation' => esc_html__( 'Admin Manager', 'webbricks-addons'),
@@ -427,10 +427,10 @@ class WBEA_Team_Carousel extends Widget_Base {
 				],
 				[
 					'wbea_team_carousel_image' => [
-						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-3-web-bricks.webp',
+						'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-3-web-bricks.webp',
 					],
 					'wbea_team_carousel_bg' => [
-						'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp',
+						'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-pattern-7-1-web-bricks.webp',
 					],
 					'wbea_team_carousel_name' => esc_html__( 'John Doe', 'webbricks-addons' ),
 					'wbea_team_carousel_designation' => esc_html__( 'SEO Expert', 'webbricks-addons'),
@@ -1176,16 +1176,16 @@ class WBEA_Team_Carousel extends Widget_Base {
 		$team_pattern_url = '';
 		switch ($wbea_team_carousel_bg_pattern) {
 			case 'style-1':
-				$team_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp';
+				$team_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-pattern-7-1-web-bricks.webp';
 				break;
 			case 'style-2':
-				$team_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/service-pattern-2-web-bricks.webp';
+				$team_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/service-pattern-2-web-bricks.webp';
 				break;
 			case 'none':
 				$team_pattern_url = '';
 				break;
 			default:
-				$team_pattern_url = 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/team-pattern-7-1-web-bricks.webp'; // Default pattern
+				$team_pattern_url = 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-pattern-7-1-web-bricks.webp'; // Default pattern
 				break;
 		}
 	

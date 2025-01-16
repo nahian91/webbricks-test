@@ -206,7 +206,7 @@ class WBEA_Business_Hours extends Widget_Base {
 		$repeater->add_control(
 			'wbea_business_close_title',
 			[
-				'label' => esc_html__( 'Title', 'webbricks-addons' ),
+				'label' => esc_html__( 'Close', 'webbricks-addons' ),
 				'type' => Controls_Manager::TEXT,
 				'default' => esc_html__( 'Close', 'webbricks-addons' ),
 				'condition' => [
@@ -402,7 +402,7 @@ class WBEA_Business_Hours extends Widget_Base {
 		$this->start_controls_section(
 			'wbea_business_hours_title_style',
 			[
-				'label' => esc_html__( 'Title', 'webbricks-addons' ),
+				'label' => esc_html__( 'Open Status', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -478,7 +478,7 @@ class WBEA_Business_Hours extends Widget_Base {
 		$this->start_controls_section(
 			'wbea_business_hours_close_style',
 			[
-				'label' => esc_html__( 'Close', 'webbricks-addons' ),
+				'label' => esc_html__( 'Close Status', 'webbricks-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);

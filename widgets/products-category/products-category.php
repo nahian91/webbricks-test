@@ -480,7 +480,7 @@ class WBEA_Products_Category extends Widget_Base {
 				'label' => esc_html__( 'Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-product-category-icon svg:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .wbea-product-category-icon:hover svg' => 'color: {{VALUE}} !important',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,

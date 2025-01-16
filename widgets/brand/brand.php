@@ -273,7 +273,7 @@ class WBEA_Brand extends Widget_Base {
 				'label' => esc_html__( 'Choose Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-1-web-bricks.webp',
+					'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Logo-1-web-bricks.webp',
 				]
 			]
 		);
@@ -304,7 +304,7 @@ class WBEA_Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-1-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Logo-1-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -316,7 +316,7 @@ class WBEA_Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-2-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Logo-2-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -328,7 +328,7 @@ class WBEA_Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-3-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Logo-3-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -340,7 +340,7 @@ class WBEA_Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-4-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Logo-4-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -352,7 +352,7 @@ class WBEA_Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-5-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Logo-5-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -364,7 +364,7 @@ class WBEA_Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-6-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Logo-6-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -376,7 +376,7 @@ class WBEA_Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-7-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Logo-7-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -388,7 +388,7 @@ class WBEA_Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-9-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Logo-9-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [
@@ -400,7 +400,7 @@ class WBEA_Brand extends Widget_Base {
 					[
 						'wbea_brand_logo_img' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/Logo-8-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/Logo-8-web-bricks.webp',
 							]
 						],
 						'wbea_brand_logo_link' => [

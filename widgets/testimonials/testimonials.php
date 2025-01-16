@@ -108,7 +108,7 @@ class WBEA_Testimonial_Carousel extends Widget_Base {
 				'label' => esc_html__( 'Client Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/client-1-web-bricks.webp',
+					'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/client-1-web-bricks.webp',
 				]
 			]
 		);
@@ -171,7 +171,7 @@ class WBEA_Testimonial_Carousel extends Widget_Base {
 					[
 						'wbea_testimonial_image' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/client-1-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/client-1-web-bricks.webp',
 							]
 						],
 						'wbea_testimonial_name' => esc_html__( 'Esther Howard', 'webbricks-addons' ),
@@ -182,7 +182,7 @@ class WBEA_Testimonial_Carousel extends Widget_Base {
 					[
 						'wbea_testimonial_image' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/client-2-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/client-2-web-bricks.webp',
 							]
 						],
 						'wbea_testimonial_name' => esc_html__( 'Maria Sauks', 'webbricks-addons' ),
@@ -193,7 +193,7 @@ class WBEA_Testimonial_Carousel extends Widget_Base {
 					[
 						'wbea_testimonial_image' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/client-3-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/client-3-web-bricks.webp',
 							]
 						],
 						'wbea_testimonial_name' => esc_html__( 'Sarah Heinsed', 'webbricks-addons' ),
@@ -204,7 +204,7 @@ class WBEA_Testimonial_Carousel extends Widget_Base {
 					[
 						'wbea_testimonial_image' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/client-4-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/client-4-web-bricks.webp',
 							]
 						],
 						'wbea_testimonial_name' => esc_html__( 'Mithc Hodge', 'webbricks-addons' ),

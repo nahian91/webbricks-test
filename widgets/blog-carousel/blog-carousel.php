@@ -846,7 +846,7 @@ class WBEA_Blog_Carousel extends Widget_Base {
 
 		// Section Heading Separator Style
 		$this->add_control(
-			'wp_blog_carousel_title_tag',
+			'wbea_blog_carousel_title_tag',
 			[
 				'label' => __( 'Html Tag', 'webbricks-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -1281,7 +1281,7 @@ class WBEA_Blog_Carousel extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$wbea_blog_carousel_heading_show = $settings['wbea_blog_carousel_heading_show'] ?? 'no';
 		$wbea_blog_carousel_heading_tag = $settings['wbea_blog_carousel_heading_tag'] ?? 'h2';
-		$wp_blog_carousel_title_tag = $settings['wpbea_blog_carousel_title_tag'] ?? 'h3';
+		$wbea_blog_carousel_title_tag = $settings['wbea_blog_carousel_title_tag'] ?? 'h3';
 		$wbea_blog_carousel_number = $settings['wbea_blog_carousel_number'] ?? 5;
 		$wbea_blog_carousel_order = $settings['wbea_blog_carousel_order'] ?? 'DESC';
 		$wbea_blog_carousel_orderby = $settings['wbea_blog_carousel_orderby'] ?? 'date';
@@ -1373,9 +1373,9 @@ class WBEA_Blog_Carousel extends Widget_Base {
 								<?php } ?>
 							</div>
 							<div class="wbea-blog-title">
-								<<?php echo esc_attr($wp_blog_carousel_title_tag); ?> class="wbea-blog-post-title">
+								<<?php echo esc_attr($wbea_blog_carousel_title_tag); ?> class="wbea-blog-post-title">
 									<a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a>
-								</<?php echo esc_attr($wp_blog_carousel_title_tag); ?>>
+								</<?php echo esc_attr($wbea_blog_carousel_title_tag); ?>>
 							</div>
 							<?php if ($wbea_blog_carousel_excerpt_visibility === 'yes') { ?>
 								<div class="wbea-blog-excerpt">

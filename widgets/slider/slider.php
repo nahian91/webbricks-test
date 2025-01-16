@@ -121,7 +121,7 @@ class WBEA_Slider extends Widget_Base {
 				'label' => esc_html__( 'Image', 'webbricks-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-					'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/slide-1-web-bricks.webp',
+					'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/slide-1-web-bricks.webp',
 				]
 			]
 		);
@@ -199,7 +199,7 @@ class WBEA_Slider extends Widget_Base {
 					[
 						'wbea_slider_image' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/slide-1-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/slide-1-web-bricks.webp',
 							]
 						],
 						'wbea_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
@@ -209,7 +209,7 @@ class WBEA_Slider extends Widget_Base {
 					[
 						'wbea_slider_image' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/slide-2-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/slide-2-web-bricks.webp',
 							]
 						],
 						'wbea_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
@@ -219,7 +219,7 @@ class WBEA_Slider extends Widget_Base {
 					[
 						'wbea_slider_image' => [
 							'default' => [
-								'url' => 'https://dev.getwebbricks.com/wp-content/uploads/2024/12/slide-3-web-bricks.webp',
+								'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/slide-3-web-bricks.webp',
 							]
 						],
 						'wbea_slider_subtitle' => esc_html__( 'Go Sightseeing', 'webbricks-addons' ),
