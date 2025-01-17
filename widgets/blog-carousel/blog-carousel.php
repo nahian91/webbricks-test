@@ -785,7 +785,7 @@ class WBEA_Blog_Carousel extends Widget_Base {
 				'label' => esc_html__( 'Text Color', 'webbricks-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wbea-blog-meta, .wbea-blog-meta a' => 'color: {{VALUE}} !important',
+					'{{WRAPPER}} .wbea-blog-carousel-meta, .wbea-blog-carousel-meta a' => 'color: {{VALUE}} !important',
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_SECONDARY,
@@ -798,7 +798,7 @@ class WBEA_Blog_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'wbea_blog_carousel_meta_typography',
-				'selector' => '{{WRAPPER}} .wbea-blog-meta, .wbea-blog-meta a',
+				'selector' => '{{WRAPPER}} .wbea-blog-carousel-meta, .wbea-blog-carousel-meta a',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				]
@@ -1362,7 +1362,7 @@ class WBEA_Blog_Carousel extends Widget_Base {
 				while ($query->have_posts()) : $query->the_post(); ?>
 					<div class="wbea-single-blog">
 						<div class="wbea-blog-content">
-							<div class="wbea-blog-meta">
+							<div class="wbea-blog-carousel-meta">
 								<?php if ($wbea_blog_carousel_cat_visibility === 'yes') {
 									the_category(', ');
 								}

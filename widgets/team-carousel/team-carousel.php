@@ -285,18 +285,6 @@ class WBEA_Team_Carousel extends Widget_Base {
 				'separator' => 'before',
 			]
 		);
-
-		$repeater->add_control(
-			'wbea_team_carousel_bg',
-			[
-				'label' => esc_html__( 'Background Image', 'webbricks-addons' ),
-				'type' => Controls_Manager::MEDIA,
-				'default' => [
-					'url' => 'https://market.weekitechi.com/wp-content/uploads/2025/01/team-pattern-7-1-web-bricks.webp',
-				],
-				'separator' => 'before',
-			]
-		);
  
 		$repeater->add_control(
 			'wbea_team_carousel_name',

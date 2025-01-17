@@ -880,7 +880,7 @@ class WBEA_Brand extends Widget_Base {
 						</<?php echo esc_attr($wbea_brand_heading_tag); ?>>
 					</div> <!-- section-heading end here -->
 					<div class="wbea-brand-title">
-						<p><?php echo wp_kses_post($wbea_brand_desc); ?></p>
+						<?php echo wp_kses_post($wbea_brand_desc); ?>
 						<?php if (!empty($wbea_brand_btn_link)) : ?>
 							<?php
 								$btn_target = (isset($settings['wbea_brand_btn_link']['is_external']) && $settings['wbea_brand_btn_link']['is_external']) ? ' target="_blank"' : '';

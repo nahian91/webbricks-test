@@ -368,17 +368,20 @@ p, span, div{
   height: 100%;
   z-index: -1;
 }
-.wbea-blog-meta{
+.wbea-blog-meta, .wbea-blog-carousel-meta{
   font-size: 1rem;
   margin-bottom: 16px;
+  display: flex;
+  align-items: center;
 }
-.wbea-blog-meta a {
+.wbea-blog-meta a, .wbea-blog-carousel-meta a {
   position: relative;
   font-size: 1.125rem;
   line-height: 1.6875rem;
   color: #fff;
+  margin-right: 10px;
 }
-.wbea-blog-meta a.blog-date{
+.wbea-blog-meta a.wbea-blog-date, .wbea-blog-carousel-meta a.wbea-blog-date{
   display: block;
 }
 .wbea-blog-title {
@@ -449,6 +452,7 @@ p, span, div{
 .wbea-brand p{
   font-size: 1.125rem;
   line-height: 1.6875rem;
+  margin-bottom: 0;
 }
 .wbea-brand-title ul, .wbea-brand-title ol{
   padding-left: 15px;
@@ -475,6 +479,9 @@ p, span, div{
 }
 .wbea-brand-img .wb-grid-desktop-4:nth-child(7), .wbea-brand-img .wb-grid-desktop-4:nth-child(8), .wbea-brand-img .wb-grid-desktop-4:nth-child(9) {
   border-bottom: 0;
+}
+.wbea-brand .wbea-btn-border {
+	margin-top: 30px;
 }
 
 /* 7. Business */

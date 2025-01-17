@@ -194,11 +194,10 @@ class WBEA_Price extends Widget_Base {
 		$repeater->add_control(
 			'wbea_price_feature_icon_color',
 			[
-				'label' => esc_html__( 'Icon Color', 'webbricks-addons' ),
-				'type' => Controls_Manager::COLOR,
-				'global' => [
-					'default' => Global_Colors::COLOR_SECONDARY,
-				]
+				'label'   => esc_html__( 'Icon Color', 'webbricks-addons' ),
+				'type'    => Controls_Manager::COLOR,
+				'global'  => null,
+				'default' => '#333',
 			]
 		);
 
